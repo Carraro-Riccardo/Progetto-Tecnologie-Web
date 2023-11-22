@@ -5,5 +5,5 @@ Progetto universitario per il corso di Tecnologie Web a.a. 2023/2024
 | ---------------- | --------- |
 | Carraro Riccardo  | 2042346   |
 | Giurisato Andrea | -   |
-| Hysa Endi  | -   |
-| Ogniben Michele     | -   |
+| Hysa Endi  | 2046424   |
+| Ogniben Michele     | 2042325   |
