@@ -28,4 +28,4 @@ jobs:
       run: |
         cd ./assets/css
         ls
-        find . -name '*.css' -print0 | xargs -0 -n1 curl -H "Content-Type: text/css; charset=utf-8" --data-binary "@" https://jigsaw.w3.org/css-validator/validator?uri= >> ../../README.md
+        find . -name '*.css' -print0 | xargs -I file_name curl -H "Content-Type: text/css; charset=utf-8" --data-binary "@file_name" https://jigsaw.w3.org/css-validator/validator?uri= >> ../../README.md
