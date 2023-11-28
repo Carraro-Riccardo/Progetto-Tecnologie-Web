@@ -29,4 +29,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: VALIDATION_RESULTS
-        path: "*.log *.html"
+        path: |
+          *.log
+          *.html
