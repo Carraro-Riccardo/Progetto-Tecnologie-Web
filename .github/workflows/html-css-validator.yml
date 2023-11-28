@@ -15,7 +15,7 @@ jobs:
       
     - name: HTML validation
       run: |
-        echo "" > VALIDATION_RESULTS.log
+        > VALIDATION_RESULTS.log
         echo $(curl -H "Content-Type: text/html; charset=utf-8" --data-binary "@index.php" https://validator.w3.org/nu/?out=gnu) >> VALIDATION_RESULTS.log
         cat VALIDATION_RESULTS.log
         
@@ -23,8 +23,9 @@ jobs:
       run: |
         cd ./assets/css
         ls
+        echo -e "\n\n CSS"
         find ./ -name "*.css" -print0 | xargs --null -I file_name echo "WOW_NAPOLI: file_name"
-        find ./ -name '*.css' -print0 | xargs --null -I file_name curl -H "Content-Type: text/css; charset=utf-8" --data-binary "@file_name" https://jigsaw.w3.org/css-validator/validator?uri=
+        find ./ -name '*.css' -print0 | xargs --null -I file_name curl -H "Content-Type: text/css; charset=utf-8" --data-binary "@file_name" https://jigsaw.w3.org/css-validator/validator?uri= >> VALIDATION_RESULTS.log
         cd ../../
         ls
     - uses: actions/upload-artifact@v3
