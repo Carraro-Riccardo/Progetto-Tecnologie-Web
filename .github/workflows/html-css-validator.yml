@@ -15,7 +15,13 @@ jobs:
       
     - name: HTML validation
       run: |
-        curl -H "Content-Type: text/html; charset=utf-8" --data-binary "@index.php" https://validator.w3.org/nu/?out=gnu
+        echo curl -H "Content-Type: text/html; charset=utf-8" --data-binary "@index.php" https://validator.w3.org/nu/?out=gnu > HTML_result.log
+    
+    - name: upload validation results
+      uses: actions/upload-artifact@v3
+      with:
+        name: HTML_result
+        path: HTML_result.log
 
   CSS-validation:
     runs-on: ubuntu-latest
