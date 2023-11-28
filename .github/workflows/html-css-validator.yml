@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  HTML-validation:
+  HTML-CSS-validation:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,14 +18,7 @@ jobs:
         echo "" > VALIDATION_RESULTS.log
         echo $(curl -H "Content-Type: text/html; charset=utf-8" --data-binary "@index.php" https://validator.w3.org/nu/?out=gnu) >> VALIDATION_RESULTS.log
         cat VALIDATION_RESULTS.log
-
-  CSS-validation:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
+        
     - name: CSS validation
       run: |
         cd ./assets/css
