@@ -17,6 +17,7 @@ jobs:
       run: |
         echo "" > VALIDATION_RESULTS.log
         echo $(curl -H "Content-Type: text/html; charset=utf-8" --data-binary "@index.php" https://validator.w3.org/nu/?out=gnu) >> VALIDATION_RESULTS.log
+        cat VALIDATION_RESULTS.log
 
   CSS-validation:
     runs-on: ubuntu-latest
