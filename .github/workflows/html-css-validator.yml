@@ -35,4 +35,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: VALIDATION_RESULT
-        path: VALIDATION_RESULT.log
+        path: ../../VALIDATION_RESULT.log
