@@ -15,12 +15,12 @@ jobs:
       
     - name: HTML validation
       run: |
-        echo curl -H "Content-Type: text/html; charset=utf-8" --data-binary "@index.php" https://validator.w3.org/nu/?out=gnu > HTML_result.log
+        echo $(curl -H "Content-Type: text/html; charset=utf-8" --data-binary "@index.php" https://validator.w3.org/nu/?out=gnu) > HTML_result.log
     
     - name: upload validation results
       uses: actions/upload-artifact@v3
       with:
-        name: HTML_result
+        name: HTML_result.log
         path: HTML_result.log
 
   CSS-validation:
