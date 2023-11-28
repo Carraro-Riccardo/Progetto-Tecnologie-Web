@@ -1,0 +1,37 @@
+name: html-css-validator
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: HTML validation
+      uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+      with:
+        root: /
+        blacklist: assets
+        format: text
+        
+    - name: upload validation results
+      uses: actions/upload-artifact@v3
+      with:
+        name: HTMLvalidationResult
+        path: HTMLvalidationResult.log
+
+    - name: CSS validation
+      uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+      with:
+        root: assets/css
+        format: text
+        css: true
+        
+    - name: upload validation results
+      uses: actions/upload-artifact@v3
+      with:
+        name: CSSvalidationResult
+        path: CSSvalidationResult.log
