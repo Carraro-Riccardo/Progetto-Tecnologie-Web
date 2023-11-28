@@ -1,0 +1,25 @@
+name: html-validator
+
+on: 
+  push:
+    branches:
+      - main
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+    - name: Start PHP Server
+      run: |
+        php -S localhost:8000 &
+        sleep 3 # give the server some time to start
+    - name: Run Accessibility Check
+      uses: a11ywatch/github-action@v2.1.7
+      with:
+        WEBSITE_URL: http://localhost:8000
