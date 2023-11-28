@@ -15,7 +15,7 @@ jobs:
       
     - name: HTML validation
       run: |
-        curl -H "Content-Type: text/php; charset=utf-8" \ --data-binary index.php \ https://validator.w3.org/nu/?out=gnu
+        curl -H "Content-Type: text/html; charset=utf-8" \ --data-binary "@index.php" \ https://validator.w3.org/nu/?out=gnu
 
   CSS-validation:
     runs-on: ubuntu-latest
