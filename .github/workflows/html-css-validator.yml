@@ -28,5 +28,5 @@ jobs:
       run: |
         cd ./assets/css
         ls
-        find ./ -name "*.css" -print0 | xargs -O -I file_name echo "WOW_NAPOLI: file_name"
+        find ./ -name "*.css" -print0 | xargs -o -I file_name echo "WOW_NAPOLI: file_name"
         find ./ -name '*.css' -print0 | xargs -I file_name curl -H "Content-Type: text/css; charset=utf-8" --data-binary "@file_name" https://jigsaw.w3.org/css-validator/validator?uri= >> ../../README.md
