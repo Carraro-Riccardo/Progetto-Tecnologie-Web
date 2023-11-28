@@ -12,24 +12,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-
-    - name: debug dir
-      run: |
-        cd ./
-        ls
       
     - name: HTML validation
-      uses: Cyb3r-Jak3/html5validator-action@v7.2.0
-      with:
-        root: ./
-        blacklist: assets
-        format: text
-        
-    - name: upload validation results
-      uses: actions/upload-artifact@v3
-      with:
-        name: HTMLvalidationResult
-        path: HTMLvalidationResult.log
+      run: |
+        curl -H "Content-Type: text/html; charset=utf-8" \ --data-binary @FILE.html \ https://validator.w3.org/nu/?out=gnu
 
   CSS-validation:
     runs-on: ubuntu-latest
