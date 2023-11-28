@@ -23,10 +23,10 @@ jobs:
       run: |
         cd ./assets/css
         echo -e "\n\nCSS" >> ../../VALIDATION_RESULTS.log
-        find ./ -name '*.css' -print0 | xargs -0 -I file_name sh -c 'curl -H "Content-Type: text/css; charset=utf-8" --data-binary "@file_name" "https://jigsaw.w3.org/css-validator/validator?output=text%2fplain&uri=" >> ../../file_name.log'
+        find ./ -name '*.css' -print0 | xargs -0 -I file_name sh -c 'curl -H "Content-Type: text/css; charset=utf-8" --data-binary "@file_name" "https://jigsaw.w3.org/css-validator/validator?output=text%2fplain&uri=" >> ../../file_name.html'
         cd ../../
 
     - uses: actions/upload-artifact@v3
       with:
         name: VALIDATION_RESULTS
-        path: "*.log"
+        path: "*.log *.html"
