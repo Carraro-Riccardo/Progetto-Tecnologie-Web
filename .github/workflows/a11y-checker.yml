@@ -23,3 +23,12 @@ jobs:
       uses: a11ywatch/github-action@v2.1.7
       with:
         WEBSITE_URL: http://localhost:8000
+        SITE_WIDE: true
+        FIX: false
+        SUBDOMAINS: false
+        TLD: true
+        FAIL_WARNINGS_COUNT: 0
+        FAIL_ERRORS_COUNT: 0
+        LIST: true
+        UPGRADE: true
+        COMPUTER_VISION_ENDPOINT: false
