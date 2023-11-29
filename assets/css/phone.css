@@ -1,0 +1,162 @@
+:root {
+    --headerBackgroundColor: #C63D2F;
+    --headerTxtColor: white;
+
+    --closedHamburgerColor: black;
+    --openedHamburgerColor: white;
+    --closedHamburgerTxtColor: black;
+    --openedHamburgerTxtColor: white;
+
+    --bgColor: white;
+    --txtColor: black;
+    --footerBgColor: black;
+    --footerTxtColor: white;
+
+    --visitedLinkColor: red;
+    --headTable: rgb(143,36,68);
+    --flagColor: orange;
+    --linkColor: white;
+
+    --font-body_family: "Roboto Condensed", sans-serif;
+}
+
+html{
+    font-size: 100%;
+    font-family: var(--font-body_family);
+    line-height: 1.5em;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--headerBackgroundColor);
+    color: var(--headerTxtColor);
+}
+
+a {
+    text-decoration: none;
+}
+.container {
+    max-width: 100%;
+}
+#nav-principale {
+    width:100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+#nav-principale .container {
+    padding: 0 10px;
+}
+#nav-principale ul {
+    background-color: #262262;
+    grid-template-columns: repeat(auto-fit, minmax(91px, 1fr));
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 848px) {
+    #nav-principale ul {
+        display: grid;
+   }
+}
+#nav-principale ul li a {
+    color: #fff;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    transition: 0.4s ease-in;
+    font-family: 'Roboto', sans-serif;
+}
+#nav-principale ul li a:hover, #nav-principale ul li a:focus {
+    background: #090816;
+}
+#nav-principale ul li a:active {
+    border: 2px solid lime;
+}
+.logo {
+    max-width: 62px;
+    padding: 1em;
+}
+.main-nav {
+    background: #262262;
+    grid-column: 1 / span 2;
+}
+#hamburger {
+    margin: 1em;
+    margin-top: 1.1em;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+#hamburger span {
+    margin-right: 0.5em; 
+    color: var(--closedHamburgerTxtColor);
+}
+
+#hamburger svg {
+    width: 3em;
+    height: 3em;
+    background: none;
+    fill: var(--closedHamburgerColor);
+}
+
+#hamburger #expanded {
+    display: none;
+}
+
+#hamburger[aria-expanded='true'] {
+    color: #000;
+}
+#hamburger[aria-expanded='true'] svg {
+    background-color: none;
+    fill: var(--openedHamburgerColor);
+}
+#hamburger[aria-expanded='true'] span {
+    color: var(--openedHamburgerTxtColor);
+    position: static;
+}
+
+#hamburger[aria-expanded="true"] + .main-nav {
+    display: block;
+}
+#hamburger[aria-expanded="false"] + .main-nav {
+    display: none;
+}
+.js-enabled .main-nav {
+    display: none;
+}
+/* Add the following styles to your existing CSS */
+
+.logo-title-holder {
+    display: flex;
+    align-items: center;
+}
+
+.site-title {
+    margin-left: 10px; /* Adjust the margin as needed */
+    color: #000; /* Set the color for the title */
+    font-family: 'Roboto', sans-serif; /* Apply the desired font family */
+}
+
+#nav-principale .container {
+    padding: 10px;
+}
+
+/* Additional styles for better alignment */
+#nav-principale ul {
+    margin: 0;
+    padding: 0;
+}
+
+#nav-principale ul li {
+    list-style: none;
+}
