@@ -1,0 +1,19 @@
+name: html-validator
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  HTML-CSS-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: HTML validation
+      run: |
+        > VALIDATION_RESULTS.log
+        find ./ -name '*.php' -print0 | xargs -0 -I file_name curl -H "Content-Type: text/html; charset=utf-8" --data-binary "@file_name" https://validator.w3.org/nu/?out=gnu >> VALIDATION_RESULTS.log
