@@ -52,10 +52,6 @@
     <ul id="cards-container">
         <li>
             <a id="corsi" href="section1.html" class="card">
-                <div class="section"> <!-- Section 1 -->
-                    <div class="content">
-                    </div>
-                </div>
                 <div class="description">
                     <span>Corsi</span>
                     <p>Diventa anche tu Richard Watterson</p>
@@ -65,10 +61,6 @@
 
         <li>
             <a id="macchinari" href="section1.html" class="card">
-                <div class="section"> <!-- Section 1 -->
-                    <div class="content">
-                    </div>
-                </div>
                 <div class="description">
                     <span>Macchinari</span>
                     <p>Le migliori macchine in circolazione</p>
@@ -78,10 +70,6 @@
 
         <li>
             <a id="chiSiamo" href="section1.html" class="card">
-                <div class="section"> <!-- Section 1 -->
-                    <div class="content">
-                    </div>
-                </div>
                 <div class="description">
                     <span>Chi siamo</span>
                     <p>Pipperi del quartiere</p>

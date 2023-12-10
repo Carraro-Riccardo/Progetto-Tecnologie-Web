@@ -268,7 +268,14 @@ CARDS
     height: 100%;
 }
 
-@media (min-width: 850px) {
+@media (min-width: 350px) {
+    #cards-container {
+        max-width: 800px;
+        min-height: 800px;
+    }    
+}
+
+@media (min-width: 840px) {
     #cards-container {
         max-width: 1000px;
         min-height: 1200px;
