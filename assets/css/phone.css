@@ -1,10 +1,12 @@
 :root {
-    --headerBackgroundColor: #C63D2F;
+    --background-color: #da6202;
+    
+    --headerBackgroundColor: #000000;
     --headerTxtColor: white;
 
-    --closedHamburgerColor: black;
+    --closedHamburgerColor: white;
     --openedHamburgerColor: white;
-    --closedHamburgerTxtColor: black;
+    --closedHamburgerTxtColor: white;
     --openedHamburgerTxtColor: white;
 
     --bgColor: white;
@@ -20,10 +22,13 @@
     --font-body_family: "Roboto Condensed", sans-serif;
 }
 
-html{
+body, html{
+    width: 100%;
+    height: 100%;
     font-size: 100%;
     font-family: var(--font-body_family);
     line-height: 1.5em;
+    background-color : var(--background-color);
 }
 
 *{
@@ -117,7 +122,7 @@ a {
     color: #000;
 }
 #hamburger[aria-expanded='true'] svg {
-    background-color: none;
+    background-color: transparent;
     fill: var(--openedHamburgerColor);
 }
 #hamburger[aria-expanded='true'] span {
@@ -143,7 +148,6 @@ a {
 
 .site-title {
     margin-left: 10px; /* Adjust the margin as needed */
-    color: #000; /* Set the color for the title */
     font-family: 'Roboto', sans-serif; /* Apply the desired font family */
 }
 
@@ -159,4 +163,114 @@ a {
 
 #nav-principale ul li {
     list-style: none;
+}
+
+/*
+CARDS
+*/
+
+.card {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%; 
+    border-radius: 30px;
+    text-decoration: none; 
+    color: #333;
+    padding: 0;
+    margin: 0;
+  }
+
+  .section {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    filter: drop-shadow(0px 0px 15px rgba(122, 0, 0, 100));
+  }
+
+  #corsi::before{
+    background: url('../imgs/courses.jpg') center/cover;
+  }
+  #macchinari::before{
+    background: url('../imgs/macchinari.jpg') center/cover;
+  }
+  #chiSiamo::before{
+    background: url('../imgs/chiSiamo.jpg') center/cover;
+  }
+
+.card .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 17%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); /* Adjust background color and opacity as needed */
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.card .description span {
+    font-size: 3em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.card .description p {
+    font-size: 14px;
+    color: #fff;
+    margin: 0px;
+}
+
+#cards-container {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2%;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+#cards-container li {
+    width: 97%;
+    height: 100%;
+}
+
+@media (min-width: 850px) {
+    #cards-container {
+        max-width: 1000px;
+        min-height: 1200px;
+    }    
 }

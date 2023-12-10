@@ -13,7 +13,7 @@
         <div class="container">
             <div class="logo-title-holder">
                 <a href="index.php" class="logo-holder">
-                    <img class="logo" src="./assets/logo.png" alt="Homepage" />
+                    <img class="logo" src="./assets/imgs/logo.png" alt="Homepage">
                 </a>
                 <h1 class="site-title">GagGym</h1>
             </div>
@@ -48,6 +48,46 @@
             </div>
         </nav>
     </header>
-    ciao
+
+    <ul id="cards-container">
+        <li>
+            <a id="corsi" href="section1.html" class="card">
+                <div class="section"> <!-- Section 1 -->
+                    <div class="content">
+                    </div>
+                </div>
+                <div class="description">
+                    <span>Corsi</span>
+                    <p>Diventa anche tu Richard Watterson</p>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a id="macchinari" href="section1.html" class="card">
+                <div class="section"> <!-- Section 1 -->
+                    <div class="content">
+                    </div>
+                </div>
+                <div class="description">
+                    <span>Macchinari</span>
+                    <p>Le migliori macchine in circolazione</p>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a id="chiSiamo" href="section1.html" class="card">
+                <div class="section"> <!-- Section 1 -->
+                    <div class="content">
+                    </div>
+                </div>
+                <div class="description">
+                    <span>Chi siamo</span>
+                    <p>Pipperi del quartiere</p>
+                </div>
+            </a>
+        </li>
+    </ul>
 </body>
 </html>
