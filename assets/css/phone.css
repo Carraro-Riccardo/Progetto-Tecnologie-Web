@@ -1,27 +1,21 @@
 :root {
     --background-color: #da6202;
-    
     --headerBackgroundColor: #000000;
     --headerTxtColor: white;
-
     --closedHamburgerColor: white;
     --openedHamburgerColor: white;
     --closedHamburgerTxtColor: white;
     --openedHamburgerTxtColor: white;
-
     --bgColor: white;
     --txtColor: black;
     --footerBgColor: black;
     --footerTxtColor: white;
-
     --visitedLinkColor: red;
     --headTable: rgb(143,36,68);
     --flagColor: orange;
     --linkColor: white;
-
     --font-body_family: "Roboto Condensed", sans-serif;
 }
-
 body, html{
     width: 100%;
     height: 100%;
@@ -30,17 +24,14 @@ body, html{
     line-height: 1.5em;
     background-color : var(--background-color);
 }
-
 *{
     margin: 0;
     padding: 0;
 }
-
 header {
     background-color: var(--headerBackgroundColor);
     color: var(--headerTxtColor);
 }
-
 a {
     text-decoration: none;
 }
@@ -101,23 +92,19 @@ a {
     font-size: 1.2em;
     line-height: 1;
 }
-
 #hamburger span {
-    margin-right: 0.5em; 
+    margin-right: 0.5em;
     color: var(--closedHamburgerTxtColor);
 }
-
 #hamburger svg {
     width: 3em;
     height: 3em;
     background: none;
     fill: var(--closedHamburgerColor);
 }
-
 #hamburger #expanded {
     display: none;
 }
-
 #hamburger[aria-expanded='true'] {
     color: #000;
 }
@@ -129,7 +116,6 @@ a {
     color: var(--openedHamburgerTxtColor);
     position: static;
 }
-
 #hamburger[aria-expanded="true"] + .main-nav {
     display: block;
 }
@@ -140,48 +126,40 @@ a {
     display: none;
 }
 /* Add the following styles to your existing CSS */
-
 .logo-title-holder {
     display: flex;
     align-items: center;
 }
-
 .site-title {
-    margin-left: 10px; /* Adjust the margin as needed */
-    font-family: 'Roboto', sans-serif; /* Apply the desired font family */
+    margin-left: 10px;
+   /* Adjust the margin as needed */
+    font-family: 'Roboto', sans-serif;
+   /* Apply the desired font family */
 }
-
 #nav-principale .container {
     padding: 10px;
 }
-
 /* Additional styles for better alignment */
 #nav-principale ul {
     margin: 0;
     padding: 0;
 }
-
 #nav-principale ul li {
     list-style: none;
 }
-
-/*
-CARDS
-*/
-
+/* CARDS */
 .card {
     position: relative;
     display: block;
     width: 100%;
-    height: 100%; 
+    height: 100%;
     border-radius: 30px;
-    text-decoration: none; 
+    text-decoration: none;
     color: #333;
     padding: 0;
     margin: 0;
-  }
-
-  .section {
+}
+.section {
     width: 100%;
     height: 50%;
     display: flex;
@@ -190,18 +168,15 @@ CARDS
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-  }
-
-  .content {
+}
+.content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-  }
-
-  
-  .card::before {
+}
+.card::before {
     content: "";
     position: absolute;
     top: 0;
@@ -210,18 +185,16 @@ CARDS
     height: 100%;
     border-radius: 30px;
     filter: drop-shadow(0px 0px 15px rgba(122, 0, 0, 100));
-  }
-
-  #corsi::before{
+}
+#corsi::before{
     background: url('../imgs/courses.jpg') center/cover;
-  }
-  #macchinari::before{
+}
+#macchinari::before{
     background: url('../imgs/macchinari.jpg') center/cover;
-  }
-  #chiSiamo::before{
+}
+#chiSiamo::before{
     background: url('../imgs/chiSiamo.jpg') center/cover;
-  }
-
+}
 .card .description {
     position: absolute;
     bottom: 0;
@@ -233,23 +206,21 @@ CARDS
     justify-content: center;
     row-gap: 17%;
     text-align: center;
-    background: rgba(0, 0, 0, 0.7); /* Adjust background color and opacity as needed */
+    background: rgba(0, 0, 0, 0.7);
+   /* Adjust background color and opacity as needed */
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 }
-
 .card .description span {
     font-size: 3em;
     font-weight: bold;
     color: #fff;
 }
-
 .card .description p {
     font-size: 14px;
     color: #fff;
     margin: 0px;
 }
-
 #cards-container {
     margin-top: 5%;
     margin-left: auto;
@@ -260,24 +231,21 @@ CARDS
     row-gap: 2%;
     justify-content: center;
     align-items: center;
-    height: 100%; 
+    height: 100%;
 }
-
 #cards-container li {
     width: 97%;
     height: 100%;
 }
-
 @media (min-width: 350px) {
     #cards-container {
         max-width: 800px;
         min-height: 800px;
-    }    
+   }
 }
-
 @media (min-width: 840px) {
     #cards-container {
         max-width: 1000px;
         min-height: 1200px;
-    }    
+   }
 }
