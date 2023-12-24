@@ -286,22 +286,20 @@ footer a:hover {
 }
 
 #instagram-link {
-  background: url("../imgs/logo_instagram.png") no-repeat;
-  filter: grayscale(100%);
+  background: url("../imgs/footer_logos/instagram.svg") no-repeat;
   background-size: contain;
   padding-left: 1.5em;
 }
 
 #facebook-link {
-  background: url("../imgs/logo_facebook.svg") no-repeat;
-  filter: grayscale(100%);
+  background: url("../imgs/footer_logos/facebook.svg") no-repeat;
+  fill: white;
   background-size: contain;
   padding-left: 1.5em;
 }
 
 #twitter-link {
-  background: url("../imgs/logo_twitter.png") no-repeat;
-  filter: grayscale(100%);
+  background: url("../imgs/footer_logos/twitter.svg") no-repeat;
   background-size: contain;
   padding-left: 1.5em;
 }
