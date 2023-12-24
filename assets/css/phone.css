@@ -85,7 +85,7 @@ a {
     display: grid;
   }
 }
-#nav-principale ul li a {
+#nav-principale ul li a, #nav-principale ul li span {
   color: #fff;
   text-transform: uppercase;
   display: block;
@@ -94,6 +94,7 @@ a {
   transition: 0.4s ease-in;
   font-family: "Roboto", sans-serif;
 }
+
 #nav-principale ul li a:hover,
 #nav-principale ul li a:focus {
   background: #090816;
