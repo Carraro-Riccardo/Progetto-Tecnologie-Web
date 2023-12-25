@@ -103,8 +103,9 @@ a {
   border: 2px solid lime;
 }
 .logo {
-  max-width: 62px;
+  width: 25%;
   padding: 1em;
+  padding-right: 0.5em;
 }
 .main-nav {
   background: #262262;
@@ -158,6 +159,9 @@ a {
 .logo-title-holder {
   display: flex;
   align-items: center;
+}
+.logo-title-holder .span {
+  max-width: 10%;
 }
 .site-title {
   margin-left: 10px;
@@ -311,7 +315,11 @@ footer a:hover {
 
 #socials li {
   display: inline-block;
-  padding: 0.5em;
+  padding-right: 0.5em;
+}
+
+#socials li:not(:last-child) {
+  padding-right: 0.5em;
 }
 
 @media (min-width: 350px) {
