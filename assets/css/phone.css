@@ -45,6 +45,9 @@ header {
   color: var(--headerTxtColor);
 }
 
+/************************/
+/* BREADCRUMB */
+/************************/
 #breadcrumb {
   display: flex;
   align-items: center;
@@ -73,6 +76,10 @@ a {
 .container {
   max-width: 100%;
 }
+
+/************************/
+/* NavBar & Hamburger menu */
+/************************/
 #nav-principale {
   width: 100%;
   display: grid;
@@ -187,7 +194,10 @@ a {
 #nav-principale ul li {
   list-style: none;
 }
+
+/************************/
 /* CARDS */
+/************************/
 .card {
   position: relative;
   display: block;
@@ -277,6 +287,9 @@ a {
   height: 100%;
 }
 
+/************************/
+/* FOOTER */
+/************************/
 footer {
   margin-top: 2em;
   bottom: 0;
@@ -327,6 +340,9 @@ footer a:hover {
   padding-right: 0.5em;
 }
 
+/************************/
+/* MEDIA QUERIES */
+/************************/
 @media (min-width: 350px) {
   #cards-container {
     max-width: 800px;
