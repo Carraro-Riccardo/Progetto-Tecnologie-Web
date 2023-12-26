@@ -6,6 +6,14 @@
   --openedHamburgerColor: white;
   --closedHamburgerTxtColor: white;
   --openedHamburgerTxtColor: white;
+
+  --HMItemTxtColor: white;
+  --HMItemBgColor: #262262;
+  --HMItemBgHover: #090816;
+
+  --cardTxtColor: white;
+  --cardBgColor: #000;
+
   --bgColor: white;
   --txtColor: black;
   --footerBgColor: black;
@@ -38,25 +46,25 @@ header {
 }
 
 #breadcrumb {
-    display: flex;
-    align-items: center;
-    padding-left: 1em;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
   background-color: var(--breadcrumbBgColor);
   color: var(--breadcrumbTxtColor);
-} 
+}
 
 #breadcrumb ol > li:not(:first-child)::before {
-    content: ">";
-    padding: 0 0.5em;
+  content: ">";
+  padding: 0 0.5em;
 }
 
 #breadcrumb ol > li:first-child {
-    padding-left: 0.5em;
+  padding-left: 0.5em;
 }
 
 #breadcrumb li {
-    display: inline-block;
-    padding: 0.5em 0;
+  display: inline-block;
+  padding: 0.5em 0;
 }
 
 a {
@@ -75,7 +83,7 @@ a {
   padding: 0 10px;
 }
 #nav-principale ul {
-  background-color: #262262;
+  background-color: var(--HMItemBgColor);
   grid-template-columns: repeat(auto-fit, minmax(91px, 1fr));
   display: flex;
   flex-direction: column;
@@ -85,30 +93,29 @@ a {
     display: grid;
   }
 }
-#nav-principale ul li a, #nav-principale ul li span {
-  color: #fff;
+#nav-principale ul li a,
+#nav-principale ul li span {
+  color: var(--HMItemTxtColor);
   text-transform: uppercase;
   display: block;
   text-align: center;
   padding: 10px;
   transition: 0.4s ease-in;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-body_family);
 }
 
 #nav-principale ul li a:hover,
 #nav-principale ul li a:focus {
-  background: #090816;
+  background: var(--HMItemBgHover);
 }
-#nav-principale ul li a:active {
-  border: 2px solid lime;
-}
+
 .logo {
   width: 25%;
   padding: 1em;
   padding-right: 0.5em;
 }
 .main-nav {
-  background: #262262;
+  background: var(--HMItemBgColor);
   grid-column: 1 / span 2;
 }
 #hamburger {
@@ -136,7 +143,7 @@ a {
   display: none;
 }
 #hamburger[aria-expanded="true"] {
-  color: #000;
+  color: var(--closedHamburgerTxtColor);
 }
 #hamburger[aria-expanded="true"] svg {
   background-color: transparent;
@@ -166,7 +173,7 @@ a {
 .site-title {
   margin-left: 10px;
   /* Adjust the margin as needed */
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-body_family)
   /* Apply the desired font family */
 }
 #nav-principale .container {
@@ -188,7 +195,6 @@ a {
   height: 100%;
   border-radius: 30px;
   text-decoration: none;
-  color: #333;
   padding: 0;
   margin: 0;
 }
@@ -200,7 +206,7 @@ a {
   justify-content: center;
   font-size: 18px;
   font-weight: bold;
-  color: #fff;
+  color: var(--cardTxtColor);
 }
 .content {
   position: absolute;
@@ -239,19 +245,19 @@ a {
   justify-content: center;
   row-gap: 17%;
   text-align: center;
-  background: rgba(0, 0, 0, 0.7);
-  /* Adjust background color and opacity as needed */
+  background: var(--cardBgColor);
+  opacity: 0.7;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
 .card .description span {
   font-size: 3em;
   font-weight: bold;
-  color: #fff;
+  color: var(--cardTxtColor);
 }
 .card .description p {
   font-size: 14px;
-  color: #fff;
+  color: var(--cardTxtColor);
   margin: 0px;
 }
 #cards-container {
@@ -298,7 +304,6 @@ footer a:hover {
 
 #facebook-link {
   background: url("../imgs/footer_logos/facebook.svg") no-repeat;
-  fill: white;
   background-size: contain;
   padding-left: 1.5em;
 }
