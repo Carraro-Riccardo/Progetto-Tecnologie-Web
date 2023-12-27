@@ -26,6 +26,11 @@
 
   --breadcrumbBgColor: rgba(122, 0, 0, 100);
   --breadcrumbTxtColor: white;
+
+
+  --headTable: rgb(3, 235, 30);
+  --txtColor: black;
+  --bgColor: white;
 }
 body,
 html {
@@ -355,3 +360,49 @@ footer a:hover {
     min-height: 1200px;
   }
 }
+
+
+
+/************************/
+/* CHI SIAMO */
+/************************/
+
+#Componenti{
+  margin:auto;
+  width: 95%;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+
+#Componenti > dt{
+  background-color: var(--headTable);
+  color: var(--txtColor);
+  border: 1px solid black;
+  padding: 0.5em;
+  font-size: 1.1em;
+}
+
+#Componenti > dd{
+  background-color: var(--bgColor);
+  border: 1px solid black;
+  border-top: none;
+  margin-bottom: 1em;
+} 
+
+#Componenti img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border: 5px solid #fff;
+}
+
+.Componente dt{
+  float: left;
+  font-weight: bold;
+
+}
+
+
+
