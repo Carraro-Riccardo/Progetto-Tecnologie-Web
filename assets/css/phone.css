@@ -314,19 +314,19 @@ footer a:hover {
   text-decoration: underline;
 }
 
-#instagram-link {
+.instagram-link {
   background: url("../imgs/footer_logos/instagram.svg") no-repeat;
   background-size: contain;
   padding-left: 1.5em;
 }
 
-#facebook-link {
+.facebook-link {
   background: url("../imgs/footer_logos/facebook.svg") no-repeat;
   background-size: contain;
   padding-left: 1.5em;
 }
 
-#twitter-link {
+.twitter-link {
   background: url("../imgs/footer_logos/twitter.svg") no-repeat;
   background-size: contain;
   padding-left: 1.5em;
@@ -418,40 +418,38 @@ footer a:hover {
   margin-bottom: 0.5em;
 }
 
-#Componenti > div {
-  float: right;
+.Componente span{
+  font-weight: bold;
   margin-top: -300px;
   margin-right: 1em;
-  font-size: 0.7em;
-
+  font-size: 0.75em;
+  float: right;
+}
+.Componente table {
+  float: right;
+  margin-top: -280px;
+  margin-right: 1em;
+  font-size: 0.9em;
 }
 
-[role="table"] {
-  display: table;
+.Componente table td{
+  padding: 0.5em;
 }
 
-[role="table"] > div[id] {
-  display: table-caption;
+.Componente th {
+  font-weight: normal;
+  padding: 0.5em;
+}
+
+.Componente table >caption{
   font-style: italic;
+  color: var(--txtColor);
+  
 }
 
-[role="table"] [role="row"] {
-  display: table-row;
-}
-
-[role="table"] [role="cell"], [role="table"] [role="columnheader"] {
-  display: table-cell;
-  padding: 0.125em 0.25em;
-  width: 8em;
-}
-
-[role="table"] [role="columnheader"] {
-  font-weight: bold;
-  border-bottom: thin solid #888;
-}
-
-[role="table"] [role="rowgroup"] {
-  background-color: #ddd;
+.Componente thead{
+  background-color: gray;
+  color: var(--txtColor);
 }
 
 
