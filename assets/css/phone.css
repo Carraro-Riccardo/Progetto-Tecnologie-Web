@@ -117,10 +117,16 @@ a {
 }
 
 .logo {
+  width: 100%;
+  max-height: 10em;
+}
+
+.logo-holder {
   width: 25%;
   padding: 1em;
   padding-right: 0.5em;
 }
+
 .main-nav {
   background: var(--HMItemBgColor);
   grid-column: 1 / span 2;
@@ -292,6 +298,7 @@ a {
 /************************/
 footer {
   margin-top: 2em;
+  position: absolute;
   bottom: 0;
   background-color: var(--footerBgColor);
   color: var(--footerTxtColor);

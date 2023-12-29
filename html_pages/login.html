@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="script.js"></script>
-    <title>GagGym</title>
+    <title>Log in</title>
   </head>
   <body>
     <header class="main">
       <nav id="nav-principale" aria-label="navigazione">
         <div class="container">
           <div class="logo-title-holder">
-            <a href="index.php" class="logo-holder">
+            <a href="index.php">
               <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
             </a>
             <h1 class="site-title">GagGym</h1>
@@ -52,41 +52,25 @@
         </div>
       </nav>
       <nav id="breadcrumb" aria-label="breadcrumb">
-        Ti trovi in: 
+        Ti trovi in:
         <ol>
-            <li><span lang="en" aria-current="Home">Home</span></li>
+          <li><a href="index.php">Home</a></li>
+          <li><span lang="en" aria-current="Home">Home</span></li>
         </ol>
-    </nav>
+      </nav>
     </header>
 
-    <ul id="cards-container">
-      <li>
-        <a id="corsi" href="section1.html" class="card">
-          <div class="description">
-            <span>Corsi</span>
-            <p>Diventa anche tu Richard Watterson</p>
-          </div>
-        </a>
-      </li>
+    <form action="login_handler.php" method="post">
+        <fieldset>
+            <legend><span lang="en">log in</span></legend>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter Username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </fieldset>
+    </form>
 
-      <li>
-        <a id="macchinari" href="section1.html" class="card">
-          <div class="description">
-            <span>Macchinari</span>
-            <p>Le migliori macchine in circolazione</p>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a id="chiSiamo" href="section1.html" class="card">
-          <div class="description">
-            <span>Chi siamo</span>
-            <p>Pipperi del quartiere</p>
-          </div>
-        </a>
-      </li>
-    </ul>
     <footer>
       <section id="orari">
         <h3>Orari</h3>
