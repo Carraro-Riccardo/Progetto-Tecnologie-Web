@@ -59,18 +59,33 @@
         </ol>
       </nav>
     </header>
-
-    <form action="login_handler.php" method="post">
+    <main>
+      <form action="login_handler.php" method="post" class="form-login-register">
         <fieldset>
-            <legend><span lang="en">log in</span></legend>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter Username" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required>
-            <button type="submit">Login</button>
+          <legend><span lang="en">Log in</span></legend>
+          <!--<label for="username">Username</label>-->
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter Username"
+            required
+          />
+          <!--<label for="password">Password</label>-->
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter Password"
+            required
+          />
+          <div id="confirmButtons">
+            <button type="submit" class="submitBtn">Login</button>
+            <p>lol, no account? <a href="register.php">Register now</a></p>
+          </div>
         </fieldset>
-    </form>
-
+      </form>
+    </main>
     <footer>
       <section id="orari">
         <h3>Orari</h3>

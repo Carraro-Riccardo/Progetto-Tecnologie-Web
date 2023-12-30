@@ -14,6 +14,9 @@
   --cardTxtColor: white;
   --cardBgColor: #000;
 
+  --formBtnBgColor: black;
+  --formBtnTxtColor: white;
+
   --bgColor: white;
   --txtColor: black;
   --footerBgColor: black;
@@ -70,8 +73,9 @@ header {
   padding: 0.5em 0;
 }
 
-a {
-  text-decoration: none;
+#breadcrumb a {
+  text-decoration: underline;
+  color: var(--breadcrumbTxtColor);
 }
 .container {
   max-width: 100%;
@@ -297,9 +301,8 @@ a {
 /* FOOTER */
 /************************/
 footer {
-  margin-top: 2em;
-  position: absolute;
-  bottom: 0;
+  margin-top: 4em;
+  width: 92%;
   background-color: var(--footerBgColor);
   color: var(--footerTxtColor);
   padding: 1em;
@@ -347,6 +350,65 @@ footer a:hover {
   padding-right: 0.5em;
 }
 
+
+/************************/
+/* PAGINA LOGIN */
+/************************/
+.form-login-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+}
+
+.form-login-register > fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  row-gap: 2em;
+}
+
+.form-login-register input {
+  width: 100%;
+  height: 3em;
+  border: none;
+  border-radius: 5px;
+  padding-left: 0.5em;
+}
+
+.form-login-register legend {
+  text-align: center;
+  margin-bottom: 1em;
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#confirmButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 2em;
+  width: 100%;
+  padding: auto;
+}
+
+.submitBtn {
+  height: 3em;
+  padding: 0.5em;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  border: none;
+  outline: none;
+  background-color: var(--formBtnBgColor);
+  color: var(--formBtnTxtColor);
+}
 /************************/
 /* MEDIA QUERIES */
 /************************/
