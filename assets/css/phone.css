@@ -308,7 +308,6 @@ header {
 /************************/
 footer {
   margin-top: 4em;
-  width: 95%;
   background-color: var(--footerBgColor);
   color: var(--footerTxtColor);
   padding: 1em;
