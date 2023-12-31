@@ -33,6 +33,15 @@ class Database {
         $stmt->close();
         return $result->fetch_assoc();
     }
+
+    public function register($username, $email, $password, $ruolo = "user"){
+        $stmt = $this->conn->prepare("INSERT INTO utenti (username, email, password, ruolo) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $username, $email, $password, $ruolo);
+        $stmt->execute();
+        $stmt->close();
+
+        return $this->login($username, $password);
+    }
 }
 
 ?>

@@ -2,7 +2,7 @@
     session_start();
     require_once("./pages_builder.php");
     $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
-    if(isset($_SESSION["ID_USER"])){
+    if(isset($_SESSION["user_id"])){
         $page = str_replace("login.php", "profile.php", $page);
         $page = str_replace("@@USER@@", "Profilo", $page);
     }

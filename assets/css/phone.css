@@ -30,19 +30,24 @@
   --breadcrumbBgColor: rgba(122, 0, 0, 100);
   --breadcrumbTxtColor: white;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body,
 html {
   width: 100%;
+  min-width: 100%;
   height: 100%;
   font-size: 100%;
   font-family: var(--font-body_family);
   line-height: 1.5em;
   background-color: var(--background-color);
+  overflow-x: hidden;
 }
-* {
-  margin: 0;
-  padding: 0;
-}
+
 header {
   background-color: var(--headerBackgroundColor);
   color: var(--headerTxtColor);
@@ -132,6 +137,7 @@ header {
 }
 
 .main-nav {
+  width: 100%;
   background: var(--HMItemBgColor);
   grid-column: 1 / span 2;
 }
@@ -302,13 +308,14 @@ header {
 /************************/
 footer {
   margin-top: 4em;
-  width: 92%;
+  width: 95%;
   background-color: var(--footerBgColor);
   color: var(--footerTxtColor);
   padding: 1em;
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 1em;
+  bottom: 0;
 }
 
 footer a {
