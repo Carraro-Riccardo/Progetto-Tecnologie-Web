@@ -26,11 +26,6 @@
 
   --breadcrumbBgColor: rgba(122, 0, 0, 100);
   --breadcrumbTxtColor: white;
-
-
-  --headTable: rgb(3, 235, 30);
-  --txtColor: black;
-  --bgColor: white;
 }
 body,
 html {
@@ -62,7 +57,7 @@ header {
 }
 
 #breadcrumb ol > li:not(:first-child)::before {
-  content: ">";
+  content: ">>";
   padding: 0 0.5em;
 }
 
@@ -102,7 +97,7 @@ a {
 }
 @media (min-width: 848px) {
   #nav-principale ul {
-    display: grid;
+      display: grid;
   }
 }
 #nav-principale ul li a,
@@ -185,7 +180,7 @@ a {
 .site-title {
   margin-left: 10px;
   /* Adjust the margin as needed */
-  font-family: var(--font-body_family)
+  font-family: var(--font-body_family);
   /* Apply the desired font family */
 }
 #nav-principale .container {
@@ -350,31 +345,29 @@ footer a:hover {
 /************************/
 @media (min-width: 350px) {
   #cards-container {
-    max-width: 800px;
-    min-height: 800px;
+      max-width: 800px;
+      min-height: 800px;
   }
 }
 @media (min-width: 840px) {
   #cards-container {
-    max-width: 1000px;
-    min-height: 1200px;
+      max-width: 1000px;
+      min-height: 1200px;
   }
 }
-
-
 
 /************************/
 /* CHI SIAMO */
 /************************/
 
-#Componenti{
-  margin:auto;
+#Componenti {
+  margin: auto;
   width: 95%;
   padding-top: 1em;
   padding-bottom: 2em;
 }
 
-#Componenti > dt{
+#Componenti > dt {
   background-color: var(--headTable);
   color: var(--txtColor);
   border: 1px solid black;
@@ -382,57 +375,57 @@ footer a:hover {
   font-size: 1.1em;
 }
 
-#Componenti > dd{
+#Componenti > dd {
   background-color: var(--bgColor);
   border: 1px solid black;
   border-top: none;
   margin-bottom: 1em;
-} 
+}
 
 #Componenti img {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 9.5em;
+  height: 9.5em;
   object-fit: cover;
   object-position: center;
   border: 5px solid #ffffff;
 }
 
-.Componente dt{
+.Componente dt {
   float: left;
   font-weight: bold;
   font-size: 0.8em;
 }
 
-.Componente dd{
-  margin-left: 100px;
+.Componente dd {
+  margin-left: 7.5em;
   margin-right: 1em;
   font-size: 0.8em;
 }
 
-#Componenti ul{
+#Componenti ul {
   list-style: none;
 }
 
-#Componenti ul li{
+#Componenti ul li {
   margin-bottom: 0.5em;
 }
 
-.Componente span{
+.Componente span {
   font-weight: bold;
-  margin-top: -300px;
+  margin-top: -32em;
   margin-right: 1em;
   font-size: 0.75em;
   float: right;
 }
 .Componente table {
   float: right;
-  margin-top: -280px;
+  margin-top: -25em;
   margin-right: 1em;
   font-size: 0.9em;
 }
 
-.Componente table td{
+.Componente table td {
   padding: 0.5em;
 }
 
@@ -441,22 +434,12 @@ footer a:hover {
   padding: 0.5em;
 }
 
-.Componente table >caption{
+.Componente table > caption {
   font-style: italic;
   color: var(--txtColor);
-  
 }
 
-.Componente thead{
+.Componente thead {
   background-color: gray;
   color: var(--txtColor);
 }
-
-
-
-
-
-
-
-
-
