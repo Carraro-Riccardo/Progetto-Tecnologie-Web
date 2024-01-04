@@ -31,10 +31,10 @@
         <div class="main-nav">
           <ul class="container">
             <li>
-              <a href="login.php">Log in</a>
+              <a href="login.php"><span lang="en">Log in</span></a>
             </li>
             <li>
-              <a href="index.php" aria-current="page">Home</a>
+              <a href="index.php"><span lang="en">Home</span></a>
             </li>
             <li>
               <a href="#">Corsi</a>
@@ -54,8 +54,13 @@
       <nav id="breadcrumb" aria-label="breadcrumb">
         Ti trovi in:
         <ol>
-          <li><a href="index.php">Home</a></li>
-          <li><span lang="en" aria-current="Registrati">Registrati</span></li>
+          <li>
+            <a href="index.php"><span lang="en">Home</span></a>
+          </li>
+          <li>
+            <a href="login.php"><span lang="en">Log in</span></a>
+          </li>
+          <li><span lang="en" aria-current="true">Registrati</span></li>
         </ol>
       </nav>
     </header>
@@ -71,33 +76,45 @@
             type="text"
             id="username"
             name="username"
-            placeholder="Enter Username"
+            placeholder="Username"
             required
           />
+          <div id="datiPersonali">
+            <input type="text" id="nome" name="nome" placeholder="Nome" />
+            <input
+              type="text"
+              id="cognome"
+              name="cognome"
+              placeholder="Cognome"
+            />
+          </div>
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="Enter Email"
-            required
-          />
-          <input
-            type="email"
-            id="confirmEmail"
-            name="confirmEmail"
-            placeholder="Confirm Email"
+            placeholder="Email"
             required
           />
           <input
             type="password"
             id="password"
             name="password"
-            placeholder="Enter Password"
+            placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Conferma Password"
             required
           />
           <div id="confirmButtons">
-            <button type="submit" class="submitBtn">Register</button>
-            <p>Already have an account? <a href="login.php">Log in</a></p>
+            <button type="submit" class="submitBtn">Registrati</button>
+            <p>
+              Hai già un <span lang="en">account</span>?
+              <a href="login.php"><span lang="en"> Log in</span></a>
+            </p>
           </div>
         </fieldset>
       </form>

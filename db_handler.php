@@ -26,7 +26,7 @@ class Database {
     }
 
     public function login($username, $password){
-        $stmt = $this->conn->prepare("SELECT id, username, ruolo  FROM utenti WHERE username = ? AND password = ?");
+        $stmt = $this->conn->prepare("SELECT id, username, nome, cognome, ruolo  FROM utenti WHERE username = ? AND password = ?");
         $stmt->bind_param("ss", $username, $password);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -34,9 +34,9 @@ class Database {
         return $result->fetch_assoc();
     }
 
-    public function register($username, $email, $password, $ruolo = "user"){
-        $stmt = $this->conn->prepare("INSERT INTO utenti (username, email, password, ruolo) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $username, $email, $password, $ruolo);
+    public function register($username, $nome, $cognome, $email, $password, $ruolo = "user"){
+        $stmt = $this->conn->prepare("INSERT INTO utenti (username, nome, cognome, email, password, ruolo) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $username, $nome, $cognome, $email, $password, $ruolo);
         $stmt->execute();
         $stmt->close();
 

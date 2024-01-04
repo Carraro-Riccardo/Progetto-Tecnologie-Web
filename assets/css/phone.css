@@ -419,6 +419,16 @@ footer a:hover {
   background-color: var(--formBtnBgColor);
   color: var(--formBtnTxtColor);
 }
+
+#datiPersonali {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#datiPersonali input {
+  width: 45%;
+}
 /************************/
 /* MEDIA QUERIES */
 /************************/
