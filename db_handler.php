@@ -42,6 +42,32 @@ class Database {
 
         return $this->login($username, $password);
     }
+
+    public function getSchedeUtente($idUtente){
+        $query = "  SELECT schede_utente.id_scheda,
+                            allenatori.nome AS nome_allenatore,
+                            esercizi.nome,
+                            schede_esercizi.giorno_settimana,
+                            schede_esercizi.numero_set,
+                            schede_esercizi.numero_ripetizioni
+                    FROM   schede_utente
+                            JOIN scheda
+                            ON schede_utente.id_scheda = scheda.id_scheda
+                            JOIN schede_esercizi
+                            ON schede_utente.id_scheda = schede_esercizi.id_scheda
+                            JOIN esercizi
+                            ON schede_esercizi.id_esercizio = esercizi.id
+                            JOIN allenatori
+                            ON scheda.id_allenatore = allenatori.id
+                    WHERE  id_utente = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
 }
 
 ?>

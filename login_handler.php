@@ -29,7 +29,7 @@ if($login_result) {
     $_SESSION['user_id'] = $login_result['id'];
     $_SESSION['username'] = $login_result['username'];
     $_SESSION['ruolo'] = $login_result['ruolo'];
-    header("Location: profile.php");
+    header("Location: profile_schede.php");
     exit;
 } else {
     header("Location: login.php?error=wrongcredentials");

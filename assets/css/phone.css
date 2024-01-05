@@ -29,6 +29,11 @@
 
   --breadcrumbBgColor: rgba(122, 0, 0, 100);
   --breadcrumbTxtColor: white;
+
+  --tabsBgColor: rgba(122, 0, 0, 0.5);
+  --tabsTxtColor: rgba(255, 255, 255, 0.50);
+  --currentTabBgColor: rgb(122, 0, 0);
+  --currentTabTxtColor: white;
 }
 
 * {
@@ -429,11 +434,178 @@ footer a:hover {
 #datiPersonali input {
   width: 45%;
 }
+
+/************************/
+/* PAGINA PROFILO */
+/************************/
+
+#schede-utente {
+  display: flex;
+  justify-content: center;
+}
+
+#tabs {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  margin: 1.5em;
+  margin-bottom: 0.7em;
+  width: 100%;
+  padding-bottom: 0;
+  border-radius: 0.5em;
+}
+
+#tabs li {
+  background-color: var(--tabsBgColor);
+  padding: 0.7em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border: 1px solid var(--currentTabBgColor);
+  flex-grow:1;
+  text-align: center;
+}
+
+#tabs li a {
+  text-decoration: none;
+  color: var(--tabsTxtColor);
+}
+
+#tabs .currentTab{
+  background-color: var(--currentTabBgColor);
+}
+
+.currentTab span {
+  text-decoration: underline;
+  color: var(--currentTabTxtColor);
+}
+
+#tabSchede::before {
+  content: "";
+  background-image: url("../imgs/profile_icons/schede.png");
+  filter: invert(100%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 100%;
+  min-height: 50%;
+}
+
+#tabAbbonamenti::before {
+  content: "";
+  background-image: url("../imgs/profile_icons/abbonamenti.png");
+  filter: invert(100%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 100%;
+  min-height: 50%;
+}
+
+#tabCertificato::before {
+  content: "";
+  background-image: url("../imgs/profile_icons/certificato.png");
+  filter: invert(100%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 100%;
+  min-height: 50%;
+}
+
+#tabProfilo::before {
+  content: "";
+  background-image: url("../imgs/profile_icons/profile.png");
+  filter: invert(100%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 100%;
+  min-height: 50%;
+}
+
+.schede-container {
+  list-style: none;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.scheda {
+  list-style: none;
+  margin-bottom: 3em;
+}
+
+h4 {
+  background-color: var(--headerBackgroundColor);
+  color: var(--headerTxtColor);
+  text-align: center;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  padding: 0.5em;
+}
+
+table.esercizio {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body_family);
+}
+
+table.esercizio th, table.esercizio td {
+  border: 1px solid var(--headerBackgroundColor);
+  text-align: left;
+  padding: 10px;
+}
+
+table.esercizio th {
+  background-color: var(--headTable);
+  color: var(--headerTxtColor);
+}
+
+table.esercizio tr {
+  background-color: var(--bgColor);
+}
+
+table.esercizio caption {
+  background-color: var(--headerBackgroundColor);
+  color: var(--headerTxtColor);
+}
+
 /************************/
 /* MEDIA QUERIES */
 /************************/
-@media (min-width: 350px) {
 
+@media (max-width: 420px) {
+  #tabs li {
+    min-width: 30px;
+  }
+
+}
+
+@media (min-width: 725px) {
+
+  .schede-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .schede-container li {
+    width: fit-content;
+  }
+
+  .scheda {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 2em;
+  }
+
+}
+
+@media (min-width: 350px) {
   .logo {
     width: 100%;
     max-width: 7em;

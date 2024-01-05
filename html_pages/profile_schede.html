@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="script.js"></script>
-    <title>GagGym</title>
+    <title>Profilo</title>
   </head>
   <body>
     <header class="main">
       <nav id="nav-principale" aria-label="navigazione">
         <div class="container">
           <div class="logo-title-holder">
-            <a href="index.php" class="logo-holder">
+            <a href="index.php">
               <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
             </a>
             <h1 class="site-title">GagGym</h1>
@@ -31,7 +31,7 @@
         <div class="main-nav">
           <ul class="container">
             <li>
-              <a href="login.php">@@USER@@</a>
+              <a href="profile_schede.php">@@USER@@</a>
             </li>
             <li>
               <a href="index.php" aria-current="page">Home</a>
@@ -54,39 +54,29 @@
       <nav id="breadcrumb" aria-label="breadcrumb">
         Ti trovi in:
         <ol>
-          <li><span lang="en" aria-current="true">Home</span></li>
+          <li>
+            <a href="index.php"><span lang="en">Home</span></a>
+          </li>
+          <li><span aria-current="page">Profilo</span></li>
         </ol>
       </nav>
     </header>
     <main>
-      <ul id="cards-container">
-        <li>
-          <a id="corsi" href="section1.html" class="card">
-            <div class="description">
-              <span>Corsi</span>
-              <p>Diventa anche tu Richard Watterson</p>
-            </div>
-          </a>
-        </li>
-
-        <li>
-          <a id="macchinari" href="section1.html" class="card">
-            <div class="description">
-              <span>Macchinari</span>
-              <p>Le migliori macchine in circolazione</p>
-            </div>
-          </a>
-        </li>
-
-        <li>
-          <a id="chiSiamo" href="section1.html" class="card">
-            <div class="description">
-              <span>Chi siamo</span>
-              <p>Pipperi del quartiere</p>
-            </div>
-          </a>
-        </li>
-      </ul>
+      <nav id="schede-utente">
+        <ul id="tabs">
+          <li class="currentTab"><span id="tabSchede" aria-current="page">Schede</span></li>
+          <li>
+            <a id="tabAbbonamenti" href="">Abbonamenti</a>
+          </li>
+          <li>
+            <a id="tabCertificato" href="">Certificato</a>
+          </li>
+          <li>
+            <a id="tabProfilo" href="">Profilo</a>
+          </li>
+        </ul>
+      </nav>
+      <!--sezione schede-->
     </main>
     <footer>
       <section id="orari">

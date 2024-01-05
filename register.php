@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_SESSION["user_id"])){
-    header("Location: profile.php");
+    header("Location: profile_schede.php");
     exit();
 }
 

@@ -40,7 +40,7 @@ if($register_result) {
     $_SESSION['nome'] = $register_result['nome'];
     $_SESSION['cognome'] = $register_result['cognome'];
     $_SESSION['ruolo'] = $register_result['ruolo'];
-    header("Location: profile.php");
+    header("Location: profile_schede.php");
     exit;
 } else {
     header("Location: register.php?error=erroreDuranteLaRegistrazione");
