@@ -86,6 +86,19 @@ class Database {
         $stmt->close();
         return $result;
     }
+
+    public function getDatiUtente($idUtente){
+        $query = "  SELECT username, nome, cognome, email, password
+                    FROM   utenti
+                    WHERE  id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result->fetch_assoc();
+    }
 }
 
 ?>

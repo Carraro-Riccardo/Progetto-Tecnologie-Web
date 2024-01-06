@@ -29,6 +29,7 @@ $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 
 if(isset($_SESSION["user_id"])){
     $page = str_replace("@@USER@@", $_SESSION['username'], $page);
+    $page = str_replace("@@logout@@", "<li><a href='logout.php'><span lang='en'>Log out</span></a></li>", $page);
 
     try {
         $db = new Database();

@@ -16,6 +16,7 @@
 
   --formBtnBgColor: black;
   --formBtnTxtColor: white;
+  --formLegendTxtColor: white;
 
   --bgColor: white;
   --txtColor: black;
@@ -37,6 +38,9 @@
 
   --tableHeadBgColor: black;
   --tableHeadTxtColor: white;
+
+  --logoutBtnBgColor: #7a0000;
+  --logoutBtnBorderColor: black;
 }
 
 * {
@@ -378,7 +382,7 @@ footer a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 15%;
+  margin-top: 3%;
 }
 
 .form-login-register > fieldset {
@@ -388,6 +392,11 @@ footer a:hover {
   justify-content: center;
   border: none;
   row-gap: 2em;
+  width: 80%;
+}
+
+.form-login-register fieldset label {
+  text-align: center;
 }
 
 .form-login-register input {
@@ -401,7 +410,7 @@ footer a:hover {
 .form-login-register legend {
   text-align: center;
   margin-bottom: 1em;
-  color: rgb(255, 255, 255);
+  color: var(--formLegendTxtColor);
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -614,6 +623,41 @@ table.esercizio caption {
 .tb-container {
   padding: 0 0.5em;
 }
+
+/************************/
+/* PAGINA PROFILO PROFILO */
+/************************/
+#logout {
+  width: 79%;
+  text-align: center;
+  margin-top: 1em;
+  background-color: var(--logoutBtnBgColor);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5em;
+  padding: 0.2em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  color: var(--formBtnTxtColor);
+  text-decoration: none;
+  border: 1px solid var(--logoutBtnBorderColor);
+}
+
+.cancelEdit {
+  color: black;
+  background-color: white;
+  width: inherit;
+  text-align: center;
+  border-radius: 0.3em;
+  padding: 0.5em 0;
+  text-decoration: none;
+  border: 1px solid black;
+}
+
+.form-modifica-psw {
+  margin-top: 10%;
+}
+
 /************************/
 /* MEDIA QUERIES */
 /************************/
