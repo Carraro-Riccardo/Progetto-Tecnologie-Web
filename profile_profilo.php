@@ -41,7 +41,7 @@ if(isset($_SESSION["user_id"])){
 
         $confirmLabel .= "<label id='lblConfirm' for='oldPassword'>Inserisci la <span lang='en'>password</span> per confermare le modifiche.</label>\n";
 
-        $confirmButtons .= "<div id='confirmButtons'>\n<a class='cancelEdit' href='profile_profilo.php'>Annulla</a>\n";
+        $confirmButtons .= "<div class='confirmButtons'>\n<a class='cancelEdit' href='profile_profilo.php'>Annulla</a>\n";
         $confirmDivEnd .= "</div>\n";
 
         $passwordChangeForm .= "<form action='profile_profilo.php' method='post' class='form-login-register form-modifica-psw'>\n";
@@ -50,8 +50,8 @@ if(isset($_SESSION["user_id"])){
         $passwordChangeForm .= "<input type='password' id='oldPassword' name='oldPassword' placeholder='Vecchia password' required {$editable}/>\n";
         $passwordChangeForm .= "<input type='password' id='newPassword' name='newPassword' placeholder='Nuova password' required {$editable}/>\n";
         $passwordChangeForm .= "<input type='password' id='confermaNuovaPsw' name='confermaNuovaPsw' placeholder='Conferma nuova password' required {$editable}/>\n";
-        $passwordChangeForm .= "<div id='confirmButtons'>\n<a class='cancelEdit' href='profile_profilo.php'>Annulla</a>\n";
-        $passwordChangeForm .= "<input type='submit' name='action' class='submitBtn' value='{$buttonInstruction}' />\n</fieldset>\n</form>\n";
+        $passwordChangeForm .= "<div class='confirmButtons'>\n<a class='cancelEdit' href='profile_profilo.php'>Annulla</a>\n";
+        $passwordChangeForm .= "<input type='submit' name='action' class='submitBtn' value='{$buttonInstruction}' />\n</div>\n</fieldset>\n</form>\n";
     }
     
     $page = str_replace("@@editable@@", $editable, $page);

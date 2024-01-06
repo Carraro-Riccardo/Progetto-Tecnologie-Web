@@ -431,7 +431,7 @@ footer a:hover {
   font-weight: bold;
 }
 
-#confirmButtons {
+.confirmButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
