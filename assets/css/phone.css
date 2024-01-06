@@ -34,6 +34,9 @@
   --tabsTxtColor: rgba(255, 255, 255, 0.50);
   --currentTabBgColor: rgb(122, 0, 0);
   --currentTabTxtColor: white;
+
+  --tableHeadBgColor: black;
+  --tableHeadTxtColor: white;
 }
 
 * {
@@ -436,7 +439,7 @@ footer a:hover {
 }
 
 /************************/
-/* PAGINA PROFILO */
+/* PAGINA PROFILO SCHEDE*/
 /************************/
 
 #schede-utente {
@@ -574,6 +577,44 @@ table.esercizio caption {
 }
 
 /************************/
+/* PAGINA PROFILO ABBONAMENTI */
+/************************/
+.table-abbonamenti {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.table-abbonamenti thead th {
+  border-top: none;
+  background-color: var(--tableHeadBgColor);
+}
+
+.table-abbonamenti thead th:first-child {
+  border-left: none;
+  border-top-left-radius: 2em;
+}
+
+.table-abbonamenti thead th:last-child {
+  border-right: none;
+  border-top-right-radius: 2em;
+}
+
+.table-abbonamenti th:first-child {
+  text-align: center;
+}
+
+.caption-nascosta {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+}
+
+.tb-container {
+  padding: 0 0.5em;
+}
+/************************/
 /* MEDIA QUERIES */
 /************************/
 
@@ -590,6 +631,10 @@ table.esercizio caption {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .tb-container {
+    padding: 0 15%;
   }
 
   .schede-container li {

@@ -68,6 +68,24 @@ class Database {
         $stmt->close();
         return $result;
     }
+
+    public function getAbbonamentiUtente($idUtente){
+        $query = "  SELECT abbonamenti.nome,
+                            data_stipula,
+                            Date_add(data_stipula, INTERVAL abbonamenti.durata day) AS data_scadenza
+                    FROM   utenti_abbonamenti
+                            JOIN abbonamenti
+                            ON utenti_abbonamenti.id_abbonamento = abbonamenti.id
+                    WHERE  utenti_abbonamenti.id_utente = ? 
+                    ORDER BY data_scadenza DESC;";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
 }
 
 ?>
