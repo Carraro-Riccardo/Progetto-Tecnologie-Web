@@ -377,6 +377,16 @@ footer a:hover {
 /************************/
 /* PAGINA LOGIN */
 /************************/
+
+#error-message{
+  background-color: rgb(180,0,0);
+  color: white;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 1em;
+  margin-bottom: 0.5em;
+}
+
 .form-login-register {
   display: flex;
   flex-direction: column;
@@ -452,6 +462,17 @@ footer a:hover {
 /************************/
 /* PAGINA PROFILO SCHEDE*/
 /************************/
+
+.tabTitle {
+  background-color: var(--breadcrumbBgColor);
+  color: var(--breadcrumbTxtColor);
+  text-align: center;
+  padding: 0.5em;
+  margin: 0 auto;
+  width: fit-content;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+}
 
 #schede-utente {
   display: flex;

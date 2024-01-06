@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
-    <script src="script.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/login_validator.js"></script>
     <title>Log in</title>
   </head>
   <body>
@@ -18,7 +19,7 @@
             <h1 class="site-title">GagGym</h1>
           </div>
         </div>
-        <button id="hamburger" aria-expanded="false">
+        <button id="hamburger" aria-expanded="true">
           <span>Menu</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,10 +62,12 @@
       </nav>
     </header>
     <main>
+      @@error@@
       <form
         action="login_handler.php"
         method="post"
         class="form-login-register"
+        id="loginForm"
       >
         <fieldset>
           <legend><span lang="en">Log in</span></legend>

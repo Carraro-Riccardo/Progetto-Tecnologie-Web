@@ -1,6 +1,33 @@
 <?php
-
+session_start();
 require_once("db_handler.php");
+
+function checkUsername($username) {
+    $usernameRegex = "/^[A-Za-z]+$/";
+    $usernameLength = 50;
+
+    if (empty($username)) {
+        return "Lo <span lang='en'>username</span> non può essere vuoto.";
+    } else if (!preg_match($usernameRegex, $username)) {
+        return "Lo <span lang='en'>username</span> può contenere solo caratteri (maiuscoli e minuscoli).";
+    } else if (strlen($username) > $usernameLength) {
+        return "Lo <span lang='en'>username</span> non può eccedere i " . $usernameLength . " caratteri).";
+    }
+
+    return "";
+}
+
+function checkPassword($password) {
+    $passwordLength = 255;
+
+    if (empty($password)) {
+        return "La <span lang='en'>password</span> non può essere vuota.";
+    } else if (strlen($password) > $passwordLength) {
+        return "La <span lang='en'>password</span> non può eccedere i " . $passwordLength . " caratteri.";
+    }
+
+    return "";
+}
 
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
@@ -10,9 +37,13 @@ if (isset($_SESSION['user_id'])) {
 $username = isset($_POST['username']) ? $_POST['username'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-if (empty($username) || empty($password)) {
-    header("Location: login.php?error=emptyfields");
-    exit;
+$usernameError = checkUsername($username);
+$passwordError = checkPassword($password);
+
+if (!empty($usernameError) || !empty($passwordError)) {
+    $_SESSION["error"] = $usernameError . $passwordError;
+    header("Location: login.php");
+    exit();
 }
 
 try {
@@ -20,7 +51,8 @@ try {
     $login_result = $db->login($username, $password);
     unset($db);
 }catch(Exception $e) {
-    header("Location: login.php?error=sqlerror");
+    $_SESSION["error"] = "Errore interno.";
+    header("Location: login.php");
     exit;
 }
 
@@ -32,7 +64,8 @@ if($login_result) {
     header("Location: profile_schede.php");
     exit;
 } else {
-    header("Location: login.php?error=wrongcredentials");
+    $_SESSION["error"] = "Credenziali errate.";
+    header("Location: login.php");
     exit;
 }
 
