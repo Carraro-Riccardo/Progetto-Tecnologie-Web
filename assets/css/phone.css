@@ -31,16 +31,21 @@
   --breadcrumbBgColor: rgba(122, 0, 0, 100);
   --breadcrumbTxtColor: white;
 
-  --tabsBgColor: rgba(122, 0, 0, 0.5);
-  --tabsTxtColor: rgba(255, 255, 255, 0.50);
+  --tabsBgColor: rgba(122, 0, 0, 0.55);
+  --tabsTxtColor: rgb(255, 255, 255);
   --currentTabBgColor: rgb(122, 0, 0);
   --currentTabTxtColor: white;
+  --tabTitleBgColor: rgba(122, 0, 0, 100);
+  --tabTitleTxtColor: white;
 
   --tableHeadBgColor: black;
   --tableHeadTxtColor: white;
 
   --logoutBtnBgColor: #7a0000;
   --logoutBtnBorderColor: black;
+
+  --errorMessageBgColor: rgb(180, 0, 0);
+  --errorMessageTxtColor: white;
 }
 
 * {
@@ -379,8 +384,8 @@ footer a:hover {
 /************************/
 
 #error-message{
-  background-color: rgb(180,0,0);
-  color: white;
+  background-color: var(--errorMessageBgColor);
+  color: var(--errorMessageTxtColor);
   text-align: center;
   padding: 0.5em;
   border-radius: 1em;
@@ -464,8 +469,8 @@ footer a:hover {
 /************************/
 
 .tabTitle {
-  background-color: var(--breadcrumbBgColor);
-  color: var(--breadcrumbTxtColor);
+  background-color: var(--tabTitleBgColor);
+  color: var(--tabTitleTxtColor);
   text-align: center;
   padding: 0.5em;
   margin: 0 auto;

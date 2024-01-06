@@ -54,6 +54,7 @@ if(isset($_SESSION["user_id"])){
         $passwordChangeForm .= "<input type='submit' name='action' class='submitBtn' value='{$buttonInstruction}' />\n</fieldset>\n</form>\n";
     }
     
+    $page = str_replace("@@editable@@", $editable, $page);
     $page = str_replace("@@username@@", $dati_result["username"], $page);
     $page = str_replace("@@nome@@", $dati_result["nome"], $page);
     $page = str_replace("@@cognome@@", $dati_result["cognome"], $page);
