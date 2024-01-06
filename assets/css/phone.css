@@ -368,11 +368,13 @@ footer a:hover {
 }
 
 #Componenti > dt {
-  background-color: var(--headTable);
-  color: var(--txtColor);
+  background-color: black;
+  color: white;
   border: 1px solid black;
   padding: 0.5em;
   font-size: 1.1em;
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
 }
 
 #Componenti > dd {
@@ -380,7 +382,10 @@ footer a:hover {
   border: 1px solid black;
   border-top: none;
   margin-bottom: 1em;
+  border-bottom-left-radius: 1.5em;
+  border-bottom-right-radius: 1.5em;
 }
+
 
 #Componenti img {
   border-radius: 50%;
@@ -391,20 +396,23 @@ footer a:hover {
   border: 5px solid #ffffff;
 }
 
+
 .Componente dt {
   float: left;
   font-weight: bold;
   font-size: 0.8em;
+  padding-left: 0.5em;
 }
 
 .Componente dd {
-  margin-left: 7.5em;
-  margin-right: 1em;
+  margin-left: 8em;
   font-size: 0.8em;
 }
 
+
 #Componenti ul {
   list-style: none;
+  
 }
 
 #Componenti ul li {
@@ -413,14 +421,14 @@ footer a:hover {
 
 .Componente span {
   font-weight: bold;
-  margin-top: -32em;
+  margin-top: -26em;
   margin-right: 1em;
   font-size: 0.75em;
   float: right;
 }
 .Componente table {
   float: right;
-  margin-top: -25em;
+  margin-top: -20em;
   margin-right: 1em;
   font-size: 0.9em;
 }
@@ -443,3 +451,12 @@ footer a:hover {
   background-color: gray;
   color: var(--txtColor);
 }
+
+.SocialsComponenti{
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+}
+
+
+

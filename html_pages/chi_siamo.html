@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <meta charset="UTF-8" >
+        <meta charset="UTF-8" />
         <title>Chi siamo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-        <meta name="keywords" content="GagGym, palestra, fitness, bodybuilding" >
-        <meta name="description" content="Pagina ufficiale della palestra GagGym" >
-        <link rel="stylesheet" href="../assets/css/phone.css" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="GagGym, palestra, fitness, bodybuilding" />
+        <meta name="description" content="Pagina ufficiale della palestra GagGym" />
+        <link rel="stylesheet" href="../assets/css/phone.css" />
         <script src="script.js"></script>
     </head>
 
     <body>
-        <header class="main">
-          <div class="container">
-            <h1 class="site-title">Chi siamo</h1>
-          </div>   
-          <button id="hamburger" aria-expanded="false">
-            <span>Menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewbox="0 0 20 20"
-              aria-hidden="true"
-            >
-              <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
-            </svg>
-          </button>
-          <nav id="breadcrumb" aria-label="breadcrumb">
-            Ti trovi in: 
-            <ol>
-              <li><span><a href="index.html" lang="en">Home</a></span></li>
-              <li><span>Chi siamo</span></li>
-            </ol>
-          </nav>
+        <header>
+            <nav id="nav-principale" aria-label="navigazione">
+                <div class="container">
+                    <h1 class="site-title">Chi siamo</h1>
+                </div>
+                <button id="hamburger" aria-expanded="false">
+                    <span>Menu</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
+                        <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
+                    </svg>
+                </button>
+            </nav>
+            <nav id="breadcrumb" aria-label="breadcrumb">
+                Ti trovi in:
+                <ol>
+                    <li>
+                        <span><a href="index.html" lang="en">Home</a></span>
+                    </li>
+                    <li><span>Chi siamo</span></li>
+                </ol>
+            </nav>
         </header>
         <main>
             <dl id="Componenti">
                 <dt>Andrea Giurisato</dt>
                 <dd>
-                    <img src="../assets/imgs/chi_siamo/Andrea_Giurisato.png" alt="Andrea Giurisato" >
+                    <img src="../assets/imgs/chi_siamo/Andrea_Giurisato.png" alt="Andrea Giurisato" />
                     <dl class="Componente">
                         <dt>Data di nascita</dt>
                         <dd><time datetime="2002-04-30"> 4 Aprile 2002</time></dd>
@@ -45,13 +45,13 @@
                         <dd>Padova</dd>
                         <dt>Socials</dt>
                         <dd>
-                            <ul>
+                            <ul class="SocialsComponenti">
                                 <li><a href="https://www.instagram.com/giury_22/" class="instagram-link">andreagiurisato</a></li>
                                 <li><a href="https://www.facebook.com/" class="facebook-link">andreagiurisato</a></li>
                                 <li><a href="https://www.twitter.com/" class="twitter-link">andreagiurisato</a></li>
                             </ul>
                         </dd>
-                        <dd>
+                        <dd class="Tabella">
                             <span id="schedaEserciziAndrea"> Tabella contenente tutti gli esercizi consigliati dall'allenatore Andrea</span>
                             <table title="Scheda esercizi palestra" aria-describedby="schedaEserciziAndrea">
                                 <caption>
@@ -88,7 +88,7 @@
 
                 <dt>Riccardo Carraro</dt>
                 <dd>
-                    <img src="../assets/imgs/chi_siamo/Riccardo_Carraro.png" alt="Riccardo Carraro" >
+                    <img src="../assets/imgs/chi_siamo/Riccardo_Carraro.png" alt="Riccardo Carraro" />
                     <dl class="Componente">
                         <dt>Data di nascita</dt>
                         <dd><time datetime="2002-04-30"> 30 Aprile 2002</time></dd>
@@ -96,13 +96,13 @@
                         <dd>Padova</dd>
                         <dt>Socials</dt>
                         <dd>
-                            <ul>
+                            <ul class="SocialsComponenti">
                                 <li><a href="https://www.instagram.com/carraroriccardo/" class="instagram-link">carraroriccardo</a></li>
                                 <li><a href="https://www.facebook.com/" class="facebook-link">carraroriccardo </a></li>
                                 <li><a href="https://www.twitter.com/" class="twitter-link">carraroriccardo</a></li>
                             </ul>
                         </dd>
-                        <dd>
+                        <dd class="Tabella">
                             <span id="schedaEserciziRiccardo"> Tabella contenente tutti gli esercizi consigliati dall'allenatore Riccardo</span>
                             <table title="Scheda esercizi palestra" aria-describedby="schedaEserciziRiccardo">
                                 <caption>
@@ -138,7 +138,7 @@
                 </dd>
                 <dt>Michele Ogniben</dt>
                 <dd>
-                    <img src="../assets/imgs/chi_siamo/Michele_Ogniben.png" alt="Michele Ogniben" >
+                    <img src="../assets/imgs/chi_siamo/Michele_Ogniben.png" alt="Michele Ogniben" />
                     <dl class="Componente">
                         <dt>Data di nascita</dt>
                         <dd><time datetime="2002-04-30"> 4 Aprile 2002</time></dd>
@@ -146,13 +146,13 @@
                         <dd>Padova</dd>
                         <dt>Socials</dt>
                         <dd>
-                            <ul>
-                                <li><a href="https://www.instagram.com/michele_ogniben/" class="instagram-link">micheleogniben</a></li>
+                            <ul class="SocialsComponenti">
+                                <li><a href="https://www.instagram.com/michele_ogniben/" class="instagram-link">micheleogniben</a> </li>
                                 <li><a href="https://www.facebook.com/" class="facebook-link">micheleogniben</a></li>
                                 <li><a href="https://www.twitter.com/" class="twitter-link">micheleogniben</a></li>
                             </ul>
                         </dd>
-                        <dd>
+                        <dd class="Tabella">
                             <span id="schedaEserciziMichele"> Tabella contenente tutti gli esercizi consigliati dall'allenatore Michele</span>
                             <table title="Scheda esercizi palestra" aria-describedby="schedaEserciziMichele">
                                 <caption>
@@ -188,7 +188,7 @@
                 </dd>
                 <dt>Endi Hysa</dt>
                 <dd>
-                    <img src="../assets/imgs/chi_siamo/Endi_Hysa.png" alt="Endi Hysa" >
+                    <img src="../assets/imgs/chi_siamo/Endi_Hysa.png" alt="Endi Hysa" />
                     <dl class="Componente">
                         <dt>Data di nascita</dt>
                         <dd><time datetime="2002-08-18"> 18 Agosto 2002</time></dd>
@@ -196,13 +196,13 @@
                         <dd>Padova</dd>
                         <dt>Socials</dt>
                         <dd>
-                            <ul>
+                            <ul class="SocialsComponenti">
                                 <li><a href="https://www.instagram.com/endyhysa/" class="instagram-link">endyhysa</a></li>
                                 <li><a href="https://www.facebook.com/" class="facebook-link">endyhysa </a></li>
                                 <li><a href="https://www.twitter.com/" class="twitter-link">endyhysa</a></li>
                             </ul>
                         </dd>
-                        <dd>
+                        <dd class="Tabella">
                             <span id="schedaEserciziEndi"> Tabella contenente tutti gli esercizi consigliati dall'allenatore Endi</span>
                             <table title="Scheda esercizi palestra" aria-describedby="schedaEserciziEndi">
                                 <caption>
