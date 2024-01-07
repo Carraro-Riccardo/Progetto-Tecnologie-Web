@@ -7,6 +7,11 @@ require_once("server_side_validator.php");
 $errorMessageUserData = "";
 $errorMessagePasswordChange = "";
 
+if ($_SERVER['REQUEST_METHOD'] === "GET"){
+    header("Location: profile_profilo.php");
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($_POST['action'] === 'Salva') {
@@ -66,6 +71,7 @@ if(isset($_SESSION["user_id"])){
     $page = str_replace("@@nome@@", $dati_result["nome"], $page);
     $page = str_replace("@@cognome@@", $dati_result["cognome"], $page);
     $page = str_replace("@@email@@", $dati_result["email"], $page);
+    $page = str_replace("@@password@@", "", $page);
 
 
 }else{
