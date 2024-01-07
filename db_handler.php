@@ -112,6 +112,17 @@ class Database {
         $stmt->close();
         return $result; 
     }
+
+    public function getAbbonamenti(){
+        $query = "  SELECT id, nome, durata, costo
+                    FROM   abbonamenti";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result; 
+    }
 }
 
 ?>

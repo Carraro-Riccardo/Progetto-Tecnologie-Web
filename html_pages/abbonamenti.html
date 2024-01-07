@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
-    <title>Profilo - Schede</title>
+    <title>Abbonamenti</title>
   </head>
   <body>
     <header class="main">
@@ -20,14 +20,18 @@
         </div>
         <button id="hamburger" aria-expanded="true">
           <span>Menu</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewbox="0 0 20 20"
+            aria-hidden="true"
+          >
             <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
           </svg>
         </button>
         <div class="main-nav">
           <ul class="container">
             <li>
-              <a href="profile_schede.php" aria-current="page">@@USER@@</a>
+              <a href="profile_certificato.php">@@USER@@</a>
             </li>
             <li>
               <a href="index.php">Home</a>
@@ -36,7 +40,7 @@
               <a href="#">Corsi</a>
             </li>
             <li>
-              <a href="abbonamenti.php">Abbonamenti</a>
+                <a href="abbonamenti.php" aria-current="page">Abbonamenti</a>
             </li>
             <li>
               <a href="#">Macchinari</a>
@@ -57,27 +61,29 @@
           <li>
             <a href="index.php"><span lang="en">Home</span></a>
           </li>
-          <li><span aria-current="page">Profilo</span></li>
+          <li><span aria-current="page">Abbonamenti</span></li>
         </ol>
       </nav>
     </header>
     <main>
-      <nav id="schede-utente">
-        <ul id="tabs">
-          <li class="currentTab"><span id="tabSchede" aria-current="page">Schede</span></li>
-          <li>
-            <a id="tabAbbonamenti" href="profile_abbonamenti.php">Abbonamenti</a>
-          </li>
-          <li>
-            <a id="tabCertificato" href="profile_certificato.php">Certificato</a>
-          </li>
-          <li>
-            <a id="tabProfilo" href="profile_profilo.php">Profilo</a>
-          </li>
-        </ul>
-      </nav>
-      <h2 class="tabTitle">Le tue schede</h2>
-      <!--sezione schede-->
+
+    <!--sezione abbonamenti-->
+    <ul id="cards-container">
+        <!--carta-->
+        <li>
+            <a id="@@nome-abbonamento@@" href="compra-abbonamento.php?abbonamento=@@nome-abbonamento@@" class="card">
+                <div class="description">
+                    <span>@@nome-abbonamento@@</span>
+                    <section class="data-abbonamenti">
+                        <p>Validita: @@durata@@ giorni</p>
+                        <p>Costo: @@costo@@</p>
+                    </section>
+                </div>
+            </a>
+        </li>
+        <!--fine carta-->
+    </ul>
+
     </main>
     <footer>
       <section id="orari">

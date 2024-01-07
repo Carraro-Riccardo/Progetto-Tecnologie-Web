@@ -285,6 +285,7 @@ header {
 #chiSiamo::before {
   background: url("../imgs/chiSiamo.jpg") center/cover;
 }
+
 .card .description {
   position: absolute;
   bottom: 0;
@@ -466,6 +467,27 @@ footer a:hover {
 
 #datiPersonali input {
   width: 45%;
+}
+
+/************************/
+/* PAGINA ABBONAMENTI */
+/************************/
+section.data-abbonamenti {
+  display: flex;
+  justify-content: center;
+  column-gap: 3em;
+}
+
+#Mensile::before {
+  background: url("../imgs/abbonamenti_images/Mensile.png") center/cover;
+}
+
+#Trimestrale::before {
+  background: url("../imgs/abbonamenti_images/Trimestrale.png") center/cover;
+}
+
+#Annuale::before {
+  background: url("../imgs/abbonamenti_images/Annuale.png") center/cover;
 }
 
 /************************/
