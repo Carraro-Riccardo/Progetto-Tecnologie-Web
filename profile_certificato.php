@@ -23,10 +23,11 @@ if(isset($_SESSION["user_id"])){
         exit;
     }
 
-    if($certificato_result->num_rows == 0){
+
+    $certificato_result = $certificato_result->fetch_assoc();
+    if($certificato_result["certificatoPath"] == null){
         $page = preg_replace('/(<!--tabella certificato-->).*(<!--fine tabella certificato-->)/s', "<p class='empty-result'>Non hai ancora caricato nessun certificato.</p>", $page);
     }else {
-        $certificato_result = $certificato_result->fetch_assoc();
         $page = str_replace("@@fileLink@@", $certificato_result["certificatoPath"], $page);
         $page = str_replace("@@fileName@@", basename($certificato_result["certificatoPath"]), $page);
         $page = str_replace("@@stato@@", $certificato_result["stato"], $page);
