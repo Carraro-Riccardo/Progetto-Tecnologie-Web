@@ -869,22 +869,22 @@ table.esercizio caption {
 }
 
 #immagine-corso-pilates {
-  background: url("../imgs/pilates.jpg") center/cover;
+  background: url("../imgs/corsi_image/pilates.jpg") center/cover;
   content: "";
 }
 
 #immagine-corso-yoga {
-  background: url("../imgs/yoga.jpg") center/cover;
+  background: url("../imgs/corsi_image/yoga.jpg") center/cover;
   content: "";
 }
 
 #immagine-corso-box {
-  background: url("../imgs/box.jpg") center/cover;
+  background: url("../imgs/corsi_image/box.jpg") center/cover;
   content: "";
 }
 
 #immagine-corso-danza {
-  background: url("../imgs/danza.jpg") center/cover;
+  background: url("../imgs/corsi_image/danza.jpg") center/cover;
   content: "";
 }
 .card-corso-description {
