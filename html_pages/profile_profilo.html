@@ -69,13 +69,14 @@
             <a id="tabAbbonamenti" href="profile_abbonamenti.php">Abbonamenti</a>
           </li>
           <li>
-            <a id="tabCertificato" href="">Certificato</a>
+            <a id="tabCertificato" href="profile_certificato.php">Certificato</a>
           </li>
           <li class="currentTab">
             <span id="tabProfilo" aria-current="page">Profilo</span>
           </li>
         </ul>
       </nav>
+      @@errorMessageUserData@@
       <form id="editUserDataForm" action="" method="post" class="form-login-register">
         <fieldset>
           <legend class="tabTitle">Dati utente</legend>
@@ -133,6 +134,7 @@
         </fieldset>
         @@btnLogout@@
       </form>
+      @@errorMessagePasswordChange@@
      @@passwordChangeForm@@
 
     </main>

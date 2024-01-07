@@ -60,6 +60,18 @@ function checkEmail($email) {
     return "";
 }
 
+function checkPassword($password) {
+    $passwordLength = 255;
+
+    if (empty($password)) {
+        return "Il campo <span lang='en'>password</span> non può essere vuoto.";
+    } else if (strlen($password) > $passwordLength) {
+        return "Il campo <span lang='en'>password</span> non può superare " . $passwordLength . " caratteri.";
+    }
+
+    return "";
+}
+
 function checkRegisterPassword($password, $confirmPassword) {
     $passwordLength = 255;
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
-    <title>Profilo - Abbonamenti</title>
+    <title>Profilo - Certificato</title>
   </head>
   <body>
     <header class="main">
@@ -31,7 +31,7 @@
         <div class="main-nav">
           <ul class="container">
             <li>
-              <a href="profile_abbonamenti.php" aria-current="page">@@USER@@</a>
+              <a href="profile_certificato.php" aria-current="page">@@USER@@</a>
             </li>
             <li>
               <a href="index.php">Home</a>
@@ -66,21 +66,39 @@
       <nav id="schede-utente">
         <ul id="tabs">
           <li><a id="tabSchede" href="profile_schede.php">Schede</a></li>
-          <li class="currentTab">
-            <span id="tabAbbonamenti" aria-current="page">Abbonamenti</span>
-          </li>
           <li>
-            <a id="tabCertificato" href="profile_certificato.php">Certificato</a>
+            <a id="tabAbbonamenti" href="profile_abbonamenti.php">Abbonamenti</a>
+          </li>
+          <li class="currentTab">
+            <span id="tabCertificato" aria-current="page">Certificato</span>
           </li>
           <li>
             <a id="tabProfilo" href="profile_profilo.php">Profilo</a>
           </li>
         </ul>
       </nav>
-      <h2 class="tabTitle">I tuoi abbonamenti</h2>
+      <h2 class="tabTitle">Il tuo certificato medico</h2>
+      <!--tabella certificato-->
       <div class="tb-container">
-        <!--sezione abbonamenti-->
+        <table class="esercizio">
+            <caption id="caption-certificato">Certificato</caption>
+            <thead>
+                <tr>
+                    <th scope="col"><span lang="en">File</span></th>
+                    <th scope="col">Stato</th>
+                    <th scope="col">Scadenza</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="@@fileLink@@" aria-label="Collegamento al file @@fileName@@">@@fileName@@</a></td>
+                    <td aria-label="Stato">@@stato@@</td>
+                    <td aria-label="Scadenza">@@scadenza@@</td>
+                </tr>
+            </tbody>
+        </table>
       </div>
+      <!--fine tabella certificato-->
     </main>
     <footer>
       <section id="orari">

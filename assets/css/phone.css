@@ -392,7 +392,8 @@ footer a:hover {
   text-align: center;
   padding: 0.5em;
   border-radius: 1em;
-  margin-bottom: 0.5em;
+  margin: 0.5em auto;
+  width: 80%;
 }
 
 .form-login-register {
@@ -600,28 +601,28 @@ h4 {
   padding: 0.5em;
 }
 
-table.esercizio {
+table {
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-body_family);
 }
 
-table.esercizio th, table.esercizio td {
+table th, table td {
   border: 1px solid var(--headerBackgroundColor);
   text-align: left;
   padding: 10px;
 }
 
-table.esercizio th {
+table th {
   background-color: var(--headTable);
   color: var(--headerTxtColor);
 }
 
-table.esercizio tr {
+table tr {
   background-color: var(--bgColor);
 }
 
-table.esercizio caption {
+table caption {
   background-color: var(--headerBackgroundColor);
   color: var(--headerTxtColor);
 }
@@ -697,6 +698,15 @@ table.esercizio caption {
 
 .form-modifica-psw {
   margin-top: 10%;
+}
+
+/************************/
+/* PAGINA PROFILO CERTIFICATO */
+/************************/
+caption#caption-certificato {
+  padding: 0.5em;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
 }
 
 /************************/
