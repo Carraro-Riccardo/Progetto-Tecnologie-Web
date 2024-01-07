@@ -1,33 +1,7 @@
 <?php
 session_start();
 require_once("db_handler.php");
-
-function checkUsername($username) {
-    $usernameRegex = "/^[A-Za-z]+$/";
-    $usernameLength = 50;
-
-    if (empty($username)) {
-        return "Lo <span lang='en'>username</span> non può essere vuoto.";
-    } else if (!preg_match($usernameRegex, $username)) {
-        return "Lo <span lang='en'>username</span> può contenere solo caratteri (maiuscoli e minuscoli).";
-    } else if (strlen($username) > $usernameLength) {
-        return "Lo <span lang='en'>username</span> non può eccedere i " . $usernameLength . " caratteri).";
-    }
-
-    return "";
-}
-
-function checkPassword($password) {
-    $passwordLength = 255;
-
-    if (empty($password)) {
-        return "La <span lang='en'>password</span> non può essere vuota.";
-    } else if (strlen($password) > $passwordLength) {
-        return "La <span lang='en'>password</span> non può eccedere i " . $passwordLength . " caratteri.";
-    }
-
-    return "";
-}
+require_once("server_side_validator.php");
 
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");

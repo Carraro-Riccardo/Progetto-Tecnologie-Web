@@ -44,7 +44,7 @@ if(isset($_SESSION["user_id"])){
         $confirmButtons .= "<div class='confirmButtons'>\n<a class='cancelEdit' href='profile_profilo.php'>Annulla</a>\n";
         $confirmDivEnd .= "</div>\n";
 
-        $passwordChangeForm .= "<form action='profile_profilo.php' method='post' class='form-login-register form-modifica-psw'>\n";
+        $passwordChangeForm .= "<form id='editPasswordForm' action='profile_profilo.php' method='post' class='form-login-register form-modifica-psw'>\n";
         $passwordChangeForm .= "<fieldset>\n";
         $passwordChangeForm .= "<legend>Modifica password</legend>\n";
         $passwordChangeForm .= "<input type='password' id='oldPassword' name='oldPassword' placeholder='Vecchia password' required {$editable}/>\n";

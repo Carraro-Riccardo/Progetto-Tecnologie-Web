@@ -46,6 +46,9 @@
 
   --errorMessageBgColor: rgb(180, 0, 0);
   --errorMessageTxtColor: white;
+
+  --emptyResultBgColor: black;
+  --emptyResultTxtColor: white;
 }
 
 * {
@@ -467,6 +470,16 @@ footer a:hover {
 /************************/
 /* PAGINA PROFILO SCHEDE*/
 /************************/
+
+p.empty-result {
+  width: 80%;
+  text-align: center;
+  background: var(--emptyResultBgColor);
+  color: var(--emptyResultTxtColor);
+  margin: 0 auto;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
 
 .tabTitle {
   background-color: var(--tabTitleBgColor);

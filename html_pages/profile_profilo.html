@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/profile_edit_validator.js"></script>
     <title>Profilo - Profilo</title>
   </head>
   <body>
@@ -75,7 +76,7 @@
           </li>
         </ul>
       </nav>
-      <form action="profile_profilo.php" method="post" class="form-login-register">
+      <form id="editUserDataForm" action="" method="post" class="form-login-register">
         <fieldset>
           <legend class="tabTitle">Dati utente</legend>
           <input
@@ -119,8 +120,8 @@
           @@confirmLabel@@
           <input
             type="password"
-            id="Password"
-            name="Password"
+            id="password"
+            name="password"
             placeholder="Password"
             value="@@password@@"
             required

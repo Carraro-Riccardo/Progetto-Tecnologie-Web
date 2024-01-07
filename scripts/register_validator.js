@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .getElementById("registerForm")
           .insertBefore(errorElement, document.querySelector(".form-login-register fieldset"));
       }
-      errorElement.textContent = errorMessage;
+      errorElement.innerHTML = errorMessage;
     }
   });
 });
