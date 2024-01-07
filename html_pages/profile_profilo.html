@@ -64,6 +64,9 @@
     <main>
       <nav id="schede-utente">
         <ul id="tabs">
+          <li class="currentTab">
+            <span id="tabProfilo" aria-current="page">Profilo</span>
+          </li>
           <li>
             <a id="tabSchede" href="profile_schede.php">Schede</a>
           </li>
@@ -73,11 +76,13 @@
           <li>
             <a id="tabCertificato" href="profile_certificato.php">Certificato</a>
           </li>
-          <li class="currentTab">
-            <span id="tabProfilo" aria-current="page">Profilo</span>
-          </li>
         </ul>
       </nav>
+      <section id="sectionQrCode">
+        <h3 class="tabTitle">QR Code</h3>
+        <p>Accedi velocemente in palestra con il tuo <span lang="en">QR code</span></p>
+        @@qrCode@@
+      </section>
       <form
         id="editUserDataForm"
         action="profile_profilo_edit.php"

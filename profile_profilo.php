@@ -19,6 +19,7 @@ if(isset($_SESSION["user_id"])){
         exit;
     }
     
+    $page = str_replace("@@qrCode@@", "<img class='qr_code' src='qr_generator.php' alt='qr code'/>", $page);
     $page = str_replace("@@username@@", $dati_result["username"], $page);
     $page = str_replace("@@nome@@", $dati_result["nome"], $page);
     $page = str_replace("@@cognome@@", $dati_result["cognome"], $page);
