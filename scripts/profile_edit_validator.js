@@ -26,13 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (errorMessage !== "") {
       event.preventDefault();
       var errorElement = document.getElementById("error-message");
-      if (!errorElement) {
-        errorElement = document.createElement("p");
-        errorElement.id = "error-message";
-        document
-          .getElementById("editUserDataForm")
-          .insertBefore(errorElement, document.querySelector(".form-login-register fieldset"));
+
+      if (errorElement) {
+        errorElement.remove();
       }
+      errorElement = document.createElement("p");
+      errorElement.id = "error-message";
+      document
+        .getElementById("editUserDataForm")
+        .insertBefore(errorElement, document.querySelector(".form-login-register fieldset"));
       errorElement.innerHTML = errorMessage;
     }
   });
@@ -50,16 +52,20 @@ document.addEventListener("DOMContentLoaded", function () {
     if (errorMessage !== "") {
       event.preventDefault();
       var errorElement = document.getElementById("error-message");
-      if (!errorElement) {
-        errorElement = document.createElement("p");
-        errorElement.id = "error-message";
-        document
-          .getElementById("editPasswordForm")
-          .insertBefore(
-            errorElement,
-            document.getElementById("editPasswordForm").querySelector(".form-login-register fieldset")
-          );
+
+      if (errorElement) {
+        errorElement.remove();
       }
+
+      errorElement = document.createElement("p");
+      errorElement.id = "error-message";
+      document
+        .getElementById("editPasswordForm")
+        .insertBefore(
+          errorElement,
+          document.getElementById("editPasswordForm").querySelector(".form-login-register fieldset")
+        );
+
       errorElement.innerHTML = errorMessage;
     }
   });

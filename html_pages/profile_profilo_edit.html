@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/profile_edit_validator.js"></script>
     <title>Profilo - Profilo</title>
   </head>
   <body>
@@ -75,12 +76,8 @@
           </li>
         </ul>
       </nav>
-      <form
-        id="editUserDataForm"
-        action="profile_profilo_edit.php"
-        method="post"
-        class="form-login-register"
-      >
+      @@errorMessageUserData@@
+      <form id="editUserDataForm" action="" method="post" class="form-login-register">
         <fieldset>
           <legend class="tabTitle">Dati utente</legend>
           <input
@@ -90,7 +87,6 @@
             placeholder="Username"
             value="@@username@@"
             required
-            readonly
           />
           <div id="datiPersonali">
             <input
@@ -100,7 +96,6 @@
               placeholder="Nome"
               value="@@nome@@"
               required
-              readonly
             />
             <input
               type="text"
@@ -109,7 +104,6 @@
               placeholder="Cognome"
               value="@@cognome@@"
               required
-              readonly
             />
           </div>
           <input
@@ -119,8 +113,10 @@
             placeholder="Email"
             value="@@email@@"
             required
-            readonly
           />
+          <label id="lblConfirm" for="oldPassword"
+            >Inserisci la <span lang="en">password</span> per confermare le modifiche.</label
+          >
           <input
             type="password"
             id="password"
@@ -128,11 +124,57 @@
             placeholder="Password"
             value="@@password@@"
             required
-            readonly
+
           />
-          <input type="submit" name="action" class="submitBtn" value="Modifica" />
+          <div class="confirmButtons">
+            <a class="cancelEdit" href="profile_profilo.php">Annulla</a>
+            <input type="submit" name="action" class="submitBtn" value="Salva" />
+          </div>
         </fieldset>
-        <a href='logout.php' id='logout'><span lang='en'>Log out</span></a>
+      </form>
+      @@errorMessagePasswordChange@@
+      <form
+        id="editPasswordForm"
+        action="profile_profilo.php"
+        method="post"
+        class="form-login-register form-modifica-psw"
+      >
+        <fieldset>
+          <legend>Modifica password</legend>
+          <input
+            type="password"
+            id="oldPassword"
+            name="oldPassword"
+            placeholder="Vecchia password"
+            required
+
+          />
+          <input
+            type="password"
+            id="newPassword"
+            name="newPassword"
+            placeholder="Nuova password"
+            required
+
+          />
+          <input
+            type="password"
+            id="confermaNuovaPsw"
+            name="confermaNuovaPsw"
+            placeholder="Conferma nuova password"
+            required
+
+          />
+          <div class="confirmButtons">
+            <a class="cancelEdit" href="profile_profilo.php">Annulla</a>
+            <input
+              type="submit"
+              name="action"
+              class="submitBtn"
+              value="Salva password"
+            />
+          </div>
+        </fieldset>
       </form>
     </main>
     <footer>
