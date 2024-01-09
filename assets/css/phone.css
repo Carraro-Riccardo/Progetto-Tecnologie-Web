@@ -61,6 +61,11 @@
   --pageTitleTxtColor: white;
 
   --adminPageBackground: #b5a382;
+  --metricaBgColor: white;
+  --metricaTxtColor: black;
+  --metricaBorderColor: rgba(122,0,0,100);
+  --metricaTitleBgColor: rgba(122,0,0,100);
+  --metricaTitleTxtColor: white;
 }
 
 * {
@@ -865,12 +870,13 @@ li.metrica {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1 1 0;
+  flex: 1 1 10em;
   min-height: 10em;
   border-radius: 1em;
-  background-color: white;
+  background-color: var(--metricaBgColor);
   gap: 1em;
   filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 100));
+  overflow: hidden;
 }
 
 li.metrica h3 {
@@ -880,8 +886,8 @@ li.metrica h3 {
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
   filter: drop-shadow(0px 0px 7px rgba(122, 0, 0, 100));
-  background-color: var(--breadcrumbBgColor);
-  color: white;
+  background-color: var(--metricaTitleBgColor);
+  color: var(--metricaTitleTxtColor);
 }
 
 li.metrica p {
