@@ -123,6 +123,28 @@ class Database {
         $stmt->close();
         return $result; 
     }
+
+    public function getAllSchede(){
+        $query = "  SELECT  scheda.id_scheda,
+                            allenatori.nome AS nome_allenatore,
+                            esercizi.nome,
+                            schede_esercizi.giorno_settimana,
+                            schede_esercizi.numero_set,
+                            schede_esercizi.numero_ripetizioni
+                    FROM   scheda
+                            JOIN schede_esercizi
+                            ON scheda.id_scheda = schede_esercizi.id_scheda
+                            JOIN esercizi
+                            ON schede_esercizi.id_esercizio = esercizi.id
+                            JOIN allenatori
+                            ON scheda.id_allenatore = allenatori.id";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
 }
 
 ?>

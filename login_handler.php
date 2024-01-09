@@ -4,7 +4,7 @@ require_once("db_handler.php");
 require_once("server_side_validator.php");
 
 if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
+    header((isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "user")? "Location: profile_profilo.php" : "Location: admin_landing.php");
     exit;
 }
 
@@ -35,7 +35,7 @@ if($login_result) {
     $_SESSION['user_id'] = $login_result['id'];
     $_SESSION['username'] = $login_result['username'];
     $_SESSION['ruolo'] = $login_result['ruolo'];
-    header("Location: profile_schede.php");
+    header(($login_result['ruolo'] == "user")? "Location: profile_profilo.php" : "Location: admin_landing.php");
     exit;
 } else {
     $_SESSION["error"] = "Credenziali errate.";

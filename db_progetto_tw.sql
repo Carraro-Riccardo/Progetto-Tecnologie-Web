@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 06, 2024 alle 10:35
--- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.2.12
+-- Creato il: Gen 09, 2024 alle 01:01
+-- Versione del server: 10.4.17-MariaDB
+-- Versione PHP: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -22,6 +22,7 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `db_progetto_tw` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `db_progetto_tw`;
+
 -- --------------------------------------------------------
 
 --
@@ -33,16 +34,16 @@ CREATE TABLE `abbonamenti` (
   `nome` varchar(255) DEFAULT NULL,
   `durata` int(11) DEFAULT NULL,
   `costo` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `abbonamenti`
 --
 
 INSERT INTO `abbonamenti` (`id`, `nome`, `durata`, `costo`) VALUES
-(1, 'Mensile', 30, 50.00),
-(2, 'Trimestrale', 90, 140.00),
-(3, 'Annuale', 365, 500.00);
+(1, 'Mensile', 30, '50.00'),
+(2, 'Trimestrale', 90, '140.00'),
+(3, 'Annuale', 365, '500.00');
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ CREATE TABLE `allenatori` (
   `cognome` varchar(50) DEFAULT NULL,
   `data_di_nascita` date DEFAULT NULL,
   `descrizione` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `allenatori`
@@ -64,7 +65,9 @@ CREATE TABLE `allenatori` (
 
 INSERT INTO `allenatori` (`id`, `nome`, `cognome`, `data_di_nascita`, `descrizione`) VALUES
 (1, 'nomeA1', 'cognomeA1', '2000-01-01', ' universalmente riconosciuto che un lettore che osserva il layout di una pagina viene distratto dal contenuto testuale se questo è leggibile. Lo scopo dell’utilizzo del Lorem Ipsum è che offre una normale distribuzione delle lettere (al contrario di quant'),
-(2, 'nomeA2', 'cognomeA2', '2000-01-02', ' universalmente riconosciuto che un lettore che osserva il layout di una pagina viene distratto dal contenuto testuale se questo è leggibile. Lo scopo dell’utilizzo del Lorem Ipsum è che offre una normale distribuzione delle lettere (al contrario di quant');
+(2, 'nomeA2', 'cognomeA2', '2000-01-02', ' universalmente riconosciuto che un lettore che osserva il layout di una pagina viene distratto dal contenuto testuale se questo è leggibile. Lo scopo dell’utilizzo del Lorem Ipsum è che offre una normale distribuzione delle lettere (al contrario di quant'),
+(3, 'nomeA3', 'cognomeA3', '2000-01-01', 'Proprio un pieppero del quartiere!'),
+(4, 'nomeA4', 'cognomeA4', '2000-01-01', 'Un altro vero pippero del quartiere!');
 
 -- --------------------------------------------------------
 
@@ -77,7 +80,7 @@ CREATE TABLE `esercizi` (
   `nome` varchar(255) DEFAULT NULL,
   `descrizione` text DEFAULT NULL,
   `id_macchinario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `esercizi`
@@ -104,7 +107,7 @@ INSERT INTO `esercizi` (`id`, `nome`, `descrizione`, `id_macchinario`) VALUES
 CREATE TABLE `gruppimuscolari` (
   `ID` int(11) NOT NULL,
   `gruppoMuscolare` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `gruppimuscolari`
@@ -130,7 +133,7 @@ CREATE TABLE `macchinari` (
   `nome` varchar(30) DEFAULT NULL,
   `dataDiAcquisto` date DEFAULT NULL,
   `gruppoMuscolare` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `macchinari`
@@ -157,7 +160,7 @@ INSERT INTO `macchinari` (`id`, `nome`, `dataDiAcquisto`, `gruppoMuscolare`) VAL
 CREATE TABLE `scheda` (
   `id_scheda` int(11) NOT NULL,
   `id_allenatore` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `scheda`
@@ -165,7 +168,9 @@ CREATE TABLE `scheda` (
 
 INSERT INTO `scheda` (`id_scheda`, `id_allenatore`) VALUES
 (1, 1),
-(2, 2);
+(2, 2),
+(3, 3),
+(4, 4);
 
 -- --------------------------------------------------------
 
@@ -180,7 +185,7 @@ CREATE TABLE `schede_esercizi` (
   `giorno_settimana` enum('lunedi','martedi','mercoledi','giovedi','venerdi','sabato','domenica') DEFAULT NULL,
   `numero_set` int(11) DEFAULT NULL,
   `numero_ripetizioni` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `schede_esercizi`
@@ -196,7 +201,17 @@ INSERT INTO `schede_esercizi` (`id`, `id_scheda`, `id_esercizio`, `giorno_settim
 (7, 2, 7, 'martedi', 3, 10),
 (8, 2, 1, 'giovedi', 3, 10),
 (9, 2, 2, 'giovedi', 3, 10),
-(10, 2, 3, 'sabato', 3, 10);
+(10, 2, 3, 'sabato', 3, 10),
+(11, 3, 2, 'lunedi', 3, 10),
+(12, 3, 2, 'martedi', 3, 10),
+(13, 3, 1, 'giovedi', 4, 10),
+(14, 3, 4, 'giovedi', 3, 10),
+(15, 3, 6, 'lunedi', 3, 10),
+(16, 4, 1, 'venerdi', 3, 10),
+(17, 4, 7, 'martedi', 4, 10),
+(18, 4, 7, 'giovedi', 3, 10),
+(19, 4, 1, 'giovedi', 3, 10),
+(20, 4, 3, 'giovedi', 3, 10);
 
 -- --------------------------------------------------------
 
@@ -208,15 +223,14 @@ CREATE TABLE `schede_utente` (
   `id` int(11) NOT NULL,
   `id_utente` int(11) DEFAULT NULL,
   `id_scheda` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `schede_utente`
 --
 
 INSERT INTO `schede_utente` (`id`, `id_utente`, `id_scheda`) VALUES
-(1, 1, 1),
-(2, 1, 2);
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -231,16 +245,20 @@ CREATE TABLE `utenti` (
   `password` varchar(255) DEFAULT NULL,
   `ruolo` enum('user','admin') DEFAULT NULL,
   `certificatoMedico` enum('approvato','non approvato','assente') DEFAULT NULL,
+  `certificatoPath` varchar(100) DEFAULT NULL,
+  `scadenzaCertificato` date DEFAULT NULL,
   `nome` varchar(30) DEFAULT NULL,
   `cognome` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certificatoMedico`, `nome`, `cognome`) VALUES
-(1, 'user', 'user@gmail.com', 'user', 'user', 'approvato', 'user', 'user');
+INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`) VALUES
+(1, 'user', 'user@gmail.com', 'user', 'user', 'approvato', './certificati/certificato_1.pdf', '2025-01-01', 'nome user', 'cognome user'),
+(5, 'nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', NULL, NULL, NULL, 'nome nuovo', 'cognome nuovo'),
+(7, 'admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi');
 
 -- --------------------------------------------------------
 
@@ -252,7 +270,7 @@ CREATE TABLE `utenti_abbonamenti` (
   `id_utente` int(11) NOT NULL,
   `id_abbonamento` int(11) NOT NULL,
   `data_stipula` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utenti_abbonamenti`
@@ -347,7 +365,7 @@ ALTER TABLE `abbonamenti`
 -- AUTO_INCREMENT per la tabella `allenatori`
 --
 ALTER TABLE `allenatori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `esercizi`
@@ -371,13 +389,13 @@ ALTER TABLE `macchinari`
 -- AUTO_INCREMENT per la tabella `scheda`
 --
 ALTER TABLE `scheda`
-  MODIFY `id_scheda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_scheda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `schede_esercizi`
 --
 ALTER TABLE `schede_esercizi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT per la tabella `schede_utente`
@@ -389,7 +407,7 @@ ALTER TABLE `schede_utente`
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Limiti per le tabelle scaricate

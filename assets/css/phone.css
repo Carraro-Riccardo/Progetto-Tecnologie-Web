@@ -56,6 +56,9 @@
 
   --paragraphQrBgColor: black;
   --paragraphQrTxtColor: white;
+
+  --pageTitleBgColor: black;
+  --pageTitleTxtColor: white;
 }
 
 * {
@@ -150,6 +153,14 @@ header {
   padding: 10px;
   transition: 0.4s ease-in;
   font-family: var(--font-body_family);
+}
+
+#nav-principale ul li span {
+  padding: 0;
+}
+
+#nav-principale ul li span.active {
+  padding: 10px 
 }
 
 #nav-principale ul li a:hover,
@@ -292,6 +303,9 @@ header {
 #chiSiamo::before {
   background: url("../imgs/chiSiamo.jpg") center/cover;
 }
+#schede::before {
+  background: url("../imgs/schede.png") center/cover;
+}
 
 .card .description {
   position: absolute;
@@ -351,6 +365,15 @@ section.titleSection {
 
 #mainHomePage {
   background: url("../imgs/background-nobg.png") no-repeat center/cover;
+}
+
+h2.normalPageTitle {
+  text-align: center;
+  width: 100%;
+  margin: 1em 0;
+  padding: 1em 0em;
+  background-color: var(--pageTitleBgColor);
+  color: var(--pageTitleTxtColor);
 }
 
 h2.homePageTitle {
@@ -826,6 +849,28 @@ caption#caption-certificato {
 
 }
 
+/***************************/
+/* PAGINA ADMIN landing */
+/***************************/
+
+nav.nav-admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1em;
+  margin-top: 5%;
+}
+
+nav.nav-admin a {
+  width: 60%;
+  text-align: center;
+  border: 1px solid white;
+  background: black;
+  color: white;
+  padding: 1.5em;
+  border-radius: 1em;;
+}
+
 @media (min-width: 725px) {
 
   .schede-container {
@@ -860,7 +905,7 @@ caption#caption-certificato {
 
   #cards-container {
     max-width: 800px;
-    min-height: 1200px;
+    min-height: 1300px;
   }
 }
 
@@ -873,6 +918,6 @@ caption#caption-certificato {
 
   #cards-container {
     max-width: 1000px;
-    min-height: 1200px;
+    min-height: 1500px;
   }
 }
