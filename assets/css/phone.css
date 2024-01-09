@@ -61,6 +61,9 @@
   --pageTitleTxtColor: white;
 
   --adminPageBackground: #b5a382;
+
+
+  --titleLabel : rgb(255, 255, 255);
 }
 
 * {
@@ -957,4 +960,100 @@ li.metrica a {
     max-width: 1000px;
     min-height: 1500px;
   }
+}
+
+
+/* CONTATTACI PAGE */
+.contactUs-container {
+  text-align: center;
+  width: 25em;
+}
+
+.contactUs-container h2 {
+  margin-top: 1em;
+  text-transform: uppercase;
+}
+
+.contactUs-container p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+
+.contactUs-form {
+  display: flex;
+  margin: auto;
+  text-align: left;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.contactUs-form input[type="text"],.contactUs-form input[type="email"] {
+  margin: 0em;
+  display: block;
+  width: 85%;
+  border: 1px solid #000000;
+  padding-top: 0.5em;
+}
+
+.contactUs-container h2{
+  margin-top:1em;
+  text-transform: uppercase;
+}
+
+.contactUs-container p{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+.contactUs-form{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 28em;
+}
+
+.contactUs-form input[type="text"],.contactUs-form input[type="email"] {
+  margin: 0em;
+  display: block;
+  width: 85%;
+  border: 1px solid #000000;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.contactUs-form textarea {
+  resize: vertical;
+  border: 1px solid #ddd;
+  padding-top: .5em;
+  width: 85%;
+  height: 12em;
+  display: block;
+  padding-left: 0.5em;
+}
+
+.contactUs-form input[type="submit"] {
+  background-color: #fcf7f8;
+  color: #000000;
+  border-style: none;
+  border-radius: 10px;
+  padding: .5em 1em;
+  cursor: pointer;
+  display: block;
+  padding: 1em;
+  margin-top:1em;
+  float: none;
+  display: block;
+
+}
+
+
+.contactUs-form label{
+  color: var(--titleLabel);
+  font-weight: bold;
+  margin-bottom: 0.2em;
+  margin-left: 0.5em;
 }
