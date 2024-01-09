@@ -356,6 +356,7 @@ footer a:hover {
   }
 }
 
+
 /************************/
 /* CHI SIAMO */
 /************************/
@@ -387,7 +388,7 @@ footer a:hover {
 }
 
 
-#Componenti img {
+.Componente img {
   border-radius: 50%;
   width: 8em;
   height: 8em;
@@ -396,22 +397,23 @@ footer a:hover {
   border: 5px solid #ffffff;
 }
 
-
+.Componente{
+  position: relative;
+}
 .Componente dt {
   float: left;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 0.6em;
   padding-left: 0.5em;
 }
 
 .Componente dd {
   margin-left: 8em;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 
 #Componenti ul {
   list-style: none;
-  
 }
 
 #Componenti ul li {
@@ -420,17 +422,29 @@ footer a:hover {
 
 .Componente span {
   font-weight: bold;
-  margin-top: -26em;
-  margin-right: 1em;
-  font-size: 0.75em;
-  float: right;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0.8em;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 40%;
+  
 }
 .Componente table {
-  float: right;
-  margin-top: -20em;
-  margin-right: 1em;
-  font-size: 0.9em;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1em;
+  margin: auto;
+  position: absolute;
+  padding-top: 1em;
+  padding-right: 0.5em;
+  top: 0;
+  right: 0;
+
 }
+
+
 
 .Componente table td {
   padding: 0.5em;
@@ -457,4 +471,6 @@ footer a:hover {
   flex-wrap: wrap;
   column-gap: 1em;
 }
+
+
 
