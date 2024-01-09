@@ -145,6 +145,54 @@ class Database {
         $stmt->close();
         return $result;
     }
+
+    public function getNumeroAbbonatiValidi(){
+        $query = "  SELECT COUNT(*) AS numero 
+                    FROM utenti_abbonamenti JOIN abbonamenti ON utenti_abbonamenti.id_abbonamento = abbonamenti.id 
+                    WHERE data_stipula <= CURDATE() AND CURDATE() <= Date_add(data_stipula, INTERVAL abbonamenti.durata day);";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result->fetch_assoc()["numero"];
+    }
+
+    public function getIncassi(){
+        $query = "  SELECT SUM(costo) AS incasso
+                    FROM utenti_abbonamenti JOIN abbonamenti ON utenti_abbonamenti.id_abbonamento = abbonamenti.id 
+                    WHERE data_stipula <= CURDATE() AND CURDATE() <= Date_add(data_stipula, INTERVAL abbonamenti.durata day);";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result->fetch_assoc()["incasso"];
+    }
+
+    public function getCertificatiDaValidare(){
+        $query = "  SELECT count(*) as numero
+                    FROM utenti 
+                    WHERE ruolo = 'user' AND certificatoMedico = 'da validare'";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result->fetch_assoc()["numero"];
+    }
+
+    public function getTotaleUtenti(){
+        $query = "  SELECT count(*) as numero
+                    FROM utenti 
+                    WHERE ruolo = 'user'";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result->fetch_assoc()["numero"];
+    }   
 }
 
 ?>

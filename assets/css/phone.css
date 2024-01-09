@@ -59,6 +59,8 @@
 
   --pageTitleBgColor: black;
   --pageTitleTxtColor: white;
+
+  --adminPageBackground: #b5a382;
 }
 
 * {
@@ -838,6 +840,62 @@ caption#caption-certificato {
   border-top-right-radius: 2em;
 }
 
+/***************************/
+/* PAGINA ADMIN landing */
+/***************************/
+
+#bodyAdmin {
+  background-color: var(--adminPageBackground);
+}
+
+ul.container-metriche {
+  padding: 1.5em;
+  padding-top: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+li.metrica {
+  border: 3px solid var(--breadcrumbBgColor);
+  padding: 0.5em;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 0;
+  min-height: 10em;
+  border-radius: 1em;
+  background-color: white;
+  gap: 1em;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 100));
+}
+
+li.metrica h3 {
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  filter: drop-shadow(0px 0px 7px rgba(122, 0, 0, 100));
+  background-color: var(--breadcrumbBgColor);
+  color: white;
+}
+
+li.metrica p {
+  text-align: center;
+  margin: auto;
+  font-size: 5em;
+}
+
+li.metrica a {
+  text-decoration: underline;
+  width: max-content;
+  text-align: center;
+  color: blue;
+}
 /************************/
 /* MEDIA QUERIES */
 /************************/
@@ -847,28 +905,6 @@ caption#caption-certificato {
     min-width: 30px;
   }
 
-}
-
-/***************************/
-/* PAGINA ADMIN landing */
-/***************************/
-
-nav.nav-admin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 1em;
-  margin-top: 5%;
-}
-
-nav.nav-admin a {
-  width: 60%;
-  text-align: center;
-  border: 1px solid white;
-  background: black;
-  color: white;
-  padding: 1.5em;
-  border-radius: 1em;;
 }
 
 @media (min-width: 725px) {
@@ -901,6 +937,7 @@ nav.nav-admin a {
     width: 100%;
     max-width: 7em;
     max-height: 6em;
+    min-width: 3em;
   }
 
   #cards-container {
