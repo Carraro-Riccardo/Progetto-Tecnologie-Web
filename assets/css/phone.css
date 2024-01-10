@@ -95,6 +95,16 @@ header {
   color: var(--headerTxtColor);
 }
 
+.screen-reader-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
 /************************/
 /* BREADCRUMB */
 /************************/
@@ -329,6 +339,7 @@ header {
   opacity: 0.7;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  padding-top: 0.5em;
 }
 .card .description span {
   font-size: 3em;
@@ -371,10 +382,11 @@ section.titleSection {
 }
 
 #mainHomePage {
-  background: url("../imgs/background-nobg.png") no-repeat center/cover;
+  background: url("../imgs/background-nobg.png") no-repeat center;
+  background-position-y: 3em;
 }
 
-h2.normalPageTitle {
+.normalPageTitle {
   text-align: center;
   width: 100%;
   margin: 1em 0;
@@ -493,38 +505,37 @@ footer a:hover {
   width: 80%;
 }
 
-.form-login-register {
+.user-data-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3%;
+  margin: 0 2em;
 }
 
-.form-login-register > fieldset {
-  display: flex;
+.user-data-container > fieldset {
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   border: none;
   row-gap: 2em;
-  width: 80%;
 }
 
-.form-login-register fieldset label {
-  text-align: center;
-}
-
-.form-login-register input {
+.user-data-container input {
   width: 100%;
   height: 3em;
   border: none;
-  border-radius: 5px;
-  padding-left: 0.5em;
-  font-size: large;
+  /* border-radius: 5px; */
+  /* display: inline; */
+  border-top-right-radius: 0.3em;
+  padding-right: 0.5em;
+  font-size: 1.2em;
+  flex-grow: 1;
+  text-align: right;
 }
 
-.form-login-register legend {
+
+.user-data-container input[type="submit"] {
+  text-align: center;
+}
+
+.user-data-container legend {
   text-align: center;
   margin-bottom: 1em;
   color: var(--formLegendTxtColor);
@@ -535,34 +546,40 @@ footer a:hover {
 .confirmButtons {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   column-gap: 2em;
-  width: 100%;
+  flex-wrap: wrap;
+  row-gap: 1em;
 }
 
 .submitBtn {
-  height: 3em;
-  padding: 0.5em;
-  padding-left: 1.1em;
-  padding-right: 1.1em;
+  height: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
-  margin-right: 0.5em;
   border: none;
   outline: none;
   background-color: var(--formBtnBgColor);
   color: var(--formBtnTxtColor);
   font-size: large;
+  flex-grow: 1;
+  min-width: 10em;
+}
+
+.confirmButtons p {
+  flex-grow: 1;
+  text-align: center;
 }
 
 #datiPersonali {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-#datiPersonali input {
-  width: 45%;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  /* column-gap: 2em; */
+  flex: 1 1 0;
 }
 
 /************************/
@@ -803,7 +820,7 @@ table caption {
   border: 1px solid var(--logoutBtnBorderColor);
 }
 
-.cancelEdit {
+.cancelBtn {
   color: black;
   background-color: white;
   width: inherit;
@@ -812,6 +829,7 @@ table caption {
   padding: 0.5em 0;
   text-decoration: none;
   border: 1px solid black;
+  flex-grow: 1;
 }
 
 .form-modifica-psw {
@@ -835,6 +853,35 @@ table caption {
   color: var(--paragraphQrTxtColor);
   padding: 0.5em;
   border-radius: 0.5em;
+}
+
+.input-field{
+  display: flex;
+  /* grid-auto-flow: revert; */
+  flex-flow: row-reverse;
+  /* column-gap: 5em; */
+  /* grid-template-columns: 70% 30%; */
+  /* flex-grow: 1; */
+  margin: 1em 0em;
+  border-bottom: 5px solid;
+  /* grid-column-gap: 3em; */
+}
+
+.input-field label {
+  text-align: right;
+  /* position: relative; */
+  display: flex;
+  flex-flow: column-reverse;
+  /* display: inline; */
+  /* top: -4.6em; */
+  background-color: white;
+  padding: 0.3em;
+  /* padding-bottom: 0; */
+  /* border-radius: 0.3em; */
+  /* border-bottom-left-radius: 0; */
+  /* border-bottom-right-radius: 0; */
+  border-top-left-radius: 0.3em;
+  font-weight: bold;
 }
 /************************/
 /* PAGINA PROFILO CERTIFICATO */
@@ -876,7 +923,7 @@ li.metrica {
   background-color: var(--metricaBgColor);
   gap: 1em;
   /*filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 100));*/
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 100);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 100);
   overflow: hidden;
 }
 
@@ -886,7 +933,7 @@ li.metrica h3 {
   margin-bottom: 0.5em;
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
-  filter: drop-shadow(0px 0px 7px rgba(122, 0, 0, 100));
+  /*filter: drop-shadow(0px 0px 7px rgba(122, 0, 0, 100));*/
   background-color: var(--metricaTitleBgColor);
   color: var(--metricaTitleTxtColor);
 }

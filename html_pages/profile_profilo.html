@@ -83,65 +83,78 @@
         <p>Accedi velocemente in palestra con il tuo <span lang="en">QR code</span></p>
         @@qrCode@@
       </section>
-      <form
+      <div
         id="editUserDataForm"
         action="profile_profilo_edit.php"
         method="post"
-        class="form-login-register"
+        class="user-data-container"
       >
-        <fieldset>
-          <legend class="tabTitle">Dati utente</legend>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Username"
-            value="@@username@@"
-            required
-            readonly
-          />
-          <div id="datiPersonali">
+
+          <div class="input-field">
             <input
               type="text"
-              id="nome"
-              name="nome"
-              placeholder="Nome"
-              value="@@nome@@"
+              id="username"
+              name="username"
+              placeholder="Username"
+              value="@@username@@"
               required
               readonly
             />
-            <input
-              type="text"
-              id="cognome"
-              name="cognome"
-              placeholder="Cognome"
-              value="@@cognome@@"
-              required
-              readonly
-            />
+            <label for="nome"><span lang="en">Username</span></label>
           </div>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value="@@email@@"
-            required
-            readonly
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            value="@@password@@"
-            required
-            readonly
-          />
-          <input type="submit" name="action" class="submitBtn" value="Modifica" />
-        </fieldset>
+          <div id="datiPersonali">
+            <div class="input-field">
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Nome"
+                value="@@nome@@"
+                required
+                readonly
+              />
+              <label for="nome">Nome</label>
+            </div>
+            <div class="input-field">
+              <input
+                type="text"
+                id="cognome"
+                name="cognome"
+                placeholder="Cognome"
+                value="@@cognome@@"
+                required
+                readonly
+              />
+              <label for="nome">Cognome</label>
+            </div>
+          </div>
+          <div class="input-field">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              value="@@email@@"
+              required
+              readonly
+            />
+            <label for="nome"><span lang="en">Email</span></label>
+          </div>
+          <div class="input-field">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              value="@@password@@"
+              required
+              readonly
+            />
+            <label for="nome"><span lang="en">Password</span></label>
+          </div>
+        <a href="profile_profilo_edit.php" class="submitBtn">Modifica</a>
         <a href="logout.php" id="logout"><span lang="en">Log out</span></a>
-      </form>
+        </div>
     </main>
     <footer>
       <section id="orari">

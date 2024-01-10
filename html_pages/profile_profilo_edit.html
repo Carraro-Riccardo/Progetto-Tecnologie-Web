@@ -37,7 +37,7 @@
               <a href="#">Corsi</a>
             </li>
             <li>
-                <a href="abbonamenti.php">Abbonamenti</a>
+              <a href="abbonamenti.php">Abbonamenti</a>
             </li>
             <li>
               <a href="#">Macchinari</a>
@@ -80,58 +80,74 @@
         </ul>
       </nav>
       @@errorMessageUserData@@
-      <form id="editUserDataForm" action="profile_profilo_edit.php" method="post" class="form-login-register">
+      <form
+        id="editUserDataForm"
+        action="profile_profilo_edit.php"
+        method="post"
+        class="user-data-container"
+      >
         <fieldset>
           <legend class="tabTitle">Dati utente</legend>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Username"
-            value="@@username@@"
-            required
-          />
-          <div id="datiPersonali">
+          <div class="input-field">
             <input
               type="text"
-              id="nome"
-              name="nome"
-              placeholder="Nome"
-              value="@@nome@@"
+              id="username"
+              name="username"
+              placeholder="Username"
+              value="@@username@@"
               required
             />
-            <input
-              type="text"
-              id="cognome"
-              name="cognome"
-              placeholder="Cognome"
-              value="@@cognome@@"
-              required
-            />
+            <label for="username"><span lang="en">Username</span></label>
           </div>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value="@@email@@"
-            required
-          />
-          <label id="lblConfirm" for="oldPassword"
-            >Inserisci la <span lang="en">password</span> per confermare le modifiche.</label
-          >
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            value="@@password@@"
-            required
-
-          />
+          <div id="datiPersonali">
+            <div class="input-field">
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Nome"
+                value="@@nome@@"
+                required
+              />
+              <label for="nome">Nome</label>
+            </div>
+            <div class="input-field">
+              <input
+                type="text"
+                id="cognome"
+                name="cognome"
+                placeholder="Cognome"
+                value="@@cognome@@"
+                required
+              />
+              <label for="cognome">Cognome</label>
+            </div>
+          </div>
+          <div class="input-field">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              value="@@email@@"
+              required
+            />
+            <label for="email"><span lang="en">Email</span></label>
+          </div>
+          <div class="input-field">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              value="@@password@@"
+              required
+            />
+            <label for="password"><span lang="en">Password</span></label>
+          </div>
           <div class="confirmButtons">
-            <a class="cancelEdit" href="profile_profilo.php">Annulla</a>
             <input type="submit" name="action" class="submitBtn" value="Salva" />
+            <a class="cancelBtn" href="profile_profilo.php">Annulla</a>
           </div>
         </fieldset>
       </form>
@@ -140,42 +156,43 @@
         id="editPasswordForm"
         action="profile_profilo.php"
         method="post"
-        class="form-login-register form-modifica-psw"
+        class="user-data-container form-modifica-psw"
       >
         <fieldset>
-          <legend>Modifica password</legend>
-          <input
-            type="password"
-            id="oldPassword"
-            name="oldPassword"
-            placeholder="Vecchia password"
-            required
-
-          />
-          <input
-            type="password"
-            id="newPassword"
-            name="newPassword"
-            placeholder="Nuova password"
-            required
-
-          />
-          <input
-            type="password"
-            id="confermaNuovaPsw"
-            name="confermaNuovaPsw"
-            placeholder="Conferma nuova password"
-            required
-
-          />
-          <div class="confirmButtons">
-            <a class="cancelEdit" href="profile_profilo.php">Annulla</a>
+          <legend class="tabTitle">Modifica password</legend>
+          <div class="input-field">
             <input
-              type="submit"
-              name="action"
-              class="submitBtn"
-              value="Salva password"
+              type="password"
+              id="oldPassword"
+              name="oldPassword"
+              placeholder="Vecchia password"
+              required
             />
+            <label for="oldPassword"><span lang="en">Password</span></label>
+          </div>
+          <div class="input-field">
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              placeholder="Nuova password"
+              required
+            />
+            <label for="newPassword">Nuova</label>
+          </div>
+          <div class="input-field">
+            <input
+              type="password"
+              id="confermaNuovaPsw"
+              name="confermaNuovaPsw"
+              placeholder="Conferma password"
+              required
+            />
+            <label for="confermaNuovaPsw">Conferma</label>
+          </div>
+          <div class="confirmButtons">
+            <input type="submit" name="action" class="submitBtn" value="Salva password" />
+            <a class="cancelBtn" href="profile_profilo.php">Annulla</a>
           </div>
         </fieldset>
       </form>

@@ -3,15 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/css/phone.css" />
-    <script src="../scripts/script.js"></script>
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
     <title>Error 500</title>
   </head>
   <body>
     <header class="main">
         <nav id="nav-principale" aria-label="navigazione">
           <div class="container">
+            <div class="logo-title-holder">
+              <a href="index.php">
+                <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
+              </a>
               <h1 class="site-title">Error 500</h1>
+            </div>
           </div>
           <button id="hamburger" aria-expanded="true">
             <span>Menu</span>
@@ -21,9 +26,7 @@
           </button>
     </header>
     <main>
-        <div id="error-message">
-            <h2>Error 500 - Errore interno</h2>
-        </div>
+        <h2 id="error-message">Error 500 - Errore interno.</h2>
     </main>
     <footer>
         <section id="orari">

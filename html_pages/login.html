@@ -61,18 +61,31 @@
       </nav>
     </header>
     <main>
+      <h2 class="normalPageTitle"><span lang="en">Log in</span></h2>
       @@error@@
-      <form action="login_handler.php" method="post" class="form-login-register" id="loginForm">
+      <form action="login_handler.php" method="post" class="user-data-container" id="loginForm">
         <fieldset>
-          <legend><span lang="en">Log in</span></legend>
-          <input type="text" id="username" name="username" placeholder="Enter Username" required />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter Password"
-            required
-          />
+          <legend class="screen-reader-only"><span lang="en">Log in</span></legend>
+          <div class="input-field">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter Username"
+              required
+            />
+            <label for="username"><span lang="en">Username</span></label>
+          </div>
+          <div class="input-field">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter Password"
+              required
+            />
+            <label for="password"><span lang="en">Password</span></label>
+          </div>
           <div class="confirmButtons">
             <button type="submit" class="submitBtn">Login</button>
             <p>lol, no account? <a href="register.php">Register now</a></p>
