@@ -20,19 +20,14 @@
         </div>
         <button id="hamburger" aria-expanded="true">
           <span>Menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewbox="0 0 20 20"
-            aria-hidden="true"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
             <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
           </svg>
         </button>
         <div class="main-nav">
           <ul class="container">
             <li>
-              <a href="admin_landing.php" aria-current="page"
-                ><span lang="en">Home Admin</span></a>
+              <a href="admin_landing.php" aria-current="page"><span lang="en">Home Admin</span></a>
             </li>
             <li>
               <a href="index.php"><span lang="en">Home</span></a>
@@ -59,9 +54,7 @@
       <nav id="breadcrumb" aria-label="breadcrumb">
         Ti trovi in:
         <ol>
-          <li>
-            <span lang="en" aria-current="true">Home</span> amministrazione
-          </li>
+          <li><span lang="en" aria-current="true">Home</span> amministrazione</li>
         </ol>
       </nav>
     </header>
@@ -78,7 +71,7 @@
         <!--Totale Incassi mese-->
         <li class="metrica">
           <h3>Incassi mese</h3>
-          <p>@@incassi@@</p>
+          <p>@@incassi@@ &euro;</p>
           <a>Maggiori dettagli</a>
         </li>
         <!--Fine Incassi mese-->
@@ -96,6 +89,17 @@
           <a>Maggiori dettagli</a>
         </li>
         <!--Fine Totale utenti registrati-->
+      </ul>
+      
+      <ul class="container-metriche">
+        <li class="metrica">
+          <h3>Andamento incassi ultimi 5 mesi</h3>
+          @@graficoIncassi@@
+        </li>
+        <li class="metrica">
+          <h3>Andamento utenti ultimi 5 mesi</h3>
+          @@graficoUtenti@@
+        </li>
       </ul>
     </main>
   </body>

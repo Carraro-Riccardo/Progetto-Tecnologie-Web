@@ -875,7 +875,8 @@ li.metrica {
   border-radius: 1em;
   background-color: var(--metricaBgColor);
   gap: 1em;
-  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 100));
+  /*filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 100));*/
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 100);
   overflow: hidden;
 }
 
@@ -893,7 +894,7 @@ li.metrica h3 {
 li.metrica p {
   text-align: center;
   margin: auto;
-  font-size: 5em;
+  font-size: 4em;
 }
 
 li.metrica a {
@@ -902,6 +903,14 @@ li.metrica a {
   text-align: center;
   color: blue;
 }
+
+img {
+  object-fit: cover;
+  width: 100%;
+  max-width: 21em;
+  max-height: 33em;
+}
+
 /************************/
 /* MEDIA QUERIES */
 /************************/

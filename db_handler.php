@@ -161,7 +161,7 @@ class Database {
     public function getIncassi(){
         $query = "  SELECT SUM(costo) AS incasso
                     FROM utenti_abbonamenti JOIN abbonamenti ON utenti_abbonamenti.id_abbonamento = abbonamenti.id 
-                    WHERE data_stipula <= CURDATE() AND CURDATE() <= Date_add(data_stipula, INTERVAL abbonamenti.durata day);";
+                    WHERE MONTH(data_stipula) = MONTH(CURDATE()) AND YEAR(data_stipula) = YEAR(CURDATE());";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -193,6 +193,45 @@ class Database {
         $stmt->close();
         return $result->fetch_assoc()["numero"];
     }   
+
+    public function getAndamentoIncassi(){
+        $query = "  SELECT MONTHNAME(data_stipula) AS mese, SUM(costo) AS incasso
+                    FROM utenti_abbonamenti JOIN abbonamenti ON utenti_abbonamenti.id_abbonamento = abbonamenti.id 
+                    WHERE data_stipula <= CURDATE() AND CURDATE() <= Date_add(data_stipula, INTERVAL abbonamenti.durata day)
+                    GROUP BY MONTH(data_stipula)
+                    ORDER BY MONTH(data_stipula) DESC
+                    LIMIT 5;";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res = array();
+        while($row = $result->fetch_assoc()){
+            $res[$row["mese"]] = $row["incasso"];
+        }
+        $stmt->close();
+        return $res;
+    }
+
+    public function getAndamentoUtenti(){
+        $query = "  SELECT DATE_FORMAT(dataRegistrazione, '%m-%Y') AS periodo, 
+                    COUNT(*) AS numero 
+                    FROM utenti 
+                    WHERE dataRegistrazione >= DATE_SUB(CURDATE(), INTERVAL 5 MONTH) 
+                    GROUP BY periodo 
+                    ORDER BY periodo DESC
+                    LIMIT 5;";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $res = array();
+        while($row = $result->fetch_assoc()){
+            $res[$row["periodo"]] = $row["numero"];
+        }
+        $stmt->close();
+        return $res;
+    }
 }
 
 ?>

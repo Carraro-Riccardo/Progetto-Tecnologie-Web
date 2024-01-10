@@ -21,12 +21,20 @@ $incassi = "";
 $certificati = "";
 $utenti = "";
 
+$andamentoIncassi = "";
+$andamentoUtenti = "";
+
 try {
     $db = new Database();
     $abbonamenti_validi = $db->getNumeroAbbonatiValidi();
     $incassi = $db->getIncassi();
     $certificati = $db->getCertificatiDaValidare();
     $utenti = $db->getTotaleUtenti();
+
+    $andamentoIncassi = $db->getAndamentoIncassi();
+    $andamentoIncassi = "<img src='./graph_generator.php?graph_data=".urlencode(json_encode($andamentoIncassi))."' alt='Andamento incassi' />";
+    $andamentoUtenti = $db->getAndamentoUtenti();
+    $andamentoUtenti = "<img src='./graph_generator.php?graph_data=".urlencode(json_encode($andamentoUtenti))."' alt='Andamento utenti' />";
     unset($db);
 }catch(Exception $e) {
     header("Location: index.php?error=sqlerror");
@@ -37,6 +45,7 @@ $page = str_replace("@@nAbbVal@@", $abbonamenti_validi, $page);
 $page = str_replace("@@incassi@@", $incassi, $page);
 $page = str_replace("@@certificati@@", $certificati, $page);
 $page = str_replace("@@utenti@@", $utenti, $page);
-
+$page = str_replace("@@graficoIncassi@@", $andamentoIncassi, $page);
+$page = str_replace("@@graficoUtenti@@", $andamentoUtenti, $page);
 echo $page;
 ?>
