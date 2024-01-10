@@ -868,6 +868,14 @@ table.esercizio caption {
   content: "🕺";
 }
 
+.emoji-time::before{
+  content: "🕘";
+}
+
+.emoji-time::after{
+  content: "📅";
+}
+
 #immagine-corso-pilates {
   background: url("../imgs/corsi_image/pilates.jpg") center/cover;
   content: "";
@@ -930,7 +938,7 @@ table.esercizio caption {
 @media (min-width: 601px) {
   #cards-container-corsi {
     max-width: 1000px;
-    min-height: 2100px;
+    min-height: 2400px;
   }
   .card-corso {
     flex-direction: row;
