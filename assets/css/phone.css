@@ -45,6 +45,7 @@
   --linkColor: white;
   --cardDescription: white;
   --h2TitleCard: #CF8607;
+  --titlePage: white;
 }
 
 * {
@@ -931,6 +932,14 @@ table.esercizio caption {
   
 }
 
+#title-page{
+  text-align: center;
+  color: var(--titlePage);
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  font-size: 3em;
+}
+
 .link-underline {
   text-decoration: underline;
 }
@@ -959,5 +968,13 @@ table.esercizio caption {
 
   .card-corso-description li {
     padding-bottom: 3%;
+  }
+
+  #title-page{
+    text-align: center;
+    color: var(--titlePage);
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    font-size: 3em;
   }
 }
