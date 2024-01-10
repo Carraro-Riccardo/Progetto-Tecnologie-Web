@@ -989,13 +989,7 @@ li.metrica a {
   align-items: center;
 }
 
-.contactUs-form input[type="text"],.contactUs-form input[type="email"] {
-  margin: 0em;
-  display: block;
-  width: 85%;
-  border: 1px solid #000000;
-  padding-top: 0.5em;
-}
+
 
 .contactUs-container h2{
   margin-top:1em;
@@ -1008,30 +1002,28 @@ li.metrica a {
   font-size: 1em;
 }
 .contactUs-form{
-  display: block;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  width: 28em;
 }
 
-.contactUs-form input[type="text"],.contactUs-form input[type="email"] {
+.contactUs-form input[type="text"],
+.contactUs-form input[type="email"],
+.contactUs-form textarea {
   margin: 0em;
-  display: block;
-  width: 85%;
+  display: flex;
   border: 1px solid #000000;
   padding-top: 0.5em;
   padding-left: 0.5em;
   margin-bottom: 0.5em;
+  width: 90%;
 }
 
 .contactUs-form textarea {
-  resize: vertical;
   border: 1px solid #ddd;
   padding-top: .5em;
-  width: 85%;
   height: 12em;
-  display: block;
   padding-left: 0.5em;
 }
 
@@ -1042,14 +1034,9 @@ li.metrica a {
   border-radius: 10px;
   padding: .5em 1em;
   cursor: pointer;
-  display: block;
   padding: 1em;
   margin-top:1em;
-  float: none;
-  display: block;
-
 }
-
 
 .contactUs-form label{
   color: var(--titleLabel);
