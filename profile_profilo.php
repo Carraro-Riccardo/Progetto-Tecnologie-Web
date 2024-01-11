@@ -14,8 +14,7 @@ if(isset($_SESSION["user_id"])){
         $dati_result = $db->getDatiUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
-        $_SESSION['error'] = "Errore interno.";
-        header("Location: login.php?error=sqlerror");
+        header("Location: ./error500.php");
         exit;
     }
     

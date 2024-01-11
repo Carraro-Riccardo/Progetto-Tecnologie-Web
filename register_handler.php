@@ -32,8 +32,7 @@ try {
     $register_result = $db->register($username, $nome, $cognome, $email, $password);
     unset($db);
 }catch(Exception $e) {
-    $_SESSION["error"] = "Errore interno.";
-    header("Location: register.php?error=sqlerror");
+    header("Location: ./error500.php");
     exit;
 }
 

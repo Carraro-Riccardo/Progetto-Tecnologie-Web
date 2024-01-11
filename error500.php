@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+session_destroy();
 require_once("./pages_builder.php");
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 if(isset($_SESSION["user_id"])){

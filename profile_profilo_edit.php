@@ -55,8 +55,7 @@ if(isset($_SESSION["user_id"])){
         $dati_result = $db->getDatiUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
-        $_SESSION['error'] = "Errore interno.";
-        header("Location: login.php?error=sqlerror");
+        header("Location: ./error500.php");
         exit;
     }
     
@@ -71,7 +70,7 @@ if(isset($_SESSION["user_id"])){
 
 }else{
     $_SESSION['error'] = "Necessario effettuare il <span lang='en'>login</span> per accedere alla pagina.";
-    header("Location: login.php?error=notloggedin");
+    header("Location: login.php");
     exit;
 }
 

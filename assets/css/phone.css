@@ -349,9 +349,7 @@ main {
 }
 
 a:active,
-a:focus,
-button:active,
-button:focus {
+a:focus{
   transform: scale(1.06);
   transition: .2s ease-in;
 }

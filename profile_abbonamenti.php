@@ -19,7 +19,7 @@ if(isset($_SESSION["user_id"])){
         $abbonamenti_result = $db->getAbbonamentiUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
-        header("Location: login.php?error=sqlerror");
+        header("Location: ./error500.php");
         exit;
     }
 
@@ -46,7 +46,8 @@ if(isset($_SESSION["user_id"])){
 
     $page = str_replace("<!--sezione abbonamenti-->", $abbonamenti, $page);
 }else{
-    header("Location: login.php?error=notloggedin");
+    $_SESSION['error'] = "Devi prima effettuare il login.";
+    header("Location: login.php");
     exit;
 }
 echo $page;
