@@ -1,13 +1,13 @@
 <nav id="nav-principale" aria-label="navigazione">
     <div class="container">
       <div class="logo-title-holder">
-        <span class="active">
-          <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
-        </span>
-        <h1 class="site-title">GagGym</h1>
+        <a href="./index.php">
+          <img class="logo" src="./assets/imgs/logo.png" alt="Pagina iniziale" />
+        </a>
+        <h1 class="site-title"><a href="./index.php"></a>GagGym</a></h1>
       </div>
     </div>
-    <button id="hamburger" aria-expanded="false">
+    <button id="hamburger" aria-expanded="true" aria-controls="main-nav" aria-label="apri menù">
       <span>Menu</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@
         <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z"></path>
       </svg>
     </button>
-    <div class="main-nav">
+    <div class="main-nav" id="main-nav">
       <ul class="container">
         <li>
           <a href="./index.php">Home</a>
@@ -26,7 +26,7 @@
           <a href="./corsi.php">Corsi</a>
         </li>
         <li>
-          <a href="./abbonamenti.php" aria-current="page">Abbonamenti</a>
+          <a href="./abbonamenti.php">Abbonamenti</a>
         </li>
         <li>
           <a href="./macchinari.php">Macchinari</a>
