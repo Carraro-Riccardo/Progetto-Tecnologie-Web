@@ -137,9 +137,9 @@ main {
 }
 
 
-/************************/
-/* BREADCRUMB */
-/************************/
+/*!***********************/
+/*! BREADCRUMB */
+/*!***********************/
 #breadcrumb {
   display: flex;
   align-items: center;
@@ -170,9 +170,9 @@ main {
   max-width: 100%;
 }
 
-/************************/
-/* NavBar & Hamburger menu */
-/************************/
+/*!***********************/
+/*! NavBar & Hamburger menu */
+/*!***********************/
 #nav-principale {
   width: 100%;
   display: grid;
@@ -188,9 +188,13 @@ main {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 848px) {
+@media (min-width: 660px) {
   #nav-principale ul {
-    display: grid;
+    flex-direction: row;
+  }
+
+  #nav-principale ul li {
+    flex-grow: 1;
   }
 }
 #nav-principale ul li a,
@@ -303,9 +307,9 @@ main {
   list-style: none;
 }
 
-/************************/
-/* CARDS */
-/************************/
+/*!***********************/
+/*! CARDS */
+/*!***********************/
 .card {
   position: relative;
   display: block;
@@ -322,6 +326,7 @@ main {
 .card:active,
 .card:focus{
   filter: drop-shadow(0px 0px 40px rgba(255, 0, 0, 100));
+  transition: 0.2s ease-in;
 }
 
 .section {
@@ -419,7 +424,7 @@ main {
   align-items: center;
   padding: 1.5em;
   padding-bottom: 0.7em;
-  margin: 5em 15% 2em 15%;
+  margin: 5em 10% 2em 10%;
   row-gap: 1.5em;
   background-color: #ff9947;
   border: 2px solid var(--breadcrumbBgColor);
@@ -457,6 +462,8 @@ a.registerNow {
   border: 1px solid var(--registerNowBtnBorderColor);
   padding: 0.5em;
   font-weight: bold;
+  width: 60%;
+  text-align: center;
 }
 
 .index-content{
@@ -479,9 +486,9 @@ a.registerNow {
   line-height: normal;
   padding-top: 1em;
 }
-/************************/
-/* FOOTER */
-/************************/
+/*!***********************/
+/*! FOOTER */
+/*!***********************/
 footer {
   background-color: var(--footerBgColor);
   color: var(--footerTxtColor);
@@ -532,9 +539,9 @@ footer a:hover {
 }
 
 
-/************************/
-/* PAGINA LOGIN */
-/************************/
+/*!***********************/
+/*! PAGINA LOGIN */
+/*!***********************/
 
 #error-message{
   background-color: var(--errorMessageBgColor);
@@ -624,9 +631,9 @@ footer a:hover {
   flex: 1 1 0;
 }
 
-/************************/
-/* PAGINA ABBONAMENTI */
-/************************/
+/*!***********************/
+/*! PAGINA ABBONAMENTI */
+/*!***********************/
 section.data-abbonamenti {
   display: flex;
   justify-content: center;
@@ -645,9 +652,9 @@ section.data-abbonamenti {
   background: url("../imgs/abbonamenti_images/Annuale.png") center/cover;
 }
 
-/************************/
-/* PAGINA PROFILO SCHEDE*/
-/************************/
+/*!***********************/
+/*! PAGINA PROFILO SCHEDE*/
+/*!***********************/
 
 p.empty-result {
   width: 80%;
@@ -799,9 +806,9 @@ table caption {
   color: var(--headerTxtColor);
 }
 
-/************************/
-/* PAGINA PROFILO ABBONAMENTI */
-/************************/
+/*!***********************/
+/*! PAGINA PROFILO ABBONAMENTI */
+/*!***********************/
 .table-abbonamenti {
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
@@ -838,9 +845,9 @@ table caption {
   padding: 0 0.5em;
 }
 
-/************************/
-/* PAGINA PROFILO PROFILO */
-/************************/
+/*!***********************/
+/*! PAGINA PROFILO PROFILO */
+/*!***********************/
 #logout {
   width: 79%;
   text-align: center;
@@ -938,18 +945,18 @@ table caption {
   padding-top: 0;
   line-height: 2em;
 }
-/************************/
-/* PAGINA PROFILO CERTIFICATO */
-/************************/
+/*!***********************/
+/*! PAGINA PROFILO CERTIFICATO */
+/*!***********************/
 caption#caption-certificato {
   padding: 0.5em;
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
 }
 
-/***************************/
-/* PAGINA ADMIN landing */
-/***************************/
+/*!**************************/
+/*! PAGINA ADMIN landing */
+/*!**************************/
 
 #bodyAdmin {
   background-color: var(--adminPageBackground);
@@ -1013,9 +1020,9 @@ img {
   max-height: 33em;
 }
 
-/************************/
-/* MEDIA QUERIES */
-/************************/
+/*!***********************/
+/*! MEDIA QUERIES */
+/*!***********************/
 
 @media (max-width: 420px) {
   #tabs li {
