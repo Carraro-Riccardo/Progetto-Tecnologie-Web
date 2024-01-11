@@ -31,13 +31,16 @@ try {
     $certificati = $db->getCertificatiDaValidare();
     $utenti = $db->getTotaleUtenti();
 
+    
     $andamentoIncassi = $db->getAndamentoIncassi();
     $andamentoIncassi = "<img src='./graph_generator.php?graph_data=".urlencode(json_encode($andamentoIncassi))."' alt='Andamento incassi' />";
     $andamentoUtenti = $db->getAndamentoUtenti();
     $andamentoUtenti = "<img src='./graph_generator.php?graph_data=".urlencode(json_encode($andamentoUtenti))."' alt='Andamento utenti' />";
+    
     unset($db);
 }catch(Exception $e) {
-    header("Location: index.php?error=sqlerror");
+    unset($_SESSION["user_id"]);
+    header("Location: ./error500.php");
     exit;
 }
 
