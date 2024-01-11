@@ -2,6 +2,11 @@
 
 class PageBuilder {
 
+    private static function removeAncorLinks(&$page, $name) : void {
+        $to_find = '/<a href=".\/' . $name . '.*?"([^>]*?)>(.*?)<\/a>/s';
+        $page = preg_replace($to_find, '<span ${1}>${2}</span>' , $page);
+    }
+
     private static function removeCircularLinks(&$page, $name) : void {
 		$to_find = '/<a href=".\/' . $name . '\.php.*?"([^>]*?)>(.*?)<\/a>/s';
 		$page = preg_replace($to_find, '<span ${1}>${2}</span>' , $page);
@@ -16,7 +21,16 @@ class PageBuilder {
         $navbar = file_get_contents("./html_pages/componenti/navbar-principale.html");
         $page_content = str_replace("@@navbar@@", $navbar, $page_content);
         self::removeCircularLinks($page_content, $name);
+        if(isset($_SESSION["user_id"])){
+            self::removeAncorLinks($page_content, "login.php");
+            $page_content = str_replace("@@USER@@", $_SESSION['username'], $page_content);
+            $page_content = str_replace("@@logout@@", "<li><a href='logout.php'><span lang='en'>Log out</span></a></li>", $page_content);
+        }else{
+            $page_content = str_replace("@@USER@@", "Login", $page_content);
+            $page_content = str_replace("@@logout@@", "", $page_content);
+        }
         $page_content = str_replace("@@footer@@", $footer, $page_content);
+        
         return $page_content;
     }
 }

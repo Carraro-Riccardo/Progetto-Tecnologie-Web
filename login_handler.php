@@ -4,7 +4,7 @@ require_once("db_handler.php");
 require_once("server_side_validator.php");
 
 if (isset($_SESSION['user_id'])) {
-    header((isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "user")? "Location: profile_profilo.php" : "Location: admin_landing.php");
+    header((isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "user")? "Location: ./profile_profilo.php" : "Location: ./admin_landing.php");
     exit;
 }
 

@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once("db_handler.php");
-require_once("server_side_validator.php");
+require_once("./db_handler.php");
+require_once("./server_side_validator.php");
 
 if (isset($_SESSION['user_id'])) {
-    header("Location: profile.php");
+    header("Location: ./profile.php");
     exit;
 }
 

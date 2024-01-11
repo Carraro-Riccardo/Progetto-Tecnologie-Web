@@ -562,3 +562,111 @@
 <b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
 <br />
 <b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:24:49: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:24:58: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:25:02: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:27:50: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:28:00: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:28:57: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:29:00: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:29:00: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:29:00: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:29:00: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:29:00: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:32:50: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:32:59: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:34:39: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:34:40: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:37:18: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:45:16: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2024-01-11 21:45:47: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\xampp\htdocs\ptw\Progetto-Tecnologie-Web\libs\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
