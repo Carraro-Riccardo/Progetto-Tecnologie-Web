@@ -9,9 +9,19 @@
 }
 
 :root {
+  /*!Fonts*/
+  --font-body-family: "Oswald",sans-serif;
+  --font-body-family-bold: "Oswald-bold",sans-serif;
+
+  /*!Generale*/
   --background-color: #da6202;
+  --visitedLinkColor: red;
+
+  /*!Header*/
   --headerBackgroundColor: #000;
   --headerTxtColor: #fff;
+
+  /*!Hamburger Menu*/
   --closedHamburgerColor: #fff;
   --openedHamburgerColor: #fff;
   --closedHamburgerTxtColor: #fff;
@@ -19,52 +29,79 @@
   --HMItemTxtColor: #fff;
   --HMItemBgColor: #262262;
   --HMItemBgHover: #090816;
+
+  /*!Breadcrumb*/
+  --breadcrumbBgColor: #7a0000;
+  --breadcrumbTxtColor: #fff;
+
+  /*!Title section*/
   --registerNowBtnBgColor: #7a0000;
   --registerNowBtnBorderColor: #000;
   --registerNowBtnTxtColor: #fff;
   --titleSectionBgColor: #ff9947;
+
+  /*!Titolo pagina*/
+  --pageTitleBgColor: #000;
+  --pageTitleTxtColor: #fff;
+
+  /*!Cards*/
   --cardTxtColor: #fff;
   --cardBgColor: #000;
+
+  /*!Form*/
   --formBtnBgColor: #000;
   --formBtnTxtColor: #fff;
   --formLegendTxtColor: #fff;
-  --bgColor: #fff;
-  --txtColor: #000;
+  --disabledInputBgColor: #d3d3d3;
+
+  /*!Footer*/
   --footerBgColor: #000;
   --footerTxtColor: #9f9f9f;
-  --visitedLinkColor: red;
+
+  /*!Tabelle*/
   --headTable: #8f2444;
-  --flagColor: orange;
-  --linkColor: #fff;
-  --font-body_family: "Oswald",sans-serif;
-  --breadcrumbBgColor: #7a0000;
-  --breadcrumbTxtColor: #fff;
-  --tabsBgColor: rgba(122,0,0,.55);
-  --tabsTxtColor: #fff;
-  --currentTabBgColor: #7a0000;
-  --currentTabTxtColor: #fff;
+  --tableBgColor: #fff;
   --tabTitleBgColor: #7a0000;
   --tabTitleTxtColor: #fff;
   --tableHeadBgColor: #000;
   --tableHeadTxtColor: #fff;
+
+  /*!Tabs navigazione Profilo*/
+  --tabsBgColor: rgba(122,0,0,.55);
+  --tabsTxtColor: #fff;
+  --currentTabBgColor: #7a0000;
+  --currentTabTxtColor: #fff;
+
+  /*!Pulsante logout*/
   --logoutBtnBgColor: #7a0000;
   --logoutBtnBorderColor: #000;
+
+  /*!Messaggio di errore*/
   --errorMessageBgColor: #b40000;
   --errorMessageTxtColor: #fff;
+
+  /*!Nessun risultato*/
   --emptyResultBgColor: #000;
   --emptyResultTxtColor: #fff;
+
+  /*!paragrafo Qr*/
   --paragraphQrBgColor: #000;
   --paragraphQrTxtColor: #fff;
-  --pageTitleBgColor: #000;
-  --pageTitleTxtColor: #fff;
+
+  /*!Pagina Admin*/
   --adminPageBackground: #b5a382;
   --metricaBgColor: #fff;
   --metricaTxtColor: #000;
   --metricaBorderColor: #7a0000;
   --metricaTitleBgColor: #7a0000;
   --metricaTitleTxtColor: #fff;
-  --disabledInputBgColor: #d3d3d3;
 }
+
+/*!***********************/
+
+/*! STILI GENERALI */
+
+/*!***********************/
 
 * {
   margin: 0;
@@ -73,7 +110,7 @@
 
 html {
   background-color: var(--background-color);
-  font-family: var(--font-body_family);
+  font-family: var(--font-body-family);
   font-size: 100%;
   line-height: 1.5em;
   overflow-x: hidden;
@@ -180,7 +217,7 @@ main {
 #nav-principale ul li span {
   color: var(--HMItemTxtColor);
   display: block;
-  font-family: var(--font-body_family);
+  font-family: var(--font-body-family);
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -276,7 +313,7 @@ main {
 }
 
 .site-title {
-  font-family: var(--font-body_family);
+  font-family: var(--font-body-family);
   margin-left: 10px;
 }
 
@@ -433,7 +470,7 @@ button:focus {
 }
 
 h1.homePageTitle {
-  font-family: Oswald-bold,sans-serif;
+  font-family: var(--font-body-family-bold),sans-serif;
   font-size: 4em;
   text-align: center;
   text-shadow: -2px 0 #fff,0 1px #000,1px 0 #000,0 -1px #000;
@@ -778,7 +815,7 @@ p.empty-result {
 
 table {
   border-collapse: collapse;
-  font-family: var(--font-body_family);
+  font-family: var(--font-body-family);
   width: 100%;
 }
 
@@ -795,7 +832,7 @@ table th {
 }
 
 table tr {
-  background-color: var(--bgColor);
+  background-color: var(--tableBgColor);
 }
 
 table caption {
@@ -968,7 +1005,7 @@ ul.container-metriche {
 li.metrica {
   align-items: center;
   background-color: var(--metricaBgColor);
-  border: 3px solid var(--breadcrumbBgColor);
+  border: 3px solid var(--metricaBorderColor);
   border-radius: 1em;
   box-shadow: 0 0 5px #000;
   display: flex;
