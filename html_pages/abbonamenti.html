@@ -20,11 +20,7 @@
         </div>
         <button id="hamburger" aria-expanded="true">
           <span>Menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewbox="0 0 20 20"
-            aria-hidden="true"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
             <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
           </svg>
         </button>
@@ -40,7 +36,7 @@
               <a href="#">Corsi</a>
             </li>
             <li>
-                <a href="abbonamenti.php" aria-current="page">Abbonamenti</a>
+              <a href="abbonamenti.php" aria-current="page">Abbonamenti</a>
             </li>
             <li>
               <a href="#">Macchinari</a>
@@ -66,26 +62,30 @@
       </nav>
     </header>
     <main>
+      <h1 class="normalPageTitle">Abbonamenti</h1>
 
-    <h1 class="normalPageTitle">Abbonamenti</h1>
-
-    <!--sezione abbonamenti-->
-    <ul id="cards-container">
-        <!--carta-->
-        <li>
-            <a id="@@nome-abbonamento@@" href="compra-abbonamento.php?abbonamento=@@nome-abbonamento@@" class="card">
-                <div class="description">
-                    <span>@@nome-abbonamento@@</span>
-                    <section class="data-abbonamenti">
-                        <p>Validita: @@durata@@ giorni</p>
-                        <p>Costo: @@costo@@</p>
-                    </section>
-                </div>
+      <div id="cards-container">
+        <!--sezione abbonamenti-->
+        <ul>
+          <!--carta-->
+          <li>
+            <a
+              id="@@nome-abbonamento@@"
+              href="compra-abbonamento.php?abbonamento=@@nome-abbonamento@@"
+              class="card"
+            >
+              <div class="description">
+                <h3>@@nome-abbonamento@@</h3>
+                <section class="data-abbonamenti">
+                  <p>Validita: @@durata@@ giorni</p>
+                  <p>Costo: @@costo@@</p>
+                </section>
+              </div>
             </a>
-        </li>
-        <!--fine carta-->
-    </ul>
-
+          </li>
+          <!--fine carta-->
+        </ul>
+      </div>
     </main>
     @@footer@@
   </body>

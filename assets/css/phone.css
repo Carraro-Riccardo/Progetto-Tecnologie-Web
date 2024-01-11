@@ -72,7 +72,7 @@
   margin: 0;
   padding: 0;
 }
-
+/*
 body,
 html,
 main {
@@ -88,6 +88,21 @@ main {
 
 main {
   display: inline;
+}*/
+
+
+html {
+  font-size: 100%;
+  font-family: var(--font-body_family);
+  line-height: 1.5em;
+  background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
 }
 
 header {
@@ -278,7 +293,8 @@ header {
   position: relative;
   display: block;
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
+  height: 15em;
   border-radius: 30px;
   text-decoration: none;
   padding: 0;
@@ -317,6 +333,9 @@ header {
 #macchinari::before {
   background: url("../imgs/macchinari.jpg") center/cover;
 }
+#abbonamenti::before {
+  background: url("../imgs/courses.jpg") center/cover;
+}
 #chiSiamo::before {
   background: url("../imgs/chiSiamo.jpg") center/cover;
 }
@@ -352,21 +371,25 @@ header {
   margin: 0px;
 }
 #cards-container {
-  margin-top: 5%;
+  margin: 5% 0;
   margin-left: auto;
   margin-right: auto;
   list-style: none;
-  display: flex;
+  /* display: grid; */
   flex-direction: column;
-  row-gap: 2%;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  /* row-gap: 2%; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 100%; */
+  /* grid-template-columns: auto; */
 }
-/* #cards-container li {
-  width: 97%;
-  height: 100%;
-} */
+
+#cards-container ul {
+  margin: 1.5em;
+  display: grid;
+  row-gap: 1.5em;
+  list-style: none;
+}
 
 .titleSection {
   display: flex;
@@ -417,7 +440,7 @@ a.registerNow {
 }
 
 .index-content{
-  padding: 2em;
+  padding: 1.5em;
   background-color: black;
 }
 
@@ -426,7 +449,7 @@ a.registerNow {
   color: white;
   font-size: 2em;
   line-height: normal;
-  padding-top: 1em;;
+  /* padding-bottom: 1em; */
 }
 
 .index-content p {
@@ -440,7 +463,6 @@ a.registerNow {
 /* FOOTER */
 /************************/
 footer {
-  margin-top: 4em;
   background-color: var(--footerBgColor);
   color: var(--footerTxtColor);
   padding: 1em;
@@ -1017,7 +1039,6 @@ img {
 
   #cards-container {
     max-width: 800px;
-    min-height: 1300px;
   }
 }
 
