@@ -63,6 +63,7 @@
       </nav>
     </header>
     <main>
+      <h1 class="normalPageTitle">Modifica Profilo</h1>
       <nav id="schede-utente">
         <ul id="tabs">
           <li class="currentTab">
@@ -89,6 +90,7 @@
         <fieldset>
           <legend class="tabTitle">Dati utente</legend>
           <div class="input-field">
+            <label for="username"><span lang="en">Username</span></label>
             <input
               type="text"
               id="username"
@@ -97,10 +99,10 @@
               value="@@username@@"
               required
             />
-            <label for="username"><span lang="en">Username</span></label>
           </div>
           <div id="datiPersonali">
             <div class="input-field">
+              <label for="nome">Nome</label>
               <input
                 type="text"
                 id="nome"
@@ -109,9 +111,9 @@
                 value="@@nome@@"
                 required
               />
-              <label for="nome">Nome</label>
             </div>
             <div class="input-field">
+              <label for="cognome">Cognome</label>
               <input
                 type="text"
                 id="cognome"
@@ -120,10 +122,10 @@
                 value="@@cognome@@"
                 required
               />
-              <label for="cognome">Cognome</label>
             </div>
           </div>
           <div class="input-field">
+            <label for="email"><span lang="en">Email</span></label>
             <input
               type="email"
               id="email"
@@ -132,9 +134,9 @@
               value="@@email@@"
               required
             />
-            <label for="email"><span lang="en">Email</span></label>
           </div>
           <div class="input-field">
+            <label for="password"><span lang="en">Password</span></label>
             <input
               type="password"
               id="password"
@@ -143,7 +145,6 @@
               value="@@password@@"
               required
             />
-            <label for="password"><span lang="en">Password</span></label>
           </div>
           <div class="confirmButtons">
             <input type="submit" name="action" class="submitBtn" value="Salva" />
@@ -161,6 +162,7 @@
         <fieldset>
           <legend class="tabTitle">Modifica password</legend>
           <div class="input-field">
+            <label for="oldPassword">Vecchia <span lang="en">password</span></label>
             <input
               type="password"
               id="oldPassword"
@@ -168,9 +170,9 @@
               placeholder="Vecchia password"
               required
             />
-            <label for="oldPassword"><span lang="en">Password</span></label>
           </div>
           <div class="input-field">
+            <label for="newPassword">Nuova <span lang="en">password</span></label>
             <input
               type="password"
               id="newPassword"
@@ -178,9 +180,9 @@
               placeholder="Nuova password"
               required
             />
-            <label for="newPassword">Nuova</label>
           </div>
           <div class="input-field">
+            <label for="confermaNuovaPsw">Conferma <span lang="en">password</span></label>
             <input
               type="password"
               id="confermaNuovaPsw"
@@ -188,7 +190,6 @@
               placeholder="Conferma password"
               required
             />
-            <label for="confermaNuovaPsw">Conferma</label>
           </div>
           <div class="confirmButtons">
             <input type="submit" name="action" class="submitBtn" value="Salva password" />
@@ -197,35 +198,6 @@
         </fieldset>
       </form>
     </main>
-    <footer>
-      <section id="orari">
-        <h3>Orari</h3>
-        <p>Lunedì - Venerdì: 9:00 - 22:00</p>
-        <p>Sabato - Domenica: 10:00 - 18:00</p>
-      </section>
-      <section id="dove">
-        <h3>Dove</h3>
-        <p>Via Pipperini 69, 42069, Pipperopoli</p>
-      </section>
-      <section id="contatti">
-        <h3>Contatti</h3>
-        <p>Telefono: 0123456789</p>
-        <p>Email: gaggym@gmail.com</p>
-      </section>
-      <section id="socials">
-        <h3>Socials</h3>
-        <ul>
-          <li>
-            <a href="https://www.instagram.com/" id="instagram-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/" id="facebook-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com/" id="twitter-link">GagGym</a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+    @@footer@@
   </body>
 </html>

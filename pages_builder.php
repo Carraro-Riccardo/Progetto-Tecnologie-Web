@@ -12,7 +12,9 @@ class PageBuilder {
         $name = basename($name, ".php");
 
         $page_content = file_get_contents("./html_pages/{$name}.html");
+        $footer = file_get_contents("./html_pages/footer.html");
         self::removeCircularLinks($page_content, $name);
+        $page_content = str_replace("@@footer@@", $footer, $page_content);
         return $page_content;
     }
 }

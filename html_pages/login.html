@@ -61,30 +61,30 @@
       </nav>
     </header>
     <main>
-      <h2 class="normalPageTitle"><span lang="en">Log in</span></h2>
+      <h1 class="normalPageTitle"><span lang="en">Log in</span></h1>
       @@error@@
       <form action="login_handler.php" method="post" class="user-data-container" id="loginForm">
         <fieldset>
           <legend class="screen-reader-only"><span lang="en">Log in</span></legend>
           <div class="input-field">
+            <label for="username"><span lang="en">Username</span></label>
             <input
               type="text"
               id="username"
               name="username"
-              placeholder="Enter Username"
+              placeholder="Username"
               required
             />
-            <label for="username"><span lang="en">Username</span></label>
           </div>
           <div class="input-field">
+            <label for="password"><span lang="en">Password</span></label>
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Enter Password"
+              placeholder="Password"
               required
             />
-            <label for="password"><span lang="en">Password</span></label>
           </div>
           <div class="confirmButtons">
             <button type="submit" class="submitBtn">Login</button>
@@ -93,35 +93,6 @@
         </fieldset>
       </form>
     </main>
-    <footer>
-      <section id="orari">
-        <h3>Orari</h3>
-        <p>Lunedì - Venerdì: 9:00 - 22:00</p>
-        <p>Sabato - Domenica: 10:00 - 18:00</p>
-      </section>
-      <section id="dove">
-        <h3>Dove</h3>
-        <p>Via Pipperini 69, 42069, Pipperopoli</p>
-      </section>
-      <section id="contatti">
-        <h3>Contatti</h3>
-        <p>Telefono: 0123456789</p>
-        <p>Email: gaggym@gmail.com</p>
-      </section>
-      <section id="socials">
-        <h3>Socials</h3>
-        <ul>
-          <li>
-            <a href="https://www.instagram.com/" id="instagram-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/" id="facebook-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com/" id="twitter-link">GagGym</a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+    @@footer@@
   </body>
 </html>

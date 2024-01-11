@@ -66,29 +66,52 @@
       </nav>
     </header>
     <main>
+      <h1 class="normalPageTitle">Registrati</h1>
       @@error@@
       <form
         action="register_handler.php"
         method="post"
-        class="form-login-register"
+        class="user-data-container"
         id="registerForm"
       >
         <fieldset>
-          <legend>Registrati</legend>
-          <input type="text" id="username" name="username" placeholder="Username" required />
-          <div id="datiPersonali">
-            <input type="text" id="nome" name="nome" placeholder="Nome" />
-            <input type="text" id="cognome" name="cognome" placeholder="Cognome" />
+          <legend class="screen-reader-only">Registrati</legend>
+          <div class="input-field">
+            <label for="username"><span lang="en">Username</span></label>
+            <input type="text" id="username" name="username" placeholder="Username" required />
           </div>
-          <input type="email" id="email" name="email" placeholder="Email" required />
-          <input type="password" id="password" name="password" placeholder="Password" required />
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="Conferma Password"
-            required
-          />
+
+          <div id="datiPersonali">
+            <div class="input-field">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Nome" required />
+            </div>
+            <div class="input-field">
+              <label for="cognome">Cognome</label>
+              <input type="text" id="cognome" name="cognome" placeholder="Cognome" required />
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label for="email"><span lang="en">Email</span></label>
+            <input type="email" id="email" name="email" placeholder="Email" required />
+          </div>
+
+          <div class="input-field">
+            <label for="password"><span lang="en">Password</span></label>
+            <input type="password" id="password" name="password" placeholder="Password" required />
+          </div>
+
+          <div class="input-field">
+            <label for="confirmPassword">Conferma <span lang="en">Password</span></label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Conferma Password"
+              required
+            />
+          </div>
           <div class="confirmButtons">
             <button type="submit" class="submitBtn">Registrati</button>
             <p>
@@ -99,35 +122,6 @@
         </fieldset>
       </form>
     </main>
-    <footer>
-      <section id="orari">
-        <h3>Orari</h3>
-        <p>Lunedì - Venerdì: 9:00 - 22:00</p>
-        <p>Sabato - Domenica: 10:00 - 18:00</p>
-      </section>
-      <section id="dove">
-        <h3>Dove</h3>
-        <p>Via Pipperini 69, 42069, Pipperopoli</p>
-      </section>
-      <section id="contatti">
-        <h3>Contatti</h3>
-        <p>Telefono: 0123456789</p>
-        <p>Email: gaggym@gmail.com</p>
-      </section>
-      <section id="socials">
-        <h3>Socials</h3>
-        <ul>
-          <li>
-            <a href="https://www.instagram.com/" id="instagram-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/" id="facebook-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com/" id="twitter-link">GagGym</a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+    @@footer@@
   </body>
 </html>
