@@ -26,6 +26,8 @@
   --registerNowBtnBorderColor: black;
   --registerNowBtnTxtColor: white;
 
+  --titleSectionBgColor: #ff9947;
+
   --cardTxtColor: white;
   --cardBgColor: #000;
 
@@ -77,6 +79,8 @@
   --metricaBorderColor: rgba(122,0,0,100);
   --metricaTitleBgColor: rgba(122,0,0,100);
   --metricaTitleTxtColor: white;
+
+  --disabledInputBgColor: lightgray;
 }
 
 * {
@@ -323,10 +327,12 @@ main {
   filter: drop-shadow(0px 0px 10px rgba(122, 0, 0, 100));
 }
 
-.card:active,
-.card:focus{
-  filter: drop-shadow(0px 0px 40px rgba(255, 0, 0, 100));
+a:active,
+a:focus,
+button:active,
+button:focus {
   transition: 0.2s ease-in;
+  transform: scale(1.06);
 }
 
 .section {
@@ -424,9 +430,11 @@ main {
   align-items: center;
   padding: 1.5em;
   padding-bottom: 0.7em;
-  margin: 5em 10% 2em 10%;
+  margin: 5em auto 2em auto;
+  max-width: 60%;
   row-gap: 1.5em;
-  background-color: #ff9947;
+  height: 12em;
+  background-color: var(--titleSectionBgColor);
   border: 2px solid var(--breadcrumbBgColor);
 }
 
@@ -497,6 +505,7 @@ footer {
   grid-template-columns: 50% 50%;
   gap: 1em;
   bottom: 0;
+  margin-top: 3em;
 }
 
 footer a {
@@ -579,6 +588,9 @@ footer a:hover {
   padding-right: 0.5em;
 }
 
+.user-data-container input:disabled{
+  background-color: var(--disabledInputBgColor);
+}
 
 .user-data-container input[type="submit"] {
   text-align: center;
@@ -771,12 +783,12 @@ p.empty-result {
   margin-bottom: 3em;
 }
 
-h4 {
+.schede-container h2 {
   background-color: var(--headerBackgroundColor);
   color: var(--headerTxtColor);
   text-align: center;
-  border-top-left-radius: 2em;
-  border-top-right-radius: 2em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
   padding: 0.5em;
 }
 
@@ -897,6 +909,7 @@ table caption {
   color: var(--paragraphQrTxtColor);
   padding: 0.5em;
   border-radius: 0.5em;
+  margin-top:0.5em;
 }
 
 .input-field {
@@ -928,6 +941,7 @@ table caption {
   /* border-bottom-right-radius: 0; */
   /* border-top-left-radius: 0.3em; */
   font-weight: bold;
+  font-family: "osvald-bold", sans-serif; 
   /* line-height: 3em; */
 }
 
