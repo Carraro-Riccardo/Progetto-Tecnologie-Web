@@ -156,9 +156,9 @@ main {
   padding-left: 1em;
 }
 
-#breadcrumb ol>li:not(:first-child):before {
+#breadcrumb ol > li:not(:first-child)::before {
   content: ">>";
-  padding: 0 .5em;
+  padding: 0 0.5em;
 }
 
 #breadcrumb ol>li:first-child {
@@ -544,20 +544,20 @@ footer a:hover {
   text-decoration: underline;
 }
 
-#instagram-link {
-  background: url(../imgs/footer_logos/instagram.svg) no-repeat;
+.instagram-link {
+  background: url("../imgs/footer_logos/instagram.svg") no-repeat;
   background-size: contain;
   padding-left: 1.5em;
 }
 
-#facebook-link {
-  background: url(../imgs/footer_logos/facebook.svg) no-repeat;
+.facebook-link {
+  background: url("../imgs/footer_logos/facebook.svg") no-repeat;
   background-size: contain;
   padding-left: 1.5em;
 }
 
-#twitter-link {
-  background: url(../imgs/footer_logos/twitter.svg) no-repeat;
+.twitter-link {
+  background: url("../imgs/footer_logos/twitter.svg") no-repeat;
   background-size: contain;
   padding-left: 1.5em;
 }
@@ -1133,3 +1133,98 @@ img {
     margin-right: auto;
   }
 }
+
+
+/************************/
+/* CHI SIAMO */
+/************************/
+
+#componenti {
+  margin: auto;
+  width: 95%;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  /*max-width: 40%; per versione desktop*/
+}
+
+#componenti > dt {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  padding: 0.5em;
+  font-size: 1.5em;
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+  text-align: center;
+
+}
+
+#componenti > dd {
+  background-color: var(--bgColor);
+  border: 1px solid black;
+  border-top: none;
+  margin-bottom: 1em;
+  border-bottom-left-radius: 1.5em;
+  border-bottom-right-radius: 1.5em;
+}
+
+.componente img {
+  border-radius: 50%;
+  width: 9em;
+  height: 9em;
+  object-fit: cover;
+  object-position: center;
+  border: 5px solid #ffffff;
+  margin: 0.5em 0 ;
+  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 100));
+}
+
+.componente{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.componente dl dd,
+.componente dl dt{ 
+  padding: 0.5em 0;
+}
+.componente dt {
+  font-weight: bold;
+  padding-left: 0.5em;
+  float:left;
+}
+
+.componente dd {
+  margin-left: 9em;
+}
+
+
+#componenti ul {
+  list-style: none;
+}
+
+#componenti ul li {
+  margin-bottom: 0.5em;
+}
+
+.SocialsComponenti{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 1em;
+}
+
+.componente p{
+  padding: 1em;;
+}
+
+
+
+
+
+
+
+
