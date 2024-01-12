@@ -4,54 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
-    <script src="script.js"></script>
-    <title>Profilo</title>
+    <script src="./scripts/script.js"></script>
+    <title>Profilo - Abbonamenti</title>
   </head>
   <body>
     <header class="main">
-      <nav id="nav-principale" aria-label="navigazione">
-        <div class="container">
-          <div class="logo-title-holder">
-            <a href="index.php">
-              <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
-            </a>
-            <h1 class="site-title">GagGym</h1>
-          </div>
-        </div>
-        <button id="hamburger" aria-expanded="false">
-          <span>Menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewbox="0 0 20 20"
-            aria-hidden="true"
-          >
-            <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
-          </svg>
-        </button>
-        <div class="main-nav">
-          <ul class="container">
-            <li>
-              <a href="profile_schede.php">@@USER@@</a>
-            </li>
-            <li>
-              <a href="index.php" aria-current="page">Home</a>
-            </li>
-            <li>
-              <a href="#">Corsi</a>
-            </li>
-            <li>
-              <a href="#">Macchinari</a>
-            </li>
-            <li>
-              <a href="#">Chi siamo</a>
-            </li>
-            <li>
-              <a href="#">Contattaci</a>
-            </li>
-            @@logout@@
-          </ul>
-        </div>
-      </nav>
+      @@navbar@@
       <nav id="breadcrumb" aria-label="breadcrumb">
         Ti trovi in:
         <ol>
@@ -63,17 +21,18 @@
       </nav>
     </header>
     <main>
+      <h1 class="normalPageTitle">I tuoi abbonamenti</h1>
       <nav id="schede-utente">
         <ul id="tabs">
-          <li><a id="tabSchede" href="profile_schede.php">Schede</a></li>
+          <li>
+            <a id="tabProfilo" href="profile_profilo.php">Profilo</a>
+          </li>
+          <li><a id="tabSchede" href="profile_schede.php">Scheda</a></li>
           <li class="currentTab">
             <span id="tabAbbonamenti" aria-current="page">Abbonamenti</span>
           </li>
           <li>
-            <a id="tabCertificato" href="">Certificato</a>
-          </li>
-          <li>
-            <a id="tabProfilo" href="profile_profilo.php">Profilo</a>
+            <a id="tabCertificato" href="profile_certificato.php">Certificato</a>
           </li>
         </ul>
       </nav>
@@ -81,35 +40,6 @@
         <!--sezione abbonamenti-->
       </div>
     </main>
-    <footer>
-      <section id="orari">
-        <h3>Orari</h3>
-        <p>Lunedì - Venerdì: 9:00 - 22:00</p>
-        <p>Sabato - Domenica: 10:00 - 18:00</p>
-      </section>
-      <section id="dove">
-        <h3>Dove</h3>
-        <p>Via Pipperini 69, 42069, Pipperopoli</p>
-      </section>
-      <section id="contatti">
-        <h3>Contatti</h3>
-        <p>Telefono: 0123456789</p>
-        <p>Email: gaggym@gmail.com</p>
-      </section>
-      <section id="socials">
-        <h3>Socials</h3>
-        <ul>
-          <li>
-            <a href="https://www.instagram.com/" id="instagram-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/" id="facebook-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com/" id="twitter-link">GagGym</a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+    @@footer@@
   </body>
 </html>

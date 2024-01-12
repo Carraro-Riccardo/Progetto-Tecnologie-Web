@@ -1,9 +1,10 @@
 <?php
-
-require_once("db_handler.php");
+session_start();
+require_once("./db_handler.php");
+require_once("./server_side_validator.php");
 
 if (isset($_SESSION['user_id'])) {
-    header("Location: profile.php");
+    header("Location: ./profile.php");
     exit;
 }
 
@@ -14,14 +15,16 @@ $email = isset($_POST['email']) ? $_POST['email'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
 $confirmPassword = isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : '';
 
-if (empty($username) || empty($nome) || empty($cognome) || empty($email) || empty($password) || empty($confirmPassword)) {
-    header("Location: register.php?error=emptyfields");
-    exit;
-}
+$usernameError = checkUsername($username);
+$nomeError = checkNome($nome);
+$cognomeError = checkCognome($cognome);
+$emailError = checkEmail($email);
+$passwordError = checkRegisterPassword($password, $confirmPassword);
 
-if($password != $confirmPassword) {
-    header("Location: register.php?error=passwordDoesNotMatch");
-    exit;
+if (!empty($usernameError) || !empty($nomeError) || !empty($cognomeError) || !empty($emailError) || !empty($passwordError)) {
+    $_SESSION["error"] = $usernameError . $nomeError . $cognomeError . $emailError . $passwordError;
+    header("Location: register.php");
+    exit();
 }
 
 try {
@@ -29,12 +32,11 @@ try {
     $register_result = $db->register($username, $nome, $cognome, $email, $password);
     unset($db);
 }catch(Exception $e) {
-    header("Location: register.php?error=sqlerror");
+    header("Location: ./error500.php");
     exit;
 }
 
 if($register_result) {
-    session_start();
     $_SESSION['user_id'] = $register_result['id'];
     $_SESSION['username'] = $register_result['username'];
     $_SESSION['nome'] = $register_result['nome'];
@@ -43,7 +45,8 @@ if($register_result) {
     header("Location: profile_schede.php");
     exit;
 } else {
-    header("Location: register.php?error=erroreDuranteLaRegistrazione");
+    $_SESSION["error"] = "Errore interno durante la registrazione.";
+    header("Location: register.php");
     exit;
 }
 ?>

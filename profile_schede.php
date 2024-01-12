@@ -28,43 +28,47 @@ function creaTabella($giorni, $esercizi) {
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 
 if(isset($_SESSION["user_id"])){
-    $page = str_replace("@@USER@@", $_SESSION['username'], $page);
-    $page = str_replace("@@logout@@", "<li><a href='logout.php'><span lang='en'>Log out</span></a></li>", $page);
-
+    PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
         $schede_result = $db->getSchedeUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
-        header("Location: login.php?error=sqlerror");
+        header("Location: ./error500.php");
         exit;
     }
 
-    $schede = "<ul class='schede-container'>\n<li>\n";
-    $curr_scheda = null;
-    $giorni = array();
-    $esercizi = array();
-    $allenatore = ""; // Inizializzazione della variabile $allenatore
-    while ($row = $schede_result->fetch_assoc()) {
-        if ($curr_scheda != $row['id_scheda']) {
-            if ($curr_scheda != null) {
-                $schede .= "<h4 class='intestazione'>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h4>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n";
-                $giorni = array();
-                $esercizi = array();
+    $schede = "";
+    if($schede_result->num_rows == 0)
+        $schede = "<p class='empty-result'>Non hai ancora nessuna scheda.</p>";
+    else {
+        $schede = "<ul class='schede-container'>\n<li>\n";
+        $curr_scheda = null;
+        $giorni = array();
+        $esercizi = array();
+        $allenatore = ""; // Inizializzazione della variabile $allenatore
+        while ($row = $schede_result->fetch_assoc()) {
+            if ($curr_scheda != $row['id_scheda']) {
+                if ($curr_scheda != null) {
+                    $schede .= "<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n</li>\n";
+                    $giorni = array();
+                    $esercizi = array();
+                }
+                $curr_scheda = $row['id_scheda'];
             }
-            $curr_scheda = $row['id_scheda'];
+            $allenatore = $row['nome_allenatore']; // Assegnazione del nome dell'allenatore alla variabile $allenatore
+            if (!in_array($row['giorno_settimana'], $giorni)) {
+                $giorni[] = $row['giorno_settimana'];
+            }
+            $esercizi[$row['giorno_settimana']][] = $row['nome'] . ", " . $row['numero_set'] . ", " . $row['numero_ripetizioni'];
         }
-        $allenatore = $row['nome_allenatore']; // Assegnazione del nome dell'allenatore alla variabile $allenatore
-        if (!in_array($row['giorno_settimana'], $giorni)) {
-            $giorni[] = $row['giorno_settimana'];
-        }
-        $esercizi[$row['giorno_settimana']][] = $row['nome'] . ", " . $row['numero_set'] . ", " . $row['numero_ripetizioni'];
+        $schede .= "</li>\n<li>\n<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
     }
-    $schede .= "</li>\n<li>\n<h4>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h4>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
         
     $page = str_replace("<!--sezione schede-->", $schede, $page);
 }else{
-    header("Location: login.php?error=notloggedin");
+    $_SESSION['error'] = "Devi prima effettuare il login.";
+    header("Location: login.php");
     exit;
 }
 echo $page;

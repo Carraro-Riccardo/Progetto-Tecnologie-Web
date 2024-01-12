@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
+    <title>Abbonamenti</title>
+  </head>
+  <body>
+    <header class="main">
+      @@navbar@@
+      <nav id="breadcrumb" aria-label="breadcrumb">
+        Ti trovi in:
+        <ol>
+          <li>
+            <a href="index.php"><span lang="en">Home</span></a>
+          </li>
+          <li><span aria-current="page">Abbonamenti</span></li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <h1 class="normalPageTitle">Abbonamenti</h1>
+
+      <div id="cards-container">
+        <!--sezione abbonamenti-->
+        <ul>
+          <!--carta-->
+          <li>
+            <a
+              id="@@nome-abbonamento@@"
+              href="compra-abbonamento.php?abbonamento=@@nome-abbonamento@@"
+              class="card"
+            >
+              <div class="description">
+                <h3>@@nome-abbonamento@@</h3>
+                <section class="data-abbonamenti">
+                  <p>Validita: @@durata@@ giorni</p>
+                  <p>Costo: @@costo@@</p>
+                </section>
+              </div>
+            </a>
+          </li>
+          <!--fine carta-->
+        </ul>
+      </div>
+    </main>
+    @@footer@@
+  </body>
+</html>
