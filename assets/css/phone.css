@@ -547,19 +547,19 @@ footer a:hover {
 .instagram-link {
   background: url("../imgs/footer_logos/instagram.svg") no-repeat;
   background-size: contain;
-  padding-left: 1.5em;
+  padding-left: 2em;
 }
 
 .facebook-link {
   background: url("../imgs/footer_logos/facebook.svg") no-repeat;
   background-size: contain;
-  padding-left: 1.5em;
+  padding-left: 2em;
 }
 
 .twitter-link {
   background: url("../imgs/footer_logos/twitter.svg") no-repeat;
   background-size: contain;
-  padding-left: 1.5em;
+  padding-left: 2em;
 }
 
 #socials ul {
@@ -1160,7 +1160,7 @@ img {
 }
 
 #componenti > dd {
-  background-color: var(--bgColor);
+  background-color: white;
   border: 1px solid black;
   border-top: none;
   margin-bottom: 1em;
@@ -1185,6 +1185,7 @@ img {
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  font-size: 1.2em;
 }
 
 .componente dl dd,
