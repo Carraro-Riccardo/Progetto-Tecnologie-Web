@@ -233,10 +233,6 @@ main {
   padding: 0;
 }
 
-#nav-principale ul li span.active {
-  padding: 10px;
-}
-
 #nav-principale ul li a:focus,
 #nav-principale ul li a:hover {
   background: var(--HMItemBgHover);
@@ -334,10 +330,13 @@ h1 a {
 #nav-principale ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 #nav-principale ul li {
-  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*!***********************/
