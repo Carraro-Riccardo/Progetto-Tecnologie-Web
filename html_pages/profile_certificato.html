@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
+    <title>Profilo - Certificato</title>
+  </head>
+  <body>
+    <header class="main">
+      @@navbar@@
+      <nav id="breadcrumb" aria-label="breadcrumb">
+        Ti trovi in:
+        <ol>
+          <li>
+            <a href="index.php"><span lang="en">Home</span></a>
+          </li>
+          <li><span aria-current="page">Profilo</span></li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <h1 class="normalPageTitle">Il tuo certificato medico</h1>
+      <nav id="schede-utente">
+        <ul id="tabs">
+          <li>
+            <a id="tabProfilo" href="profile_profilo.php">Profilo</a>
+          </li>
+          <li><a id="tabSchede" href="profile_schede.php">Scheda</a></li>
+          <li>
+            <a id="tabAbbonamenti" href="profile_abbonamenti.php">Abbonamenti</a>
+          </li>
+          <li class="currentTab">
+            <span id="tabCertificato" aria-current="page">Certificato</span>
+          </li>
+        </ul>
+      </nav>
+      <!--tabella certificato-->
+      <div class="tb-container">
+        <table class="esercizio">
+            <caption id="caption-certificato">Certificato</caption>
+            <thead>
+                <tr>
+                    <th scope="col"><span lang="en">File</span></th>
+                    <th scope="col">Stato</th>
+                    <th scope="col">Scadenza</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="@@fileLink@@" aria-label="Collegamento al file @@fileName@@">@@fileName@@</a></td>
+                    <td aria-label="Stato">@@stato@@</td>
+                    <td aria-label="Scadenza">@@scadenza@@</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <!--fine tabella certificato-->
+    </main>
+    @@footer@@
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
+    <title>Profilo - Schede</title>
+  </head>
+  <body>
+    <header class="main">
+      @@navbar@@
+      <nav id="breadcrumb" aria-label="breadcrumb">
+        Ti trovi in:
+        <ol>
+          <li>
+            <a href="index.php"><span lang="en">Home</span></a>
+          </li>
+          <li><span aria-current="page">Profilo</span></li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <h1 class="normalPageTitle">La tua scheda</h1>
+      <nav id="schede-utente">
+        <ul id="tabs">
+          <li>
+            <a id="tabProfilo" href="profile_profilo.php">Profilo</a>
+          </li>
+          <li class="currentTab"><span id="tabSchede" aria-current="page">Scheda</span></li>
+          <li>
+            <a id="tabAbbonamenti" href="profile_abbonamenti.php">Abbonamenti</a>
+          </li>
+          <li>
+            <a id="tabCertificato" href="profile_certificato.php">Certificato</a>
+          </li>
+        </ul>
+      </nav>
+      <!--sezione schede-->
+    </main>
+    @@footer@@
+  </body>
+</html>

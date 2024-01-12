@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/login_validator.js"></script>
+    <title>Log in</title>
+  </head>
+  <body>
+    <header class="main">
+      @@navbar@@
+      <nav id="breadcrumb" aria-label="breadcrumb">
+        Ti trovi in:
+        <ol>
+          <li><a href="index.php">Home</a></li>
+          <li><span lang="en" aria-current="Log in">Log in</span></li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <h1 class="normalPageTitle"><span lang="en">Log in</span></h1>
+      @@error@@
+      <form action="login_handler.php" method="post" class="user-data-container" id="loginForm">
+        <fieldset>
+          <legend class="screen-reader-only"><span lang="en">Log in</span></legend>
+          <div class="input-field">
+            <label for="username"><span lang="en">Username</span></label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <label for="password"><span lang="en">Password</span></label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="confirmButtons">
+            <button type="submit" class="submitBtn">Login</button>
+            <p>Niente <span lang="en">account</span>? <a href="register.php">Registrati ora</a></p>
+          </div>
+        </fieldset>
+      </form>
+    </main>
+    @@footer@@
+  </body>
+</html>

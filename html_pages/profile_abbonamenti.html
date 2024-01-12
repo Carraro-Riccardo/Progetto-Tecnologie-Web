@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
+    <title>Profilo - Abbonamenti</title>
+  </head>
+  <body>
+    <header class="main">
+      @@navbar@@
+      <nav id="breadcrumb" aria-label="breadcrumb">
+        Ti trovi in:
+        <ol>
+          <li>
+            <a href="index.php"><span lang="en">Home</span></a>
+          </li>
+          <li><span aria-current="page">Profilo</span></li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <h1 class="normalPageTitle">I tuoi abbonamenti</h1>
+      <nav id="schede-utente">
+        <ul id="tabs">
+          <li>
+            <a id="tabProfilo" href="profile_profilo.php">Profilo</a>
+          </li>
+          <li><a id="tabSchede" href="profile_schede.php">Scheda</a></li>
+          <li class="currentTab">
+            <span id="tabAbbonamenti" aria-current="page">Abbonamenti</span>
+          </li>
+          <li>
+            <a id="tabCertificato" href="profile_certificato.php">Certificato</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="tb-container">
+        <!--sezione abbonamenti-->
+      </div>
+    </main>
+    @@footer@@
+  </body>
+</html>
