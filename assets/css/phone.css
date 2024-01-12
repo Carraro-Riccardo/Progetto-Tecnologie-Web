@@ -84,6 +84,11 @@
   --emptyResultBgColor: #000;
   --emptyResultTxtColor: #fff;
 
+  --linkColor: white;
+  --cardDescription: white;
+  --h2TitleCard: #CF8607;
+  --titlePage: white;
+
   /*!paragrafo Qr*/
   --paragraphQrBgColor: #000;
   --paragraphQrTxtColor: #fff;
@@ -1054,86 +1059,224 @@ img {
   width: 100%;
 }
 
-/*!***********************/
+/************************/
+/* PAGINA CORSI */
+/************************/
 
-/*! MEDIA QUERIES */
-
-/*!***********************/
-
-@media (max-width:420px) {
-  #tabs li {
-    min-width: 30px;
-  }
+#cards-container-corsi {
+  margin: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2%;
+  height: 100%;
+  padding: 1em;
+  max-width: 800px;
+  min-height: 3000px;
+  margin-top: 0.1em;
 }
 
-@media (min-width:725px) {
-  .schede-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .tb-container {
-    padding: 0 15%;
-  }
-
-  .schede-container li {
-    width: fit-content;
-  }
-
-  .scheda {
-    border-radius: 2em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+#cards-container-corsi li {
+  width: 97%;
+  height: 100%;
 }
 
-@media (min-width:320px) {
-  .logo {
-    max-height: 6em;
-    max-width: 7em;
-    min-width: 3em;
-    width: 100%;
-  }
-
-  #cards-container {
-    max-width: 800px;
-  }
+.card-corso {
+  flex-wrap: nowrap;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80%;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #333;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: black;
+  flex-direction: column;
+  box-shadow: 0 0 30px rgba(122, 0, 0, 100);
 }
 
-@media (min-width: 600px) {
-  .user-data-container {
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.card-corso-image {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px 30px 0px 0px;
 }
 
-
-
-@media (min-width:840px) {
-  .logo {
-    max-height: 7em;
-    width: 100%;
-  }
-
-  #cards-container {
-    max-width: 1000px;
-    min-height: 1500px;
-  }
-
-  .card {
-    height: 17em;
-  }
-
-  .user-data-container {
-    max-width: 35%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.card-corso-description h2 {
+  display: block;
+  text-align: center;
+  font-size: 200%;
+  margin-top: 0.5em;
+  color: var(--h2TitleCard);
 }
 
+.card-corso-description h3 {
+  font-size: 1.4em;
+  padding-bottom: 1%;
+  padding-top: 4%;
+}
+
+#emoji-man-cartwheeling::before {
+  content: "🤸‍♂️";
+}
+
+#emoji-man-cartwheeling::after {
+  content: "🤸‍♂️";
+}
+
+#emoji-man-lifting-weights::before {
+  content: "🏋";
+}
+
+#emoji-man-lifting-weights::after {
+  content: "🏋";
+}
+
+.emoji-person::before {
+  content: "👱";
+}
+
+.emoji-person::after {
+  content: "👵";
+}
+
+#emoji-person-in-lotus-position::before {
+  content: "🧘";
+}
+
+#emoji-person-in-lotus-position::after {
+  content: "🧘";
+}
+
+#emoji-trophy::before {
+  content: "🏆";
+}
+
+#emoji-trophy::after {
+  content: "🏆";
+}
+
+#emoji-boxing-glove::before {
+  content: "🥊";
+}
+
+#emoji-boxing-glove::after {
+  content: "🥊";
+}
+
+#emoji-wrestling::before {
+  content: "🤼";
+}
+
+#emoji-wrestling::after {
+  content: "🤼";
+}
+
+#emoji-ballet-shoes::before {
+  content: "🩰";
+}
+
+#emoji-ballet-shoes::after {
+  content: "🩰";
+}
+
+#emoji-woman-dancing::before {
+  content: "💃";
+}
+
+#emoji-woman-dancing::after {
+  content: "💃";
+}
+
+#emoji-man-dancing::before {
+  content: "🕺";
+}
+
+#emoji-man-dancing::after {
+  content: "🕺";
+}
+
+.emoji-time::before{
+  content: "🕘";
+}
+
+.emoji-time::after{
+  content: "📅";
+}
+
+#immagine-corso-pilates {
+  background: url("../imgs/corsi_image/pilates.jpg") center/cover;
+  content: "";
+}
+
+#immagine-corso-yoga {
+  background: url("../imgs/corsi_image/yoga.jpg") center/cover;
+  content: "";
+}
+
+#immagine-corso-box {
+  background: url("../imgs/corsi_image/box.jpg") center/cover;
+  content: "";
+}
+
+#immagine-corso-danza {
+  background: url("../imgs/corsi_image/danza.jpg") center/cover;
+  content: "";
+}
+.card-corso-description {
+  flex: 1;
+}
+
+.card-corso-description ul li {
+  list-style: none;
+}
+
+.card-corso-description ul {
+  margin-top: 0;
+  text-decoration: none;
+  text-align: justify;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 0.9em;
+}
+
+.card-corso-description li {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: var(--cardDescription);
+}
+
+.card-corso-description a {
+  color: var(--linkColor);
+}
+
+.card-link {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  font-weight: bold;
+  
+}
+
+#title-page{
+  text-align: center;
+  color: var(--titlePage);
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  font-size: 3em;
+}
+
+.link-underline {
+  text-decoration: underline;
+}
 
 /************************/
 /* CHI SIAMO */
@@ -1222,10 +1365,117 @@ img {
   padding: 1em;;
 }
 
+/*!***********************/
+
+/*! MEDIA QUERIES */
+
+/*!***********************/
+
+@media (max-width:420px) {
+  #tabs li {
+    min-width: 30px;
+  }
+}
+
+@media (min-width:725px) {
+  .schede-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tb-container {
+    padding: 0 15%;
+  }
+
+  .schede-container li {
+    width: fit-content;
+  }
+
+  .scheda {
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width:320px) {
+  .logo {
+    max-height: 6em;
+    max-width: 7em;
+    min-width: 3em;
+    width: 100%;
+  }
+
+  #cards-container {
+    max-width: 800px;
+  }
+}
 
 
+@media (min-width: 600px) {
+  
+   .user-data-container {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #cards-container-corsi {
+    margin-top: 1.5em;;
+    max-width: 1000px;
+    min-height: 2400px;
+  }
+  .card-corso {
+    flex-direction: row;
+  }
+  .card-corso-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px 0px 0px 30px;
+  }
+  .card-corso-description h2 {
+    margin-top: 0em;
+    padding-top: 1em;
+    padding-bottom: 0;
+  }
+  .card-corso-description ul {
+    margin-top: 5%;
+  }
+
+  .card-corso-description li {
+    padding-bottom: 3%;
+  }
+
+  #title-page{
+    text-align: center;
+    color: var(--titlePage);
+    padding-top: 1em;
+    padding-bottom: 0.2em;
+    font-size: 3em;
+  }
+}
 
 
+@media (min-width:840px) {
+  .logo {
+    max-height: 7em;
+    width: 100%;
+  }
 
+  #cards-container {
+    max-width: 1000px;
+    min-height: 1500px;
+  }
 
+  .card {
+    height: 17em;
+  }
 
+  .user-data-container {
+    max-width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
