@@ -10,8 +10,8 @@
 
 :root {
   /*!Fonts*/
-  --font-body-family: "Oswald",sans-serif;
-  --font-body-family-bold: "Oswald-bold",sans-serif;
+  --font-body-family: "Oswald", sans-serif;
+  --font-body-family-bold: "Oswald-bold", sans-serif;
 
   /*!Generale*/
   --background-color: #da6202;
@@ -67,7 +67,7 @@
   --tableHeadTxtColor: #fff;
 
   /*!Tabs navigazione Profilo*/
-  --tabsBgColor: rgba(122,0,0,.55);
+  --tabsBgColor: rgba(122, 0, 0, 0.55);
   --tabsTxtColor: #fff;
   --currentTabBgColor: #7a0000;
   --currentTabTxtColor: #fff;
@@ -86,7 +86,7 @@
 
   --linkColor: white;
   --cardDescription: white;
-  --h2TitleCard: #CF8607;
+  --h2TitleCard: #cf8607;
   --titlePage: white;
 
   /*!paragrafo Qr*/
@@ -166,13 +166,13 @@ main {
   padding: 0 0.5em;
 }
 
-#breadcrumb ol>li:first-child {
-  padding-left: .5em;
+#breadcrumb ol > li:first-child {
+  padding-left: 0.5em;
 }
 
 #breadcrumb li {
   display: inline-block;
-  padding: .5em 0;
+  padding: 0.5em 0;
 }
 
 #breadcrumb a {
@@ -205,10 +205,10 @@ main {
   background-color: var(--HMItemBgColor);
   display: flex;
   flex-direction: column;
-  grid-template-columns: repeat(auto-fit,minmax(91px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(91px, 1fr));
 }
 
-@media (min-width:660px) {
+@media (min-width: 660px) {
   #nav-principale ul {
     flex-direction: row;
   }
@@ -226,7 +226,7 @@ main {
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
-  transition: .4s ease-in;
+  transition: 0.4s ease-in;
 }
 
 #nav-principale ul li > span {
@@ -248,13 +248,13 @@ main {
 }
 
 .logo-holder {
-  padding: 1em .5em 1em 1em;
+  padding: 1em 0.5em 1em 1em;
   width: 25%;
 }
 
 .main-nav {
   background: var(--HMItemBgColor);
-  grid-column: 1/span 2;
+  grid-column: 1 / span 2;
   width: 100%;
 }
 
@@ -271,7 +271,7 @@ main {
 
 #hamburger span {
   color: var(--closedHamburgerTxtColor);
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 #hamburger svg {
@@ -285,25 +285,25 @@ main {
   display: none;
 }
 
-#hamburger[aria-expanded=true] {
+#hamburger[aria-expanded="true"] {
   color: var(--closedHamburgerTxtColor);
 }
 
-#hamburger[aria-expanded=true] svg {
+#hamburger[aria-expanded="true"] svg {
   background-color: transparent;
   fill: var(--openedHamburgerColor);
 }
 
-#hamburger[aria-expanded=true] span {
+#hamburger[aria-expanded="true"] span {
   color: var(--openedHamburgerTxtColor);
   position: static;
 }
 
-#hamburger[aria-expanded=true]+.main-nav {
+#hamburger[aria-expanded="true"] + .main-nav {
   display: block;
 }
 
-#hamburger[aria-expanded=false]+.main-nav,
+#hamburger[aria-expanded="false"] + .main-nav,
 .js-enabled .main-nav {
   display: none;
 }
@@ -349,7 +349,7 @@ h1 a {
 .card {
   border-radius: 30px;
   display: block;
-  filter: drop-shadow(0 0 10px rgba(122,0,0,100));
+  filter: drop-shadow(0 0 10px rgba(122, 0, 0, 100));
   height: 15em;
   margin: 0;
   padding: 0;
@@ -359,9 +359,9 @@ h1 a {
 }
 
 a:active,
-a:focus{
+a:focus {
   transform: scale(1.06);
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
 }
 
 .section {
@@ -380,7 +380,7 @@ a:focus{
   position: absolute;
   text-align: center;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .card:before {
@@ -394,23 +394,23 @@ a:focus{
 }
 
 #corsi:before {
-  background: url(../imgs/courses.jpg) 50%/cover;
+  background: url(../imgs/courses.jpg) 50% / cover;
 }
 
 #macchinari:before {
-  background: url(../imgs/macchinari.jpg) 50%/cover;
+  background: url(../imgs/macchinari.jpg) 50% / cover;
 }
 
 #abbonamenti:before {
-  background: url(../imgs/courses.jpg) 50%/cover;
+  background: url(../imgs/courses.jpg) 50% / cover;
 }
 
 #chiSiamo:before {
-  background: url(../imgs/chiSiamo.jpg) 50%/cover;
+  background: url(../imgs/chiSiamo.jpg) 50% / cover;
 }
 
 #schede:before {
-  background: url(../imgs/schede.png) 50%/cover;
+  background: url(../imgs/schede.png) 50% / cover;
 }
 
 .card .description {
@@ -423,8 +423,8 @@ a:focus{
   height: 40%;
   justify-content: center;
   left: 0;
-  opacity: .8;
-  padding-top: .5em;
+  opacity: 0.8;
+  padding-top: 0.5em;
   position: absolute;
   row-gap: 10%;
   text-align: center;
@@ -433,7 +433,7 @@ a:focus{
 
 .card .description h3 {
   color: var(--cardTxtColor);
-  font-size: clamp(2em,10vw,3em);
+  font-size: clamp(2em, 10vw, 3em);
   font-weight: 700;
 }
 
@@ -460,7 +460,7 @@ a:focus{
   justify-content: center;
   margin: 5em auto 2em;
   max-width: 60%;
-  padding: 1.5em 1.5em .7em;
+  padding: 1.5em 1.5em 0.7em;
   row-gap: 1.5em;
 }
 
@@ -478,10 +478,10 @@ a:focus{
 }
 
 h1.homePageTitle {
-  font-family: var(--font-body-family-bold),sans-serif;
+  font-family: var(--font-body-family-bold), sans-serif;
   font-size: 4em;
   text-align: center;
-  text-shadow: -2px 0 #fff,0 1px #000,1px 0 #000,0 -1px #000;
+  text-shadow: -2px 0 #fff, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
 .titleSection p {
@@ -494,7 +494,7 @@ a.registerNow {
   border: 1px solid var(--registerNowBtnBorderColor);
   color: var(--registerNowBtnTxtColor);
   font-weight: 700;
-  padding: .5em;
+  padding: 0.5em;
   text-align: center;
   text-decoration: underline;
   width: 60%;
@@ -502,7 +502,7 @@ a.registerNow {
 
 .index-content {
   background-color: #000;
-  padding: 1.5em .5em;
+  padding: 1.5em 0.5em;
 }
 
 .index-content h2 {
@@ -516,9 +516,8 @@ a.registerNow {
 }
 
 .index-content p {
-  padding-top: .7em;
+  padding-top: 0.7em;
 }
-
 
 section#find-us h2 {
   margin-top: 1em;
@@ -577,7 +576,7 @@ footer a:hover {
 
 #socials li,
 #socials li:not(:last-child) {
-  padding-right: .5em;
+  padding-right: 0.5em;
 }
 
 /*!***********************/
@@ -590,8 +589,8 @@ footer a:hover {
   background-color: var(--errorMessageBgColor);
   border-radius: 1em;
   color: var(--errorMessageTxtColor);
-  margin: .5em auto;
-  padding: .5em;
+  margin: 0.5em auto;
+  padding: 0.5em;
   text-align: center;
   width: 80%;
 }
@@ -602,7 +601,7 @@ footer a:hover {
   margin: 0 2em;
 }
 
-.user-data-container>fieldset {
+.user-data-container > fieldset {
   border: none;
   flex-direction: column;
   margin: 1em 0;
@@ -611,12 +610,12 @@ footer a:hover {
 
 .user-data-container input {
   border: none;
-  border-top-right-radius: .3em;
+  border-top-right-radius: 0.3em;
   box-sizing: border-box;
   flex-grow: 1;
   font-size: 1.2em;
   height: 3em;
-  padding-right: .5em;
+  padding-right: 0.5em;
   text-align: right;
   width: 100%;
   border-top-left-radius: 0;
@@ -627,7 +626,7 @@ footer a:hover {
   background-color: var(--disabledInputBgColor);
 }
 
-.user-data-container input[type=submit] {
+.user-data-container input[type="submit"] {
   text-align: center;
 }
 
@@ -690,15 +689,15 @@ section.data-abbonamenti {
 }
 
 #Mensile:before {
-  background: url(../imgs/abbonamenti_images/Mensile.png) 50%/cover;
+  background: url(../imgs/abbonamenti_images/Mensile.png) 50% / cover;
 }
 
 #Trimestrale:before {
-  background: url(../imgs/abbonamenti_images/Trimestrale.png) 50%/cover;
+  background: url(../imgs/abbonamenti_images/Trimestrale.png) 50% / cover;
 }
 
 #Annuale:before {
-  background: url(../imgs/abbonamenti_images/Annuale.png) 50%/cover;
+  background: url(../imgs/abbonamenti_images/Annuale.png) 50% / cover;
 }
 
 /*!***********************/
@@ -715,9 +714,9 @@ p.empty-result {
 
 .tabTitle,
 p.empty-result {
-  border-radius: .5em;
+  border-radius: 0.5em;
   margin: 0 auto;
-  padding: .5em;
+  padding: 0.5em;
   text-align: center;
 }
 
@@ -736,17 +735,17 @@ p.empty-result {
   display: flex;
   justify-content: space-around;
   list-style: none;
-  margin-bottom: .7em;
+  margin-bottom: 0.7em;
   width: 100%;
 }
 
 #tabs li {
   background-color: var(--tabsBgColor);
   border: 1px solid var(--currentTabBgColor);
-  border-bottom-left-radius: .5em;
-  border-bottom-right-radius: .5em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
   flex-grow: 1;
-  padding: .7em;
+  padding: 0.7em;
   text-align: center;
 }
 
@@ -805,8 +804,8 @@ p.empty-result {
 
 .schede-container {
   list-style: none;
-  margin-left: .5em;
-  margin-right: .5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .scheda {
@@ -819,7 +818,7 @@ p.empty-result {
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
   color: var(--headerTxtColor);
-  padding: .5em;
+  padding: 0.5em;
   text-align: center;
 }
 
@@ -857,8 +856,8 @@ table caption {
 /*!***********************/
 
 .table-abbonamenti {
-  border-top-left-radius: .5em;
-  border-top-right-radius: .5em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
 }
 
 .table-abbonamenti thead th {
@@ -889,7 +888,7 @@ table caption {
 }
 
 .tb-container {
-  padding: 0 .5em;
+  padding: 0 0.5em;
 }
 
 /*!***********************/
@@ -901,12 +900,12 @@ table caption {
 #logout {
   background-color: var(--logoutBtnBgColor);
   border: 1px solid var(--logoutBtnBorderColor);
-  border-radius: .5em;
+  border-radius: 0.5em;
   color: var(--formBtnTxtColor);
   margin-left: auto;
   margin-right: auto;
   margin-top: 1em;
-  padding: .3em .2em;
+  padding: 0.3em 0.2em;
   width: 79%;
 }
 
@@ -919,10 +918,10 @@ table caption {
 .cancelBtn {
   background-color: #fff;
   border: 1px solid #000;
-  border-radius: .3em;
+  border-radius: 0.3em;
   color: #000;
   flex-grow: 1;
-  padding: .5em 0;
+  padding: 0.5em 0;
   width: inherit;
 }
 
@@ -931,7 +930,7 @@ table caption {
 }
 
 .qr_code {
-  margin: .5em 2em 2em;
+  margin: 0.5em 2em 2em;
 }
 
 #sectionQrCode {
@@ -942,10 +941,10 @@ table caption {
 
 #sectionQrCode p {
   background-color: var(--paragraphQrBgColor);
-  border-radius: .5em;
+  border-radius: 0.5em;
   color: var(--paragraphQrTxtColor);
-  margin-top: .5em;
-  padding: .5em;
+  margin-top: 0.5em;
+  padding: 0.5em;
   text-align: center;
 }
 
@@ -961,24 +960,24 @@ table caption {
   background-color: #fff;
   display: flex;
   flex-flow: column;
-  font-family: osvald-bold,sans-serif;
+  font-family: osvald-bold, sans-serif;
   font-weight: 700;
   justify-content: end;
-  padding: .3em;
+  padding: 0.3em;
   text-align: right;
 }
 
 .input-field label:first-child {
-  border-top-left-radius: .3em;
+  border-top-left-radius: 0.3em;
   text-align: left;
 }
 
 .input-field label:last-child {
-  border-top-right-radius: .3em;
+  border-top-right-radius: 0.3em;
   font-size: 1.2em;
   font-weight: 400;
   line-height: 2em;
-  padding-right: .5em;
+  padding-right: 0.5em;
   padding-top: 0;
 }
 
@@ -991,7 +990,7 @@ table caption {
 caption#caption-certificato {
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 /*!**************************/
@@ -1026,16 +1025,16 @@ li.metrica {
   justify-content: center;
   min-height: 10em;
   overflow: hidden;
-  padding: 0 .5em .5em;
+  padding: 0 0.5em 0.5em;
 }
 
 li.metrica h3 {
   background-color: var(--metricaTitleBgColor);
-  border-bottom-left-radius: .5em;
-  border-bottom-right-radius: .5em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
   color: var(--metricaTitleTxtColor);
-  margin-bottom: .5em;
-  padding: .5em;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
   text-align: center;
 }
 
@@ -1063,28 +1062,6 @@ img {
 /* PAGINA CORSI */
 /************************/
 
-#cards-container-corsi {
-  margin: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 2%;
-  height: 100%;
-  padding: 1em;
-  max-width: 800px;
-  min-height: 3000px;
-  margin-top: 0.1em;
-}
-
-#cards-container-corsi li {
-  width: 97%;
-  height: 100%;
-}
-
 .card-corso {
   flex-wrap: nowrap;
   position: relative;
@@ -1094,26 +1071,19 @@ img {
   height: 80%;
   border-radius: 30px;
   text-decoration: none;
-  color: #333;
   margin-left: 1em;
   margin-right: 1em;
-  background-color: black;
+  background-color: var(--cardBgColor);
   flex-direction: column;
   box-shadow: 0 0 30px rgba(122, 0, 0, 100);
-}
-
-.card-corso-image {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  border-radius: 30px 30px 0px 0px;
+  margin: 2em auto;
+  max-width: 90%;
 }
 
 .card-corso-description h2 {
-  display: block;
   text-align: center;
-  font-size: 200%;
-  margin-top: 0.5em;
+  font-size: 2em;
+  padding-top: 1em;
   color: var(--h2TitleCard);
 }
 
@@ -1203,14 +1173,14 @@ img {
   content: "🕺";
 }
 
-.emoji-time::before{
+.emoji-time::before {
   content: "🕘";
 }
 
-.emoji-time::after{
+.emoji-time::after {
   content: "📅";
 }
-
+/*
 #immagine-corso-pilates {
   background: url("../imgs/corsi_image/pilates.jpg") center/cover;
   content: "";
@@ -1229,7 +1199,59 @@ img {
 #immagine-corso-danza {
   background: url("../imgs/corsi_image/danza.jpg") center/cover;
   content: "";
+}*/
+
+#corso-pilates::before {
+  background: url(../imgs/corsi_image/pilates.jpg) center/cover;
+  content: "";
+  height: 12em;
+  display: block;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
 }
+
+#corso-yoga::before {
+  background: url(../imgs/corsi_image/yoga.jpg) center/cover;
+  content: "";
+  height: 12em;
+  display: block;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+}
+
+#corso-box::before {
+  background: url(../imgs/corsi_image/box.jpg) center/cover;
+  content: "";
+  height: 12em;
+  display: block;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+}
+
+#corso-danza::before {
+  background: url(../imgs/corsi_image/danza.jpg) center/cover;
+  content: "";
+  height: 12em;
+  display: block;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+}
+
+@media (min-width: 600px) {
+  #corso-pilates::before,
+  #corso-yoga::before,
+  #corso-box::before,
+  #corso-danza::before {
+    height: 100%;
+    width: 50%;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 2em;
+    position: absolute;
+    left: 0;
+  }
+}
+
 .card-corso-description {
   flex: 1;
 }
@@ -1263,15 +1285,6 @@ img {
   padding-top: 5%;
   padding-bottom: 5%;
   font-weight: bold;
-  
-}
-
-#title-page{
-  text-align: center;
-  color: var(--titlePage);
-  padding-top: 1em;
-  padding-bottom: 0.5em;
-  font-size: 3em;
 }
 
 .link-underline {
@@ -1299,7 +1312,6 @@ img {
   border-top-left-radius: 1.5em;
   border-top-right-radius: 1.5em;
   text-align: center;
-
 }
 
 #componenti > dd {
@@ -1318,11 +1330,11 @@ img {
   object-fit: cover;
   object-position: center;
   border: 5px solid #ffffff;
-  margin: 0.5em 0 ;
+  margin: 0.5em 0;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 100));
 }
 
-.componente{
+.componente {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1332,19 +1344,18 @@ img {
 }
 
 .componente dl dd,
-.componente dl dt{ 
+.componente dl dt {
   padding: 0.5em 0;
 }
 .componente dt {
   font-weight: bold;
   padding-left: 0.5em;
-  float:left;
+  float: left;
 }
 
 .componente dd {
   margin-left: 9em;
 }
-
 
 #componenti ul {
   list-style: none;
@@ -1354,15 +1365,15 @@ img {
   margin-bottom: 0.5em;
 }
 
-.SocialsComponenti{
+.SocialsComponenti {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   column-gap: 1em;
 }
 
-.componente p{
-  padding: 1em;;
+.componente p {
+  padding: 1em;
 }
 
 /*!***********************/
@@ -1371,13 +1382,13 @@ img {
 
 /*!***********************/
 
-@media (max-width:420px) {
+@media (max-width: 420px) {
   #tabs li {
     min-width: 30px;
   }
 }
 
-@media (min-width:725px) {
+@media (min-width: 725px) {
   .schede-container {
     align-items: center;
     display: flex;
@@ -1400,7 +1411,7 @@ img {
   }
 }
 
-@media (min-width:320px) {
+@media (min-width: 320px) {
   .logo {
     max-height: 6em;
     max-width: 7em;
@@ -1413,52 +1424,19 @@ img {
   }
 }
 
-
 @media (min-width: 600px) {
-  
-   .user-data-container {
+  .user-data-container {
     max-width: 60%;
     margin-left: auto;
     margin-right: auto;
   }
-  
-  #cards-container-corsi {
-    margin-top: 1.5em;;
-    max-width: 1000px;
-    min-height: 2400px;
-  }
-  .card-corso {
-    flex-direction: row;
-  }
-  .card-corso-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 30px 0px 0px 30px;
-  }
-  .card-corso-description h2 {
-    margin-top: 0em;
-    padding-top: 1em;
-    padding-bottom: 0;
-  }
-  .card-corso-description ul {
-    margin-top: 5%;
-  }
 
-  .card-corso-description li {
-    padding-bottom: 3%;
-  }
-
-  #title-page{
-    text-align: center;
-    color: var(--titlePage);
-    padding-top: 1em;
-    padding-bottom: 0.2em;
-    font-size: 3em;
+  .card-corso-description {
+    margin-left: calc(40% + 5em);
   }
 }
 
-
-@media (min-width:840px) {
+@media (min-width: 840px) {
   .logo {
     max-height: 7em;
     width: 100%;
