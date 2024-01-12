@@ -11,18 +11,8 @@
     </head>
 
     <body>
-        <header>
-            <nav id="nav-principale" aria-label="navigazione">
-                <div class="container">
-                    <h1 class="site-title">Chi siamo</h1>
-                </div>
-                <button id="hamburger" aria-expanded="false">
-                    <span>Menu</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
-                        <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
-                    </svg>
-                </button>
-            </nav>
+        <header class="main">
+            @@navbar@@
             <nav id="breadcrumb" aria-label="breadcrumb">
                 Ti trovi in:
                 <ol>
@@ -34,6 +24,7 @@
             </nav>
         </header>
         <main>
+            <h1 class="normalPageTitle">Chi siamo</h1>
             <dl id="componenti">
                 <dt>Andrea Giurisato</dt>
                 <dd class ="componente">
@@ -117,5 +108,6 @@
 
             </dl> 
         </main>
+        @@footer@@
     </body>
 </html>
