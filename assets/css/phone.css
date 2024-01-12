@@ -157,7 +157,7 @@ main {
 }
 
 #breadcrumb ol>li:not(:first-child):before {
-  content: ">";
+  content: ">>";
   padding: 0 .5em;
 }
 
@@ -224,7 +224,7 @@ main {
   transition: .4s ease-in;
 }
 
-#nav-principale ul li span {
+#nav-principale ul li > span {
   padding: 0;
 }
 
@@ -315,6 +315,11 @@ main {
 .site-title {
   font-family: var(--font-body-family);
   margin-left: 10px;
+}
+
+h1 a {
+  color: white;
+  text-decoration: none;
 }
 
 #nav-principale .container {
@@ -1097,6 +1102,16 @@ img {
   }
 }
 
+@media (min-width: 600px) {
+  .user-data-container {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
 @media (min-width:840px) {
   .logo {
     max-height: 7em;
@@ -1110,5 +1125,11 @@ img {
 
   .card {
     height: 17em;
+  }
+
+  .user-data-container {
+    max-width: 35%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
