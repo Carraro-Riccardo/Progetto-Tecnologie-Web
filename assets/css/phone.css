@@ -744,6 +744,7 @@ table.esercizio caption {
   padding: 1em;
   max-width: 800px;
   min-height: 3000px;
+  margin-top: 0.1em;
 }
 
 #cards-container-corsi li {
@@ -946,6 +947,7 @@ table.esercizio caption {
 
 @media (min-width: 601px) {
   #cards-container-corsi {
+    margin-top: 1.5em;;
     max-width: 1000px;
     min-height: 2400px;
   }
@@ -974,7 +976,7 @@ table.esercizio caption {
     text-align: center;
     color: var(--titlePage);
     padding-top: 1em;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.2em;
     font-size: 3em;
   }
 }
