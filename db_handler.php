@@ -232,6 +232,18 @@ class Database {
         $stmt->close();
         return $res;
     }
+
+    public function getAllUsers(){
+        $query = "  SELECT id, username, nome, cognome, email, dataRegistrazione, certificatoPath
+                    FROM utenti 
+                    WHERE ruolo = 'user'
+                    ORDER BY cognome ASC, nome ASC";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
 }
 
 ?>

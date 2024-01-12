@@ -609,6 +609,8 @@ footer a:hover {
   padding-right: .5em;
   text-align: right;
   width: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .user-data-container input:disabled {
@@ -988,7 +990,7 @@ caption#caption-certificato {
 
 /*!**************************/
 
-#bodyAdmin {
+#mainAdmin {
   background-color: var(--adminPageBackground);
 }
 
@@ -998,6 +1000,7 @@ ul.container-metriche {
   gap: 1em;
   list-style: none;
   padding: 0 1.5em 1.5em;
+  margin-top: 4em;
 }
 
 li.metrica {
@@ -1027,7 +1030,7 @@ li.metrica h3 {
 }
 
 li.metrica p {
-  font-size: 4em;
+  font-size: clamp(3em, 5vw, 5em);
   margin: auto;
   text-align: center;
 }

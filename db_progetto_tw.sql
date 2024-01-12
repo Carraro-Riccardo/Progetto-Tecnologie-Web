@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 09, 2024 alle 01:01
+-- Creato il: Gen 11, 2024 alle 22:45
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_progetto_tw`
 --
-CREATE DATABASE IF NOT EXISTS `db_progetto_tw` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `db_progetto_tw`;
 
 -- --------------------------------------------------------
 
@@ -29,6 +27,7 @@ USE `db_progetto_tw`;
 -- Struttura della tabella `abbonamenti`
 --
 
+DROP TABLE IF EXISTS `abbonamenti`;
 CREATE TABLE `abbonamenti` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
@@ -51,6 +50,7 @@ INSERT INTO `abbonamenti` (`id`, `nome`, `durata`, `costo`) VALUES
 -- Struttura della tabella `allenatori`
 --
 
+DROP TABLE IF EXISTS `allenatori`;
 CREATE TABLE `allenatori` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
@@ -75,6 +75,7 @@ INSERT INTO `allenatori` (`id`, `nome`, `cognome`, `data_di_nascita`, `descrizio
 -- Struttura della tabella `esercizi`
 --
 
+DROP TABLE IF EXISTS `esercizi`;
 CREATE TABLE `esercizi` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
@@ -104,6 +105,7 @@ INSERT INTO `esercizi` (`id`, `nome`, `descrizione`, `id_macchinario`) VALUES
 -- Struttura della tabella `gruppimuscolari`
 --
 
+DROP TABLE IF EXISTS `gruppimuscolari`;
 CREATE TABLE `gruppimuscolari` (
   `ID` int(11) NOT NULL,
   `gruppoMuscolare` varchar(30) NOT NULL
@@ -128,6 +130,7 @@ INSERT INTO `gruppimuscolari` (`ID`, `gruppoMuscolare`) VALUES
 -- Struttura della tabella `macchinari`
 --
 
+DROP TABLE IF EXISTS `macchinari`;
 CREATE TABLE `macchinari` (
   `id` int(11) NOT NULL,
   `nome` varchar(30) DEFAULT NULL,
@@ -157,6 +160,7 @@ INSERT INTO `macchinari` (`id`, `nome`, `dataDiAcquisto`, `gruppoMuscolare`) VAL
 -- Struttura della tabella `scheda`
 --
 
+DROP TABLE IF EXISTS `scheda`;
 CREATE TABLE `scheda` (
   `id_scheda` int(11) NOT NULL,
   `id_allenatore` int(11) DEFAULT NULL
@@ -178,6 +182,7 @@ INSERT INTO `scheda` (`id_scheda`, `id_allenatore`) VALUES
 -- Struttura della tabella `schede_esercizi`
 --
 
+DROP TABLE IF EXISTS `schede_esercizi`;
 CREATE TABLE `schede_esercizi` (
   `id` int(11) NOT NULL,
   `id_scheda` int(11) DEFAULT NULL,
@@ -219,6 +224,7 @@ INSERT INTO `schede_esercizi` (`id`, `id_scheda`, `id_esercizio`, `giorno_settim
 -- Struttura della tabella `schede_utente`
 --
 
+DROP TABLE IF EXISTS `schede_utente`;
 CREATE TABLE `schede_utente` (
   `id` int(11) NOT NULL,
   `id_utente` int(11) DEFAULT NULL,
@@ -238,27 +244,30 @@ INSERT INTO `schede_utente` (`id`, `id_utente`, `id_scheda`) VALUES
 -- Struttura della tabella `utenti`
 --
 
+DROP TABLE IF EXISTS `utenti`;
 CREATE TABLE `utenti` (
   `id` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `ruolo` enum('user','admin') DEFAULT NULL,
-  `certificatoMedico` enum('approvato','non approvato','assente') DEFAULT NULL,
+  `certificatoMedico` enum('approvato','non approvato','assente','da validare') DEFAULT NULL,
   `certificatoPath` varchar(100) DEFAULT NULL,
   `scadenzaCertificato` date DEFAULT NULL,
   `nome` varchar(30) DEFAULT NULL,
-  `cognome` varchar(30) DEFAULT NULL
+  `cognome` varchar(30) DEFAULT NULL,
+  `dataRegistrazione` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`) VALUES
-(1, 'user', 'user@gmail.com', 'user', 'user', 'approvato', './certificati/certificato_1.pdf', '2025-01-01', 'nome user', 'cognome user'),
-(5, 'nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', NULL, NULL, NULL, 'nome nuovo', 'cognome nuovo'),
-(7, 'admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi');
+INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`, `dataRegistrazione`) VALUES
+(1, 'user', 'user@gmail.com', 'user', 'user', 'approvato', './certificati/certificato_1.pdf', '2025-01-01', 'nome user', 'cognome user', '2023-12-01'),
+(5, 'nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', 'da validare', NULL, NULL, 'nome nuovo', 'cognome nuovo', '2024-01-10'),
+(7, 'admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi', '2024-01-10'),
+(8, 'SuperLuke', 'luke@gmail.com', 'pswLuke', 'user', 'approvato', './certificati/certificato_6.pdf', '2024-11-30', 'Luca', 'Superbo', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -266,6 +275,7 @@ INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certifica
 -- Struttura della tabella `utenti_abbonamenti`
 --
 
+DROP TABLE IF EXISTS `utenti_abbonamenti`;
 CREATE TABLE `utenti_abbonamenti` (
   `id_utente` int(11) NOT NULL,
   `id_abbonamento` int(11) NOT NULL,
@@ -278,7 +288,8 @@ CREATE TABLE `utenti_abbonamenti` (
 
 INSERT INTO `utenti_abbonamenti` (`id_utente`, `id_abbonamento`, `data_stipula`) VALUES
 (1, 1, '2023-12-01'),
-(1, 2, '2024-01-01');
+(1, 2, '2024-01-01'),
+(8, 3, '2023-12-01');
 
 --
 -- Indici per le tabelle scaricate
@@ -407,7 +418,7 @@ ALTER TABLE `schede_utente`
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Limiti per le tabelle scaricate

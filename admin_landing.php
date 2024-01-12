@@ -12,6 +12,7 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "admin"){
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
+    PageBuilder::removeAncorLinks($page, "login.php");
     $page = str_replace("@@USER@@", "Gestione Profilo", $page); //TODO profilo dedicato all'admin
     $page = str_replace("@@logout@@", "<li><a href='logout.php'><span lang='en'>Log out</span></a></li>", $page);
 }

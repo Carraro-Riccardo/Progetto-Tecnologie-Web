@@ -11,6 +11,7 @@ require_once("./db_handler.php");
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 
 if(isset($_SESSION["user_id"])){
+    PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
         $certificato_result = $db->getCertificatoUtente($_SESSION['user_id']);

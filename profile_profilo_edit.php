@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 if(isset($_SESSION["user_id"])){
+    PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
         $dati_result = $db->getDatiUtente($_SESSION['user_id']);

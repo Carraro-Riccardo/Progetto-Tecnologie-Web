@@ -28,6 +28,7 @@ function creaTabella($giorni, $esercizi) {
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 
 if(isset($_SESSION["user_id"])){
+    PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
         $schede_result = $db->getSchedeUtente($_SESSION['user_id']);
@@ -49,7 +50,7 @@ if(isset($_SESSION["user_id"])){
         while ($row = $schede_result->fetch_assoc()) {
             if ($curr_scheda != $row['id_scheda']) {
                 if ($curr_scheda != null) {
-                    $schede .= "<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n";
+                    $schede .= "<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n</li>\n";
                     $giorni = array();
                     $esercizi = array();
                 }

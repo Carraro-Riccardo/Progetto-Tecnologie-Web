@@ -39,7 +39,7 @@ $allenatore = ""; // Inizializzazione della variabile $allenatore
 while ($row = $schede_result->fetch_assoc()) {
     if ($curr_scheda != $row['id_scheda']) {
         if ($curr_scheda != null) {
-            $schede .= "<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n";
+            $schede .= "<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n</li>\n<li>\n";
             $giorni = array();
             $esercizi = array();
         }
@@ -51,7 +51,7 @@ while ($row = $schede_result->fetch_assoc()) {
     }
     $esercizi[$row['giorno_settimana']][] = $row['nome'] . ", " . $row['numero_set'] . ", " . $row['numero_ripetizioni'];
 }
-$schede .= "</li>\n<li>\n<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
+$schede .= "\n<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
 
 $page = str_replace('<!--sezione schede-->', $schede, $page);
 echo $page;
