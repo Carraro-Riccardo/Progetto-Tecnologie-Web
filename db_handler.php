@@ -244,6 +244,20 @@ class Database {
         $result = $stmt->get_result();
         return $result;
     }
+
+
+    public function getAllMacchinari(){
+        $query = "  SELECT *
+                    FROM macchinari";
+    
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        return $result;
+    }
 }
 
 ?>
