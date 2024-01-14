@@ -358,7 +358,8 @@ h1 a {
 }
 
 a:active,
-a:focus {
+a:focus,
+a:hover {
   transform: scale(1.06);
   transition: 0.2s ease-in;
 }
@@ -442,7 +443,7 @@ a:focus {
   margin: 0 auto 3em;
 }
 
-#cards-container ul {
+#cards-container > ul {
   display: grid;
   list-style: none;
   margin: 1.5em;
@@ -1076,7 +1077,9 @@ img {
   flex-direction: column;
   box-shadow: 0 0 30px rgba(122, 0, 0, 100);
   margin: 2em auto;
-  max-width: 90%;
+  width: 85%;
+  max-width: 60em;
+  height: fit-content;
 }
 
 .card-corso-description h2 {
@@ -1088,8 +1091,8 @@ img {
 
 .card-corso-description h3 {
   font-size: 1.4em;
-  padding-bottom: 1%;
-  padding-top: 4%;
+  padding-bottom: 0.3em;
+  padding-top: 1em;
 }
 
 #emoji-man-cartwheeling::before {
@@ -1424,6 +1427,23 @@ img {
 }
 
 @media (min-width: 600px) {
+
+  #cards-container {
+    max-width: 100%;
+  }
+
+  #cards-container > ul{
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 2em;
+    justify-content: center;
+  }
+
+  .card{
+    min-width: 30em;
+  }
+
+
   .user-data-container {
     max-width: 60%;
     margin-left: auto;
@@ -1431,7 +1451,7 @@ img {
   }
 
   .card-corso-description {
-    margin-left: calc(40% + 5em);
+    margin-left: calc(43% + 5em);
   }
 }
 
@@ -1441,13 +1461,8 @@ img {
     width: 100%;
   }
 
-  #cards-container {
-    max-width: 1000px;
-    min-height: 1500px;
-  }
-
   .card {
-    height: 17em;
+    height: 18em;
   }
 
   .user-data-container {
