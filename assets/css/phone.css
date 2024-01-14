@@ -401,7 +401,7 @@ a:focus {
 }
 
 #abbonamenti:before {
-  background: url(../imgs/courses.jpg) 50% / cover;
+  background: url(../imgs/abbonamenti.jpg) 50% / cover;
 }
 
 #chiSiamo:before {
@@ -409,7 +409,7 @@ a:focus {
 }
 
 #schede:before {
-  background: url(../imgs/schede.png) 50% / cover;
+  background: url(../imgs/schede.jpg) 50% / cover;
 }
 
 .card .description {
