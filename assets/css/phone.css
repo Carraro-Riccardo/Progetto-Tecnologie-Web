@@ -688,15 +688,15 @@ section.data-abbonamenti {
 }
 
 #Mensile:before {
-  background: url(../imgs/abbonamenti_images/Mensile.png) 50% / cover;
+  background: url(../imgs/abbonamenti_images/Mensile.jpg) 50% / cover;
 }
 
 #Trimestrale:before {
-  background: url(../imgs/abbonamenti_images/Trimestrale.png) 50% / cover;
+  background: url(../imgs/abbonamenti_images/Trimestrale.jpg) 50% / cover;
 }
 
 #Annuale:before {
-  background: url(../imgs/abbonamenti_images/Annuale.png) 50% / cover;
+  background: url(../imgs/abbonamenti_images/Annuale.jpg) 50% / cover;
 }
 
 /*!***********************/
