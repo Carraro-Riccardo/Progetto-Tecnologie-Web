@@ -3,23 +3,23 @@ session_start();
 require_once("./pages_builder.php");
 require_once("./db_handler.php");
 
-
 function creaCardMacchinari($macchinari) {
-    $macchinari_cards = "<div id='macchinari-container'>";
+    $macchinari_cards = "<dl>";
 
     foreach ($macchinari as $row) {
         $macchinari_cards .= "
-            <div class='macchinario-card'>
-            <h3>" . htmlspecialchars($row['nome']) . "</h3>
-            <div class='macchinario-details'>
-                <p>Data di Acquisto: " . $row['dataDiAcquisto'] . "</p>
-                <p>Gruppo Muscolare: " . htmlspecialchars($row['gruppoMuscolare']) . "</p>
-            </div>
+            <div class=\"card-macchinario\">
+                <img src=\"./assets/imgs/macchinari/prova.jpeg\" alt=\"prova\"/>
+                <h3>" . $row["nome"] . "</h3>
+                <nav class=\"card-macchinario-description\">
+                    <p>Data di Acquisto: " . $row["dataDiAcquisto"] . "</p>
+                    <p>Gruppo Muscolare: " . $row["gruppoMuscolare"] . "</p>
+                </nav>
             </div>
             ";
     }
 
-    $macchinari_cards .= "</div>";
+    $macchinari_cards .= "</dl>";
 
     return $macchinari_cards;
 }
