@@ -58,6 +58,7 @@
   /*!Footer*/
   --footerBgColor: #000;
   --footerTxtColor: #9f9f9f;
+  --footerVisitedLinkColor: white;
 
   /*!Tabelle*/
   --headTable: #8f2444;
@@ -235,7 +236,8 @@ main {
   color: var(--visitedLinkColor);
 }
 
-#nav-principale ul li a:visited{
+#nav-principale ul li a:visited,
+#nav-principale ul li a:visited span{
   color: var(--visitedLinkColor);
 }
 
@@ -556,6 +558,10 @@ footer {
 footer,
 footer a {
   color: var(--footerTxtColor);
+}
+
+footer a:visited {
+  color: var(--footerVisitedLinkColor);
 }
 
 footer a:hover {
