@@ -15,7 +15,6 @@
 
   /*!Generale*/
   --background-color: #da6202;
-  --visitedLinkColor: red;
 
   /*!Header*/
   --headerBackgroundColor: #000;
@@ -29,6 +28,7 @@
   --HMItemTxtColor: #fff;
   --HMItemBgColor: #262262;
   --HMItemBgHover: #090816;
+  --visitedLinkColor: #f9ff00;
 
   /*!Breadcrumb*/
   --breadcrumbBgColor: #7a0000;
@@ -47,6 +47,7 @@
   /*!Cards*/
   --cardTxtColor: #fff;
   --cardBgColor: #000;
+  --visitedCard: #600d0d;
 
   /*!Form*/
   --formBtnBgColor: #000;
@@ -227,6 +228,15 @@ main {
   text-align: center;
   text-transform: uppercase;
   transition: 0.4s ease-in;
+}
+
+#nav-principale ul li .currentPage,
+#nav-principale ul li .currentPage span {
+  color: var(--visitedLinkColor);
+}
+
+#nav-principale ul li a:visited{
+  color: var(--visitedLinkColor);
 }
 
 #nav-principale ul li > span {
@@ -429,6 +439,10 @@ a:hover {
   row-gap: 10%;
   text-align: center;
   width: 100%;
+}
+
+a.card:visited .description {
+  background-color: var(--visitedCard);
 }
 
 .card .description h3 {

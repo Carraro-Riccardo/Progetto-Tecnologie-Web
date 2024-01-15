@@ -9,7 +9,7 @@ class PageBuilder {
 
     private static function removeCircularLinks(&$page, $name) : void {
 		$to_find = '/<a href=".\/' . $name . '\.php.*?"([^>]*?)>(.*?)<\/a>/s';
-		$page = preg_replace($to_find, '<span ${1}>${2}</span>' , $page);
+		$page = preg_replace($to_find, '<span class="currentPage"${1}>${2}</span>' , $page);
 	}
 
 
