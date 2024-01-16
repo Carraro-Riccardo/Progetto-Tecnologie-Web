@@ -42,6 +42,7 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
         $listItem .= "<option value=\"".$row["username"]."\">".$row["username"]."</option>\n";
     }
 
+    /*
     if(isset($_POST["utente"])){
         foreach ($utenti as $utente) {
             if($utente["username"] == $_POST["utente"]){
@@ -56,7 +57,7 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
         }
     }else{
         $page = preg_replace('/(<!--form utente-->).*(<!--fine form utente-->)/s', "<p class='empty-result'>Seleziona un utente.</p>", $page);
-    }
+    }*/
 
     $page = str_replace("@@lista-utenti@@", $listItem, $page);
     echo $page;

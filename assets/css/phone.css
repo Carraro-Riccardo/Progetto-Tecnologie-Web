@@ -140,6 +140,10 @@ main {
   width: 100vw;
 }
 
+main {
+  height: 100%;
+}
+
 .screen-reader-only {
   height: 1px;
   left: -10000px;
@@ -210,18 +214,8 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(91px, 1fr));
 }
 
-@media (min-width: 660px) {
-  #nav-principale ul {
-    flex-direction: row;
-  }
-
-  #nav-principale ul li {
-    flex-grow: 1;
-  }
-}
-
 #nav-principale ul li a,
-#nav-principale ul li span {
+#nav-principale ul li > span {
   color: var(--HMItemTxtColor);
   display: block;
   font-family: var(--font-body-family);
@@ -232,17 +226,14 @@ main {
 }
 
 #nav-principale ul li .currentPage,
-#nav-principale ul li .currentPage span {
+#nav-principale ul li .currentPage > span {
   color: var(--visitedLinkColor);
+  padding: 10px;
 }
 
 #nav-principale ul li a:visited,
 #nav-principale ul li a:visited span{
   color: var(--visitedLinkColor);
-}
-
-#nav-principale ul li > span {
-  padding: 0;
 }
 
 #nav-principale ul li a:focus,
@@ -253,6 +244,7 @@ main {
 .logo {
   max-height: 10em;
   width: 100%;
+  height: 100%;
 }
 
 .logo-holder {
@@ -287,6 +279,7 @@ main {
   height: 3em;
   width: 3em;
   fill: var(--closedHamburgerColor);
+  padding-right: 2%;
 }
 
 #hamburger #expanded {
@@ -406,23 +399,23 @@ a:hover {
 }
 
 #corsi:before {
-  background: url(../imgs/courses.jpg) 50% / cover;
+  background: url(../imgs/courses.webp) 50% / cover;
 }
 
 #macchinari:before {
-  background: url(../imgs/macchinari.jpg) 50% / cover;
+  background: url(../imgs/macchinari.webp) 50% / cover;
 }
 
 #abbonamenti:before {
-  background: url(../imgs/abbonamenti.jpg) 50% / cover;
+  background: url(../imgs/abbonamenti.webp) 50% / cover;
 }
 
 #chiSiamo:before {
-  background: url(../imgs/chiSiamo.jpg) 50% / cover;
+  background: url(../imgs/chiSiamo.webp) 50% / cover;
 }
 
 #schede:before {
-  background: url(../imgs/schede.jpg) 50% / cover;
+  background: url(../imgs/schede.webp) 50% / cover;
 }
 
 .card .description {
@@ -447,7 +440,8 @@ a.card:visited .description {
   background-color: var(--visitedCard);
 }
 
-.card .description h3 {
+.card .description h3,
+.card .description h2 {
   color: var(--cardTxtColor);
   font-size: clamp(2em, 10vw, 3em);
   font-weight: 700;
@@ -481,8 +475,8 @@ a.card:visited .description {
 }
 
 #mainHomePage {
-  background: url(../imgs/background-nobg.png) no-repeat 50%;
-  background-position-y: 3em;
+  background: url(../imgs/background-nobg.webp) no-repeat 50%;
+  background-position-y: 5em;
 }
 
 .normalPageTitle {
@@ -547,6 +541,7 @@ section#find-us h2 {
 
 footer {
   background-color: var(--footerBgColor);
+  font-size: 1.2em;
   bottom: 0;
   display: grid;
   gap: 1em;
@@ -592,6 +587,8 @@ footer a:hover {
 
 #socials li {
   display: inline-block;
+  margin: 0.5em;
+  margin-left: 0em;
 }
 
 #socials li,
@@ -709,15 +706,15 @@ section.data-abbonamenti {
 }
 
 #Mensile:before {
-  background: url(../imgs/abbonamenti_images/Mensile.jpg) 50% / cover;
+  background: url(../imgs/abbonamenti_images/Mensile.webp) 50% / cover;
 }
 
 #Trimestrale:before {
-  background: url(../imgs/abbonamenti_images/Trimestrale.jpg) 50% / cover;
+  background: url(../imgs/abbonamenti_images/Trimestrale.webp) 50% / cover;
 }
 
 #Annuale:before {
-  background: url(../imgs/abbonamenti_images/Annuale.jpg) 50% / cover;
+  background: url(../imgs/abbonamenti_images/Annuale.webp) 50% / cover;
 }
 
 /*!***********************/
@@ -783,7 +780,7 @@ p.empty-result {
 }
 
 #tabSchede:before {
-  background-image: url(../imgs/profile_icons/schede.png);
+  background-image: url(../imgs/profile_icons/schede.webp);
 }
 
 #tabAbbonamenti:before,
@@ -799,11 +796,11 @@ p.empty-result {
 }
 
 #tabAbbonamenti:before {
-  background-image: url(../imgs/profile_icons/abbonamenti.png);
+  background-image: url(../imgs/profile_icons/abbonamenti.webp);
 }
 
 #tabCertificato:before {
-  background-image: url(../imgs/profile_icons/certificato.png);
+  background-image: url(../imgs/profile_icons/certificato.webp);
 }
 
 #tabCertificato:before,
@@ -819,7 +816,7 @@ p.empty-result {
 }
 
 #tabProfilo:before {
-  background-image: url(../imgs/profile_icons/profile.png);
+  background-image: url(../imgs/profile_icons/profile.webp);
 }
 
 .schede-container {
@@ -1224,7 +1221,7 @@ img {
 }*/
 
 #corso-pilates::before {
-  background: url(../imgs/corsi_image/pilates.jpg) center/cover;
+  background: url(../imgs/corsi_image/pilates.webp) center/cover;
   content: "";
   height: 12em;
   display: block;
@@ -1233,7 +1230,7 @@ img {
 }
 
 #corso-yoga::before {
-  background: url(../imgs/corsi_image/yoga.jpg) center/cover;
+  background: url(../imgs/corsi_image/yoga.webp) center/cover;
   content: "";
   height: 12em;
   display: block;
@@ -1242,7 +1239,7 @@ img {
 }
 
 #corso-box::before {
-  background: url(../imgs/corsi_image/box.jpg) center/cover;
+  background: url(../imgs/corsi_image/box.webp) center/cover;
   content: "";
   height: 12em;
   display: block;
@@ -1251,27 +1248,12 @@ img {
 }
 
 #corso-danza::before {
-  background: url(../imgs/corsi_image/danza.jpg) center/cover;
+  background: url(../imgs/corsi_image/danza.webp) center/cover;
   content: "";
   height: 12em;
   display: block;
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
-}
-
-@media (min-width: 600px) {
-  #corso-pilates::before,
-  #corso-yoga::before,
-  #corso-box::before,
-  #corso-danza::before {
-    height: 100%;
-    width: 50%;
-    border-top-left-radius: 2em;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 2em;
-    position: absolute;
-    left: 0;
-  }
 }
 
 .card-corso-description {
@@ -1404,35 +1386,6 @@ img {
 
 /*!***********************/
 
-@media (max-width: 420px) {
-  #tabs li {
-    min-width: 30px;
-  }
-}
-
-@media (min-width: 725px) {
-  .schede-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .tb-container {
-    padding: 0 15%;
-  }
-
-  .schede-container li {
-    width: fit-content;
-  }
-
-  .scheda {
-    border-radius: 2em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
 @media (min-width: 320px) {
   .logo {
     max-height: 6em;
@@ -1443,6 +1396,12 @@ img {
 
   #cards-container {
     max-width: 800px;
+  }
+}
+
+@media (max-width: 420px) {
+  #tabs li {
+    min-width: 30px;
   }
 }
 
@@ -1472,6 +1431,52 @@ img {
 
   .card-corso-description {
     margin-left: calc(43% + 5em);
+  }
+
+  #corso-pilates::before,
+  #corso-yoga::before,
+  #corso-box::before,
+  #corso-danza::before {
+    height: 100%;
+    width: 50%;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 2em;
+    position: absolute;
+    left: 0;
+  }
+}
+
+@media (min-width: 660px) {
+  #nav-principale ul {
+    flex-direction: row;
+  }
+
+  #nav-principale ul li {
+    flex-grow: 1;
+  }
+}
+
+@media (min-width: 725px) {
+  .schede-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tb-container {
+    padding: 0 15%;
+  }
+
+  .schede-container li {
+    width: fit-content;
+  }
+
+  .scheda {
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
