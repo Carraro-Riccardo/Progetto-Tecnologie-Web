@@ -63,7 +63,7 @@
   --adminPageBackground: #b5a382;
 
 
-  --titleLabel : rgb(255, 255, 255);
+  --titleLabel : rgb(0, 0, 0);
 }
 
 * {
@@ -965,82 +965,72 @@ li.metrica a {
 
 /* CONTATTACI PAGE */
 .contactUs-container {
+  width: 80%;
+  padding: 0em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5em;
   text-align: center;
-  width: 25em;
 }
-
 .contactUs-container h2 {
   margin-top: 1em;
   text-transform: uppercase;
 }
 
 .contactUs-container p {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   font-size: 1em;
 }
 
 .contactUs-form {
-  display: flex;
   margin: auto;
-  text-align: left;
-
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-.contactUs-container h2{
-  margin-top:1em;
-  text-transform: uppercase;
-}
-
-.contactUs-container p{
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  font-size: 1em;
-}
-.contactUs-form{
+  width: 100%; 
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
+
 
 .contactUs-form input[type="text"],
-.contactUs-form input[type="email"],
-.contactUs-form textarea {
+.contactUs-form input[type="email"] {
   margin: 0em;
-  display: flex;
+  display: block;
+  width: 100%;
   border: 1px solid #000000;
   padding-top: 0.5em;
+  padding-bottom: 0.5em;
   padding-left: 0.5em;
-  margin-bottom: 0.5em;
-  width: 90%;
+  margin-top: 0em;
+  margin-bottom: 0.5em
 }
 
 .contactUs-form textarea {
-  border: 1px solid #ddd;
+  resize: vertical;
+  border: 1px solid #000000;
   padding-top: .5em;
+  width: 100%;
   height: 12em;
-  padding-left: 0.5em;
+  display: block;
+  padding-left: 0.5em,
 }
 
+
 .contactUs-form input[type="submit"] {
-  background-color: #fcf7f8;
-  color: #000000;
   border-style: none;
-  border-radius: 10px;
-  padding: .5em 1em;
+  border-radius: 15px;
+  padding: 0.5em 1em;
   cursor: pointer;
+  display: block;
   padding: 1em;
-  margin-top:1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .contactUs-form label{
   color: var(--titleLabel);
   font-weight: bold;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.5em;
   margin-left: 0.5em;
 }
