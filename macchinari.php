@@ -9,12 +9,12 @@ function creaCardMacchinari($macchinari) {
     foreach ($macchinari as $row) {
         $macchinari_cards .= "
             <div class=\"card-macchinario\">
-                <img src=\"./assets/imgs/macchinari/prova.jpeg\" alt=\"prova\"/>
+                <img src=\"./assets/imgs/macchinari/" . $row["path"] . "\" alt=\"prova\"/>
                 <h3>" . $row["nome"] . "</h3>
-                <nav class=\"card-macchinario-description\">
+                <span class=\"card-macchinario-description\">
                     <p>Data di Acquisto: " . $row["dataDiAcquisto"] . "</p>
                     <p>Gruppo Muscolare: " . $row["gruppoMuscolare"] . "</p>
-                </nav>
+                </span>
             </div>
             ";
     }
