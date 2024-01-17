@@ -4,22 +4,22 @@ require_once("./pages_builder.php");
 require_once("./db_handler.php");
 
 function creaCardMacchinari($macchinari) {
-    $macchinari_cards = "<dl>";
+    $macchinari_cards = "<ul>";
 
     foreach ($macchinari as $row) {
         $macchinari_cards .= "
-            <div class=\"card-macchinario\">
-                <img src=\"./assets/imgs/macchinari/" . $row["path"] . "\" alt=\"prova\"/>
+            <li class=\"card-macchinario\">
+                <img src=\"./assets/imgs/macchinari/" . $row["path"] . "\" alt=\"" . $row["nome"] ."\"/>
                 <h3>" . $row["nome"] . "</h3>
                 <span class=\"card-macchinario-description\">
                     <p>Data di Acquisto: " . $row["dataDiAcquisto"] . "</p>
                     <p>Gruppo Muscolare: " . $row["gruppoMuscolare"] . "</p>
                 </span>
-            </div>
+            </li>
             ";
     }
 
-    $macchinari_cards .= "</dl>";
+    $macchinari_cards .= "</ul>";
 
     return $macchinari_cards;
 }
