@@ -54,6 +54,7 @@
   --formBtnTxtColor: #fff;
   --formLegendTxtColor: #fff;
   --disabledInputBgColor: #d3d3d3;
+  --formInputBgColor: #fff;
 
   /*!Footer*/
   --footerBgColor: #000;
@@ -81,6 +82,10 @@
   /*!Messaggio di errore*/
   --errorMessageBgColor: #b40000;
   --errorMessageTxtColor: #fff;
+
+  /*!Messaggio di successo*/
+  --successMessageBgColor: #195919;
+  --successMessageTxtColor: #fff;
 
   /*!Nessun risultato*/
   --emptyResultBgColor: #000;
@@ -151,6 +156,26 @@ main {
   position: absolute;
   top: auto;
   width: 1px;
+}
+
+#error-message {
+  background-color: var(--errorMessageBgColor);
+  border-radius: 1em;
+  color: var(--errorMessageTxtColor);
+  margin: 0.5em auto;
+  padding: 0.5em;
+  text-align: center;
+  width: 80%;
+}
+
+#success-message {
+  background-color: var(--successMessageBgColor);
+  border-radius: 1em;
+  color: var(--successMessageTxtColor);
+  margin: 0.5em auto;
+  padding: 0.5em;
+  text-align: center;
+  width: 80%;
 }
 
 /*!***********************/
@@ -550,6 +575,12 @@ footer {
   padding: 1em;
 }
 
+footer span {
+  color: var(--footerTxtColor);
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
 footer,
 footer a {
   color: var(--footerTxtColor);
@@ -601,17 +632,6 @@ footer a:hover {
 /*! PAGINA LOGIN */
 
 /*!***********************/
-
-#error-message {
-  background-color: var(--errorMessageBgColor);
-  border-radius: 1em;
-  color: var(--errorMessageTxtColor);
-  margin: 0.5em auto;
-  padding: 0.5em;
-  text-align: center;
-  width: 80%;
-}
-
 .user-data-container {
   display: flex;
   flex-direction: column;
@@ -1009,6 +1029,50 @@ caption#caption-certificato {
   border-top-right-radius: 2em;
   padding: 0.5em;
 }
+
+#certificatoCell {
+  background-color: var(--tableBgColor);
+}
+
+#certificatoCell a::after{
+  content: "";
+  display: inline-block;
+  background-image: url(../imgs/profile_icons/pdf_icon.webp);
+  background-position-x: 0.5em;
+  width: 30px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#form-certificato {
+  width: 100%;
+  margin: 1em auto;
+}
+
+#form-certificato fieldset {
+  border: none;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#form-certificato input[type="submit"] {
+  background-color: var(--formBtnBgColor);
+  border-radius: 0.5em;
+  color: var(--formBtnTxtColor);
+  font-size: 1.2em;
+  margin: 0 auto;
+  padding: 0.5em 0;
+  width: 100%;
+}
+
+#form-certificato input {
+  background-color: var(--formInputBgColor);
+  padding-top:0.5em;
+  border-radius: 0em;
+  border-top-right-radius: 0.3em;
+}
+
 
 /*!**************************/
 
@@ -1491,6 +1555,12 @@ img {
   }
 
   .user-data-container {
+    max-width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #form-certificato {
     max-width: 35%;
     margin-left: auto;
     margin-right: auto;

@@ -113,6 +113,19 @@ class Database {
         return $result; 
     }
 
+    public function insertCertificato($idUtente, $certificatoPath){
+        $query = "  UPDATE utenti
+                    SET    certificatoPath = ?,
+                           certificatoMedico = 'da validare',
+                           scadenzaCertificato = Date_add(CURDATE(), INTERVAL 1 year)
+                    WHERE  id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $certificatoPath, $idUtente);
+        $stmt->execute();
+        $stmt->close();
+    }
+
     public function getAbbonamenti(){
         $query = "  SELECT id, nome, durata, costo
                     FROM   abbonamenti";
