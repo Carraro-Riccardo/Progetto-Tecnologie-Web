@@ -247,8 +247,10 @@ class Database {
 
 
     public function getAllMacchinari(){
-        $query = "  SELECT *
-                    FROM macchinari";
+        $query = "  SELECT macchinari.*, gruppimuscolari.gruppoMuscolare AS nomeGruppoMuscolare
+                    FROM macchinari
+                    JOIN gruppimuscolari ON macchinari.gruppoMuscolare = gruppimuscolari.id;
+                    ";
     
         $stmt = $this->conn->prepare($query);
         

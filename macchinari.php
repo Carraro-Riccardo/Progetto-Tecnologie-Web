@@ -4,7 +4,8 @@ require_once("./pages_builder.php");
 require_once("./db_handler.php");
 
 function creaCardMacchinari($macchinari) {
-    $macchinari_cards = "<ul>";
+    $macchinari_cards = "<div id=\"cards-container\">
+                            <ul>";
 
     foreach ($macchinari as $row) {
         $macchinari_cards .= "
@@ -13,13 +14,14 @@ function creaCardMacchinari($macchinari) {
                 <h3>" . $row["nome"] . "</h3>
                 <span class=\"card-macchinario-description\">
                     <p>Data di Acquisto: " . $row["dataDiAcquisto"] . "</p>
-                    <p>Gruppo Muscolare: " . $row["gruppoMuscolare"] . "</p>
+                    <p>Gruppo Muscolare: " . $row["nomeGruppoMuscolare"] . "</p>
                 </span>
             </li>
             ";
     }
 
-    $macchinari_cards .= "</ul>";
+    $macchinari_cards .= "</ul>
+                            </div>";
 
     return $macchinari_cards;
 }

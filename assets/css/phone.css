@@ -1456,7 +1456,6 @@ img {
     margin-right: auto;
   }
 }
-
 /************************/
 /* MACCHINARI */
 /************************/
@@ -1465,8 +1464,6 @@ img {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 80%;
   border-radius: 30px;
   text-decoration: none;
   margin-left: 1em;
@@ -1485,21 +1482,22 @@ img {
 }
 
 .card-macchinario img {
-  width: 100%;
+  max-width: 100%;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  object-fit: cover;
+  object-fit: cover; 
   margin-bottom: 1.5em;
 }
 
 .card-macchinario-description {
-  padding: 1.5em;
+  margin: 0.5em;
+  margin-bottom: 1.5em;
   text-align: center;
 }
 
 .card-macchinario-description p {
   font-size: 1.2em;
-  text-align: left;
+  text-align: center;
   color: var(--cardTxtColor);
   margin-top: 1em;
 }
