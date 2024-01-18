@@ -22,7 +22,7 @@ class PageBuilder {
         $page_content = str_replace("@@navbar@@", $navbar, $page_content);
         self::removeCircularLinks($page_content, $name);
         if(isset($_SESSION["user_id"])){
-            $page_content = str_replace("@@USER@@", $_SESSION['username'], $page_content);
+            $page_content = str_replace("@@USER@@", $_SESSION['user_id'], $page_content);
             $page_content = str_replace("@@logout@@", "<li><a href='logout.php'><span lang='en'>Log out</span></a></li>", $page_content);
         }else{
             $page_content = str_replace("@@USER@@", "Login", $page_content);

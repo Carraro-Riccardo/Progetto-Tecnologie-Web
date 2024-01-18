@@ -26,7 +26,7 @@ class Database {
     }
 
     public function login($username, $password){
-        $stmt = $this->conn->prepare("SELECT id, username, nome, cognome, ruolo  FROM utenti WHERE username = ? AND password = ?");
+        $stmt = $this->conn->prepare("SELECT username, nome, cognome, ruolo  FROM utenti WHERE username = ? AND password = ?");
         $stmt->bind_param("ss", $username, $password);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -35,6 +35,18 @@ class Database {
     }
 
     public function register($username, $nome, $cognome, $email, $password, $ruolo = "user"){
+        
+        $stmt = $this->conn->prepare("SELECT username FROM utenti WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $user = $stmt->get_result();
+
+        if($user->num_rows > 0){
+            $stmt->close();
+            throw new Exception("Username già in uso.");
+        }
+        
+        
         $stmt = $this->conn->prepare("INSERT INTO utenti (username, nome, cognome, email, password, ruolo) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $username, $nome, $cognome, $email, $password, $ruolo);
         $stmt->execute();
@@ -59,10 +71,10 @@ class Database {
                             ON schede_esercizi.id_esercizio = esercizi.id
                             JOIN allenatori
                             ON scheda.id_allenatore = allenatori.id
-                    WHERE  id_utente = ?";
+                    WHERE  username = ?";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $idUtente);
+        $stmt->bind_param("s", $idUtente);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
@@ -76,11 +88,11 @@ class Database {
                     FROM   utenti_abbonamenti
                             JOIN abbonamenti
                             ON utenti_abbonamenti.id_abbonamento = abbonamenti.id
-                    WHERE  utenti_abbonamenti.id_utente = ? 
+                    WHERE  utenti_abbonamenti.username = ? 
                     ORDER BY data_scadenza DESC;";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $idUtente);
+        $stmt->bind_param("s", $idUtente);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
@@ -90,10 +102,10 @@ class Database {
     public function getDatiUtente($idUtente){
         $query = "  SELECT username, nome, cognome, email, password
                     FROM   utenti
-                    WHERE  id = ?";
+                    WHERE  username = ?";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $idUtente);
+        $stmt->bind_param("s", $idUtente);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
@@ -103,10 +115,10 @@ class Database {
     public function getCertificatoUtente($idUtente){
         $query = "  SELECT certificatoPath, certificatoMedico as stato, scadenzaCertificato as scadenza
                     FROM   utenti
-                    WHERE  utenti.id = ?";
+                    WHERE  utenti.username = ?";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $idUtente);
+        $stmt->bind_param("s", $idUtente);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
@@ -118,10 +130,10 @@ class Database {
                     SET    certificatoPath = ?,
                            certificatoMedico = 'da validare',
                            scadenzaCertificato = Date_add(CURDATE(), INTERVAL 1 year)
-                    WHERE  id = ?";
+                    WHERE  username = ?";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("si", $certificatoPath, $idUtente);
+        $stmt->bind_param("ss", $certificatoPath, $idUtente);
         $stmt->execute();
         $stmt->close();
     }
@@ -247,7 +259,7 @@ class Database {
     }
 
     public function getAllUsers(){
-        $query = "  SELECT id, username, nome, cognome, email, dataRegistrazione, certificatoPath
+        $query = "  SELECT username, nome, cognome, email, dataRegistrazione, certificatoPath
                     FROM utenti 
                     WHERE ruolo = 'user'
                     ORDER BY cognome ASC, nome ASC";
