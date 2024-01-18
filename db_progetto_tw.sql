@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 11, 2024 alle 22:45
+-- Creato il: Gen 18, 2024 alle 12:07
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_progetto_tw`
 --
+CREATE DATABASE IF NOT EXISTS `db_progetto_tw` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_progetto_tw`;
 
 -- --------------------------------------------------------
 
@@ -226,17 +228,16 @@ INSERT INTO `schede_esercizi` (`id`, `id_scheda`, `id_esercizio`, `giorno_settim
 
 DROP TABLE IF EXISTS `schede_utente`;
 CREATE TABLE `schede_utente` (
-  `id` int(11) NOT NULL,
-  `id_utente` int(11) DEFAULT NULL,
-  `id_scheda` int(11) DEFAULT NULL
+  `username` varchar(50) NOT NULL,
+  `id_scheda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `schede_utente`
 --
 
-INSERT INTO `schede_utente` (`id`, `id_utente`, `id_scheda`) VALUES
-(1, 1, 1);
+INSERT INTO `schede_utente` (`username`, `id_scheda`) VALUES
+('user', 1);
 
 -- --------------------------------------------------------
 
@@ -246,16 +247,15 @@ INSERT INTO `schede_utente` (`id`, `id_utente`, `id_scheda`) VALUES
 
 DROP TABLE IF EXISTS `utenti`;
 CREATE TABLE `utenti` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `ruolo` enum('user','admin') DEFAULT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `ruolo` enum('user','admin') NOT NULL,
   `certificatoMedico` enum('approvato','non approvato','assente','da validare') DEFAULT NULL,
   `certificatoPath` varchar(100) DEFAULT NULL,
   `scadenzaCertificato` date DEFAULT NULL,
-  `nome` varchar(30) DEFAULT NULL,
-  `cognome` varchar(30) DEFAULT NULL,
+  `nome` varchar(30) NOT NULL,
+  `cognome` varchar(30) NOT NULL,
   `dataRegistrazione` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -263,11 +263,11 @@ CREATE TABLE `utenti` (
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`, `dataRegistrazione`) VALUES
-(1, 'user', 'user@gmail.com', 'user', 'user', 'approvato', './certificati/certificato_1.pdf', '2025-01-01', 'nome user', 'cognome user', '2023-12-01'),
-(5, 'nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', 'da validare', NULL, NULL, 'nome nuovo', 'cognome nuovo', '2024-01-10'),
-(7, 'admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi', '2024-01-10'),
-(8, 'SuperLuke', 'luke@gmail.com', 'pswLuke', 'user', 'approvato', './certificati/certificato_6.pdf', '2024-11-30', 'Luca', 'Superbo', '0000-00-00');
+INSERT INTO `utenti` (`username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`, `dataRegistrazione`) VALUES
+('admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi', '2024-01-10'),
+('nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', 'da validare', NULL, NULL, 'nome nuovo', 'cognome nuovo', '2024-01-10'),
+('SuperLuke', 'luke@gmail.com', 'pswLuke', 'user', 'approvato', './certificati/certificato_6.pdf', '2024-11-30', 'Luca', 'Superbo', '0000-00-00'),
+('user', 'user@gmail.com', 'user', 'user', 'da validare', './certificati/certificato_1.pdf', '2025-01-18', 'nome user', 'cognome user', '2023-12-01');
 
 -- --------------------------------------------------------
 
@@ -277,7 +277,7 @@ INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certifica
 
 DROP TABLE IF EXISTS `utenti_abbonamenti`;
 CREATE TABLE `utenti_abbonamenti` (
-  `id_utente` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `id_abbonamento` int(11) NOT NULL,
   `data_stipula` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -286,10 +286,10 @@ CREATE TABLE `utenti_abbonamenti` (
 -- Dump dei dati per la tabella `utenti_abbonamenti`
 --
 
-INSERT INTO `utenti_abbonamenti` (`id_utente`, `id_abbonamento`, `data_stipula`) VALUES
-(1, 1, '2023-12-01'),
-(1, 2, '2024-01-01'),
-(8, 3, '2023-12-01');
+INSERT INTO `utenti_abbonamenti` (`username`, `id_abbonamento`, `data_stipula`) VALUES
+('SuperLuke', 3, '2023-12-01'),
+('user', 1, '2023-12-01'),
+('user', 2, '2024-01-01');
 
 --
 -- Indici per le tabelle scaricate
@@ -345,21 +345,20 @@ ALTER TABLE `schede_esercizi`
 -- Indici per le tabelle `schede_utente`
 --
 ALTER TABLE `schede_utente`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_utente` (`id_utente`),
+  ADD PRIMARY KEY (`username`,`id_scheda`),
   ADD KEY `id_scheda` (`id_scheda`);
 
 --
 -- Indici per le tabelle `utenti`
 --
 ALTER TABLE `utenti`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indici per le tabelle `utenti_abbonamenti`
 --
 ALTER TABLE `utenti_abbonamenti`
-  ADD PRIMARY KEY (`id_utente`,`id_abbonamento`),
+  ADD PRIMARY KEY (`username`,`id_abbonamento`),
   ADD KEY `id_abbonamento` (`id_abbonamento`);
 
 --
@@ -409,18 +408,6 @@ ALTER TABLE `schede_esercizi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT per la tabella `schede_utente`
---
-ALTER TABLE `schede_utente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT per la tabella `utenti`
---
-ALTER TABLE `utenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
 -- Limiti per le tabelle scaricate
 --
 
@@ -435,7 +422,13 @@ ALTER TABLE `scheda`
 --
 ALTER TABLE `schede_utente`
   ADD CONSTRAINT `schede_utente_ibfk_1` FOREIGN KEY (`id_scheda`) REFERENCES `scheda` (`id_scheda`),
-  ADD CONSTRAINT `schede_utente_ibfk_2` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id`);
+  ADD CONSTRAINT `schede_utente_username` FOREIGN KEY (`username`) REFERENCES `utenti` (`username`);
+
+--
+-- Limiti per la tabella `utenti_abbonamenti`
+--
+ALTER TABLE `utenti_abbonamenti`
+  ADD CONSTRAINT `utenti_abbonamenti_username` FOREIGN KEY (`username`) REFERENCES `utenti` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
