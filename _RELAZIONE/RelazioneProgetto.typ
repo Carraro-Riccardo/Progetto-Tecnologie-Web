@@ -130,6 +130,8 @@ La struttura del sito è stata realizzata utilizzando HTML5. Le pagine HTML sono
 Questo non solo contribuisce alla leggibilità del codice, ma permette anche di distinguere facilmente i contenuti statici da quelli dinamici, creando inoltre una netta separazione tra struttura, presentazione e comportamento.
 Inoltre, l'utilizzo delle pagine HTML come template per l'elaborazione dinamica dei contenuti, permette di dover contattare il server solo una volta per pagina, riducendo il carico di lavoro del server e velocizzando il caricamento delle pagine.
 
+Una pratica che il gruppo intende sottolineare è l'utilizzo di un duplice tag _\<h1>_ all'interno della pagina, il primo utilizzato per il nome del sito (GagGym) sempre presente in ogni pagina nell'header, e il secondo, presente nel main, indicante il titolo specifico del contenuto della pagina: questa scelta è dovuta dal porre al centro del sito l'esperienza utente, pertanto seppur dal punto di vista della bontà del codice si sarebbe dovuto optare per un singolo _\<h1>_ nella pagina seguito dall'utilizzo successivo di _\<h2>_, tra le due scuole di pensiero, il gruppo ha scelto di privilegiare l'esperienza utente.
+
 === Componenti
 Alcuni elementi comuni delle pagine sono stati resi componenti, ossia salvati come file HTML separati e aggiunti dinamicamente alle pagine tramite PHP, sfruttando i placeholder precedentemente descritti. 
 Questo approccio permette di evitare la ripetizione di codice, rendendo anche più semplici eventuali modifiche a componenti condivisi. Gli elementi resi componenti sono:
