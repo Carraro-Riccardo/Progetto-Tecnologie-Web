@@ -123,23 +123,23 @@ Il sito è stato realizzato utilizzando i seguenti linguaggi:
 \
 == HTML5
 === Struttura e Contenuto 
-La struttura del sito è stata realizzata utilizzando HTML5. Le pagine html sono utilizzate come template per la generazione dinamica dei contenuti, utilizzando PHP, pertanto è stato necessario inserire dei placeholder per i contenuti dinamici:
+La struttura del sito è stata realizzata utilizzando HTML5. Le pagine HTML sono utilizzate come template per la generazione dinamica dei contenuti, utilizzando PHP, pertanto è stato necessario inserire dei placeholder per i contenuti dinamici:
 - "_\@\@placeholder\@\@_" per semplici stringhe;
 - "_<!-\- inizio contenuto dinamico \-\->_" e "_<!-\- fine contenuto dinamico \-\->_" per contenuti più complessi, come tabelle, cards o liste.
 
 Questo non solo contribuisce alla leggibilità del codice, ma permette anche di distinguere facilmente i contenuti statici da quelli dinamici, creando inoltre una netta separazione tra struttura, presentazione e comportamento.
-Inoltre, l'utilizzo delle pagine html come template per l'elaborazione dinamica dei contenuti, permette di dover contattare il server solo una volta per pagina, riducendo il carico di lavoro del server e velocizzando il caricamento delle pagine.
+Inoltre, l'utilizzo delle pagine HTML come template per l'elaborazione dinamica dei contenuti, permette di dover contattare il server solo una volta per pagina, riducendo il carico di lavoro del server e velocizzando il caricamento delle pagine.
 
 === Componenti
-Alcuni elementi comuni delle pagine sono stati resi componenti, ossia salvati come file html separati e aggiunti dinamicamente alle pagine tramite PHP, sfruttando i placeholder precedentemente descritti. 
+Alcuni elementi comuni delle pagine sono stati resi componenti, ossia salvati come file HTML separati e aggiunti dinamicamente alle pagine tramite PHP, sfruttando i placeholder precedentemente descritti. 
 Questo approccio permette di evitare la ripetizione di codice, rendendo anche più semplici eventuali modifiche a componenti condivisi. Gli elementi resi componenti sono:
-- navbar principale di navigazione (_./html_pages/componenti/navbar-principale.html_);
-- footer (_./html_pages/componenti/footer.html_);
+- navbar principale di navigazione (_./HTML_pages/componenti/navbar-principale.html_);
+- footer (_./HTML_pages/componenti/footer.html_);
 
 == CSS3
 Lo stile del sito è stato realizzato utilizzando CSS3 utilizzando un approccio _mobile-first_. Questo ha permesso la realizzazione di un solo file CSS per tutti i dispositivi, gestendo dapprima il layout per mobile e successivamente, mediante _media query_, per i dispositivi desktop. Seguendo le pratiche viste a lezione e in laboratorio, il gruppo si è impegnato ad organizzare il file CSS commentando le sezioni secondo la pagina a cui si riferiscono, e ad raccogliere tutte le variabili di colore in un unica sezione iniziale, in modo che la personalizzazione o l'aggiornamento dei colori, possa avvenire in modo rapido e semplice. 
 
-Mediante CSS sono stati gestiti tutti gli aspetti decorativi, in particolare tutte le immagini che prevedevano una natura decorativa e non informativa. Allo stesso modo anche le emoji presenti nella pagina dei corsi sono aggiunte mediante pseudo-elementi CSS come `::before` e `::after`. 
+Mediante CSS sono stati gestiti tutti gli aspetti decorativi, in particolare tutte le immagini che prevedevano una natura decorativa e non informativa. Allo stesso modo anche le emoji presenti nella pacomprendendohtmogina dei corsi sono aggiunte mediante pseudo-elementi CSS come `::before` e `::after`. 
 
 Il gruppo inoltre ha valutato attentamente il ruolo delle immagini all'interno del sito: all'interno della homepage, le immagini che rappresentano le varie voci di navigazione sono state interpretate come decorative: difatti non rappresentano informativamente il contenuto della pagina di destinazione, ma sono unicamente un elemento decorativo che permette di rendere più piacevole la navigazione.
 
@@ -149,10 +149,107 @@ Pertanto, siccome il contenuto informativo rimane invariato anche senza l'immagi
 
 Al contrario, le immagini presenti nella pagina dei macchinari e dello staff sono state interpretate come informative: difatti rappresentano informativamente il contenuto della pagina e del contenuto riferito, e sono pertanto state inserite come tag `<img>` (il macchinario nell'immagine è l'unità informativa ricercata e concreta).
 
+Le immagini sono in formato _webp_, permettendo un miglioramento anche in termini di performance e peso della pagina. Maggiori informazioni in merito sono presenti nella sezione _Test e verifica_.
+
 == PHP
-Il lato server del sito è stato realizzato utilizzando PHP. Le pagine vengono generate dinamicamente, leggendo il contenuto delle corrispettive pagine html e sostituendo i placeholder con i contenuti dinamici.
+Il lato server del sito è stato realizzato utilizzando PHP. Le pagine vengono generate dinamicamente, leggendo il contenuto delle corrispettive pagine HTML e sostituendo i placeholder con i contenuti dinamici.
+L'utilizzo principale di PHP risiede nel collegamento con il database, la creazione della sessione, la generazione dinamica delle pagine e la gestione dei form. In particolare, per la gestione dei form, è stato utilizzato un approccio mediante il quale i dati inseriti dall'utente vengono processati in una pagina PHP dedicata, che si occupa di validare i dati e di restituire eventuali errori, che vengono mostrati all'utente nella pagina di origine. Esempi di questo approccio possono essere la pagina di _login_ e la pagina di _registrazione_, dove i form presenti richiamano le rispettive pagine PHP _login_handler.php_ e _registrazione_handler.php_.
+
+=== Costruzione delle pagine
+Per la costruzione delle pagine, si utilizza un file PHP dedicato, _pages_builder.php_, il quale, visto il nome della pagina richiesta, legge il contenuto della pagina HTML corrispondente e ne costruisce l'impianto iniziale. Successivamente, questo contenuto viene restituito alla pagina che ne ha richiesto la costruzione, che si occuperà di sostituire i placeholder con i contenuti dinamici.
+
+=== Collegamento database
+Per il collegamento al database, è prevista una classe dedicata, _db_connection.php_, che si occupa non solo di stabilire la connessione al database, ma anche di effettuare le query necessarie: questo permette la gestione centralizzata della logica di comunicazione con il database, rendendo più semplice e veloce la manutenzione del codice.
+
+=== SQL injection
+Per prevenire attacchi di tipo SQL injection, il gruppo ha utilizzato le _prepared statements_ per tutte le query che prevedono l'inserimento di dati forniti dall'utente. Questo approccio permette di separare la query SQL dalla sua esecuzione, evitando che i dati forniti dall'utente possano essere interpretati come codice SQL.
+
+=== Librerie esterne
+Il progetto fa utilizzo di 2 librerie PHP esterne:
+- _phpqrcode_: libreria per la generazione di QR code identificativo dell'utente.
+- _jpgraph_: libreria per la generazione di grafici e metriche per la schermata dell'amministratore. 
+
+== Javascript
+Il gruppo ha cercato di rendere il sito indipendente da Javascript, utilizzandolo solamente per la validazione dei dati lato client. Il menù a tendina infatti, è impostato per essere mostrato aperto di default, e al caricamento della pagina, esso viene chiuso tramite Javascript. In questo modo, se Javascript è disabilitato, le funzionalità di navigazione rimangono comuqnuqe disponibili, e l'intero utilizzo del sito rimane possibile. 
+
+Si osserva però che tale soluzione non è ottimale, in quanto il servizio LightHouse di Google segnala un calo di performance su mobile, dovuto ad un problema di _cumulative layout shift_ (CLS), causato dal caricamento del menù aperto e successivamente chiuso.
+
+== Validazione input utente
+Per la validazione dei dati inseriti dall'utente, il gruppo ha impostato i medesimi controlli sia lato client che lato server, mostrando all'utente gli errori riscontrati in modo che possa essere consapevole della motivazione che ha portato alla generazione dell'errore.
+
+Gli script di validazione lato client sono situati all'interno della cartella _./scripts_, aventi nome significativo in base al compito di validazione che svolgono.
+
+Per la validazione lato server, il compito è demandato al file _./server_side_validator.php_, il quale fornisce funzioni di validazione mediante le quali è possibile ottenere l'eventuale messaggio di errore da mostrare all'utente.
+
+Il messaggio di errore è cumulativo, pertanto, al presentarsi di più errori in un singolo form, il messaggio di errore mostrato indicherà tutti gli errori riscontrati, in modo che l'utente possa sapere con certezza le motivazioni dell'errore e come risolvere.
+
+== Database
+Il database rispetta i vinvoli dettati dalla consegna (terza forma normale). All'interno della cartella è presente il file ./db_progetto_tw.sql per l'importazione del database. 
+=== Schema
+Il database è composto da 10 tabelle:
+- *utenti*: contiene le informazioni degli utenti registrati al sito;
+- *abbonamenti*: contiene le informazioni sugli abbonamenti offerti dalla palestra;
+- *utenti_abbonamenti*: contiene le informazioni sugli abbonamenti sottoscritti dagli utenti;
+- *scheda*: contiene le informazioni sulle schede di allenamento;
+- *esercizi*: contiene le informazioni sugli esercizi;
+- *schede_esercizi*: contiene le informazioni sugli esercizi presenti nelle schede di allenamento;
+- *schede_utenti*: contiene le informazioni sulle schede di allenamento seguite dagli utenti;
+- *macchinari*: contiene le informazioni sui macchinari presenti nella palestra;
+- *allenatori*: contiene le informazioni sugli allenatori della palestra;
+- *gruppimuscolari*: contiene elenco dei gruppi muscolari a cui gli esercizi fanno riferimento.
+
+
 
 == Pagine di errore
+Al fine di migliorare l'esperienza utente, il gruppo ha deciso di implementare delle pagine di errore personalizzate, che vengono mostrate all'utente in caso di errore 404 o 500. Questo permette di mantenere l'utente all'interno del sito, evitando che venga reindirizzato ad una pagina di errore generica del browser. Le pagine di errore contengono un messaggio di errore semplice e simpatico, in tema con il sito, con suggerimenti in merito a come risolvere il problema.
+
+Data la natura delle pagine di errore ben distinta dalle pagine di navigazione, il gruppo ha deciso di non mostrare la breadcrumb in queste pagine, fornendo però tutti i mezzi necessari per riprendere la navigazione, quali _header_ (con il menù di navigazione principale) e il _footer_.
+
+= Accessibilità
+== Font
+Il font utilizzato è _Oswald_, un font _sans serif_ che supporta un ampio range di lingue, compresi alfabeti non latini come il cirillico. Al fine di rendere l'esperienza utente più piacevole, il testo non possiede sempre dimensioni superiori ai 16pixels (9pt).
+
+== Colori e Contrasti
+La palette di colori utilizzata è stata scelta con attenzione al fine di permettere un contrasto sufficiente tra testo e sfondo, e in grado di distinguere nitidamente gli elementi presenti nella pagina. Ogni contrasto testo/background è stato verificato essere superiore a 7:1 (il minimo richiesto per il livello AAA di WCAG). Si osserva che il contrasto tra testo e sfondo è stato verificato utilizzando il tool _Color Contrast Checker_ di WebAIM.
+
+Sfortunatamente, il contrasto tra il colore dei link visitati e il color dei link non visitati, non presenta un contrasto sufficiente: seppur in entrambi i casi il contrasto con lo sfondo sia superiore a 7:1, il contrasto tra i due colori è inferiore a 3:1. 
+
+== Ulteriori accorgimenti
+- *Navigazione mediante tastiera*: il sito è navigabile mediante tastiera, utilizzando la tabulazione per spostarsi tra i vari elementi della pagina in modo coerente al contenuto presentato. 
+- *Utilizzo di attributi _aria_*: al fine di migliorare l'accessibilità del sito, sono stati utilizzati gli attributi _aria_ per fornire informazioni aggiuntive agli screen reader. Un esempio è il menù a tendina, che fa utilizzo dell'attributo `aria-expanded` per indicare se il menù è aperto o chiuso.
+- *Tabelle accessibili* seguendo le _best practice_ viste a lezione.
+- *_\<span lang="en">_*: per le parole in lingua inglese, è stato utilizzato l'attributo `lang="en"` per indicare la lingua utilizzata, in modo da permettere agli screen reader di leggere correttamente il testo. 
+- *Classe _screen-reader-only_*: per permettere agli screen reader di leggere il contenuto di un elemento, senza che questo sia visibile all'utente, è stata utilizzata la classe _screen-reader-only_, che rende l'elemento invisibile, ma non nascosto agli screen reader.
+
+= Test e verifica
+Il sito è stato sottoposto a diversi test atti a verificarne sia il funzionamento che la correttezza e validità del codice.
+Strumenti fondamentali durante la fase di test sono stati:
+- *W3C Markup Validation Service*: per la validazione del codice HTML:
+  - la validazione ha restituito 0 errori e 0 warning, ma un alcuni _info_ dovuti allo _slash \/_ finale dei tag meta e link, ma che abbiamo visto a lezione essere buona pratica chiudere ogni tag.
+
+- *W3C CSS Validation Service*: per la validazione del codice CSS
+
+- *Contrast Checker di WebAIM*: per la verifica del contrasto tra testo e sfondo;
+
+- *LightHouse* di Google Chrome: per la verifica delle performance, accessibilità, SEO e _best_practice_ (un report dettagliato sarà disponibile trovarlo per ogni pagina nel file dedicato _REPORT_LIGHTHOUSE.pdf_). 
+  - Media Performance: 80% (per i motivi descritti in precedenza riguardo al menù a tendina);
+    - Per migliorare le performance, il sito utilizza immagini in formato _webp_, che permette di ridurre le dimensioni delle immagini senza perdita di qualità, risultando più leggere di _png_ e _jpeg_. Le immagini inoltre sono state ulteriormente ottimizzate tramite strumenti come _TinyPNG_ e _Simple Image Resizer_.
+  - Media Accessibility: 100%;
+  - Media Best Practice: 100%;
+  - Media SEO: 100%;
+
+- *Screen reader*: per la verifica dell'accessibilità del sito:
+    - Assistente vocale di Windows 10;
+    - NVDA (seppur in modo molto limitato data l'inseperienza nell'utilizzo);
+
+- *Compatibilità browser*: per la verifica della compatibilità del sito con i principali browser:
+    - Google Chrome;
+    - Mozilla Firefox;
+    - Microsoft Edge;
+    - Safari (desktop e mobile);
+    - Opera;
+    - Samsung Internet.
+  Si osserva inoltre che i test non sono stati effettuati solamente su _desktop_ o su dispositivi simulati, ma anche su diversi dispositivi reali posseduti dal gruppo, in modo da avere un riscontro quanto più realistico possibile.
 
 
 

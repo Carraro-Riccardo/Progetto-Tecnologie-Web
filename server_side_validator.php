@@ -50,11 +50,11 @@ function checkEmail($email) {
     $emailLength = 50;
 
     if (empty($email)) {
-        return "Il campo email non può essere vuoto.";
+        return "Il campo <span lang='en'>email</span> non può essere vuoto.";
     } else if (!preg_match($emailRegex, $email)) {
-        return "Il campo email deve essere un email valido.";
+        return "Il campo <span lang='en'>email</span> deve essere un email valido.";
     } else if (strlen($email) > $emailLength) {
-        return "Il campo email non può superare " . $emailLength . " caratteri.";
+        return "Il campo <span lang='en'>email</span> non può superare " . $emailLength . " caratteri.";
     }
 
     return "";
