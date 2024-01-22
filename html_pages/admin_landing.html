@@ -13,19 +13,19 @@
       <nav id="nav-principale" aria-label="navigazione">
         <div class="container">
           <div class="logo-title-holder">
-            <a href="index.php" class="logo-holder">
+            <a href="./index.php" aria-label= "Vai alla homepage" aria-hidden= "true" tabindex= "-1">
               <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
             </a>
-            <h1 class="site-title">GagGym</h1>
+            <h1 class="site-title"><a href="./index.php">GagGym</a></h1>
           </div>
         </div>
-        <button id="hamburger" aria-expanded="true">
+        <button id="hamburger" aria-expanded="true" aria-controls="main-nav">
           <span lang="en">Menu Admin</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
             <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
           </svg>
         </button>
-        <div class="main-nav">
+        <div class="main-nav" id="main-nav">
           <ul class="container">
             <li>
               <a href="./admin_landing.php" aria-current="page"><span lang="en">Home Admin</span></a>

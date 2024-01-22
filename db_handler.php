@@ -2,9 +2,9 @@
 
 class Database {
     private const HOST = "localhost";
-    private const DB_NAME = "db_progetto_tw";
-    private const USER = "root";
-    private const PASSWORD = "";
+    private const DB_NAME = "rcarraro";
+    private const USER = "rcarraro";
+    private const PASSWORD = "OochohZ9ooGuaJop";
 
     private $conn;
 
