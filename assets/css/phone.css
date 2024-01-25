@@ -107,6 +107,19 @@
   --metricaBorderColor: #7a0000;
   --metricaTitleBgColor: #7a0000;
   --metricaTitleTxtColor: #fff;
+
+  /*da catalogare*/
+  --h1a: #fff; 
+  --background-color-index-content: #000;
+  --index-content-color-h2-p: #fff; 
+  --background-color-cancelBtn: #fff;
+  --color-cancelBtn: #000;
+  --background-color-input-field-label: #fff;
+  --li-metrica-a: #0000ff;
+  --background-color-componenti-dt: #000;
+  --color-componenti-dt:#fff;
+  --background-color-componenti-dd: #fff;
+
 }
 
 /*!***********************/
@@ -349,7 +362,7 @@ main {
 }
 
 h1 a {
-  color: white;
+  color: var(--h1a);
   text-decoration: none;
 }
 
@@ -536,7 +549,7 @@ a.registerNow {
 }
 
 .index-content {
-  background-color: #000;
+  background-color: var(--background-color-index-content);
   padding: 1.5em 0.5em;
 }
 
@@ -546,7 +559,7 @@ a.registerNow {
 
 .index-content h2,
 .index-content p {
-  color: #fff;
+  color: var(--index-content-color-h2-p);
   text-align: center;
 }
 
@@ -953,10 +966,10 @@ table caption {
 }
 
 .cancelBtn {
-  background-color: #fff;
+  background-color: var(--background-color-cancelBtn);
+  color: var(--color-cancelBtn);
   border: 1px solid #000;
   border-radius: 0.3em;
-  color: #000;
   flex-grow: 1;
   padding: 0.5em 0;
   width: inherit;
@@ -994,7 +1007,7 @@ table caption {
 }
 
 .input-field label {
-  background-color: #fff;
+  background-color: var(--background-color-input-field-label);
   display: flex;
   flex-flow: column;
   font-family: osvald-bold, sans-serif;
@@ -1126,7 +1139,7 @@ li.metrica p {
 }
 
 li.metrica a {
-  color: blue;
+  color: var(--li-metrica-a);
   text-align: center;
   text-decoration: underline;
   width: max-content;
@@ -1372,8 +1385,8 @@ img {
 }
 
 #componenti > dt {
-  background-color: black;
-  color: white;
+  background-color: var(--background-color-componenti-dt);
+  color: var(--color-componenti-dt);
   border: 1px solid black;
   padding: 0.5em;
   font-size: 1.5em;
@@ -1383,7 +1396,7 @@ img {
 }
 
 #componenti > dd {
-  background-color: white;
+  background-color: var(--background-color-componenti-dd);
   border: 1px solid black;
   border-top: none;
   margin-bottom: 1em;
