@@ -15,6 +15,9 @@
 
   /*!Generale*/
   --background-color: #da6202;
+  --h1a: #fff; 
+  --background-color-index-content: #000;
+  --index-content-color-h2-p: #fff; 
 
   /*!Header*/
   --headerBackgroundColor: #000;
@@ -50,11 +53,16 @@
   --visitedCard: #600d0d;
 
   /*!Form*/
+  --background-color-input-field-label: #fff;
   --formBtnBgColor: #000;
   --formBtnTxtColor: #fff;
   --formLegendTxtColor: #fff;
   --disabledInputBgColor: #d3d3d3;
   --formInputBgColor: #fff;
+
+  /*!Btn cancel*/
+  --background-color-cancelBtn: #fff;
+  --color-cancelBtn: #000;
 
   /*!Footer*/
   --footerBgColor: #000;
@@ -108,18 +116,13 @@
   --metricaTitleBgColor: #7a0000;
   --metricaTitleTxtColor: #fff;
 
-  /*da catalogare*/
-  --h1a: #fff; 
-  --background-color-index-content: #000;
-  --index-content-color-h2-p: #fff; 
-  --background-color-cancelBtn: #fff;
-  --color-cancelBtn: #000;
-  --background-color-input-field-label: #fff;
-  --li-metrica-a: #0000ff;
+  /*!Pagina Chi Siamo*/
   --background-color-componenti-dt: #000;
   --color-componenti-dt:#fff;
   --background-color-componenti-dd: #fff;
 
+  /*Pagina amministrazione*/
+  --li-metrica-a: #0000ff;
 }
 
 /*!***********************/
@@ -1378,10 +1381,9 @@ img {
 
 #componenti {
   margin: auto;
-  width: 95%;
+  width: 90%;
   padding-top: 1em;
   padding-bottom: 2em;
-  /*max-width: 40%; per versione desktop*/
 }
 
 #componenti > dt {
@@ -1435,7 +1437,7 @@ img {
 }
 
 .componente dd {
-  margin-left: 9em;
+  margin-left: 7em;
 }
 
 #componenti ul {
@@ -1451,6 +1453,8 @@ img {
   flex-direction: column;
   flex-wrap: wrap;
   column-gap: 1em;
+  align-items: end;
+  margin-left: -2em;
 }
 
 .componente p {
@@ -1555,6 +1559,20 @@ img {
     flex-direction: row;
     justify-content: center;
   }
+
+  #componenti {
+    margin: auto;
+    width: 95vw;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-column-gap: 1em;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 840px) {
@@ -1577,5 +1595,21 @@ img {
     max-width: 35%;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (min-width: 1300px) {
+  #componenti {
+    margin: auto;
+    width: 95vw;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 23vw 23vw 23vw 23vw;
+    grid-template-rows: auto auto;
+    grid-column-gap: 1em;
+    align-items: center;
+    justify-content: center;
   }
 }
