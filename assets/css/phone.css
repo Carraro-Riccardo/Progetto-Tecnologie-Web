@@ -711,7 +711,7 @@ footer a:hover {
 }
 
 .confirmButtons a{
-  color: var(--linkColor);
+  color: #000;
 }
 
 .confirmButtons,
@@ -746,8 +746,8 @@ footer a:hover {
 }
 
 .registrati-login {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border: 1px solid var(--borderColor-cancelBtn);
   border-radius: 0.3em;
   flex-grow: 1;
