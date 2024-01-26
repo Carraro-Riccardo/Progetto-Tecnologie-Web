@@ -13,12 +13,11 @@ import {
         var creditCard = document.getElementById("cardNumber").value;
         var cvv = document.getElementById("cvv").value;
         var dataScadenza = document.getElementById("dataScadenza").value;
-    
         var errorMessage = "";
     
         errorMessage += checkUsername(username);
         errorMessage += checkPassword(password);
-        errorMessage += checkCreditCard(creditCard);
+        errorMessage += checkCreditCard(creditCard.replace(/\s/g, ''));
         errorMessage += checkCVV(cvv);
         errorMessage += checkDataScadenza(dataScadenza);
 
@@ -37,6 +36,30 @@ import {
           errorElement.innerHTML = errorMessage;
         }
     });
+
+    document.getElementById("cardNumber").addEventListener("input", function (event) {
+        let valore = event.target.value.replace(/\D/g, '');
+        valore = valore.slice(0, 16);
+        valore = valore.replace(/(\d{4})/g, '$1 ').trim();
+        event.target.value = valore;
+    });
+
+    document.getElementById("cvv").addEventListener("input", function (event) {
+        let valore = event.target.value.replace(/\D/g, '');
+        valore = valore.slice(0, 3);
+        event.target.value = valore;
+    });
+
+    document.getElementById("dataScadenza").addEventListener("input", function (event) {
+        let valore = event.target.value.replace(/\D/g, '');
+        valore = valore.slice(0, 4);
+        valore = valore.replace(/(\d{2})/, '$1/');
+        if (valore.length === 3 && event.inputType === "deleteContentBackward") {
+            valore = valore.slice(0, 2);
+        }
+        event.target.value = valore;
+    });
+    
 
   });
   

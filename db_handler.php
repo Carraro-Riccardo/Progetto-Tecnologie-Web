@@ -308,6 +308,45 @@ class Database {
         $stmt->execute();
         $stmt->close();
     }
+
+    public function getScheda($id_scheda){
+        $query = "  SELECT scheda.id_scheda,
+                            allenatori.nome AS nome_allenatore,
+                            esercizi.nome,
+                            schede_esercizi.giorno_settimana,
+                            schede_esercizi.numero_set,
+                            schede_esercizi.numero_ripetizioni
+                    FROM   scheda
+                            JOIN schede_esercizi
+                            ON scheda.id_scheda = schede_esercizi.id_scheda
+                            JOIN esercizi
+                            ON schede_esercizi.id_esercizio = esercizi.id
+                            JOIN allenatori
+                            ON scheda.id_allenatore = allenatori.id
+                    WHERE  scheda.id_scheda = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $id_scheda);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
+
+    public function addSchedaUtente($utente, $scheda){
+        $query = "  DELETE FROM schede_utente WHERE username = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $utente);
+        $stmt->execute();
+        $stmt->close();
+
+        $query = "  INSERT INTO schede_utente (username, id_scheda) VALUES (?, ?)";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $utente, $scheda);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 ?>

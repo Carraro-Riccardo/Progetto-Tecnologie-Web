@@ -11,7 +11,7 @@ require_once("./db_handler.php");
 function creaTabella($giorni, $esercizi) {
     $tabella = "";
     foreach ($giorni as $giorno) {
-        $tabella .= "\n<li>\n\t<table class='esercizio'>\n\t\t<caption>" . $giorno . "</caption>\n\t\t<tr>\n\t\t\t<th scope='col'>Esercizio</th>\n\t\t\t<th scope='col'>Set</th>\n\t\t\t<th scope='col'>Ripetizioni</th>\n\t\t</tr>";
+        $tabella .= "\n<li>\n\t<table class='esercizio'>\n\t\t<caption> Esercizi " . $giorno . "</caption>\n\t\t<tr>\n\t\t\t<th scope='col'>Esercizio</th>\n\t\t\t<th scope='col'>Set</th>\n\t\t\t<th scope='col'>Ripetizioni</th>\n\t\t</tr>";
         if (isset($esercizi[$giorno])) {
             foreach ($esercizi[$giorno] as $esercizio) {
                 list($nome, $set, $ripetizioni) = explode(", ", $esercizio);
@@ -71,5 +71,11 @@ if(isset($_SESSION["user_id"])){
     header("Location: login.php");
     exit;
 }
+
+if(isset($_SESSION["success"])){
+    $page = str_replace("@@error@@", "<p id='success-message'>".$_SESSION["success"]."</p>", $page);
+    unset($_SESSION["success"]);
+}else $page = str_replace("@@error@@", "", $page);
+
 echo $page;
 ?>

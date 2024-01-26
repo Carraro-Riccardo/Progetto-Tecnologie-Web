@@ -34,6 +34,13 @@ if($login_result) {
     session_start();
     $_SESSION['user_id'] = $login_result['username'];
     $_SESSION['ruolo'] = $login_result['ruolo'];
+
+    if(isset($_SESSION["redirect_to"])){
+        header("Location: ".$_SESSION["redirect_to"]);
+        unset($_SESSION["redirect_to"]);
+        exit;
+    }
+
     header(($login_result['ruolo'] == "user")? "Location: ./profile_profilo.php" : "Location: ./admin_landing.php");
     exit;
 } else {

@@ -898,13 +898,15 @@ p.empty-result {
 
 .schede-container {
   list-style: none;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin: 3em 0.5em 0 0.5em;
+}
+
+.schede-container > li {
+  margin-bottom: 2em;
 }
 
 .scheda {
   list-style: none;
-  margin-bottom: 3em;
 }
 
 .schede-container h2 {
@@ -983,6 +985,8 @@ table caption {
 
 .tb-container {
   padding: 0 0.5em;
+  max-width: 50em;
+  margin: 1em auto;
 }
 
 /*!***********************/
@@ -1608,7 +1612,9 @@ img {
   .schede-container {
     align-items: center;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 3em;
   }
 
   .tb-container {
@@ -1662,8 +1668,7 @@ img {
   }
 
   #form-certificato {
-    max-width: 35%;
-    margin: 0 auto;
+    max-width: 50em;
   }
 
   #container-abbonamento-login .user-data-container {

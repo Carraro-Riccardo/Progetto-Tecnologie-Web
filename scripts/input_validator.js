@@ -90,9 +90,9 @@ export function checkCreditCard(creditCard) {
   var creditCardRegex = /^[0-9]{16}$/;
 
   if (creditCard === "") {
-    return "Il campo carta di credito non può essere vuoto.\n";
+    return "Il campo numero carta non può essere vuoto.\n";
   } else if (!creditCard.match(creditCardRegex)) {
-    return "Il campo carta di credito deve contenere solo 16 cifre.\n";
+    return "Il campo numero carta deve contenere solo 16 cifre.\n";
   }
 
   return "";
@@ -117,7 +117,7 @@ export function checkDataScadenza(data) {
   if (data === "") {
     return "Il campo data di scadenza non può essere vuoto.\n";
   } else if (!data.match(regexDataScadenza)) {
-    return "Il campo data di scadenza deve essere nel formato MM/AA.\n";
+    return "La data di scadenza deve essere valida e nel formato MM/AA.\n";
   }
 
   var oggi = new Date();

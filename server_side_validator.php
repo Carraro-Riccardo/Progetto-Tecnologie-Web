@@ -86,4 +86,51 @@ function checkRegisterPassword($password, $confirmPassword) {
     return "";
 }
 
+function checkCardNumber($cardNumber) {
+    $cardNumberRegex = "/^[0-9]{16}$/";
+
+    if (empty($cardNumber)) {
+        return "Il campo numero carta non può essere vuoto.\n";
+    } else if (!preg_match($cardNumberRegex, $cardNumber)) {
+        return "Il campo numero carta deve contenere solo 16 cifre.\n";
+    }
+
+    return "";
+}
+
+function checkDataScadenza($dataScadenza) {
+    $dataScadenzaRegex = "/^(0[1-9]|1[0-2])\/[0-9]{2}$/";
+
+    if (empty($dataScadenza)) {
+        return "Il campo data scadenza non può essere vuoto.\n";
+    } else if (!preg_match($dataScadenzaRegex, $dataScadenza)) {
+        return "La data di scadenza deve essere valida e nel formato MM/AA.\n";
+    } else {
+        list($month, $year) = explode('/', $dataScadenza);
+        
+        $currentYear = date('y');
+        $currentMonth = date('m');
+        
+        if ($year < $currentYear || ($year == $currentYear && $month <= $currentMonth)) {
+            return "La data di scadenza deve essere nel futuro.\n";
+        }
+    }
+
+    return "";
+}
+
+function checkCvv($cvv) {
+    $cvvRegex = "/^[0-9]{3}$/";
+
+    if (empty($cvv)) {
+        return "Il campo CVV non può essere vuoto.";
+    } else if (!preg_match($cvvRegex, $cvv)) {
+        return "Il campo CVV deve contenere solo 3 cifre.";
+    }
+
+    return "";
+}
+
+
+
 ?>

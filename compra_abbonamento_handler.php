@@ -14,7 +14,6 @@ $cvv = isset($_POST['cvv']) ? $_POST['cvv'] : '';
 
 
 $usernameError = checkUsername($username);
-$usernameError = checkPassword($password);
 
 /* TODO
 $abbonamentoError = checkAbbonamento($abbonamento);
@@ -24,7 +23,7 @@ $cvvError = checkCvv($cvv);
 */
 
 if (!empty($usernameError)) {
-    $_SESSION["error"] = $usernameError . $passwordError;
+    $_SESSION["error"] = $usernameError;
     header("Location: ./register.php");
     exit();
 }
@@ -45,8 +44,15 @@ try {
 if($login_result){
     $_SESSION['user_id'] = $login_result['username'];
     $_SESSION['ruolo'] = $login_result['ruolo'];
+
+    if($login_result['ruolo'] == "admin"){
+        $_SESSION["error"] = "Non puoi acquistare un abbonamento in qualità di amministratore.";
+        header("Location: ./compra_abbonamento.php?abbonamento=".$abbonamento);    
+        exit;
+    } 
+
 } else {
-    $_SESSION["error"] = "Credenziali errate. PASSW:".$password." USERN:".$username. "abbonamento:".$abbonamento." cardNumber:".$cardNumber." dataScadenza:".$dataScadenza." cvv:".$cvv;
+    $_SESSION["error"] = "Credenziali errate.";
     header("Location: ./compra_abbonamento.php?abbonamento=".$abbonamento); 
     exit;
 }
