@@ -119,10 +119,12 @@
   /*!Pagina Chi Siamo*/
   --background-color-componenti-dt: #000;
   --color-componenti-dt:#fff;
-  --background-color-componenti-dd: #fff;
+  --background-color-componenti-dd: #7a0000;
 
   /*Pagina amministrazione*/
   --li-metrica-a: #0000ff;
+
+  --color-componente: #fff;
 }
 
 /*!***********************/
@@ -1418,12 +1420,21 @@ img {
 }
 
 .componente {
+  color: var(--color-componente);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   font-size: 1.2em;
+}
+
+.componente a{
+  color: var(--linkColor);
+}
+
+.componente a:visited{
+  color: var(--visitedLinkColor);
 }
 
 .componente dl dd,
