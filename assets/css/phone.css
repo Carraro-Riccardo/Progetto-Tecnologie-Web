@@ -134,6 +134,10 @@
   --border-color-componenti-dt: #000;
   --border-color-componenti-dd: #000;
   --border-color-componente-img: #fff;
+  --color-p-data-abbonamenti: #fff;
+  --color-a-confirmButton :#000;
+  --background-color-registrati-login: #fff;
+  --color-registrati-login: #000;
 
 }
 
@@ -711,7 +715,7 @@ footer a:hover {
 }
 
 .confirmButtons a{
-  color: #000;
+  color: var(--color-a-confirmButton);
 }
 
 .confirmButtons,
@@ -746,8 +750,8 @@ footer a:hover {
 }
 
 .registrati-login {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--background-color-registrati-login);
+  color: var(--color-registrati-login);
   border: 1px solid var(--borderColor-cancelBtn);
   border-radius: 0.3em;
   flex-grow: 1;
@@ -768,7 +772,7 @@ section.data-abbonamenti {
 }
 
 .data-abbonamenti p{
-  color: #fff;
+  color: var(--color-p-data-abbonamenti);
 }
 
 #Mensile:before {
