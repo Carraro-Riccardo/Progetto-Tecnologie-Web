@@ -123,6 +123,18 @@
 
   /*Pagina amministrazione*/
   --li-metrica-a: #0000ff;
+
+  /*Da catalogare*/
+  --text-shadow-homePageTitle-1: #fff;
+  --text-shadow-homePageTitle-2: #000;
+  --text-shadow-homePageTitle-3: #000;
+  --text-shadow-homePageTitle-4: #000;
+  --borderColor-cancelBtn: #000;
+  --box-shadow-li-metrica: #000;
+  --border-color-componenti-dt: #000;
+  --border-color-componenti-dd: #000;
+  --border-color-componente-img: #fff;
+
 }
 
 /*!***********************/
@@ -532,7 +544,7 @@ h1.homePageTitle {
   font-family: var(--font-body-family-bold), sans-serif;
   font-size: 4em;
   text-align: center;
-  text-shadow: -2px 0 #fff, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  text-shadow: -2px 0 var(--text-shadow-homePageTitle-1), 0 1px var(--text-shadow-homePageTitle-2), 1px 0 var(--text-shadow-homePageTitle-3), 0 -1px var(--text-shadow-homePageTitle-4);
 }
 
 .titleSection p {
@@ -971,7 +983,7 @@ table caption {
 .cancelBtn {
   background-color: var(--background-color-cancelBtn);
   color: var(--color-cancelBtn);
-  border: 1px solid #000;
+  border: 1px solid var(--borderColor-cancelBtn);
   border-radius: 0.3em;
   flex-grow: 1;
   padding: 0.5em 0;
@@ -1114,7 +1126,7 @@ li.metrica {
   background-color: var(--metricaBgColor);
   border: 3px solid var(--metricaBorderColor);
   border-radius: 1em;
-  box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px var(--box-shadow-li-metrica);
   display: flex;
   flex: 1 1 10em;
   flex-direction: column;
@@ -1389,7 +1401,7 @@ img {
 #componenti > dt {
   background-color: var(--background-color-componenti-dt);
   color: var(--color-componenti-dt);
-  border: 1px solid black;
+  border: 1px solid var(--border-color-componenti-dt);
   padding: 0.5em;
   font-size: 1.5em;
   border-top-left-radius: 1.5em;
@@ -1399,7 +1411,7 @@ img {
 
 #componenti > dd {
   background-color: var(--background-color-componenti-dd);
-  border: 1px solid black;
+  border: 1px solid var(--border-color-componenti-dd);
   border-top: none;
   margin-bottom: 1em;
   border-bottom-left-radius: 1.5em;
@@ -1412,7 +1424,7 @@ img {
   height: 9em;
   object-fit: cover;
   object-position: center;
-  border: 5px solid #ffffff;
+  border: 5px solid var(--border-color-componente-img);
   margin: 0.5em 0;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 100));
 }
