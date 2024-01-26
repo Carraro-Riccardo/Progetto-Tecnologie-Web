@@ -710,6 +710,10 @@ footer a:hover {
   row-gap: 1em;
 }
 
+.confirmButtons a{
+  color: var(--linkColor);
+}
+
 .confirmButtons,
 .submitBtn {
   align-items: center;
@@ -739,6 +743,16 @@ footer a:hover {
   flex: 1 1 0;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.registrati-login {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid var(--borderColor-cancelBtn);
+  border-radius: 0.3em;
+  flex-grow: 1;
+  padding: 0.5em 0;
+  width: inherit;
 }
 
 /*!***********************/
