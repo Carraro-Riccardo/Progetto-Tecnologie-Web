@@ -767,6 +767,10 @@ section.data-abbonamenti {
   justify-content: center;
 }
 
+.data-abbonamenti p{
+  color: #fff;
+}
+
 #Mensile:before {
   background: url(../imgs/abbonamenti_images/Mensile.webp) 50% / cover;
 }
