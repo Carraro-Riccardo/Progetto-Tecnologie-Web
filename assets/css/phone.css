@@ -759,6 +759,10 @@ footer a:hover {
   width: inherit;
 }
 
+.registrati-login a:visited{
+  color: var(--visitedLinkColor);
+}
+
 /*!***********************/
 
 /*! PAGINA ABBONAMENTI */
@@ -1395,8 +1399,12 @@ img {
   color: var(--cardDescription);
 }
 
-.card-corso-description a {
+.card-corso-description a { 
   color: var(--linkColor);
+}
+/*Non capisco perché non funziona*/
+.card-corso-description a :visited{
+  color: var(--visitedLinkColor);
 }
 
 .card-link {
