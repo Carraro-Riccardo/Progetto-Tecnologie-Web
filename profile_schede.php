@@ -39,10 +39,12 @@ if(isset($_SESSION["user_id"])){
     }
 
     $schede = "";
-    if($schede_result->num_rows == 0)
+    if($schede_result->num_rows == 0){
         $schede = "<p class='empty-result'>Non hai ancora nessuna scheda.</p>";
-    else {
-        $schede = "<ul class='schede-container'>\n<li>\n";
+        $page = str_replace("@@remove-add-scheda@@", "Aggiungi Scheda", $page);
+        $page = str_replace("@@remove-add-scheda-link@@","./schede.php", $page);
+    }else {
+        $schede = "<ul class='schede-container'>\n";
         $curr_scheda = null;
         $giorni = array();
         $esercizi = array();
@@ -62,10 +64,13 @@ if(isset($_SESSION["user_id"])){
             }
             $esercizi[$row['giorno_settimana']][] = $row['nome'] . ", " . $row['numero_set'] . ", " . $row['numero_ripetizioni'];
         }
-        $schede .= "</li>\n<li>\n<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
-    }
+        $schede .= "\n<li>\n<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
         
-    $page = str_replace("<!--sezione schede-->", $schede, $page);
+        $page = str_replace("<!--sezione schede-->", $schede, $page);
+        $page = str_replace("@@remove-add-scheda@@", "Rimuovi scheda", $page);
+        $page = str_replace("@@remove-add-scheda-link@@","./rimuovi_scheda_utente.php?id_scheda=".$curr_scheda, $page);
+    
+    }
 }else{
     $_SESSION['error'] = "Devi prima effettuare il login.";
     header("Location: login.php");

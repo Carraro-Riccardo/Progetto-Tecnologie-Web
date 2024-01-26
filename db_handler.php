@@ -347,6 +347,28 @@ class Database {
         $stmt->execute();
         $stmt->close();
     }
+
+    public function getSchedaUtente($utente, $scheda){
+        $query = "  SELECT schede_utente.id_scheda
+                    FROM   schede_utente
+                    WHERE  schede_utente.username = ? AND schede_utente.id_scheda = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $utente, $scheda);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }   
+
+    public function removeSchedaUtente($utente, $scheda){
+        $query = "  DELETE FROM schede_utente WHERE username = ? AND id_scheda = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $utente, $scheda);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 ?>

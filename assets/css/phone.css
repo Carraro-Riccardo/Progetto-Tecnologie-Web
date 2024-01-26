@@ -15,9 +15,9 @@
 
   /*!Generale*/
   --background-color: #da6202;
-  --h1a: #fff; 
+  --h1a: #fff;
   --background-color-index-content: #000;
-  --index-content-color-h2-p: #fff; 
+  --index-content-color-h2-p: #fff;
 
   /*!Header*/
   --headerBackgroundColor: #000;
@@ -84,8 +84,8 @@
   --currentTabTxtColor: #fff;
 
   /*!Pulsante logout*/
-  --logoutBtnBgColor: #7a0000;
-  --logoutBtnBorderColor: #000;
+  --deleteBtnBgColor: #7a0000;
+  --deleteBtnBorderColor: #000;
 
   /*!Messaggio di errore*/
   --errorMessageBgColor: #b40000;
@@ -118,7 +118,7 @@
 
   /*!Pagina Chi Siamo*/
   --background-color-componenti-dt: #000;
-  --color-componenti-dt:#fff;
+  --color-componenti-dt: #fff;
   --background-color-componenti-dd: #fff;
 
   /*Pagina amministrazione*/
@@ -273,7 +273,7 @@ main {
 }
 
 #nav-principale ul li a:visited,
-#nav-principale ul li a:visited span{
+#nav-principale ul li a:visited span {
   color: var(--visitedLinkColor);
 }
 
@@ -677,7 +677,7 @@ footer a:hover {
 }
 
 .user-data-container input:disabled,
-.user-data-container input[readonly]{
+.user-data-container input[readonly] {
   background-color: var(--disabledInputBgColor);
 }
 
@@ -742,7 +742,7 @@ section.data-abbonamenti {
   display: flex;
   justify-content: center;
   padding-top: 0.5em;
-  color: var(--cardTxtColor)
+  color: var(--cardTxtColor);
 }
 
 #Mensile:before {
@@ -790,7 +790,7 @@ section.data-abbonamenti {
 }
 
 #data-scadenza-cvc {
-  display: flex; 
+  display: flex;
   flex-direction: column;
 }
 
@@ -896,13 +896,19 @@ p.empty-result {
   background-image: url(../imgs/profile_icons/profile.webp);
 }
 
+#container-scheda-utente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .schede-container {
   list-style: none;
-  margin: 3em 0.5em 0 0.5em;
+  margin: 2em 0.5em 0 0.5em;
 }
 
 .schede-container > li {
-  margin-bottom: 2em;
+  margin: 2em 3em;
 }
 
 .scheda {
@@ -995,9 +1001,9 @@ table caption {
 
 /*!***********************/
 
-#logout {
-  background-color: var(--logoutBtnBgColor);
-  border: 1px solid var(--logoutBtnBorderColor);
+.deleteBtn {
+  background-color: var(--deleteBtnBgColor);
+  border: 1px solid var(--deleteBtnBorderColor);
   border-radius: 0.5em;
   color: var(--formBtnTxtColor);
   margin-left: auto;
@@ -1007,10 +1013,11 @@ table caption {
   width: 79%;
 }
 
-#logout,
+.deleteBtn,
 .cancelBtn {
   text-align: center;
   text-decoration: none;
+  max-width: 30em;
 }
 
 .cancelBtn {
@@ -1095,7 +1102,7 @@ caption#caption-certificato {
   background-color: var(--tableBgColor);
 }
 
-#certificatoCell a::after{
+#certificatoCell a::after {
   content: "";
   display: inline-block;
   background-image: url(../imgs/profile_icons/pdf_icon.webp);
@@ -1129,11 +1136,10 @@ caption#caption-certificato {
 
 #form-certificato input {
   background-color: var(--formInputBgColor);
-  padding-top:0.5em;
+  padding-top: 0.5em;
   border-radius: 0em;
   border-top-right-radius: 0.3em;
 }
-
 
 /*!**************************/
 
@@ -1531,8 +1537,6 @@ img {
   #container-abbonamento-login form {
     min-width: 100%;
   }
-
-
 }
 
 @media (max-width: 420px) {
@@ -1542,22 +1546,20 @@ img {
 }
 
 @media (min-width: 600px) {
-
   #cards-container {
     max-width: 100%;
   }
 
-  #cards-container > ul{
+  #cards-container > ul {
     display: flex;
     flex-flow: row wrap;
     column-gap: 2em;
     justify-content: center;
   }
 
-  .card{
+  .card {
     min-width: 30em;
   }
-
 
   .user-data-container {
     max-width: 60%;
@@ -1566,14 +1568,14 @@ img {
   }
 
   #data-scadenza-cvc {
-    display: grid; 
-    grid-template-columns: 48% 48%; 
-    justify-content: space-between; 
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
     width: 100%;
   }
 
   #container-abbonamento-login .user-data-container {
-      max-width: 80%;
+    max-width: 80%;
   }
 
   #container-abbonamento-login form {
@@ -1614,7 +1616,6 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    column-gap: 3em;
   }
 
   .tb-container {
