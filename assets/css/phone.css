@@ -1402,8 +1402,8 @@ img {
 .card-corso-description a { 
   color: var(--linkColor);
 }
-/*Non capisco perché non funziona*/
-.card-corso-description a :visited{
+
+.card-corso-description a:visited{
   color: var(--visitedLinkColor);
 }
 
