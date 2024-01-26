@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/buy_validator.js"></script>
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
+
+    <title>Acquista abbonamento - GagGym</title>
+    <meta
+      name="description"
+      content="Esplora gli abbonamenti alla palestra GagGym, e scegli quello più adatto a te."
+    />
+    <meta
+      name="keywords"
+      content="GagGym, abbonamenti, mensile, trimestrale, annuale, abbonamento"
+    />
+  </head>
+  <body>
+    <header class="main">
+      @@navbar@@
+      <nav id="breadcrumb" aria-label="percorso navigazione">
+        Ti trovi in:
+        <ol>
+          <li><span lang="en">Home</span></li>
+          <li>Abbonamenti</li>
+          <li aria-current="page">Acquista</li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <h1 class="normalPageTitle">Acquista abbonamento @@nome-abbonamento@@</h1>
+
+      @@error@@
+      <!--container abbonamento login-->
+      <div id="container-abbonamento-login">
+        <!--carta-->
+        <div id="@@nome-abbonamento@@" class="card">
+          <div class="description">
+            <h2>@@nome-abbonamento@@</h2>
+            <section class="data-abbonamenti">
+              <p>Validità: @@durata@@ giorni</p>
+              <p>Costo: @@costo@@ €</p>
+              <p></p>
+            </section>
+          </div>
+        </div>
+        <!--fine carta-->
+
+        <!--form login-->
+        <form action="./compra_abbonamento_handler.php" method="post" class="user-data-container" id="buyForm">
+          <fieldset>
+            <legend class="tabTitle">Conferma acquisto</legend>
+            <div class="input-field">
+              <label for="username"><span lang="en">Username</span></label>
+              <input type="text" id="username" name="username" placeholder="Username" value="@@username@@" required @@editable@@/>
+            </div>
+            <div class="input-field">
+              <label for="cardNumber">Numero Carta</label>
+              <input
+                id="cardNumber"
+                name="cardNumber"
+                type="number"
+                placeholder="Numero Carta"
+                required
+              />
+            </div>
+
+            <div id="data-scadenza-cvc">
+                <div class="input-field">
+                    <label for="dataScadenza">Data scadenza</label>
+                    <input
+                    id="dataScadenza"
+                    name="dataScadenza"
+                    placeholder="MM/AA"
+                    required
+                    />
+                </div>
+
+                <div class="input-field">
+                    <label for="cvv">CVV</label>
+                    <input
+                    id="cvv"
+                    name="cvv"
+                    placeholder="000"
+                    type="number"
+                    required
+                    />
+                </div>
+            </div>
+            <div class="input-field">
+              <label for="password"><span lang="en">Password</span></label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <input type="hidden" name="abbonamento" value="@@id-abbonamento@@"/>
+            <div class="confirmButtons">
+              <button id="buyButton" type="submit" class="submitBtn">Conferma</button>
+              <a class="cancelBtn" href="./abbonamenti.php">Annulla</a>
+            </div>
+          </fieldset>
+        </form>
+        <!--fine form login-->
+      </div>
+      <!--fine container abbonamento login-->
+    </main>
+  </body>
+</html>

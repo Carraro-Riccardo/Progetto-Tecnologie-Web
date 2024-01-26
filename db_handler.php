@@ -82,7 +82,7 @@ class Database {
     }
 
     public function getAbbonamentiUtente($idUtente){
-        $query = "  SELECT abbonamenti.nome,
+        $query = "  SELECT abbonamenti.id, abbonamenti.nome,
                             data_stipula,
                             Date_add(data_stipula, INTERVAL abbonamenti.durata day) AS data_scadenza
                     FROM   utenti_abbonamenti
@@ -268,6 +268,45 @@ class Database {
         $stmt->execute();
         $result = $stmt->get_result();
         return $result;
+    }
+
+    public function getInfoAbbonamento($abbonamento){
+        $query = "  SELECT nome, durata, costo
+                    FROM abbonamenti 
+                    WHERE id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $abbonamento);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
+
+    public function getActiveAbbonamento($utente) {
+        $query = "  SELECT abbonamenti.id, abbonamenti.nome,
+                            data_stipula,
+                            Date_add(data_stipula, INTERVAL abbonamenti.durata day) AS data_scadenza
+                    FROM   utenti_abbonamenti
+                            JOIN abbonamenti
+                            ON utenti_abbonamenti.id_abbonamento = abbonamenti.id
+                    WHERE  utenti_abbonamenti.username = ? AND data_stipula <= CURDATE() AND CURDATE() <= Date_add(data_stipula, INTERVAL abbonamenti.durata day);";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $utente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
+
+    public function attivaAbbonamento($utente, $abbonamento){
+        $query = "  INSERT INTO utenti_abbonamenti (username, id_abbonamento, data_stipula) VALUES (?, ?, CURDATE())";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $utente, $abbonamento);
+        $stmt->execute();
+        $stmt->close();
     }
 }
 

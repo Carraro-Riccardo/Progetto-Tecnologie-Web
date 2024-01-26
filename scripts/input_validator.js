@@ -85,3 +85,51 @@ export function checkPassword(password) {
     
     return "";
   }
+
+export function checkCreditCard(creditCard) {
+  var creditCardRegex = /^[0-9]{16}$/;
+
+  if (creditCard === "") {
+    return "Il campo carta di credito non può essere vuoto.\n";
+  } else if (!creditCard.match(creditCardRegex)) {
+    return "Il campo carta di credito deve contenere solo 16 cifre.\n";
+  }
+
+  return "";
+}
+
+export function checkCVV(cvv) {
+  var cvvRegex = /^[0-9]{3}$/;
+
+  if (cvv === "") {
+    return "Il campo CVV non può essere vuoto.\n";
+  } else if (!cvv.match(cvvRegex)) {
+    return "Il campo CVV deve contenere solo 3 cifre.\n";
+  }
+
+  return "";
+}
+
+
+export function checkDataScadenza(data) {
+  var regexDataScadenza = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+
+  if (data === "") {
+    return "Il campo data di scadenza non può essere vuoto.\n";
+  } else if (!data.match(regexDataScadenza)) {
+    return "Il campo data di scadenza deve essere nel formato MM/AA.\n";
+  }
+
+  var oggi = new Date();
+  var annoCorrente = oggi.getFullYear() % 100;
+  var meseCorrente = oggi.getMonth() + 1;
+
+  var [meseScadenza, annoScadenza] = data.split("/").map(Number);
+
+  if (annoScadenza < annoCorrente || (annoScadenza === annoCorrente && meseScadenza < meseCorrente)) {
+    return "La data di scadenza non può essere nel passato.\n";
+  }
+
+  return "";
+}
+

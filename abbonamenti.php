@@ -19,6 +19,7 @@ preg_match('/(<!--carta-->).*(<!--fine carta-->)/s', $page, $matches);
 
 while ($abbonamento = $abbonamenti_result->fetch_assoc()) {
     $card = $matches[0];
+    $card = str_replace("@@id-abbonamento@@", $abbonamento["id"], $card);
     $card = str_replace("@@nome-abbonamento@@", $abbonamento["nome"], $card);
     $card = str_replace("@@costo@@", $abbonamento["costo"], $card);
     $card = str_replace("@@durata@@", $abbonamento["durata"], $card);

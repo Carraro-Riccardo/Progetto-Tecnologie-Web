@@ -526,6 +526,7 @@ a.card:visited .description {
   padding: 1em 0;
   text-align: center;
   width: 100%;
+  line-height: 1.3em;
 }
 
 h1.homePageTitle {
@@ -675,7 +676,8 @@ footer a:hover {
   border-bottom-left-radius: 0;
 }
 
-.user-data-container input:disabled {
+.user-data-container input:disabled,
+.user-data-container input[readonly]{
   background-color: var(--disabledInputBgColor);
 }
 
@@ -739,6 +741,8 @@ section.data-abbonamenti {
   column-gap: 3em;
   display: flex;
   justify-content: center;
+  padding-top: 0.5em;
+  color: var(--cardTxtColor)
 }
 
 #Mensile:before {
@@ -751,6 +755,43 @@ section.data-abbonamenti {
 
 #Annuale:before {
   background: url(../imgs/abbonamenti_images/Annuale.webp) 50% / cover;
+}
+
+/*!***********************/
+
+/*! PAGINA COMPRA ABBONAMENTI */
+
+/*!***********************/
+
+#container-abbonamento-login {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 2em;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-abbonamento-login .card {
+  flex: 1 1 0;
+  margin: 1em;
+  max-width: 30em;
+  min-width: 17em;
+  min-height: 20em;
+}
+
+#container-abbonamento-login > form {
+  flex: 1 1 0;
+  min-width: 32em;
+  margin: 1em;
+}
+
+#container-abbonamento-login section.data-abbonamenti {
+  column-gap: 1em;
+}
+
+#data-scadenza-cvc {
+  display: flex; 
+  flex-direction: column;
 }
 
 /*!***********************/
@@ -1478,6 +1519,16 @@ img {
   #cards-container {
     max-width: 800px;
   }
+
+  #container-abbonamento-login > form {
+    width: 100%;
+  }
+
+  #container-abbonamento-login form {
+    min-width: 100%;
+  }
+
+
 }
 
 @media (max-width: 420px) {
@@ -1508,6 +1559,21 @@ img {
     max-width: 60%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  #data-scadenza-cvc {
+    display: grid; 
+    grid-template-columns: 48% 48%; 
+    justify-content: space-between; 
+    width: 100%;
+  }
+
+  #container-abbonamento-login .user-data-container {
+      max-width: 80%;
+  }
+
+  #container-abbonamento-login form {
+    min-width: 30em;
   }
 
   .card-corso-description {
@@ -1585,6 +1651,10 @@ img {
     height: 18em;
   }
 
+  #container-abbonamento-login > form {
+    max-width: 30em;
+  }
+
   .user-data-container {
     max-width: 35%;
     margin-left: auto;
@@ -1593,8 +1663,11 @@ img {
 
   #form-certificato {
     max-width: 35%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+  }
+
+  #container-abbonamento-login .user-data-container {
+    max-width: 35%;
   }
 }
 
