@@ -119,6 +119,32 @@ function checkDataScadenza($dataScadenza) {
     return "";
 }
 
+function checkDataScadenzaCertificato($data) {
+    $dateParts = explode("/", $data);
+
+    if (count($dateParts) === 3 && strlen($dateParts[0]) === 2 && strlen($dateParts[1]) === 2 && strlen($dateParts[2]) === 4) {
+        $day = intval($dateParts[0]);
+        $month = intval($dateParts[1]);
+        $year = intval($dateParts[2]);
+
+        if (checkdate($month, $day, $year)) {
+            $date = new DateTime($year . '-' . $month . '-' . $day);
+            $today = new DateTime();
+
+            if ($date > $today) {
+                return "";
+            } else {
+                return "Data non valida, deve essere una data futura.";
+            }
+        } else {
+            return "Data inserita non valida";
+        }
+    } else {
+        return "Il formato della data non è corretto: deve essere GG/MM/AAAA";
+    }
+}
+
+
 function checkCvv($cvv) {
     $cvvRegex = "/^[0-9]{3}$/";
 

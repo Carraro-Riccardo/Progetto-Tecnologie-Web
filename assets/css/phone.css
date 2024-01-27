@@ -681,14 +681,14 @@ footer a:hover {
   background-color: var(--disabledInputBgColor);
 }
 
-.user-data-container input[type="submit"] {
+ input[type="submit"] {
   text-align: center;
   border-radius: 0.5em;
 }
 
-.user-data-container input[type="submit"]:hover,
-.user-data-container input[type="submit"]:focus,
-.user-data-container input[type="submit"]:active {
+ input[type="submit"]:hover,
+ input[type="submit"]:focus,
+ input[type="submit"]:active {
   transform: scale(1.06);
   transition: 0.2s ease-in;
 }
@@ -1004,7 +1004,6 @@ table caption {
 .tb-container {
   padding: 0 0.5em;
   max-width: 50em;
-  margin: 1em 15%;
 }
 
 /*!***********************/
@@ -1110,11 +1109,11 @@ caption#caption-certificato {
   padding: 0.5em;
 }
 
-#certificatoCell {
+.certificatoCell {
   background-color: var(--tableBgColor);
 }
 
-#certificatoCell a::after {
+.certificatoCell a::after {
   content: "";
   display: inline-block;
   background-image: url(../imgs/profile_icons/pdf_icon.webp);
@@ -1524,6 +1523,67 @@ img {
   padding: 1em;
 }
 
+
+/************************/
+
+/* Amministrazione Palestra */
+
+/************************/
+ul#container-utenti-certificati {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  column-gap: 2em;
+}
+
+#container-utenti-certificati li {
+  margin: 1em auto;
+  width: 60%;
+  background: white;
+  padding: 1.5em;
+  border-radius: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+  max-width: 15em;
+}
+
+#container-utenti-certificati dl {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 1em 0em;
+}
+
+#container-utenti-certificati dt {
+  color: white;
+  background: black;
+  padding: 0.2em;
+}
+
+#container-utenti-certificati dd {
+  border: 1px solid;
+  padding: 0.1em;
+}
+
+#container-utenti-certificati form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+}
+
+#container-utenti-certificati form fieldset {
+  border: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
 /*!***********************/
 
 /*! MEDIA QUERIES */
@@ -1560,6 +1620,10 @@ img {
 @media (min-width: 600px) {
   #cards-container {
     max-width: 100%;
+  }
+
+  .tb-container {
+    margin: 1em 15%;
   }
 
   #cards-container > ul {

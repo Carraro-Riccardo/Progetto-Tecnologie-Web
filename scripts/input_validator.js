@@ -133,3 +133,28 @@ export function checkDataScadenza(data) {
   return "";
 }
 
+export function checkDataScadenzaCertificato(data) {
+  var dateParts = data.split("/");
+
+  if (dateParts.length === 3 && dateParts[0].length === 2 && dateParts[1].length === 2 && dateParts[2].length === 4) {
+      var day = parseInt(dateParts[0], 10);
+      var month = parseInt(dateParts[1], 10);
+      var year = parseInt(dateParts[2], 10);
+
+      var date = new Date(year, month - 1, day);
+      if (date && date.getMonth() + 1 === month && date.getDate() === day && date.getFullYear() === year) {
+          var today = new Date();
+
+          if (date > today) {
+              return "";
+          } else {
+              return "Data non valida, deve essere una data futura.";
+          }
+      } else {
+          return "Data inserita non valida";
+      }
+  } else {
+      return "Il formato della data non è corretto: deve essere GG/MM/AAAA";
+  }
+}
+

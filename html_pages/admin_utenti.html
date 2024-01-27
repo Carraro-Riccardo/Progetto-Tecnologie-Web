@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/convalida_data_validator.js"></script>
     <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
     <title>Amministrazione utenti - GagGym</title>
   </head>
@@ -49,59 +50,46 @@
       <nav id="breadcrumb" aria-label="breadcrumb">
         Ti trovi in:
         <ol>
-          <li><span lang="en" aria-current="true">Home</span> amministrazione</li>
+          <li><a href="./admin_landing.php"><span lang="en">Home admin</span></a></li>
+          <li aria-current="page">Amministrazione</li>
         </ol>
       </nav>
     </header>
     <main id=mainAdmin>
-        <h1 class="normalPageTitle">Gestione utenti</h1>
-        <form action="./admin_utenti.php" method="post">
-        <select name="utente" aria-label="cerca utenti">
-            @@lista-utenti@@
-        </select>
-        <button type="submit">Cerca</button>
-        </form>
+        <h1 class="normalPageTitle">Amministrazione Palestra</h1>
+        
+      <section id="GESTIONE_UTENTI">
+      <h2 class="normalPageTitle" id="convalidaCertificati">Convalida Certificati</h2>
+      @@errorConvalida@@
+      <!--tabella certificati-->
+      <ul id="container-utenti-certificati">
+        <!--user data-->
+        <li>
+          <h3 class="certificatoCell"><a href="@@certificatoPath@@" target="_blank">Certificato</a> di: @@username@@</h3>
+          <dl class="user-data-dl">
+            <dt>Nome:</dt>
+            <dd>@@nome@@</dd>
+            <dt>Cognome:</dt>
+            <dd>@@cognome@@</dd>
+          </dl>
+          <form class="form_convalida" action="./convalida_certificato_utente.php" method="post">
+            <fieldset>
+              <legend class="screen-reader-only">Convalida</legend>
+              <div class="container_convalida">
+                <label for="dataScadenza_@@username@@">Data scadenza</label>
+                <input type="date" id="dataScadenza_@@username@@" class="dataScadenza" name="dataScadenza" required>
+              </div>
+              <input type="hidden" name="user_id" value="@@username@@">
+              <button type="submit" name="convalida" class="submitBtn">Convalida</button>
+            </fieldset>
+          </form>
+          <a href="./blocca_convalida_certificato.php?user_id=@@username@@" class="deleteBtn">Blocca convalida</a>
+        </li>
+        <!--fine user data-->
+      </ul>
+      <!--fine tabella certificati-->
+    </section>
 
-        @@error@@
-<!--
-      <form
-        action="register_handler.php"
-        method="post"
-        class="user-data-container"
-        id="registerForm"
-      >
-        <fieldset>
-          <legend class="screen-reader-only">Modifica dati utenti</legend>
-          <div class="input-field">
-            <label for="username"><span lang="en">Username</span></label>
-            <input type="text" id="username" name="username" placeholder="Username" value="@@username@@" required />
-          </div>
-
-          <div id="datiPersonali">
-            <div class="input-field">
-              <label for="nome">Nome</label>
-              <input type="text" id="nome" name="nome" placeholder="Nome" value="@@nome@@" required />
-            </div>
-            <div class="input-field">
-              <label for="cognome">Cognome</label>
-              <input type="text" id="cognome" name="cognome" placeholder="Cognome" value="@@cognome@@" required />
-            </div>
-          </div>
-
-          <div class="input-field">
-            <label for="email"><span lang="en">Email</span></label>
-            <input type="email" id="email" name="email" placeholder="Email" value="@@email@@" required />
-          </div>
-          </div>
-          <div class="confirmButtons">
-            <button type="submit" class="submitBtn">Salva modifiche</button>
-          </div>
-        </fieldset>
-    </form>
-      <div>
-        <p><a href="@@certificato@@">Certificato</a><a href="./convalida_certificato.php?username=@@id@@">Convalida</a></p>
-      </div>
--->
     </main>
   </body>
 </html>

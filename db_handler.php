@@ -270,6 +270,18 @@ class Database {
         return $result;
     }
 
+    public function getUserCertificateToBeValidated(){
+        $query = "  SELECT username, nome, cognome, certificatoPath
+                    FROM utenti 
+                    WHERE ruolo = 'user' AND certificatoMedico = 'da validare'
+                    ORDER BY cognome ASC, nome ASC";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
+
     public function getInfoAbbonamento($abbonamento){
         $query = "  SELECT nome, durata, costo
                     FROM abbonamenti 
@@ -412,6 +424,18 @@ class Database {
 
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("ss", $password, $user);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function convalidaCertificato($user, $data){
+        $query = "  UPDATE utenti
+                    SET    certificatoMedico = 'approvato',
+                           scadenzaCertificato = ?
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $data, $user);
         $stmt->execute();
         $stmt->close();
     }

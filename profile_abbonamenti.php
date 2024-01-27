@@ -25,8 +25,8 @@ if(isset($_SESSION["user_id"])){
     if($abbonamenti_result->num_rows == 0)
         $abbonamenti = "<p class='tabTitle'>Non hai ancora nessun abbonamento.</p>";
     else {
-        $abbonamenti = "<table class='esercizio table-abbonamenti' aria-labelledby='caption-tabella-abbonamenti'>\n";
-        $abbonamenti .= "<caption id='caption-tabella-abbonamenti' class='caption-nascosta'>Tabella contenente tutti gli abbonamenti sottoscritti</caption>\n";
+        $abbonamenti = "<table class='esercizio table-abbonamenti' aria-labelledby='caption-tabella-abbonamenti' aria-describedby='descrizione_tabella'>\n";
+        $abbonamenti .= "<caption id='caption-tabella-abbonamenti' class='screen-reader-only'>Tabella contenente tutti gli abbonamenti sottoscritti</caption>\n";
         $abbonamenti .= "<thead>\n<tr>\n<th scope='col'>N.</th>\n<th scope='col'>Tipo</th>\n<th scope='col'>In data</th>\n<th scope='col'>Scadenza</th>\n</tr>\n</thead>\n<tbody>\n";
         
         $i = 1;
@@ -40,6 +40,7 @@ if(isset($_SESSION["user_id"])){
             $i++;
         }
         $abbonamenti .= "</tbody>\n</table>\n";
+        $abbonamenti .= "<span id='descrizione_tabella' class='screen-reader-only'>Tabella contenente tutti gli abbonamenti sottoscritti in ordine cronologico dal più recente</span>\n";
     }
 
     $page = str_replace("<!--sezione abbonamenti-->", $abbonamenti, $page);
