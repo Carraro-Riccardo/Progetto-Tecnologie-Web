@@ -82,7 +82,7 @@ class Database {
     }
 
     public function getAbbonamentiUtente($idUtente){
-        $query = "  SELECT abbonamenti.nome,
+        $query = "  SELECT abbonamenti.id, abbonamenti.nome,
                             data_stipula,
                             Date_add(data_stipula, INTERVAL abbonamenti.durata day) AS data_scadenza
                     FROM   utenti_abbonamenti
@@ -268,6 +268,176 @@ class Database {
         $stmt->execute();
         $result = $stmt->get_result();
         return $result;
+    }
+
+    public function getUserCertificateToBeValidated(){
+        $query = "  SELECT username, nome, cognome, certificatoPath
+                    FROM utenti 
+                    WHERE ruolo = 'user' AND certificatoMedico = 'da validare'
+                    ORDER BY cognome ASC, nome ASC";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }
+
+    public function getInfoAbbonamento($abbonamento){
+        $query = "  SELECT nome, durata, costo
+                    FROM abbonamenti 
+                    WHERE id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $abbonamento);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
+
+    public function getActiveAbbonamento($utente) {
+        $query = "  SELECT abbonamenti.id, abbonamenti.nome,
+                            data_stipula,
+                            Date_add(data_stipula, INTERVAL abbonamenti.durata day) AS data_scadenza
+                    FROM   utenti_abbonamenti
+                            JOIN abbonamenti
+                            ON utenti_abbonamenti.id_abbonamento = abbonamenti.id
+                    WHERE  utenti_abbonamenti.username = ? AND data_stipula <= CURDATE() AND CURDATE() <= Date_add(data_stipula, INTERVAL abbonamenti.durata day);";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $utente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
+
+    public function attivaAbbonamento($utente, $abbonamento){
+        $query = "  INSERT INTO utenti_abbonamenti (username, id_abbonamento, data_stipula) VALUES (?, ?, CURDATE())";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $utente, $abbonamento);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function getScheda($id_scheda){
+        $query = "  SELECT scheda.id_scheda,
+                            allenatori.nome AS nome_allenatore,
+                            esercizi.nome,
+                            schede_esercizi.giorno_settimana,
+                            schede_esercizi.numero_set,
+                            schede_esercizi.numero_ripetizioni
+                    FROM   scheda
+                            JOIN schede_esercizi
+                            ON scheda.id_scheda = schede_esercizi.id_scheda
+                            JOIN esercizi
+                            ON schede_esercizi.id_esercizio = esercizi.id
+                            JOIN allenatori
+                            ON scheda.id_allenatore = allenatori.id
+                    WHERE  scheda.id_scheda = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $id_scheda);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
+
+    public function addSchedaUtente($utente, $scheda){
+        $query = "  DELETE FROM schede_utente WHERE username = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $utente);
+        $stmt->execute();
+        $stmt->close();
+
+        $query = "  INSERT INTO schede_utente (username, id_scheda) VALUES (?, ?)";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $utente, $scheda);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function getSchedaUtente($utente, $scheda){
+        $query = "  SELECT schede_utente.id_scheda
+                    FROM   schede_utente
+                    WHERE  schede_utente.username = ? AND schede_utente.id_scheda = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $utente, $scheda);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }   
+
+    public function removeSchedaUtente($utente, $scheda){
+        $query = "  DELETE FROM schede_utente WHERE username = ? AND id_scheda = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("si", $utente, $scheda);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function checkUsername($username){
+        $query = "  SELECT username FROM utenti WHERE username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
+
+    public function updateUsernameUtente($old_username, $new_username){
+        $query = "  UPDATE utenti
+                    SET    username = ?
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $new_username, $old_username);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function updateUserData($user_id, $nome, $cognome, $email){
+        $query = "  UPDATE utenti
+                    SET    nome = ?,
+                           cognome = ?,
+                           email = ?
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssss", $nome, $cognome, $email, $user_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function updatePasswordUtente($user, $password){
+        $query = "  UPDATE utenti
+                    SET    password = ?
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $password, $user);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function convalidaCertificato($user, $data){
+        $query = "  UPDATE utenti
+                    SET    certificatoMedico = 'approvato',
+                           scadenzaCertificato = ?
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $data, $user);
+        $stmt->execute();
+        $stmt->close();
     }
 }
 

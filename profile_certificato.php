@@ -25,7 +25,7 @@ if(isset($_SESSION["user_id"])){
     $certificato_result = $certificato_result->fetch_assoc();
     if($certificato_result["certificatoPath"] == null){
         $page = str_replace("@@aggiorna_carica@@", "Carica", $page); 
-        $page = preg_replace('/(<!--tabella certificato-->).*(<!--fine tabella certificato-->)/s', "<p class='empty-result'>Non hai ancora caricato nessun certificato.</p>", $page);
+        $page = preg_replace('/(<!--tabella certificato-->).*(<!--fine tabella certificato-->)/s', "<p class='tabTitle'>Non hai ancora caricato nessun certificato.</p>", $page);
     }else {
         //$page = preg_replace('/(<!--form caricamento certificato-->).*(<!--fine form caricamento certificato-->)/s', "", $page);
         $page = str_replace("@@aggiorna_carica@@", "Aggiorna", $page);  
