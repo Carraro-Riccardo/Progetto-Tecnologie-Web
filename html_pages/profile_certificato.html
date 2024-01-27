@@ -5,56 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
-    <title>Profilo - Certificato</title>
+    <script type="module" src="./scripts/file_certificato_validator.js"></script>
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
+    <title>Certificato - Profilo - GagGym</title>
+    <meta name="description" content="La tua area personale della palestra GagGym" />
+    <meta name="keywords" content="GagGym profilo, profilo, certificato medico, certificato" />
   </head>
   <body>
     <header class="main">
-      <nav id="nav-principale" aria-label="navigazione">
-        <div class="container">
-          <div class="logo-title-holder">
-            <a href="index.php">
-              <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
-            </a>
-            <h1 class="site-title">GagGym</h1>
-          </div>
-        </div>
-        <button id="hamburger" aria-expanded="true">
-          <span>Menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewbox="0 0 20 20"
-            aria-hidden="true"
-          >
-            <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
-          </svg>
-        </button>
-        <div class="main-nav">
-          <ul class="container">
-            <li>
-              <a href="profile_certificato.php" aria-current="page">@@USER@@</a>
-            </li>
-            <li>
-              <a href="index.php">Home</a>
-            </li>
-            <li>
-              <a href="#">Corsi</a>
-            </li>
-            <li>
-                <a href="abbonamenti.php">Abbonamenti</a>
-            </li>
-            <li>
-              <a href="#">Macchinari</a>
-            </li>
-            <li>
-              <a href="#">Chi siamo</a>
-            </li>
-            <li>
-              <a href="#">Contattaci</a>
-            </li>
-            @@logout@@
-          </ul>
-        </div>
-      </nav>
+      @@navbar@@
       <nav id="breadcrumb" aria-label="breadcrumb">
         Ti trovi in:
         <ol>
@@ -66,6 +25,7 @@
       </nav>
     </header>
     <main>
+      <h1 class="normalPageTitle">Il tuo certificato medico</h1>
       <nav id="schede-utente">
         <ul id="tabs">
           <li>
@@ -80,7 +40,6 @@
           </li>
         </ul>
       </nav>
-      <h2 class="tabTitle">Il tuo certificato medico</h2>
       <!--tabella certificato-->
       <div class="tb-container">
         <table class="esercizio">
@@ -94,7 +53,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="@@fileLink@@" aria-label="Collegamento al file @@fileName@@">@@fileName@@</a></td>
+                    <th scope="row" class="certificatoCell"><a href="@@fileLink@@" aria-label="Collegamento al file @@fileName@@">@@fileName@@</a></th>
                     <td aria-label="Stato">@@stato@@</td>
                     <td aria-label="Scadenza">@@scadenza@@</td>
                 </tr>
@@ -102,36 +61,24 @@
         </table>
       </div>
       <!--fine tabella certificato-->
+
+      <!--form caricamento certificato-->
+      @@error@@
+      <form id="form-certificato" action="./caricamento_certificato.php" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend class="tabTitle">@@aggiorna_carica@@ certificato</legend>
+          <div class="input-field">
+            <label for="certificato" aria-label="@@aggiorna_carica@@ certificato">Certificato</label>
+            <input type="file" id="certificato" name="certificato" accept=".pdf"/>
+          </div>
+            <input type="submit" value="@@aggiorna_carica@@ certificato" />
+        </fieldset>
+      </form>
+
+      <!--fine form caricamento certificato-->
+
+
     </main>
-    <footer>
-      <section id="orari">
-        <h3>Orari</h3>
-        <p>Lunedì - Venerdì: 9:00 - 22:00</p>
-        <p>Sabato - Domenica: 10:00 - 18:00</p>
-      </section>
-      <section id="dove">
-        <h3>Dove</h3>
-        <p>Via Pipperini 69, 42069, Pipperopoli</p>
-      </section>
-      <section id="contatti">
-        <h3>Contatti</h3>
-        <p>Telefono: 0123456789</p>
-        <p>Email: gaggym@gmail.com</p>
-      </section>
-      <section id="socials">
-        <h3>Socials</h3>
-        <ul>
-          <li>
-            <a href="https://www.instagram.com/" id="instagram-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/" id="facebook-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com/" id="twitter-link">GagGym</a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+    @@footer@@
   </body>
 </html>

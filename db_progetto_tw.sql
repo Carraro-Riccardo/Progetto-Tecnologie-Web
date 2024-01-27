@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 09, 2024 alle 01:01
+-- Creato il: Gen 22, 2024 alle 01:11
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_progetto_tw`
 --
-CREATE DATABASE IF NOT EXISTS `db_progetto_tw` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `db_progetto_tw`;
+CREATE DATABASE IF NOT EXISTS `rcarraro` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `rcarraro`;
 
 -- --------------------------------------------------------
 
@@ -29,12 +29,14 @@ USE `db_progetto_tw`;
 -- Struttura della tabella `abbonamenti`
 --
 
-CREATE TABLE `abbonamenti` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `abbonamenti`;
+CREATE TABLE IF NOT EXISTS `abbonamenti` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
   `durata` int(11) DEFAULT NULL,
-  `costo` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `costo` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `abbonamenti`
@@ -51,13 +53,15 @@ INSERT INTO `abbonamenti` (`id`, `nome`, `durata`, `costo`) VALUES
 -- Struttura della tabella `allenatori`
 --
 
-CREATE TABLE `allenatori` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `allenatori`;
+CREATE TABLE IF NOT EXISTS `allenatori` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   `cognome` varchar(50) DEFAULT NULL,
   `data_di_nascita` date DEFAULT NULL,
-  `descrizione` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `descrizione` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `allenatori`
@@ -75,11 +79,14 @@ INSERT INTO `allenatori` (`id`, `nome`, `cognome`, `data_di_nascita`, `descrizio
 -- Struttura della tabella `esercizi`
 --
 
-CREATE TABLE `esercizi` (
+DROP TABLE IF EXISTS `esercizi`;
+CREATE TABLE IF NOT EXISTS `esercizi` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `descrizione` text DEFAULT NULL,
-  `id_macchinario` int(11) DEFAULT NULL
+  `id_macchinario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_macchinario` (`id_macchinario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -104,9 +111,11 @@ INSERT INTO `esercizi` (`id`, `nome`, `descrizione`, `id_macchinario`) VALUES
 -- Struttura della tabella `gruppimuscolari`
 --
 
-CREATE TABLE `gruppimuscolari` (
+DROP TABLE IF EXISTS `gruppimuscolari`;
+CREATE TABLE IF NOT EXISTS `gruppimuscolari` (
   `ID` int(11) NOT NULL,
-  `gruppoMuscolare` varchar(30) NOT NULL
+  `gruppoMuscolare` varchar(30) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -128,11 +137,13 @@ INSERT INTO `gruppimuscolari` (`ID`, `gruppoMuscolare`) VALUES
 -- Struttura della tabella `macchinari`
 --
 
-CREATE TABLE `macchinari` (
+DROP TABLE IF EXISTS `macchinari`;
+CREATE TABLE IF NOT EXISTS `macchinari` (
   `id` int(11) NOT NULL,
   `nome` varchar(30) DEFAULT NULL,
   `dataDiAcquisto` date DEFAULT NULL,
-  `gruppoMuscolare` int(11) DEFAULT NULL
+  `gruppoMuscolare` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -157,10 +168,13 @@ INSERT INTO `macchinari` (`id`, `nome`, `dataDiAcquisto`, `gruppoMuscolare`) VAL
 -- Struttura della tabella `scheda`
 --
 
-CREATE TABLE `scheda` (
-  `id_scheda` int(11) NOT NULL,
-  `id_allenatore` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `scheda`;
+CREATE TABLE IF NOT EXISTS `scheda` (
+  `id_scheda` int(11) NOT NULL AUTO_INCREMENT,
+  `id_allenatore` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_scheda`),
+  KEY `id_allenatore` (`id_allenatore`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `scheda`
@@ -178,13 +192,17 @@ INSERT INTO `scheda` (`id_scheda`, `id_allenatore`) VALUES
 -- Struttura della tabella `schede_esercizi`
 --
 
-CREATE TABLE `schede_esercizi` (
+DROP TABLE IF EXISTS `schede_esercizi`;
+CREATE TABLE IF NOT EXISTS `schede_esercizi` (
   `id` int(11) NOT NULL,
   `id_scheda` int(11) DEFAULT NULL,
   `id_esercizio` int(11) DEFAULT NULL,
   `giorno_settimana` enum('lunedi','martedi','mercoledi','giovedi','venerdi','sabato','domenica') DEFAULT NULL,
   `numero_set` int(11) DEFAULT NULL,
-  `numero_ripetizioni` int(11) DEFAULT NULL
+  `numero_ripetizioni` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_scheda` (`id_scheda`),
+  KEY `id_esercizio` (`id_esercizio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -219,18 +237,20 @@ INSERT INTO `schede_esercizi` (`id`, `id_scheda`, `id_esercizio`, `giorno_settim
 -- Struttura della tabella `schede_utente`
 --
 
-CREATE TABLE `schede_utente` (
-  `id` int(11) NOT NULL,
-  `id_utente` int(11) DEFAULT NULL,
-  `id_scheda` int(11) DEFAULT NULL
+DROP TABLE IF EXISTS `schede_utente`;
+CREATE TABLE IF NOT EXISTS `schede_utente` (
+  `username` varchar(50) NOT NULL,
+  `id_scheda` int(11) NOT NULL,
+  PRIMARY KEY (`username`,`id_scheda`),
+  KEY `id_scheda` (`id_scheda`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `schede_utente`
 --
 
-INSERT INTO `schede_utente` (`id`, `id_utente`, `id_scheda`) VALUES
-(1, 1, 1);
+INSERT INTO `schede_utente` (`username`, `id_scheda`) VALUES
+('user', 1);
 
 -- --------------------------------------------------------
 
@@ -238,27 +258,30 @@ INSERT INTO `schede_utente` (`id`, `id_utente`, `id_scheda`) VALUES
 -- Struttura della tabella `utenti`
 --
 
-CREATE TABLE `utenti` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `ruolo` enum('user','admin') DEFAULT NULL,
-  `certificatoMedico` enum('approvato','non approvato','assente') DEFAULT NULL,
+DROP TABLE IF EXISTS `utenti`;
+CREATE TABLE IF NOT EXISTS `utenti` (
+  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `ruolo` enum('user','admin') NOT NULL,
+  `certificatoMedico` enum('approvato','non approvato','assente','da validare') DEFAULT NULL,
   `certificatoPath` varchar(100) DEFAULT NULL,
   `scadenzaCertificato` date DEFAULT NULL,
-  `nome` varchar(30) DEFAULT NULL,
-  `cognome` varchar(30) DEFAULT NULL
+  `nome` varchar(30) NOT NULL,
+  `cognome` varchar(30) NOT NULL,
+  `dataRegistrazione` date DEFAULT NULL,
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`) VALUES
-(1, 'user', 'user@gmail.com', 'user', 'user', 'approvato', './certificati/certificato_1.pdf', '2025-01-01', 'nome user', 'cognome user'),
-(5, 'nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', NULL, NULL, NULL, 'nome nuovo', 'cognome nuovo'),
-(7, 'admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi');
+INSERT INTO `utenti` (`username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`, `dataRegistrazione`) VALUES
+('admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi', '2024-01-10'),
+('nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', 'da validare', NULL, NULL, 'nome nuovo', 'cognome nuovo', '2024-01-10'),
+('SuperLuke', 'luke@gmail.com', 'pswLuke', 'user', 'approvato', './certificati/certificato_6.pdf', '2024-11-30', 'Luca', 'Superbo', '0000-00-00'),
+('user', 'user@gmail.com', 'user', 'user', 'da validare', './certificati/certificato_1.pdf', '2025-01-18', 'nome user', 'cognome user', '2023-12-01');
 
 -- --------------------------------------------------------
 
@@ -266,148 +289,23 @@ INSERT INTO `utenti` (`id`, `username`, `email`, `password`, `ruolo`, `certifica
 -- Struttura della tabella `utenti_abbonamenti`
 --
 
-CREATE TABLE `utenti_abbonamenti` (
-  `id_utente` int(11) NOT NULL,
+DROP TABLE IF EXISTS `utenti_abbonamenti`;
+CREATE TABLE IF NOT EXISTS `utenti_abbonamenti` (
+  `username` varchar(50) NOT NULL,
   `id_abbonamento` int(11) NOT NULL,
-  `data_stipula` date DEFAULT NULL
+  `data_stipula` date DEFAULT NULL,
+  PRIMARY KEY (`username`,`id_abbonamento`),
+  KEY `id_abbonamento` (`id_abbonamento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utenti_abbonamenti`
 --
 
-INSERT INTO `utenti_abbonamenti` (`id_utente`, `id_abbonamento`, `data_stipula`) VALUES
-(1, 1, '2023-12-01'),
-(1, 2, '2024-01-01');
-
---
--- Indici per le tabelle scaricate
---
-
---
--- Indici per le tabelle `abbonamenti`
---
-ALTER TABLE `abbonamenti`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `allenatori`
---
-ALTER TABLE `allenatori`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `esercizi`
---
-ALTER TABLE `esercizi`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_macchinario` (`id_macchinario`);
-
---
--- Indici per le tabelle `gruppimuscolari`
---
-ALTER TABLE `gruppimuscolari`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indici per le tabelle `macchinari`
---
-ALTER TABLE `macchinari`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `scheda`
---
-ALTER TABLE `scheda`
-  ADD PRIMARY KEY (`id_scheda`),
-  ADD KEY `id_allenatore` (`id_allenatore`);
-
---
--- Indici per le tabelle `schede_esercizi`
---
-ALTER TABLE `schede_esercizi`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_scheda` (`id_scheda`),
-  ADD KEY `id_esercizio` (`id_esercizio`);
-
---
--- Indici per le tabelle `schede_utente`
---
-ALTER TABLE `schede_utente`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_utente` (`id_utente`),
-  ADD KEY `id_scheda` (`id_scheda`);
-
---
--- Indici per le tabelle `utenti`
---
-ALTER TABLE `utenti`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `utenti_abbonamenti`
---
-ALTER TABLE `utenti_abbonamenti`
-  ADD PRIMARY KEY (`id_utente`,`id_abbonamento`),
-  ADD KEY `id_abbonamento` (`id_abbonamento`);
-
---
--- AUTO_INCREMENT per le tabelle scaricate
---
-
---
--- AUTO_INCREMENT per la tabella `abbonamenti`
---
-ALTER TABLE `abbonamenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT per la tabella `allenatori`
---
-ALTER TABLE `allenatori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT per la tabella `esercizi`
---
-ALTER TABLE `esercizi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT per la tabella `gruppimuscolari`
---
-ALTER TABLE `gruppimuscolari`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT per la tabella `macchinari`
---
-ALTER TABLE `macchinari`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT per la tabella `scheda`
---
-ALTER TABLE `scheda`
-  MODIFY `id_scheda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT per la tabella `schede_esercizi`
---
-ALTER TABLE `schede_esercizi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT per la tabella `schede_utente`
---
-ALTER TABLE `schede_utente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT per la tabella `utenti`
---
-ALTER TABLE `utenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+INSERT INTO `utenti_abbonamenti` (`username`, `id_abbonamento`, `data_stipula`) VALUES
+('SuperLuke', 3, '2023-12-01'),
+('user', 1, '2023-12-01'),
+('user', 2, '2024-01-01');
 
 --
 -- Limiti per le tabelle scaricate
@@ -418,13 +316,6 @@ ALTER TABLE `utenti`
 --
 ALTER TABLE `scheda`
   ADD CONSTRAINT `scheda_ibfk_1` FOREIGN KEY (`id_allenatore`) REFERENCES `allenatori` (`id`);
-
---
--- Limiti per la tabella `schede_utente`
---
-ALTER TABLE `schede_utente`
-  ADD CONSTRAINT `schede_utente_ibfk_1` FOREIGN KEY (`id_scheda`) REFERENCES `scheda` (`id_scheda`),
-  ADD CONSTRAINT `schede_utente_ibfk_2` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

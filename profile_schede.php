@@ -11,7 +11,7 @@ require_once("./db_handler.php");
 function creaTabella($giorni, $esercizi) {
     $tabella = "";
     foreach ($giorni as $giorno) {
-        $tabella .= "\n<li>\n\t<table class='esercizio'>\n\t\t<caption>" . $giorno . "</caption>\n\t\t<tr>\n\t\t\t<th scope='col'>Esercizio</th>\n\t\t\t<th scope='col'>Set</th>\n\t\t\t<th scope='col'>Ripetizioni</th>\n\t\t</tr>";
+        $tabella .= "\n<li>\n\t<table class='esercizio'>\n\t\t<caption> Esercizi " . $giorno . "</caption>\n\t\t<tr>\n\t\t\t<th scope='col'>Esercizio</th>\n\t\t\t<th scope='col'>Set</th>\n\t\t\t<th scope='col'>Ripetizioni</th>\n\t\t</tr>";
         if (isset($esercizi[$giorno])) {
             foreach ($esercizi[$giorno] as $esercizio) {
                 list($nome, $set, $ripetizioni) = explode(", ", $esercizio);
@@ -28,23 +28,26 @@ function creaTabella($giorni, $esercizi) {
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 
 if(isset($_SESSION["user_id"])){
-    $page = str_replace("@@USER@@", $_SESSION['username'], $page);
-    $page = str_replace("@@logout@@", "<li><a href='logout.php'><span lang='en'>Log out</span></a></li>", $page);
-
+    PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
         $schede_result = $db->getSchedeUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
-        header("Location: login.php?error=sqlerror");
+        header("Location: ./error500.php");
         exit;
     }
 
     $schede = "";
-    if($schede_result->num_rows == 0)
-        $schede = "<p class='empty-result'>Non hai ancora nessuna scheda.</p>";
-    else {
-        $schede = "<ul class='schede-container'>\n<li>\n";
+    if($schede_result->num_rows == 0){
+        $schede = "<p class='tabTitle'>Non hai ancora nessuna scheda.</p>";
+        $page = str_replace("<!--sezione schede-->", $schede, $page);
+        $page = str_replace("@@remove-add-scheda@@", "Aggiungi Scheda", $page);
+        $page = str_replace("@@remove-add-scheda-link@@","./schede.php", $page);
+        $page = str_replace("@@remove-add-scheda-class@@","submitBtn", $page);
+
+    }else {
+        $schede = "<ul class='schede-container'>\n";
         $curr_scheda = null;
         $giorni = array();
         $esercizi = array();
@@ -52,7 +55,7 @@ if(isset($_SESSION["user_id"])){
         while ($row = $schede_result->fetch_assoc()) {
             if ($curr_scheda != $row['id_scheda']) {
                 if ($curr_scheda != null) {
-                    $schede .= "<h4 class='intestazione'>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h4>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n";
+                    $schede .= "<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n</li>\n";
                     $giorni = array();
                     $esercizi = array();
                 }
@@ -64,13 +67,25 @@ if(isset($_SESSION["user_id"])){
             }
             $esercizi[$row['giorno_settimana']][] = $row['nome'] . ", " . $row['numero_set'] . ", " . $row['numero_ripetizioni'];
         }
-        $schede .= "</li>\n<li>\n<h4>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h4>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
-    }
+        $schede .= "\n<li>\n<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
         
-    $page = str_replace("<!--sezione schede-->", $schede, $page);
+        $page = str_replace("<!--sezione schede-->", $schede, $page);
+        $page = str_replace("@@remove-add-scheda@@", "Rimuovi scheda", $page);
+        $page = str_replace("@@remove-add-scheda-link@@","./rimuovi_scheda_utente.php?id_scheda=".$curr_scheda, $page);
+        $page = str_replace("@@remove-add-scheda-class@@","deleteBtn", $page);
+
+    
+    }
 }else{
-    header("Location: login.php?error=notloggedin");
+    $_SESSION['error'] = "Devi prima effettuare il login.";
+    header("Location: login.php");
     exit;
 }
+
+if(isset($_SESSION["success"])){
+    $page = str_replace("@@error@@", "<p id='success-message'>".$_SESSION["success"]."</p>", $page);
+    unset($_SESSION["success"]);
+}else $page = str_replace("@@error@@", "", $page);
+
 echo $page;
 ?>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/convalida_data_validator.js"></script>
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
+    <title>Amministrazione utenti - GagGym</title>
+  </head>
+  <body>
+    <header class="main">
+      <nav id="nav-principale" aria-label="navigazione">
+        <div class="container">
+          <div class="logo-title-holder">
+            <a href="./index.php" aria-label= "Vai alla homepage" aria-hidden= "true" tabindex= "-1">
+              <img class="logo" src="./assets/imgs/logo-larry.webp" alt="Homepage" />
+            </a>
+            <h1 class="site-title"><a href="./index.php">GagGym</a></h1>
+          </div>
+        </div>
+        <button id="hamburger" aria-expanded="true">
+          <span lang="en">Menu Admin</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
+            <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
+          </svg>
+        </button>
+        <div class="main-nav">
+          <ul class="container">
+            <li>
+              <a href="./admin_landing.php"><span lang="en">Home Admin</span></a>
+            </li>
+            <li>
+              <a href="./admin_utenti.php" aria-current="page">Gestione Utenti</a>
+            </li>
+            <li>
+              <a href="#">Modifica Abbonamenti</a>
+            </li>
+            <li>
+              <a href="#">Modifica Macchinari</a>
+            </li>
+            @@logout@@
+          </ul>
+        </div>
+      </nav>
+      <nav id="breadcrumb" aria-label="breadcrumb">
+        Ti trovi in:
+        <ol>
+          <li>
+            <a href="./admin_landing.php"><span lang="en">Home admin</span></a>
+          </li>
+          <li aria-current="page">Amministrazione</li>
+        </ol>
+      </nav>
+    </header>
+    <main id="mainAdmin">
+      <h1 class="normalPageTitle">Amministrazione Palestra</h1>
+
+      <section id="GESTIONE_UTENTI">
+        <h2 class="normalPageTitle" id="convalidaCertificati">Convalida Certificati</h2>
+        @@errorConvalida@@
+        <!--tabella certificati-->
+        <ul class="container-cards-admin">
+          <!--user data-->
+          <li class="cards-admin">
+            <h3 class="certificatoCell">
+              <a href="@@certificatoPath@@" target="_blank">Certificato</a> di: @@username@@
+            </h3>
+            <dl class="user-data-dl">
+              <dt>Nome:</dt>
+              <dd>@@nome@@</dd>
+              <dt>Cognome:</dt>
+              <dd>@@cognome@@</dd>
+            </dl>
+            <form class="form_convalida" action="./convalida_certificato_utente.php" method="post">
+              <fieldset>
+                <legend class="screen-reader-only">Convalida</legend>
+                <div class="container_convalida">
+                  <label for="dataScadenza_@@username@@">Data scadenza</label>
+                  <input
+                    type="date"
+                    id="dataScadenza_@@username@@"
+                    class="dataScadenza"
+                    name="dataScadenza"
+                    required
+                  />
+                </div>
+                <input type="hidden" name="user_id" value="@@username@@" />
+                <button type="submit" name="convalida" class="submitBtn">Convalida</button>
+              </fieldset>
+            </form>
+            <a href="./blocca_convalida_certificato.php?user_id=@@username@@" class="deleteBtn"
+              >Blocca convalida</a
+            >
+          </li>
+          <!--fine user data-->
+        </ul>
+        <!--fine tabella certificati-->
+      </section>
+
+      <section id="GESTIONE_ABBONAMENTI">
+        @@errorAbbonamenti@@
+        <h2 class="normalPageTitle" id="gestioneAbbonamenti">Gestione Abbonamenti</h2>
+        <!--tabella abbonamenti-->
+        <ul class="container-cards-admin">
+          <!--dati abbonamento-->
+          <li class="cards-admin">
+            <h3>@@abbonamento@@</h3>
+            <form>
+              <fieldset>
+                <legend class="screen-reader-only">Dati abbonamenti</legend>
+                <div class="input-field">
+                  <label for="nome_@@abbonamento_id@@">Nome</label>
+                  <input id="nome_@@abbonamento_id@@" name="nome" placeholder="Nome" value="@@abbonamento@@" required/>
+                </div>
+                <div class="input-field">
+                  <label for="durata_@@abbonamento_id@@">Durata (giorni)</label>
+                  <input type="number" id="durata_@@abbonamento_id@@" name="durata" placeholder="Durata" value="@@durata@@" required/>
+                </div>
+                <div class="input-field">
+                  <label for="prezzo_@@abbonamento_id@@">Prezzo €</label>
+                  <input id="prezzo_@@abbonamento_id@@" name="prezzo" placeholder="Prezzo" value="@@prezzo@@" required/>
+                </div>
+                <input type="hidden" name="abbonamento_id" value="@@abbonamento_id@@" />
+                <input type="submit" class="submitBtn" value="Modifica" />
+              </fieldset>
+            </form>
+          </li>
+          <!--fine dati abbonamento-->
+        </ul>
+        <!--fine tabella abbonamenti-->
+      </section>
+    </main>
+  </body>
+</html>

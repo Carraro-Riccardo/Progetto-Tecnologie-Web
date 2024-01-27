@@ -6,18 +6,20 @@ require_once("server_side_validator.php");
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 if(isset($_SESSION["user_id"])){
-    $page = str_replace("@@USER@@", $_SESSION['username'], $page);
-    $page = str_replace("@@logout@@", "<li><a href='logout.php'><span lang='en'>Log out</span></a></li>", $page);
-
+    PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
         $dati_result = $db->getDatiUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
-        $_SESSION['error'] = "Errore interno.";
-        header("Location: login.php?error=sqlerror");
+        header("Location: ./error500.php");
         exit;
     }
+    
+    if(isset($_SESSION["success"])){
+        $page = str_replace("@@error@@", "<p id='success-message'>".$_SESSION["success"]."</p>", $page);
+        unset($_SESSION["success"]);
+    }else $page = str_replace("@@error@@", "", $page);
     
     $page = str_replace("@@qrCode@@", "<img class='qr_code' src='qr_generator.php' alt='qr code'/>", $page);
     $page = str_replace("@@username@@", $dati_result["username"], $page);

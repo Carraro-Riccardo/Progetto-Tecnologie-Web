@@ -6,63 +6,24 @@
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
     <script type="module" src="./scripts/profile_edit_validator.js"></script>
-    <title>Profilo - Profilo</title>
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
+    <title>Profilo - Profilo - GagGym</title>
   </head>
   <body>
     <header class="main">
-      <nav id="nav-principale" aria-label="navigazione">
-        <div class="container">
-          <div class="logo-title-holder">
-            <a href="index.php">
-              <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
-            </a>
-            <h1 class="site-title">GagGym</h1>
-          </div>
-        </div>
-        <button id="hamburger" aria-expanded="true">
-          <span>Menu</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
-            <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
-          </svg>
-        </button>
-        <div class="main-nav">
-          <ul class="container">
-            <li>
-              <a href="profile_profilo.php" aria-current="page">@@USER@@</a>
-            </li>
-            <li>
-              <a href="index.php">Home</a>
-            </li>
-            <li>
-              <a href="#">Corsi</a>
-            </li>
-            <li>
-                <a href="abbonamenti.php">Abbonamenti</a>
-            </li>
-            <li>
-              <a href="#">Macchinari</a>
-            </li>
-            <li>
-              <a href="#">Chi siamo</a>
-            </li>
-            <li>
-              <a href="#">Contattaci</a>
-            </li>
-            @@logout@@
-          </ul>
-        </div>
-      </nav>
+      @@navbar@@
       <nav id="breadcrumb" aria-label="breadcrumb">
         Ti trovi in:
         <ol>
           <li>
-            <a href="index.php"><span lang="en">Home</span></a>
+            <a href="./index.php"><span lang="en">Home</span></a>
           </li>
           <li><span aria-current="page">Profilo</span></li>
         </ol>
       </nav>
     </header>
     <main>
+      <h1 class="normalPageTitle">Modifica Profilo</h1>
       <nav id="schede-utente">
         <ul id="tabs">
           <li class="currentTab">
@@ -80,135 +41,123 @@
         </ul>
       </nav>
       @@errorMessageUserData@@
-      <form id="editUserDataForm" action="profile_profilo_edit.php" method="post" class="form-login-register">
+      <form
+        id="editUserDataForm"
+        action="./profile_profilo_edit.php"
+        method="post"
+        class="user-data-container"
+      >
         <fieldset>
           <legend class="tabTitle">Dati utente</legend>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Username"
-            value="@@username@@"
-            required
-          />
-          <div id="datiPersonali">
+          <div class="input-field">
+            <label for="username"><span lang="en">Username</span></label>
             <input
               type="text"
-              id="nome"
-              name="nome"
-              placeholder="Nome"
-              value="@@nome@@"
-              required
-            />
-            <input
-              type="text"
-              id="cognome"
-              name="cognome"
-              placeholder="Cognome"
-              value="@@cognome@@"
+              id="username"
+              name="username"
+              placeholder="Username"
+              value="@@username@@"
               required
             />
           </div>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value="@@email@@"
-            required
-          />
-          <label id="lblConfirm" for="oldPassword"
-            >Inserisci la <span lang="en">password</span> per confermare le modifiche.</label
-          >
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            value="@@password@@"
-            required
-
-          />
+          <div id="datiPersonali">
+            <div class="input-field">
+              <label for="nome">Nome</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Nome"
+                value="@@nome@@"
+                required
+              />
+            </div>
+            <div class="input-field">
+              <label for="cognome">Cognome</label>
+              <input
+                type="text"
+                id="cognome"
+                name="cognome"
+                placeholder="Cognome"
+                value="@@cognome@@"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-field">
+            <label for="email"><span lang="en">Email</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              value="@@email@@"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <label for="password"><span lang="en">Password</span></label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              value="@@password@@"
+              required
+            />
+          </div>
           <div class="confirmButtons">
-            <a class="cancelEdit" href="profile_profilo.php">Annulla</a>
             <input type="submit" name="action" class="submitBtn" value="Salva" />
+            <a class="cancelBtn" href="./profile_profilo.php">Annulla</a>
           </div>
         </fieldset>
       </form>
       @@errorMessagePasswordChange@@
       <form
         id="editPasswordForm"
-        action="profile_profilo.php"
+        action="./profile_profilo_edit.php"
         method="post"
-        class="form-login-register form-modifica-psw"
+        class="user-data-container form-modifica-psw"
       >
         <fieldset>
-          <legend>Modifica password</legend>
-          <input
-            type="password"
-            id="oldPassword"
-            name="oldPassword"
-            placeholder="Vecchia password"
-            required
-
-          />
-          <input
-            type="password"
-            id="newPassword"
-            name="newPassword"
-            placeholder="Nuova password"
-            required
-
-          />
-          <input
-            type="password"
-            id="confermaNuovaPsw"
-            name="confermaNuovaPsw"
-            placeholder="Conferma nuova password"
-            required
-
-          />
-          <div class="confirmButtons">
-            <a class="cancelEdit" href="profile_profilo.php">Annulla</a>
+          <legend class="tabTitle">Modifica password</legend>
+          <div class="input-field">
+            <label for="oldPassword">Vecchia <span lang="en">password</span></label>
             <input
-              type="submit"
-              name="action"
-              class="submitBtn"
-              value="Salva password"
+              type="password"
+              id="oldPassword"
+              name="oldPassword"
+              placeholder="Vecchia password"
+              required
             />
+          </div>
+          <div class="input-field">
+            <label for="newPassword">Nuova <span lang="en">password</span></label>
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              placeholder="Nuova password"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <label for="confermaNuovaPsw">Conferma <span lang="en">password</span></label>
+            <input
+              type="password"
+              id="confermaNuovaPsw"
+              name="confermaNuovaPsw"
+              placeholder="Conferma password"
+              required
+            />
+          </div>
+          <div class="confirmButtons">
+            <input type="submit" name="action" class="submitBtn" value="Salva password" />
+            <a class="cancelBtn" href="profile_profilo.php">Annulla</a>
           </div>
         </fieldset>
       </form>
     </main>
-    <footer>
-      <section id="orari">
-        <h3>Orari</h3>
-        <p>Lunedì - Venerdì: 9:00 - 22:00</p>
-        <p>Sabato - Domenica: 10:00 - 18:00</p>
-      </section>
-      <section id="dove">
-        <h3>Dove</h3>
-        <p>Via Pipperini 69, 42069, Pipperopoli</p>
-      </section>
-      <section id="contatti">
-        <h3>Contatti</h3>
-        <p>Telefono: 0123456789</p>
-        <p>Email: gaggym@gmail.com</p>
-      </section>
-      <section id="socials">
-        <h3>Socials</h3>
-        <ul>
-          <li>
-            <a href="https://www.instagram.com/" id="instagram-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/" id="facebook-link">GagGym</a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com/" id="twitter-link">GagGym</a>
-          </li>
-        </ul>
-      </section>
-    </footer>
+    @@footer@@
   </body>
 </html>
