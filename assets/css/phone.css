@@ -912,7 +912,6 @@ p.empty-result {
   display: flex;
   flex-direction: column;
   max-width: 50em;
-  margin: 1em 15%;
 }
 
 .schede-container {
@@ -921,7 +920,7 @@ p.empty-result {
 }
 
 .schede-container > li {
-  margin: 2em 3em;
+  margin: 1em 2em;
 }
 
 .scheda {
@@ -1637,6 +1636,7 @@ img {
 
   #container-scheda-utente{
     padding: 0 15%;
+    margin: 0 auto;
   }
 
   .schede-container li {
