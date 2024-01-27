@@ -1629,6 +1629,11 @@ ul#container-utenti-certificati {
 }
 
 @media (min-width: 600px) {
+  ul#container-utenti-certificati {
+    max-width: 60%;
+    margin: 1em auto;
+  }
+  
   #cards-container {
     max-width: 100%;
   }
