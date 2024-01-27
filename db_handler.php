@@ -3,8 +3,8 @@
 class Database {
     private const HOST = "localhost";
     private const DB_NAME = "rcarraro";
-    private const USER = "root";
-    private const PASSWORD = "";
+    private const USER = "rcarraro";
+    private const PASSWORD = "OochohZ9ooGuaJop";
 
     private $conn;
 
