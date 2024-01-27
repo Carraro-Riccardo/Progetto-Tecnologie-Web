@@ -40,9 +40,12 @@ if(isset($_SESSION["user_id"])){
 
     $schede = "";
     if($schede_result->num_rows == 0){
-        $schede = "<p class='empty-result'>Non hai ancora nessuna scheda.</p>";
+        $schede = "<p class='tabTitle'>Non hai ancora nessuna scheda.</p>";
+        $page = str_replace("<!--sezione schede-->", $schede, $page);
         $page = str_replace("@@remove-add-scheda@@", "Aggiungi Scheda", $page);
         $page = str_replace("@@remove-add-scheda-link@@","./schede.php", $page);
+        $page = str_replace("@@remove-add-scheda-class@@","submitBtn", $page);
+
     }else {
         $schede = "<ul class='schede-container'>\n";
         $curr_scheda = null;
@@ -69,6 +72,8 @@ if(isset($_SESSION["user_id"])){
         $page = str_replace("<!--sezione schede-->", $schede, $page);
         $page = str_replace("@@remove-add-scheda@@", "Rimuovi scheda", $page);
         $page = str_replace("@@remove-add-scheda-link@@","./rimuovi_scheda_utente.php?id_scheda=".$curr_scheda, $page);
+        $page = str_replace("@@remove-add-scheda-class@@","deleteBtn", $page);
+
     
     }
 }else{

@@ -369,6 +369,52 @@ class Database {
         $stmt->execute();
         $stmt->close();
     }
+
+    public function checkUsername($username){
+        $query = "  SELECT username FROM utenti WHERE username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        return $result;
+    }
+
+    public function updateUsernameUtente($old_username, $new_username){
+        $query = "  UPDATE utenti
+                    SET    username = ?
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $new_username, $old_username);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function updateUserData($user_id, $nome, $cognome, $email){
+        $query = "  UPDATE utenti
+                    SET    nome = ?,
+                           cognome = ?,
+                           email = ?
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssss", $nome, $cognome, $email, $user_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function updatePasswordUtente($user, $password){
+        $query = "  UPDATE utenti
+                    SET    password = ?
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $password, $user);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 ?>

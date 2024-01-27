@@ -683,7 +683,16 @@ footer a:hover {
 
 .user-data-container input[type="submit"] {
   text-align: center;
+  border-radius: 0.5em;
 }
+
+.user-data-container input[type="submit"]:hover,
+.user-data-container input[type="submit"]:focus,
+.user-data-container input[type="submit"]:active {
+  transform: scale(1.06);
+  transition: 0.2s ease-in;
+}
+
 
 .user-data-container legend {
   color: var(--formLegendTxtColor);
@@ -696,7 +705,7 @@ footer a:hover {
   column-gap: 2em;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   row-gap: 1em;
 }
 
@@ -704,6 +713,7 @@ footer a:hover {
 .submitBtn {
   align-items: center;
   display: flex;
+  text-align: center;
 }
 
 .submitBtn {
@@ -718,6 +728,7 @@ footer a:hover {
   min-width: 10em;
   outline: none;
   text-decoration: none;
+  padding: 0.2em;
 }
 
 .confirmButtons p {
@@ -809,7 +820,7 @@ p.empty-result {
 .tabTitle,
 p.empty-result {
   border-radius: 0.5em;
-  margin: 0 auto;
+  margin: 0 auto 2em auto;
   padding: 0.5em;
   text-align: center;
 }
@@ -818,6 +829,7 @@ p.empty-result {
   background-color: var(--tabTitleBgColor);
   color: var(--tabTitleTxtColor);
   width: fit-content;
+  margin-bottom: 0.5em;
 }
 
 #schede-utente {
@@ -899,7 +911,8 @@ p.empty-result {
 #container-scheda-utente {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  max-width: 50em;
+  margin: 1em 15%;
 }
 
 .schede-container {
@@ -992,7 +1005,7 @@ table caption {
 .tb-container {
   padding: 0 0.5em;
   max-width: 50em;
-  margin: 1em auto;
+  margin: 1em 15%;
 }
 
 /*!***********************/
@@ -1031,7 +1044,7 @@ table caption {
 }
 
 .form-modifica-psw {
-  margin-top: 10%;
+  margin-top: 3em;
 }
 
 .qr_code {
@@ -1619,6 +1632,10 @@ img {
   }
 
   .tb-container {
+    padding: 0 15%;
+  }
+
+  #container-scheda-utente{
     padding: 0 15%;
   }
 
