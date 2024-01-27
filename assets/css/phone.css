@@ -1017,7 +1017,7 @@ li.metrica a {
 }
 
 
-.contactUs-form input[type="submit"] {
+.contactUs-form button[type="submit"] {
   border-style: none;
   border-radius: 15px;
   padding: 0.5em 1em;

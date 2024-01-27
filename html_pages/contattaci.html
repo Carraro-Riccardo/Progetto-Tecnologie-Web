@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="keywords" content="GagGym, palestra, fitness, bodybuilding" />
         <meta name="description" content="Pagina ufficiale della palestra GagGym" />
-        <link rel="stylesheet" href="../assets/css/phone.css" />
-        <script src="./script.js"></script>
+        <link rel="stylesheet" href="./assets/css/phone.css" />
+        <script src="./scripts/script.js"></script>
     </head>
     <body>
       <header class="main">
@@ -26,17 +26,17 @@
             <div class="contactUs-container">
                 <h2>Modulo richieste</h2>
                 <p>Inviaci la tua richiesta</p>
-
-                <form class="contactUs-form">
+                @@error@@
+                <form action="./contattaci_handler.php" method="post" class="contactUs-form" id="contactForm">
                     <label id="lbl-firstName" for="firstName">Nome</label>
-                    <input id="firstName" type="text" placeholder="Mario" aria-labelledby="lbl-firstName">
-                    <label id="lbl-lastName" for="lastName">Cognome</label>
-                    <input id="lastName" type="text" placeholder="Rossi" aria-labelledby="lbl-lastName">
+                    <input id="firstName" type="text" placeholder="Mario" name="firstName" required>
+                    <label id="lbl-lastName" for="lastName" >Cognome</label>
+                    <input id="lastName" type="text" placeholder="Rossi" name="lastName" required>
                     <label id="lbl-email" for="email">Email</label>
-                    <input id="email" type="email" placeholder="mario.rossi@gmail.com" aria-labelledby="lbl-email">
+                    <input id="email" type="email" placeholder="mario.rossi@gmail.com" name="email" required>
                     <label id="lbl-message" for="message">Messaggio</label>
-                    <textarea id="message" placeholder="Salve, vorrei chiedere un'informazione riguardo..." aria-labelledby="lbl-message" maxlength="1000"></textarea>
-                    <input type="submit" value="Invia la richiesta">
+                    <textarea id="message" placeholder="Salve, vorrei chiedere un'informazione riguardo..." maxlength="1000" name="message" required></textarea>
+                    <button type="submit"> Invia la richiesta </button>
                 </form>
             </div>
         </main>

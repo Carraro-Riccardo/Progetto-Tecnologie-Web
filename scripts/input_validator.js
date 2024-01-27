@@ -85,3 +85,15 @@ export function checkPassword(password) {
     
     return "";
   }
+
+export function checkMessage(message){
+  var messageLength = 1000;
+
+  if (message === "") {
+    return "Il campo messaggio non può essere vuoto.\n";
+  } else if (message.length > messageLength) {
+    return "Il campo messaggio non può superare " + messageLength + " caratteri.\n";
+  }
+
+  return "";
+}
