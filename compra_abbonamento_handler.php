@@ -15,13 +15,6 @@ $cvv = isset($_POST['cvv']) ? $_POST['cvv'] : '';
 
 $usernameError = checkUsername($username);
 
-/* TODO
-$abbonamentoError = checkAbbonamento($abbonamento);
-$cardNumberError = checkCardNumber($cardNumber);
-$dataScadenzaError = checkDataScadenza($dataScadenza);
-$cvvError = checkCvv($cvv);
-*/
-
 if (!empty($usernameError)) {
     $_SESSION["error"] = $usernameError;
     header("Location: ./register.php");
@@ -97,6 +90,9 @@ try{
     $db = new Database();
     $abbonamento_result = $db->attivaAbbonamento($_SESSION['user_id'], $abbonamento);
     unset($db);
+    $_SESSION["success"] = "Abbonamento attivato con successo.";
+    header("Location: ./profile_abbonamenti.php");
+    exit;
 }catch(Exception $e){
     unset($db);
     header("Location: ./error500.php");

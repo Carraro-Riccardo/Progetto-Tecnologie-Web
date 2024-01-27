@@ -67,5 +67,16 @@ if(isset($_SESSION["user_id"])){
     header("Location: login.php");
     exit;
 }
+
+
+if(isset($_SESSION["error"])){
+    $page = str_replace("@@error@@", "<p id='error-message'>".$_SESSION["error"]."</p>", $page);
+    unset($_SESSION["error"]);
+}
+else if(isset($_SESSION["success"])){
+    $page = str_replace("@@error@@", "<p id='success-message'>".$_SESSION["success"]."</p>", $page);
+    unset($_SESSION["success"]);
+}else $page = str_replace("@@error@@", "", $page);
+
 echo $page;
 ?>
