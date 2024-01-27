@@ -168,3 +168,28 @@ export function checkDataScadenzaCertificato(data) {
       return "Il formato della data non è corretto: deve essere GG/MM/AAAA";
   }
 }
+
+export function checkDurata(durata){
+  var durataRegex = /^[0-9]+$/;
+
+  if (durata === "") {
+    return "Il campo durata non può essere vuoto.\n";
+  } else if (!durata.match(durataRegex)) {
+    return "Il campo durata deve contenere solo numeri.\n";
+  }
+
+  return "";
+}
+
+//price can have decimals
+export function checkPrezzo(prezzo){
+  var prezzoRegex = /^[0-9]+(\.[0-9]{1,2})?$/;
+
+  if (prezzo === "") {
+    return "Il campo prezzo non può essere vuoto.\n";
+  } else if (!prezzo.match(prezzoRegex)) {
+    return "Il campo prezzo deve contenere solo cifre con massimo 2 decimali.\n";
+  }
+
+  return "";
+}

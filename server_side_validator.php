@@ -170,4 +170,28 @@ function checkCvv($cvv) {
     return "";
 }
 
+function checkCosto($costo){
+    $costoRegex = "/^[0-9]+(\.[0-9]{1,2})?$/";
+
+    if (empty($costo)) {
+        return "Il campo costo non può essere vuoto.";
+    } else if (!preg_match($costoRegex, $costo)) {
+        return "Il campo costo deve contenere solo cifre con massimo 2 decimali.";
+    }
+
+    return "";
+}
+
+function checkDurata($durata){
+    $durataRegex = "/^[0-9]+$/";
+
+    if (empty($durata)) {
+        return "Il campo durata non può essere vuoto.";
+    } else if (!preg_match($durataRegex, $durata)) {
+        return "Il campo durata deve contenere solo cifre.";
+    }
+
+    return "";
+}
+
 ?>

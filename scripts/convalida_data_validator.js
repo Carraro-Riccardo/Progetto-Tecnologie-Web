@@ -55,4 +55,38 @@ document.addEventListener("DOMContentLoaded", function () {
           }
       });
     }
+
+    /** GESTIONE ABBONAMENTI */
+    var formAbbonamento_list = document.getElementsByName("form_abbonamento");
+    for (var i = 0; i < formAbbonamento_list.length; i++) {
+      formAbbonamento_list[i].addEventListener("submit", function (event) {
+        
+        var inputNome = event.target.getElementsByName("nome")[0].value;
+        var inputDurata = event.target.getElementsByName("durata")[0].value;
+        var inputPrezzo = event.target.getElementsByName("costo")[0].value;
+
+        var errorMessage = "";
+        errorMessage += checkNome(inputNome);
+        errorMessage += checkDurata(inputDurata);
+        errorMessage += checkPrezzo(inputPrezzo);
+
+        if (errorMessage !== "") {
+          event.preventDefault();
+          var errorElement = document.getElementById("error-message");
+    
+          if (errorElement) {
+            errorElement.remove();
+          }
+          errorElement = document.createElement("p");
+          errorElement.id = "error-message";
+          document
+            .getElementById(event.target.getElementsByClassName("form_abbonamento")[0].id)
+            .parentNode.insertBefore(
+              errorElement,
+              document.getElementById(event.target.getElementsByClassName("form_abbonamento")[0].id)
+            );
+          errorElement.innerHTML = errorMessage;
+            }
+        });
+      }
 });

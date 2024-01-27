@@ -96,11 +96,11 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
     else $page = str_replace("@@errorConvalida@@", "", $page);
 
     if(isset($_SESSION["errorAbbonamenti"])){
-        $page = str_replace("@@errorConvalida@@", "<p id='error-message'>".$_SESSION["errorConvalida"]."</p>", $page);
+        $page = str_replace("@@errorAbbonamenti@@", "<p id='error-message'>".$_SESSION["errorAbbonamenti"]."</p>", $page);
         unset($_SESSION["errorAbbonamenti"]);
     }
     else if(isset($_SESSION["successAbbonamenti"])){
-        $page = str_replace("@@errorConvalida@@", "<p id='success-message'>".$_SESSION["successAbbonamenti"]."</p>", $page);
+        $page = str_replace("@@errorAbbonamenti@@", "<p id='success-message'>".$_SESSION["successAbbonamenti"]."</p>", $page);
         unset($_SESSION["successAbbonamenti"]);
     }
     else $page = str_replace("@@errorAbbonamenti@@", "", $page);

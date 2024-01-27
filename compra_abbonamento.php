@@ -39,7 +39,7 @@
         }else {
             $page = str_replace("@@error@@", "", $page);
             $abbonamento = $abbonamento_result->fetch_assoc();
-            $page = str_replace("@@id-abbonamento@@", $_GET["abbonamento"], $page);
+            $page = str_replace("@@id_abbonamento@@", $_GET["abbonamento"], $page);
             $page = str_replace("@@nome-abbonamento@@", $abbonamento["nome"], $page);
             $page = str_replace("@@durata@@", $abbonamento["durata"], $page);
             $page = str_replace("@@costo@@", $abbonamento["costo"], $page);

@@ -797,16 +797,16 @@ section.data-abbonamenti {
   color: var(--color-p-data-abbonamenti);
 }
 
-#Mensile:before {
-  background: url(../imgs/abbonamenti_images/Mensile.webp) 50% / cover;
+#abbonamento_1:before {
+  background: url(../imgs/abbonamenti_images/1.webp) 50% / cover;
 }
 
-#Trimestrale:before {
-  background: url(../imgs/abbonamenti_images/Trimestrale.webp) 50% / cover;
+#abbonamento_2:before {
+  background: url(../imgs/abbonamenti_images/2.webp) 50% / cover;
 }
 
-#Annuale:before {
-  background: url(../imgs/abbonamenti_images/Annuale.webp) 50% / cover;
+#abbonamento_3:before {
+  background: url(../imgs/abbonamenti_images/3.webp) 50% / cover;
 }
 
 /*!***********************/
@@ -1221,7 +1221,6 @@ li.metrica {
   display: flex;
   flex: 1 1 10em;
   flex-direction: column;
-  gap: 1em;
   justify-content: center;
   min-height: 10em;
   overflow: hidden;

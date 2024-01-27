@@ -439,6 +439,19 @@ class Database {
         $stmt->execute();
         $stmt->close();
     }
+
+    public function modificaAbbonamento($id, $nome, $durata, $costo){
+        $query = "  UPDATE abbonamenti
+                    SET    nome = ?,
+                           durata = ?,
+                           costo = ?
+                    WHERE  id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("siii", $nome, $durata, $costo, $id);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 ?>
