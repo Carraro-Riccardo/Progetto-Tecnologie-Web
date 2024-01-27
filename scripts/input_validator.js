@@ -86,6 +86,17 @@ export function checkPassword(password) {
     return "";
   }
 
+export function checkMessage(message){
+  var messageLength = 1000;
+
+  if (message === "") {
+    return "Il campo messaggio non può essere vuoto.\n";
+  } else if (message.length > messageLength) {
+    return "Il campo messaggio non può superare " + messageLength + " caratteri.\n";
+  }
+
+  return "";
+}
 export function checkCreditCard(creditCard) {
   var creditCardRegex = /^[0-9]{16}$/;
 
@@ -157,4 +168,3 @@ export function checkDataScadenzaCertificato(data) {
       return "Il formato della data non è corretto: deve essere GG/MM/AAAA";
   }
 }
-

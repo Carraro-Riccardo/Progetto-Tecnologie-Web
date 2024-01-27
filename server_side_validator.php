@@ -86,6 +86,19 @@ function checkRegisterPassword($password, $confirmPassword) {
     return "";
 }
 
+function checkMessage($message) {
+    $messageLength = 1000;
+
+    if (empty($message)) {
+        return "Il campo messaggio non può essere vuoto.";
+    } else if (strlen($message) > $messageLength) {
+        return "Il campo messaggio non può superare " . $messageLength . " caratteri.";
+    }
+  
+  return "";
+  
+}
+
 function checkCardNumber($cardNumber) {
     $cardNumberRegex = "/^[0-9]{16}$/";
 
@@ -156,7 +169,5 @@ function checkCvv($cvv) {
 
     return "";
 }
-
-
 
 ?>
