@@ -48,13 +48,23 @@ function creaCardMacchinari($macchinari) {
     return $macchinari_cards;
 }
 
-function popolaGruppiMuscolari($gruppiMuscolari) {
+function popolaGruppiMuscolari($gruppiMuscolari, $selectedMuscleGroup) {
     $gruppiMuscolari_select = "";
 
     foreach ($gruppiMuscolari as $row) {
-        $gruppiMuscolari_select .= "
+        if ($row['gruppoMuscolare'] == $selectedMuscleGroup){
+            $gruppiMuscolari_select .= "
+                <option value=\"" . $row["gruppoMuscolare"] . "\" selected=\"selected\">" . $row["gruppoMuscolare"] . "</option>
+            ";
+        } else if ($row['gruppoMuscolare'] == "Tutti" && $selectedMuscleGroup == "Tutti"){
+            $gruppiMuscolari_select .= "
+                <option value=\"" . $row["gruppoMuscolare"] . "\" selected=\"selected\">" . $row["gruppoMuscolare"] . "</option>
+            ";
+        } else {
+            $gruppiMuscolari_select .= "
                 <option value=\"" . $row["gruppoMuscolare"] . "\">" . $row["gruppoMuscolare"] . "</option>
             ";
+        }
     }
 
     $gruppiMuscolari_select .= "</ul>
@@ -78,8 +88,8 @@ try {
     $db = new Database();
     $gruppiMuscolari_result = $db->getAllGruppiMuscolari();
     
-    if(isset($_POST["gruppoMuscolare"]))
-        $selectedMuscleGroup = $_POST["gruppoMuscolare"];
+    if(isset($_GET["gruppoMuscolare"]))
+        $selectedMuscleGroup = $_GET["gruppoMuscolare"];
     else
         $selectedMuscleGroup = "Tutti";
     
@@ -92,7 +102,7 @@ try {
     exit;
 }
 
-$gruppiMuscolari = popolaGruppiMuscolari($gruppiMuscolari_result);
+$gruppiMuscolari = popolaGruppiMuscolari($gruppiMuscolari_result, $selectedMuscleGroup);
 $page = str_replace('<!--voci gruppi muscolari-->', $gruppiMuscolari, $page);
 
 $tabellaMacchinari = creaCardMacchinari($macchinari_result);
