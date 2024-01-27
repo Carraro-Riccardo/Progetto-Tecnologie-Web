@@ -129,7 +129,7 @@ class Database {
         $query = "  UPDATE utenti
                     SET    certificatoPath = ?,
                            certificatoMedico = 'da validare',
-                           scadenzaCertificato = Date_add(CURDATE(), INTERVAL 1 year)
+                           scadenzaCertificato = null
                     WHERE  username = ?";
 
         $stmt = $this->conn->prepare($query);
