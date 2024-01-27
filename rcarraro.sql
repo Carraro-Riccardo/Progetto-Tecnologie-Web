@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 27, 2024 alle 17:08
--- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.2.12
+-- Creato il: Gen 28, 2024 alle 00:41
+-- Versione del server: 10.4.17-MariaDB
+-- Versione PHP: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `rcarraro`
 --
+CREATE DATABASE IF NOT EXISTS `rcarraro` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `rcarraro`;
 
 -- --------------------------------------------------------
 
@@ -27,21 +29,22 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `abbonamenti`
 --
 
+DROP TABLE IF EXISTS `abbonamenti`;
 CREATE TABLE `abbonamenti` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `durata` int(11) DEFAULT NULL,
   `costo` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `abbonamenti`
 --
 
 INSERT INTO `abbonamenti` (`id`, `nome`, `durata`, `costo`) VALUES
-(1, 'Mensile', 30, 50.00),
-(2, 'Trimestrale', 90, 140.00),
-(3, 'Annuale', 365, 500.00);
+(1, 'Mensileeee', 30, '50.00'),
+(2, 'Trimestrale', 90, '140.00'),
+(3, 'Annuale', 365, '500.00');
 
 -- --------------------------------------------------------
 
@@ -49,13 +52,14 @@ INSERT INTO `abbonamenti` (`id`, `nome`, `durata`, `costo`) VALUES
 -- Struttura della tabella `allenatori`
 --
 
+DROP TABLE IF EXISTS `allenatori`;
 CREATE TABLE `allenatori` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `cognome` varchar(50) DEFAULT NULL,
   `data_di_nascita` date DEFAULT NULL,
   `descrizione` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `allenatori`
@@ -73,12 +77,13 @@ INSERT INTO `allenatori` (`id`, `nome`, `cognome`, `data_di_nascita`, `descrizio
 -- Struttura della tabella `esercizi`
 --
 
+DROP TABLE IF EXISTS `esercizi`;
 CREATE TABLE `esercizi` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `descrizione` text DEFAULT NULL,
   `id_macchinario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `esercizi`
@@ -102,10 +107,11 @@ INSERT INTO `esercizi` (`id`, `nome`, `descrizione`, `id_macchinario`) VALUES
 -- Struttura della tabella `gruppimuscolari`
 --
 
+DROP TABLE IF EXISTS `gruppimuscolari`;
 CREATE TABLE `gruppimuscolari` (
   `ID` int(11) NOT NULL,
   `gruppoMuscolare` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `gruppimuscolari`
@@ -126,13 +132,14 @@ INSERT INTO `gruppimuscolari` (`ID`, `gruppoMuscolare`) VALUES
 -- Struttura della tabella `macchinari`
 --
 
+DROP TABLE IF EXISTS `macchinari`;
 CREATE TABLE `macchinari` (
   `id` int(11) NOT NULL,
   `nome` varchar(30) DEFAULT NULL,
   `dataDiAcquisto` date DEFAULT NULL,
   `gruppoMuscolare` int(11) DEFAULT NULL,
   `path` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `macchinari`
@@ -156,10 +163,11 @@ INSERT INTO `macchinari` (`id`, `nome`, `dataDiAcquisto`, `gruppoMuscolare`, `pa
 -- Struttura della tabella `scheda`
 --
 
+DROP TABLE IF EXISTS `scheda`;
 CREATE TABLE `scheda` (
   `id_scheda` int(11) NOT NULL,
   `id_allenatore` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `scheda`
@@ -177,6 +185,7 @@ INSERT INTO `scheda` (`id_scheda`, `id_allenatore`) VALUES
 -- Struttura della tabella `schede_esercizi`
 --
 
+DROP TABLE IF EXISTS `schede_esercizi`;
 CREATE TABLE `schede_esercizi` (
   `id` int(11) NOT NULL,
   `id_scheda` int(11) DEFAULT NULL,
@@ -184,7 +193,7 @@ CREATE TABLE `schede_esercizi` (
   `giorno_settimana` enum('lunedi','martedi','mercoledi','giovedi','venerdi','sabato','domenica') DEFAULT NULL,
   `numero_set` int(11) DEFAULT NULL,
   `numero_ripetizioni` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `schede_esercizi`
@@ -246,10 +255,11 @@ INSERT INTO `schede_esercizi` (`id`, `id_scheda`, `id_esercizio`, `giorno_settim
 -- Struttura della tabella `schede_utente`
 --
 
+DROP TABLE IF EXISTS `schede_utente`;
 CREATE TABLE `schede_utente` (
   `username` varchar(50) NOT NULL,
   `id_scheda` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `schede_utente`
@@ -264,6 +274,7 @@ INSERT INTO `schede_utente` (`username`, `id_scheda`) VALUES
 -- Struttura della tabella `utenti`
 --
 
+DROP TABLE IF EXISTS `utenti`;
 CREATE TABLE `utenti` (
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -275,7 +286,7 @@ CREATE TABLE `utenti` (
   `nome` varchar(30) NOT NULL,
   `cognome` varchar(30) NOT NULL,
   `dataRegistrazione` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utenti`
@@ -283,16 +294,16 @@ CREATE TABLE `utenti` (
 
 INSERT INTO `utenti` (`username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`, `dataRegistrazione`) VALUES
 ('admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi', '2024-01-10'),
-('carlos', 'bepus@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_carlos.pdf', '2025-01-27', 'carlo', 'bepus', NULL),
-('giury', 'andrea@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_giury.pdf', '2025-01-27', 'andrea', 'giurisato', NULL),
-('marcoz', 'marcoz@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_marcoz.pdf', '2025-01-27', 'marco', 'bettin', NULL),
-('margherita', 'margherita@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_margherita.pdf', '2025-01-27', 'margherita', 'zonan', NULL),
-('mati', 'scazzo@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_mati.pdf', '2025-01-27', 'matilde', 'scazzon', NULL),
-('michiz', 'michiz@gmail.com', 'passsus', 'user', 'da validare', './certificati/certificato_michiz.pdf', '2025-01-27', 'michele', 'ognineb', NULL),
-('nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', 'da validare', NULL, NULL, 'nome nuovo', 'cognome nuovo', '2024-01-10'),
-('sofi', 'sofi@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_sofi.pdf', '2025-01-27', 'sofia', 'muggy', NULL),
+('carlos', 'bepus@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_carlos.pdf', NULL, 'carlo', 'bepus', NULL),
+('giury', 'andrea@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_giury.pdf', NULL, 'andrea', 'giurisato', NULL),
+('marcoz', 'marcoz@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_marcoz.pdf', NULL, 'marco', 'bettin', NULL),
+('margherita', 'margherita@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_margherita.pdf', NULL, 'margherita', 'zonan', NULL),
+('mati', 'scazzo@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_mati.pdf', NULL, 'matilde', 'scazzon', NULL),
+('michiz', 'michiz@gmail.com', 'passsus', 'user', 'da validare', './certificati/certificato_michiz.pdf', NULL, 'michele', 'ognineb', NULL),
+('nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', 'assente', NULL, NULL, 'nome nuovo', 'cognome nuovo', '2024-01-10'),
+('sofi', 'sofi@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_sofi.pdf', NULL, 'sofia', 'muggy', NULL),
 ('SuperLuke', 'luke@gmail.com', 'pswLuke', 'user', 'approvato', './certificati/certificato_6.pdf', '2024-11-30', 'Luca', 'Superbo', '0000-00-00'),
-('user', 'user@gmail.com', 'user', 'user', 'da validare', './certificati/certificato_1.pdf', '2025-01-18', 'nome user', 'cognome user', '2023-12-01');
+('user', 'user@gmail.com', 'user', 'user', 'da validare', './certificati/certificato_user.pdf', NULL, 'nome user', 'cognome user', '2023-12-01');
 
 -- --------------------------------------------------------
 
@@ -300,11 +311,12 @@ INSERT INTO `utenti` (`username`, `email`, `password`, `ruolo`, `certificatoMedi
 -- Struttura della tabella `utenti_abbonamenti`
 --
 
+DROP TABLE IF EXISTS `utenti_abbonamenti`;
 CREATE TABLE `utenti_abbonamenti` (
   `username` varchar(50) NOT NULL,
   `id_abbonamento` int(11) NOT NULL,
   `data_stipula` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utenti_abbonamenti`
