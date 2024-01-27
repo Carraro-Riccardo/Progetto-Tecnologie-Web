@@ -20,7 +20,8 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
     try {
         $db = new Database();
 
-        $utenti = $db->getAllusers();
+        $utenti = $db->getUserCertificateToBeValidated();
+        //username, nome, cognome, email, certificatoPath
         unset($db);
     }catch(Exception $e) {
         unset($_SESSION["user_id"]);
@@ -28,38 +29,34 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
         exit;
     }
 
-    $listItem = "<option>Search User</option>\n";
-    $previousLetter = "";
-
-    while ($row = $utenti->fetch_assoc()) {
-        $currentLetter = strtoupper(substr($row["username"], 0, 1));
-
-        if ($currentLetter !== $previousLetter) {
-            $listItem .= "<option disabled>".$currentLetter."</option>\n";
-            $previousLetter = $currentLetter;
-        }
-
-        $listItem .= "<option value=\"".$row["username"]."\">".$row["username"]."</option>\n";
-    }
-
-    /*
-    if(isset($_POST["utente"])){
-        foreach ($utenti as $utente) {
-            if($utente["username"] == $_POST["utente"]){
-                $page = str_replace("@@username@@", $utente["username"], $page);
-                $page = str_replace("@@nome@@", $utente["nome"], $page);
-                $page = str_replace("@@cognome@@", $utente["cognome"], $page);
-                $page = str_replace("@@email@@", $utente["email"], $page);
-                $page = str_replace("@@certificato@@", $utente["certificatoPath"], $page);
-                $page = str_replace("@@id@@", $utente["id"], $page);
-                break;
-            }
-        }
+    if($utenti->num_rows == 0){
+        $page = preg_replace('/(<!--tabella certificati-->).*(<!--fine tabella certificati-->)/s', "<p class='empty-result'>Non ci sono utenti da validare.</p>", $page);
     }else{
-        $page = preg_replace('/(<!--form utente-->).*(<!--fine form utente-->)/s', "<p class='empty-result'>Seleziona un utente.</p>", $page);
-    }*/
+        $utentiList = "";
+        preg_match('/(<!--user data-->).*(<!--fine user data-->)/s', $page, $matches);
+        while ($row = $utenti->fetch_assoc()) {
+            $user = $matches[0];
+            $user = str_replace("@@username@@", $row["username"], $user);
+            $user = str_replace("@@nome@@", $row["nome"], $user);
+            $user = str_replace("@@cognome@@", $row["cognome"], $user);
+            $user = str_replace("@@certificatoPath@@", $row["certificatoPath"], $user);
+            $utentiList .= $user;
+        }
+    }
+    $page = preg_replace('/(<!--user data-->).*(<!--fine user data-->)/s', $utentiList, $page);
 
-    $page = str_replace("@@lista-utenti@@", $listItem, $page);
+
+
+    if(isset($_SESSION["errorConvalida"])){
+        $page = str_replace("@@errorConvalida@@", "<p id='error-message'>".$_SESSION["errorConvalida"]."</p>", $page);
+        unset($_SESSION["errorConvalida"]);
+    }
+    else if(isset($_SESSION["successConvalida"])){
+        $page = str_replace("@@errorConvalida@@", "<p id='success-message'>".$_SESSION["successConvalida"]."</p>", $page);
+        unset($_SESSION["successConvalida"]);
+    }
+    else $page = str_replace("@@errorConvalida@@", "", $page);
+
     echo $page;
 }else{
     unset($_SESSION["user_id"]);

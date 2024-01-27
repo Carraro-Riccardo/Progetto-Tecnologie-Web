@@ -15,9 +15,9 @@
 
   /*!Generale*/
   --background-color: #da6202;
-  --h1a: #fff; 
+  --h1a: #fff;
   --background-color-index-content: #000;
-  --index-content-color-h2-p: #fff; 
+  --index-content-color-h2-p: #fff;
 
   /*!Header*/
   --headerBackgroundColor: #000;
@@ -84,8 +84,8 @@
   --currentTabTxtColor: #fff;
 
   /*!Pulsante logout*/
-  --logoutBtnBgColor: #7a0000;
-  --logoutBtnBorderColor: #000;
+  --deleteBtnBgColor: #7a0000;
+  --deleteBtnBorderColor: #000;
 
   /*!Messaggio di errore*/
   --errorMessageBgColor: #b40000;
@@ -275,7 +275,7 @@ main {
 }
 
 #nav-principale ul li a:visited,
-#nav-principale ul li a:visited span{
+#nav-principale ul li a:visited span {
   color: var(--visitedLinkColor);
 }
 
@@ -528,6 +528,7 @@ a.card:visited .description {
   padding: 1em 0;
   text-align: center;
   width: 100%;
+  line-height: 1.3em;
 }
 
 h1.homePageTitle {
@@ -677,13 +678,23 @@ footer a:hover {
   border-bottom-left-radius: 0;
 }
 
-.user-data-container input:disabled {
+.user-data-container input:disabled,
+.user-data-container input[readonly] {
   background-color: var(--disabledInputBgColor);
 }
 
-.user-data-container input[type="submit"] {
+ input[type="submit"] {
   text-align: center;
+  border-radius: 0.5em;
 }
+
+ input[type="submit"]:hover,
+ input[type="submit"]:focus,
+ input[type="submit"]:active {
+  transform: scale(1.06);
+  transition: 0.2s ease-in;
+}
+
 
 .user-data-container legend {
   color: var(--formLegendTxtColor);
@@ -696,7 +707,7 @@ footer a:hover {
   column-gap: 2em;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   row-gap: 1em;
 }
 
@@ -704,6 +715,7 @@ footer a:hover {
 .submitBtn {
   align-items: center;
   display: flex;
+  text-align: center;
 }
 
 .submitBtn {
@@ -718,6 +730,7 @@ footer a:hover {
   min-width: 10em;
   outline: none;
   text-decoration: none;
+  padding: 0.2em;
 }
 
 .confirmButtons p {
@@ -741,6 +754,8 @@ section.data-abbonamenti {
   column-gap: 3em;
   display: flex;
   justify-content: center;
+  padding-top: 0.5em;
+  color: var(--cardTxtColor);
 }
 
 #Mensile:before {
@@ -753,6 +768,43 @@ section.data-abbonamenti {
 
 #Annuale:before {
   background: url(../imgs/abbonamenti_images/Annuale.webp) 50% / cover;
+}
+
+/*!***********************/
+
+/*! PAGINA COMPRA ABBONAMENTI */
+
+/*!***********************/
+
+#container-abbonamento-login {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 2em;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-abbonamento-login .card {
+  flex: 1 1 0;
+  margin: 1em;
+  max-width: 30em;
+  min-width: 17em;
+  min-height: 20em;
+}
+
+#container-abbonamento-login > form {
+  flex: 1 1 0;
+  min-width: 32em;
+  margin: 1em;
+}
+
+#container-abbonamento-login section.data-abbonamenti {
+  column-gap: 1em;
+}
+
+#data-scadenza-cvc {
+  display: flex;
+  flex-direction: column;
 }
 
 /*!***********************/
@@ -770,7 +822,7 @@ p.empty-result {
 .tabTitle,
 p.empty-result {
   border-radius: 0.5em;
-  margin: 0 auto;
+  margin: 0 auto 2em auto;
   padding: 0.5em;
   text-align: center;
 }
@@ -779,6 +831,7 @@ p.empty-result {
   background-color: var(--tabTitleBgColor);
   color: var(--tabTitleTxtColor);
   width: fit-content;
+  margin-bottom: 0.5em;
 }
 
 #schede-utente {
@@ -857,15 +910,23 @@ p.empty-result {
   background-image: url(../imgs/profile_icons/profile.webp);
 }
 
+#container-scheda-utente {
+  display: flex;
+  flex-direction: column;
+  max-width: 50em;
+}
+
 .schede-container {
   list-style: none;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin: 2em 0.5em 0 0.5em;
+}
+
+.schede-container > li {
+  margin: 1em 2em;
 }
 
 .scheda {
   list-style: none;
-  margin-bottom: 3em;
 }
 
 .schede-container h2 {
@@ -944,6 +1005,7 @@ table caption {
 
 .tb-container {
   padding: 0 0.5em;
+  max-width: 50em;
 }
 
 /*!***********************/
@@ -952,9 +1014,9 @@ table caption {
 
 /*!***********************/
 
-#logout {
-  background-color: var(--logoutBtnBgColor);
-  border: 1px solid var(--logoutBtnBorderColor);
+.deleteBtn {
+  background-color: var(--deleteBtnBgColor);
+  border: 1px solid var(--deleteBtnBorderColor);
   border-radius: 0.5em;
   color: var(--formBtnTxtColor);
   margin-left: auto;
@@ -964,10 +1026,11 @@ table caption {
   width: 79%;
 }
 
-#logout,
+.deleteBtn,
 .cancelBtn {
   text-align: center;
   text-decoration: none;
+  max-width: 30em;
 }
 
 .cancelBtn {
@@ -981,7 +1044,7 @@ table caption {
 }
 
 .form-modifica-psw {
-  margin-top: 10%;
+  margin-top: 3em;
 }
 
 .qr_code {
@@ -1048,11 +1111,11 @@ caption#caption-certificato {
   padding: 0.5em;
 }
 
-#certificatoCell {
+.certificatoCell {
   background-color: var(--tableBgColor);
 }
 
-#certificatoCell a::after{
+.certificatoCell a::after {
   content: "";
   display: inline-block;
   background-image: url(../imgs/profile_icons/pdf_icon.webp);
@@ -1086,11 +1149,10 @@ caption#caption-certificato {
 
 #form-certificato input {
   background-color: var(--formInputBgColor);
-  padding-top:0.5em;
+  padding-top: 0.5em;
   border-radius: 0em;
   border-top-right-radius: 0.3em;
 }
-
 
 /*!**************************/
 
@@ -1472,6 +1534,67 @@ img {
   padding: 1em;
 }
 
+
+/************************/
+
+/* Amministrazione Palestra */
+
+/************************/
+ul#container-utenti-certificati {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  column-gap: 2em;
+}
+
+#container-utenti-certificati li {
+  margin: 1em auto;
+  width: 60%;
+  background: white;
+  padding: 1.5em;
+  border-radius: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+  max-width: 15em;
+}
+
+#container-utenti-certificati dl {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 1em 0em;
+}
+
+#container-utenti-certificati dt {
+  color: white;
+  background: black;
+  padding: 0.2em;
+}
+
+#container-utenti-certificati dd {
+  border: 1px solid;
+  padding: 0.1em;
+}
+
+#container-utenti-certificati form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+}
+
+#container-utenti-certificati form fieldset {
+  border: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
 /*!***********************/
 
 /*! MEDIA QUERIES */
@@ -1489,6 +1612,14 @@ img {
   #cards-container {
     max-width: 800px;
   }
+
+  #container-abbonamento-login > form {
+    width: 100%;
+  }
+
+  #container-abbonamento-login form {
+    min-width: 100%;
+  }
 }
 
 @media (max-width: 420px) {
@@ -1498,27 +1629,44 @@ img {
 }
 
 @media (min-width: 600px) {
-
   #cards-container {
     max-width: 100%;
   }
 
-  #cards-container > ul{
+  .tb-container {
+    margin: 1em 15%;
+  }
+
+  #cards-container > ul {
     display: flex;
     flex-flow: row wrap;
     column-gap: 2em;
     justify-content: center;
   }
 
-  .card{
+  .card {
     min-width: 30em;
   }
-
 
   .user-data-container {
     max-width: 60%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  #data-scadenza-cvc {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  #container-abbonamento-login .user-data-container {
+    max-width: 80%;
+  }
+
+  #container-abbonamento-login form {
+    min-width: 30em;
   }
 
   .card-corso-description {
@@ -1553,11 +1701,17 @@ img {
   .schede-container {
     align-items: center;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .tb-container {
     padding: 0 15%;
+  }
+
+  #container-scheda-utente{
+    padding: 0 15%;
+    margin: 0 auto;
   }
 
   .schede-container li {
@@ -1596,6 +1750,10 @@ img {
     height: 18em;
   }
 
+  #container-abbonamento-login > form {
+    max-width: 30em;
+  }
+
   .user-data-container {
     max-width: 35%;
     margin-left: auto;
@@ -1603,9 +1761,11 @@ img {
   }
 
   #form-certificato {
+    max-width: 50em;
+  }
+
+  #container-abbonamento-login .user-data-container {
     max-width: 35%;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
