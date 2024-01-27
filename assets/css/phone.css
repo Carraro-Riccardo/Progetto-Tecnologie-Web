@@ -1072,7 +1072,7 @@ table caption {
   max-width: 30em;
 }
 
-.cancelBtn {
+.confirmButtons .cancelBtn {
   background-color: var(--background-color-cancelBtn);
   color: var(--color-cancelBtn);
   border: 1px solid var(--borderColor-cancelBtn);
