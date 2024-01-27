@@ -1540,7 +1540,7 @@ img {
 /* Amministrazione Palestra */
 
 /************************/
-ul#container-utenti-certificati {
+ul.container-cards-admin {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -1548,7 +1548,7 @@ ul#container-utenti-certificati {
   column-gap: 2em;
 }
 
-#container-utenti-certificati li {
+.cards-admin {
   margin: 1em auto;
   width: 60%;
   background: white;
@@ -1561,7 +1561,7 @@ ul#container-utenti-certificati {
   max-width: 15em;
 }
 
-#container-utenti-certificati dl {
+.container-cards-admin dl {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
@@ -1569,25 +1569,27 @@ ul#container-utenti-certificati {
   padding: 1em 0em;
 }
 
-#container-utenti-certificati dt {
+.container-cards-admin dt {
   color: white;
   background: black;
   padding: 0.2em;
 }
 
-#container-utenti-certificati dd {
+.container-cards-admin dd {
   border: 1px solid;
   padding: 0.1em;
 }
 
-#container-utenti-certificati form {
+.cards-admin form, 
+.container-cards-admin form {
   display: flex;
   justify-content: center;
   margin-bottom: 1em;
   margin-top: 0.5em;
 }
 
-#container-utenti-certificati form fieldset {
+.cards-admin form fieldset, 
+.container-cards-admin form fieldset {
   border: none;
   text-align: center;
   display: flex;
@@ -1629,11 +1631,11 @@ ul#container-utenti-certificati {
 }
 
 @media (min-width: 600px) {
-  ul#container-utenti-certificati {
+  ul.container-cards-admin{
     max-width: 60%;
     margin: 1em auto;
   }
-  
+
   #cards-container {
     max-width: 100%;
   }
