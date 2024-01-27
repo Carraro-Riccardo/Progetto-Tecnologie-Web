@@ -3,8 +3,29 @@ session_start();
 require_once("./pages_builder.php");
 require_once("./db_handler.php");
 
+function estraiIntervalloDiTesto($fileHtml, $primaParola, $ultimaParola) {
+    $htmlContent = file_get_contents($fileHtml);
+
+    // Cerca la posizione della prima e ultima parola nel contenuto HTML
+    $posizioneIniziale = strpos($htmlContent, $primaParola);
+    $posizioneFinale = strpos($htmlContent, $ultimaParola);
+
+    // Verifica se le parole sono presenti
+    if ($posizioneIniziale !== false && $posizioneFinale !== false) {
+        // Estrai l'intervallo di testo
+        $intervalloDiTesto = substr($htmlContent, $posizioneIniziale, $posizioneFinale - $posizioneIniziale + strlen($ultimaParola));
+
+        return $intervalloDiTesto;
+    } else {
+        // Le parole non sono state trovate
+        return "Parole non trovate nel file HTML.";
+    }
+}
+
+
 function creaCardMacchinari($macchinari) {
-    $macchinari_cards = "<div id=\"cards-container\">
+    $macchinari_cards = "<!--sezione macchinari_start-->
+                        <div id=\"cards-container\">
                             <ul>";
 
     foreach ($macchinari as $row) {
@@ -21,9 +42,25 @@ function creaCardMacchinari($macchinari) {
     }
 
     $macchinari_cards .= "</ul>
-                            </div>";
+                            </div>
+                            <!--sezione macchinari_end-->";
 
     return $macchinari_cards;
+}
+
+function popolaGruppiMuscolari($gruppiMuscolari) {
+    $gruppiMuscolari_select = "";
+
+    foreach ($gruppiMuscolari as $row) {
+        $gruppiMuscolari_select .= "
+                <option value=\"" . $row["gruppoMuscolare"] . "\">" . $row["gruppoMuscolare"] . "</option>
+            ";
+    }
+
+    $gruppiMuscolari_select .= "</ul>
+                            </div>";
+
+    return $gruppiMuscolari_select;
 }
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
@@ -36,9 +73,18 @@ if(isset($_SESSION["user_id"])){
     $page = str_replace("@@logout@@", "", $page);
 }
 
+
 try {
     $db = new Database();
-    $macchinari_result = $db->getAllMacchinari();
+    $gruppiMuscolari_result = $db->getAllGruppiMuscolari();
+    
+    if(isset($_POST["gruppoMuscolare"]))
+        $selectedMuscleGroup = $_POST["gruppoMuscolare"];
+    else
+        $selectedMuscleGroup = "Tutti";
+    
+    $macchinari_result = $db->getMacchinari($selectedMuscleGroup);
+    
     unset($db);
 }catch(Exception $e) {
     // TODO: gestire errore
@@ -46,8 +92,17 @@ try {
     exit;
 }
 
+$gruppiMuscolari = popolaGruppiMuscolari($gruppiMuscolari_result);
+$page = str_replace('<!--voci gruppi muscolari-->', $gruppiMuscolari, $page);
+
 $tabellaMacchinari = creaCardMacchinari($macchinari_result);
 
-$page = str_replace('<!--sezione macchinari-->', $tabellaMacchinari, $page);
+$macchinari_start = strpos($page, "<!--sezione macchinari_start-->");
+$macchinari_end = strpos($page, "<!--sezione macchinari_end-->");
+
+$pattern = '/<!--sezione macchinari_start-->(.*?)<!--sezione macchinari_end-->/s';
+$page = preg_replace($pattern, $tabellaMacchinari, $page);
+
+
 echo $page;
 ?>

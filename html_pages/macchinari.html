@@ -24,7 +24,16 @@
     <main>
         <h2 class="normalPageTitle">Elenco dei Macchinari</h2>
 
-        <!--sezione macchinari-->
+        <form id="gruppoMuscolare" method="post">
+          <label for="gruppoMuscolare">Filtra per Gruppo Muscolare:</label>
+          <select name="gruppoMuscolare" onchange="this.form.submit()">
+              <option value=""></option>
+              <option value="Tutti">Tutti</option>
+              <!--voci gruppi muscolari-->
+          </select>
+        </form>
+        <!--sezione macchinari_start-->
+        <!--sezione macchinari_end-->
     </main>
     @@footer@@
   </body>

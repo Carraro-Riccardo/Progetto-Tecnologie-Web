@@ -246,11 +246,29 @@ class Database {
     }
 
 
-    public function getAllMacchinari(){
-        $query = "  SELECT macchinari.*, gruppimuscolari.gruppoMuscolare AS nomeGruppoMuscolare
-                    FROM macchinari
-                    JOIN gruppimuscolari ON macchinari.gruppoMuscolare = gruppimuscolari.id;
-                    ";
+    public function getMacchinari($selectedMuscleGroup){
+        $query = $selectedMuscleGroup == "Tutti" ?
+        "  SELECT macchinari.*, gruppimuscolari.gruppoMuscolare AS nomeGruppoMuscolare
+            FROM macchinari
+            JOIN gruppimuscolari ON macchinari.gruppoMuscolare = gruppimuscolari.id;
+        " : "  SELECT macchinari.*, gruppimuscolari.gruppoMuscolare AS nomeGruppoMuscolare
+            FROM macchinari
+            JOIN gruppimuscolari ON macchinari.gruppoMuscolare = gruppimuscolari.id
+            WHERE gruppimuscolari.gruppoMuscolare = '" . $selectedMuscleGroup . "';
+        ";
+
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        return $result;
+    }
+    
+    public function getAllGruppiMuscolari(){
+        $query = "  SELECT *
+                    FROM gruppimuscolari";
     
         $stmt = $this->conn->prepare($query);
         

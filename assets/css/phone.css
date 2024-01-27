@@ -1460,6 +1460,34 @@ img {
 /* MACCHINARI */
 /************************/
 
+#gruppoMuscolare {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+label[for="gruppoMuscolare"] {
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+#gruppoMuscolare select {
+  padding: 4px;
+  margin-top: 10px;
+  padding-left: 6px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #000;
+  font-size: 1.2em;
+  width: 200px;
+}
+
+#gruppoMuscolare select:hover {
+  border-color: #8f7d8f;
+}
+
 .card-macchinario {
   position: relative;
   display: flex;
