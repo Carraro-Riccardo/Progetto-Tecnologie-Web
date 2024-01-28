@@ -161,7 +161,7 @@ html {
 
 body {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 2fr auto;
   height: 100vh;
   width: 100vw;
 }
@@ -633,10 +633,6 @@ footer a:visited {
   color: var(--visitedLinkColor);
 }
 
-footer a:hover {
-  text-decoration: underline;
-}
-
 .instagram-link {
   background: url("../imgs/footer_logos/instagram.svg") no-repeat;
   background-size: contain;
@@ -916,12 +912,12 @@ p.empty-result {
   color: var(--currentTabTxtColor);
 }
 
-#tabSchede:before {
+#tabSchede::before {
   background-image: url(../imgs/profile_icons/schede.webp);
 }
 
-#tabAbbonamenti:before,
-#tabSchede:before {
+#tabAbbonamenti::before,
+#tabSchede::before {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -932,16 +928,16 @@ p.empty-result {
   width: 100%;
 }
 
-#tabAbbonamenti:before {
+#tabAbbonamenti::before {
   background-image: url(../imgs/profile_icons/abbonamenti.webp);
 }
 
-#tabCertificato:before {
+#tabCertificato::before {
   background-image: url(../imgs/profile_icons/certificato.webp);
 }
 
-#tabCertificato:before,
-#tabProfilo:before {
+#tabCertificato::before,
+#tabProfilo::before {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -952,7 +948,7 @@ p.empty-result {
   width: 100%;
 }
 
-#tabProfilo:before {
+#tabProfilo::before {
   background-image: url(../imgs/profile_icons/profile.webp);
 }
 
@@ -1426,7 +1422,7 @@ img {
   text-align: justify;
   padding-left: 1em;
   padding-right: 1em;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .card-corso-description li {
