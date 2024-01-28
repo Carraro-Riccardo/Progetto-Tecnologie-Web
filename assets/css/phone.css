@@ -1374,26 +1374,6 @@ img {
 .emoji-time::after {
   content: "📅";
 }
-/*
-#immagine-corso-pilates {
-  background: url("../imgs/corsi_image/pilates.jpg") center/cover;
-  content: "";
-}
-
-#immagine-corso-yoga {
-  background: url("../imgs/corsi_image/yoga.jpg") center/cover;
-  content: "";
-}
-
-#immagine-corso-box {
-  background: url("../imgs/corsi_image/box.jpg") center/cover;
-  content: "";
-}
-
-#immagine-corso-danza {
-  background: url("../imgs/corsi_image/danza.jpg") center/cover;
-  content: "";
-}*/
 
 #corso-pilates::before {
   background: url(../imgs/corsi_image/pilates.webp) center/cover;
