@@ -217,11 +217,6 @@ a.torna-su{
   padding: 0.5em;
 }
 
-a.torna-su::before {
-  content: "⬆";
-  padding-right: 0.2em;
-}
-
 /*!***********************/
 
 /*! BREADCRUMB */

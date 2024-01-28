@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" id="mainAdmin">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,13 +32,10 @@
               <a href="./admin_landing.php"><span lang="en">Home Admin</span></a>
             </li>
             <li>
-              <a href="./admin_utenti.php" aria-current="page">Gestione Utenti</a>
+              <a href="./admin_amministrazione.php" aria-current="page">Gestione Utenti</a>
             </li>
             <li>
-              <a href="#">Modifica Abbonamenti</a>
-            </li>
-            <li>
-              <a href="#">Modifica Macchinari</a>
+              <a href="#GESTIONE_ABBONAMENTI">Modifica Abbonamenti</a>
             </li>
             @@logout@@
           </ul>
@@ -54,7 +51,7 @@
         </ol>
       </nav>
     </header>
-    <main id="mainAdmin">
+    <main>
       <h1 class="normalPageTitle">Amministrazione Palestra</h1>
 
       <section id="GESTIONE_UTENTI">
@@ -132,5 +129,6 @@
         <!--fine tabella abbonamenti-->
       </section>
     </main>
+    @@footer@@
   </body>
 </html>

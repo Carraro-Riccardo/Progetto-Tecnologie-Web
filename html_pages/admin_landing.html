@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" id="mainAdmin">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,13 +31,10 @@
               <a href="./admin_landing.php" aria-current="page"><span lang="en">Home Admin</span></a>
             </li>
             <li>
-              <a href="./admin_utenti.php">Gestione Utenti</a>
+              <a href="./admin_amministrazione.php">Gestione Utenti</a>
             </li>
             <li>
-              <a href="#">Modifica Abbonamenti</a>
-            </li>
-            <li>
-              <a href="#">Modifica Macchinari</a>
+              <a href="./admin_amministrazione.php#GESTIONE_ABBONAMENTI">Modifica Abbonamenti</a>
             </li>
             @@logout@@
           </ul>
@@ -50,7 +47,7 @@
         </ol>
       </nav>
     </header>
-    <main id="mainAdmin">
+    <main>
       <h1 class="normalPageTitle"><span lang="en">Home</span> amministrazione</h1>
       <ul class="container-metriche">
         <!--Totale certificati-->
@@ -92,5 +89,6 @@
         </li>
       </ul>
     </main>
+    @@footer@@
   </body>
 </html>
