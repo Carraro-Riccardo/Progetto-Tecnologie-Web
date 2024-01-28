@@ -134,6 +134,9 @@
 
   /*!Pagina Abbonamenti*/
   --color-p-data-abbonamenti: #fff;
+
+  /*!Pagina macchinari*/
+  --borderSelect: #000;
 }
 
 /*!***********************/
@@ -1682,6 +1685,80 @@ ul.container-cards-admin {
   font-weight: bold;
   margin-bottom: 0.5em;
   margin-left: 0.5em;
+}
+
+/****************/
+/* MACCHINARI */
+/*****************/
+
+#gruppoMuscolare {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+label[for="gruppoMuscolare"] {
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+#gruppoMuscolare select {
+  padding: 4px;
+  margin-top: 10px;
+  padding-left: 6px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid var(--borderSelect);
+  font-size: 1.2em;
+  width: 200px;
+}
+
+.card-macchinario {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: var(--cardBgColor);
+  box-shadow: 0 0 30px rgba(122, 0, 0, 100);
+  margin: 2em auto;
+  max-width: 90%;
+}
+
+.card-macchinario h3 {
+  font-size: 2em;
+  text-align: center;
+  color: var(--h2TitleCard);
+  margin-top: 0.5em;
+}
+
+.card-macchinario img {
+  max-width: 100%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  object-fit: cover; 
+  margin-bottom: 1.5em;
+}
+
+.card-macchinario-description {
+  margin: 0.5em;
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+.card-macchinario-description p {
+  font-size: 1.2em;
+  text-align: center;
+  color: var(--cardTxtColor);
+  margin-top: 1em;
+}
+
+.hidden_element{
+  visibility: hidden;
 }
 
 
