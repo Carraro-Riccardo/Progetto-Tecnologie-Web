@@ -3,26 +3,6 @@ session_start();
 require_once("./pages_builder.php");
 require_once("./db_handler.php");
 
-function estraiIntervalloDiTesto($fileHtml, $primaParola, $ultimaParola) {
-    $htmlContent = file_get_contents($fileHtml);
-
-    // Cerca la posizione della prima e ultima parola nel contenuto HTML
-    $posizioneIniziale = strpos($htmlContent, $primaParola);
-    $posizioneFinale = strpos($htmlContent, $ultimaParola);
-
-    // Verifica se le parole sono presenti
-    if ($posizioneIniziale !== false && $posizioneFinale !== false) {
-        // Estrai l'intervallo di testo
-        $intervalloDiTesto = substr($htmlContent, $posizioneIniziale, $posizioneFinale - $posizioneIniziale + strlen($ultimaParola));
-
-        return $intervalloDiTesto;
-    } else {
-        // Le parole non sono state trovate
-        return "Parole non trovate nel file HTML.";
-    }
-}
-
-
 function creaCardMacchinari($macchinari) {
     $macchinari_cards = "<!--sezione macchinari_start-->
                         <div id=\"cards-container\">
@@ -30,8 +10,8 @@ function creaCardMacchinari($macchinari) {
 
     foreach ($macchinari as $row) {
         $macchinari_cards .= "
-            <li class=\"card-macchinario\">
-                <img src=\"./assets/imgs/macchinari/" . $row["path"] . "\" alt=\"" . $row["nome"] ."\"/>
+            <li class=\"card-macchinario " . $row["nomeGruppoMuscolare"] . "\">
+                <img src=\"./assets/imgs/macchinari/" . $row["path"] . "\" alt=\"\"/>
                 <h3>" . $row["nome"] . "</h3>
                 <span class=\"card-macchinario-description\">
                     <p>Data di Acquisto: " . $row["dataDiAcquisto"] . "</p>
@@ -53,10 +33,6 @@ function popolaGruppiMuscolari($gruppiMuscolari, $selectedMuscleGroup) {
 
     foreach ($gruppiMuscolari as $row) {
         if ($row['gruppoMuscolare'] == $selectedMuscleGroup){
-            $gruppiMuscolari_select .= "
-                <option value=\"" . $row["gruppoMuscolare"] . "\" selected=\"selected\">" . $row["gruppoMuscolare"] . "</option>
-            ";
-        } else if ($row['gruppoMuscolare'] == "Tutti" && $selectedMuscleGroup == "Tutti"){
             $gruppiMuscolari_select .= "
                 <option value=\"" . $row["gruppoMuscolare"] . "\" selected=\"selected\">" . $row["gruppoMuscolare"] . "</option>
             ";
@@ -82,7 +58,6 @@ if(isset($_SESSION["user_id"])){
     $page = str_replace("@@USER@@", "Login/Register", $page);
     $page = str_replace("@@logout@@", "", $page);
 }
-
 
 try {
     $db = new Database();
@@ -112,7 +87,6 @@ $macchinari_end = strpos($page, "<!--sezione macchinari_end-->");
 
 $pattern = '/<!--sezione macchinari_start-->(.*?)<!--sezione macchinari_end-->/s';
 $page = preg_replace($pattern, $tabellaMacchinari, $page);
-
 
 echo $page;
 ?>

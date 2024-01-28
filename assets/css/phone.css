@@ -1529,3 +1529,7 @@ label[for="gruppoMuscolare"] {
   color: var(--cardTxtColor);
   margin-top: 1em;
 }
+
+.hidden_element{
+  visibility: hidden;
+}
