@@ -42,6 +42,8 @@
   --registerNowBtnBorderColor: #000;
   --registerNowBtnTxtColor: #fff;
   --titleSectionBgColor: #ff9947;
+  --text-shadow-primary: #fff;
+  --text-shadow-secondary: #000;
 
   /*!Titolo pagina*/
   --pageTitleBgColor: #000;
@@ -51,6 +53,9 @@
   --cardTxtColor: #fff;
   --cardBgColor: #000;
   --visitedCard: #600d0d;
+  --linkColor: white;
+  --cardDescription: white;
+  --h2TitleCard: #cf8607;
 
   /*!Form*/
   --background-color-input-field-label: #fff;
@@ -59,10 +64,14 @@
   --formLegendTxtColor: #fff;
   --disabledInputBgColor: #d3d3d3;
   --formInputBgColor: #fff;
+  --background-color-registrati-login: #000;
+  --color-registrati-login: #fff;
+  --color-a-confirmButton :#fff;
 
   /*!Btn cancel*/
   --background-color-cancelBtn: #fff;
   --color-cancelBtn: #000;
+  --borderColor-cancelBtn: #000;
 
   /*!Footer*/
   --footerBgColor: #000;
@@ -99,48 +108,32 @@
   --emptyResultBgColor: #000;
   --emptyResultTxtColor: #fff;
 
-  --linkColor: white;
-  --cardDescription: white;
-  --h2TitleCard: #cf8607;
-  --titlePage: white;
-
   /*!paragrafo Qr*/
   --paragraphQrBgColor: #000;
   --paragraphQrTxtColor: #fff;
 
   /*!Pagina Admin*/
   --adminPageBackground: #b5a382;
-
   --titleLabel : rgb(0, 0, 0);
   --metricaBgColor: #fff;
   --metricaTxtColor: #000;
   --metricaBorderColor: #7a0000;
   --metricaTitleBgColor: #7a0000;
   --metricaTitleTxtColor: #fff;
+  --box-shadow-li-metrica: #000;
+  --li-metrica-a: #0000ff;
 
   /*!Pagina Chi Siamo*/
   --background-color-componenti-dt: #000;
   --color-componenti-dt:#fff;
   --background-color-componenti-dd: #7a0000;
-
-  /*Pagina amministrazione*/
-  --li-metrica-a: #0000ff;
-
-  /*Da catalogare*/
-  --text-shadow-homePageTitle-1: #fff;
-  --text-shadow-homePageTitle-2: #000;
-  --text-shadow-homePageTitle-3: #000;
-  --text-shadow-homePageTitle-4: #000;
-  --borderColor-cancelBtn: #000;
-  --box-shadow-li-metrica: #000;
   --border-color-componenti-dt: #000;
   --border-color-componenti-dd: #000;
   --border-color-componente-img: #fff;
-  --color-p-data-abbonamenti: #fff;
-  --color-a-confirmButton :#fff;
-  --background-color-registrati-login: #000;
-  --color-registrati-login: #fff;
   --color-componente: #fff;
+
+  /*!Pagina Abbonamenti*/
+  --color-p-data-abbonamenti: #fff;
 }
 
 /*!***********************/
@@ -552,7 +545,7 @@ h1.homePageTitle {
   font-family: var(--font-body-family-bold), sans-serif;
   font-size: 4em;
   text-align: center;
-  text-shadow: -2px 0 var(--text-shadow-homePageTitle-1), 0 1px var(--text-shadow-homePageTitle-2), 1px 0 var(--text-shadow-homePageTitle-3), 0 -1px var(--text-shadow-homePageTitle-4);
+  text-shadow: -2px 0 var(--text-shadow-primary), 0 1px var(--text-shadow-secondary), 1px 0 var(--text-shadow-secondary), 0 -1px var(--text-shadow-secondary);
 }
 
 .titleSection p {
@@ -1691,7 +1684,7 @@ ul.container-cards-admin {
   width: 100%;
   height: 12em;
   display: block;
-  padding-left: 0.5em,
+  padding-left: 0.5em;
 }
 
 
