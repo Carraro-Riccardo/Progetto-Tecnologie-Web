@@ -16,8 +16,8 @@
   /*!Generale*/
   --background-color: #da6202;
   --h1a: #fff;
-  --background-color-index-content: #000;
-  --index-content-color-h2-p: #fff;
+  --backgroundColorIndexContent: #000;
+  --indexContentColorH2P: #fff;
 
   /*!Header*/
   --headerBackgroundColor: #000;
@@ -42,8 +42,8 @@
   --registerNowBtnBorderColor: #000;
   --registerNowBtnTxtColor: #fff;
   --titleSectionBgColor: #ff9947;
-  --text-shadow-primary: #fff;
-  --text-shadow-secondary: #000;
+  --textShadowPrimary: #fff;
+  --textShadowSecondary: #000;
 
   /*!Titolo pagina*/
   --pageTitleBgColor: #000;
@@ -58,20 +58,20 @@
   --h2TitleCard: #cf8607;
 
   /*!Form*/
-  --background-color-input-field-label: #fff;
+  --backgroundColorInputFieldLabel: #fff;
   --formBtnBgColor: #000;
   --formBtnTxtColor: #fff;
   --formLegendTxtColor: #fff;
   --disabledInputBgColor: #d3d3d3;
   --formInputBgColor: #fff;
-  --background-color-registrati-login: #000;
-  --color-registrati-login: #fff;
-  --color-a-confirmButton :#fff;
+  --backgroundColorRegistratiLogin: #000;
+  --colorRegistratiLogin: #fff;
+  --colorAConfirmButton :#fff;
 
   /*!Btn cancel*/
-  --background-color-cancelBtn: #fff;
-  --color-cancelBtn: #000;
-  --borderColor-cancelBtn: #000;
+  --backgroundColorCancelBtn: #fff;
+  --colorCancelBtn: #000;
+  --borderColorCancelBtn: #000;
 
   /*!Footer*/
   --footerBgColor: #000;
@@ -120,20 +120,20 @@
   --metricaBorderColor: #7a0000;
   --metricaTitleBgColor: #7a0000;
   --metricaTitleTxtColor: #fff;
-  --box-shadow-li-metrica: #000;
-  --li-metrica-a: #0000ff;
+  --boxShadowLiMetrica: #000;
+  --liMetricaA: #0000ff;
 
   /*!Pagina Chi Siamo*/
-  --background-color-componenti-dt: #000;
-  --color-componenti-dt:#fff;
-  --background-color-componenti-dd: #7a0000;
-  --border-color-componenti-dt: #000;
-  --border-color-componenti-dd: #000;
-  --border-color-componente-img: #fff;
-  --color-componente: #fff;
+  --backgroundColorComponentiDt: #000;
+  --colorComponentiDt:#fff;
+  --backgroundColorComponentiDd: #7a0000;
+  --borderColorComponentiDt: #000;
+  --borderColorComponentiDd: #000;
+  --borderColorComponenteImg: #fff;
+  --colorComponente: #fff;
 
   /*!Pagina Abbonamenti*/
-  --color-p-data-abbonamenti: #fff;
+  --colorPDataAbbonamenti: #fff;
 
   /*!Pagina macchinari*/
   --borderSelect: #000;
@@ -559,7 +559,7 @@ h1.homePageTitle {
   font-family: var(--font-body-family-bold), sans-serif;
   font-size: 4em;
   text-align: center;
-  text-shadow: -2px 0 var(--text-shadow-primary), 0 1px var(--text-shadow-secondary), 1px 0 var(--text-shadow-secondary), 0 -1px var(--text-shadow-secondary);
+  text-shadow: -2px 0 var(--textShadowPrimary), 0 1px var(--textShadowSecondary), 1px 0 var(--textShadowSecondary), 0 -1px var(--textShadowSecondary);
 }
 
 .titleSection p {
@@ -579,7 +579,7 @@ a.registerNow {
 }
 
 .index-content {
-  background-color: var(--background-color-index-content);
+  background-color: var(--backgroundColorIndexContent);
   padding: 1.5em 0.5em;
 }
 
@@ -589,7 +589,7 @@ a.registerNow {
 
 .index-content h2,
 .index-content p {
-  color: var(--index-content-color-h2-p);
+  color: var(--indexContentColorH2P);
   text-align: center;
 }
 
@@ -736,7 +736,7 @@ footer a:hover {
 }
 
 .confirmButtons a{
-  color: var(--color-a-confirmButton);
+  color: var(--colorAConfirmButton);
 }
 
 .confirmButtons,
@@ -773,9 +773,9 @@ footer a:hover {
 }
 
 .registrati-login {
-  background-color: var(--background-color-registrati-login);
-  color: var(--color-registrati-login);
-  border: 1px solid var(--borderColor-cancelBtn);
+  background-color: var(--backgroundColorRegistratiLogin);
+  color: var(--colorRegistratiLogin);
+  border: 1px solid var(--borderColorCancelBtn);
   border-radius: 0.3em;
   flex-grow: 1;
   padding: 0.5em 0;
@@ -801,7 +801,7 @@ section.data-abbonamenti {
 }
 
 .data-abbonamenti p{
-  color: var(--color-p-data-abbonamenti);
+  color: var(--colorPDataAbbonamenti);
 }
 
 #abbonamento_1:before {
@@ -1080,9 +1080,9 @@ table caption {
 }
 
 .confirmButtons .cancelBtn {
-  background-color: var(--background-color-cancelBtn);
-  color: var(--color-cancelBtn);
-  border: 1px solid var(--borderColor-cancelBtn);
+  background-color: var(--backgroundColorCancelBtn);
+  color: var(--colorCancelBtn);
+  border: 1px solid var(--borderColorCancelBtn);
   border-radius: 0.3em;
   flex-grow: 1;
   padding: 0.5em 0;
@@ -1121,7 +1121,7 @@ table caption {
 }
 
 .input-field label {
-  background-color: var(--background-color-input-field-label);
+  background-color: var(--backgroundColorInputFieldLabel);
   display: flex;
   flex-flow: column;
   font-family: osvald-bold, sans-serif;
@@ -1224,7 +1224,7 @@ li.metrica {
   background-color: var(--metricaBgColor);
   border: 3px solid var(--metricaBorderColor);
   border-radius: 1em;
-  box-shadow: 0 0 5px var(--box-shadow-li-metrica);
+  box-shadow: 0 0 5px var(--boxShadowLiMetrica);
   display: flex;
   flex: 1 1 10em;
   flex-direction: column;
@@ -1251,7 +1251,7 @@ li.metrica p {
 }
 
 li.metrica a {
-  color: var(--li-metrica-a);
+  color: var(--liMetricaA);
   text-align: center;
   text-decoration: underline;
   width: max-content;
@@ -1467,9 +1467,9 @@ img {
 }
 
 #componenti > dt {
-  background-color: var(--background-color-componenti-dt);
-  color: var(--color-componenti-dt);
-  border: 1px solid var(--border-color-componenti-dt);
+  background-color: var(--backgroundColorComponentiDt);
+  color: var(--colorComponentiDt);
+  border: 1px solid var(--borderColorComponentiDt);
   padding: 0.5em;
   font-size: 1.5em;
   border-top-left-radius: 1.5em;
@@ -1478,8 +1478,8 @@ img {
 }
 
 #componenti > dd {
-  background-color: var(--background-color-componenti-dd);
-  border: 1px solid var(--border-color-componenti-dd);
+  background-color: var(--backgroundColorComponentiDd);
+  border: 1px solid var(--borderColorComponentiDd);
   border-top: none;
   margin-bottom: 1em;
   border-bottom-left-radius: 1.5em;
@@ -1492,13 +1492,13 @@ img {
   height: 9em;
   object-fit: cover;
   object-position: center;
-  border: 5px solid var(--border-color-componente-img);
+  border: 5px solid var(--borderColorComponenteImg);
   margin: 0.5em 0;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 100));
 }
 
 .componente {
-  color: var(--color-componente);
+  color: var(--colorComponente);
   display: flex;
   justify-content: center;
   align-items: center;
