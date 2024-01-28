@@ -206,6 +206,22 @@ main {
   width: 80%;
 }
 
+a.torna-su{
+  border-radius: 2em;
+  background-color: var(--breadcrumbBgColor);
+  color: var(--breadcrumbTxtColor);
+  display: block;
+  width: 5em;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.5em;
+}
+
+a.torna-su::before {
+  content: "⬆";
+  padding-right: 0.2em;
+}
+
 /*!***********************/
 
 /*! BREADCRUMB */

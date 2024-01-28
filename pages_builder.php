@@ -19,6 +19,7 @@ class PageBuilder {
         $page_content = file_get_contents("./html_pages/{$name}.html");
         $footer = file_get_contents("./html_pages/componenti/footer.html");
         $navbar = file_get_contents("./html_pages/componenti/navbar-principale.html");
+        $torna_su = file_get_contents("./html_pages/componenti/torna_su.html");
         $page_content = str_replace("@@navbar@@", $navbar, $page_content);
         self::removeCircularLinks($page_content, $name);
         if(isset($_SESSION["user_id"])){
@@ -28,6 +29,7 @@ class PageBuilder {
             $page_content = str_replace("@@USER@@", "Login", $page_content);
             $page_content = str_replace("@@logout@@", "", $page_content);
         }
+        $page_content = str_replace("</main>", $torna_su."\n</main>", $page_content);
         $page_content = str_replace("@@footer@@", $footer, $page_content);
         
         return $page_content;
