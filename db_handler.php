@@ -220,7 +220,7 @@ class Database {
     }   
 
     public function getAndamentoIncassi(){
-        $query = "  SELECT MONTHNAME(data_stipula) AS mese, SUM(costo) AS incasso
+        $query = "  SELECT DATE_FORMAT(data_stipula, '%m-%Y') AS mese, SUM(costo) AS incasso
                     FROM utenti_abbonamenti JOIN abbonamenti ON utenti_abbonamenti.id_abbonamento = abbonamenti.id 
                     WHERE data_stipula <= CURDATE() AND CURDATE() <= Date_add(data_stipula, INTERVAL abbonamenti.durata day)
                     GROUP BY MONTH(data_stipula)

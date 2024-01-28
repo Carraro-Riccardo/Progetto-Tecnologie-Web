@@ -1254,6 +1254,20 @@ li.metrica a {
   width: max-content;
 }
 
+li.metrica table {
+  max-width: 70%;
+}
+
+li.metrica table thead th:first-child{
+  border-top-left-radius: 1.5em;
+  border:none;
+}
+
+li.metrica table thead th:last-child{
+  border-top-right-radius: 1.5em;
+  border:none;
+}
+
 img {
   max-height: 33em;
   max-width: 21em;

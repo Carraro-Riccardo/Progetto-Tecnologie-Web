@@ -82,10 +82,32 @@
         <li class="metrica">
           <h3>Andamento incassi ultimi 5 mesi</h3>
           @@graficoIncassi@@
+          <table aria-describedby="desc_incassi">
+            <caption class="screen-reader-only" id="desc_incassi">Tabella incassi ultimi 5 mesi</caption>
+            <thead>
+              <th scope="col">Mese</th>
+              <th scope="col">Incasso</th>
+            </thead>
+            <tbody>
+              @@tabellaIncassi@@
+            </tbody>
+          </table>
+          <span class="screen-reader-only" id="desc_incassi">Tabella indicante l'andamento degli incassi negli ultimi 5 mesi</span>
         </li>
         <li class="metrica">
           <h3>Andamento utenti ultimi 5 mesi</h3>
           @@graficoUtenti@@
+          <table aria-describedby="desc_utenti">
+            <caption class="screen-reader-only" id="desc_utenti">Tabella incassi ultimi 5 mesi</caption>
+            <thead>
+              <th scope="col">Mese</th>
+              <th scope="col">Utenti</th>
+            </thead>
+            <tbody>
+              @@tabellaUtenti@@
+            </tbody>
+          </table>
+          <span class="screen-reader-only" id="desc_utenti">Tabella indicante l'andamento degli utenti negli ultimi 5 mesi</span>
         </li>
       </ul>
     </main>
