@@ -1287,19 +1287,13 @@ img {
   padding-top: 1em;
 }
 
+#emoji-man-cartwheeling::after,
 #emoji-man-cartwheeling::before {
   content: "🤸‍♂️";
 }
 
-#emoji-man-cartwheeling::after {
-  content: "🤸‍♂️";
-}
-
+#emoji-man-lifting-weights::after,
 #emoji-man-lifting-weights::before {
-  content: "🏋";
-}
-
-#emoji-man-lifting-weights::after {
   content: "🏋";
 }
 
@@ -1311,59 +1305,38 @@ img {
   content: "👵";
 }
 
+#emoji-person-in-lotus-position::after,
 #emoji-person-in-lotus-position::before {
   content: "🧘";
 }
 
-#emoji-person-in-lotus-position::after {
-  content: "🧘";
-}
-
+#emoji-trophy::after,
 #emoji-trophy::before {
   content: "🏆";
 }
 
-#emoji-trophy::after {
-  content: "🏆";
-}
-
+#emoji-boxing-glove::after,
 #emoji-boxing-glove::before {
   content: "🥊";
 }
 
-#emoji-boxing-glove::after {
-  content: "🥊";
-}
-
+#emoji-wrestling::after,
 #emoji-wrestling::before {
   content: "🤼";
 }
 
-#emoji-wrestling::after {
-  content: "🤼";
-}
-
+#emoji-ballet-shoes::after,
 #emoji-ballet-shoes::before {
   content: "🩰";
 }
 
-#emoji-ballet-shoes::after {
-  content: "🩰";
-}
-
+#emoji-woman-dancing::after, 
 #emoji-woman-dancing::before {
   content: "💃";
 }
 
-#emoji-woman-dancing::after {
-  content: "💃";
-}
-
+#emoji-man-dancing::after, 
 #emoji-man-dancing::before {
-  content: "🕺";
-}
-
-#emoji-man-dancing::after {
   content: "🕺";
 }
 
