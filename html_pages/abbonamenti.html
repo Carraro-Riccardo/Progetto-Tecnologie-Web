@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
-    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
+
     <title>Abbonamenti - GagGym</title>
+    <meta name="description" content="Scegli l'abbonamento alla palestra GagGym più adatto a te." />
+    <meta name="keywords" content="GagGym abbonamenti, abbonamento, abbonamento, iscrizione, nuovo abbonamento, nuova iscrizione" />
   </head>
   <body>
     <header class="main">
@@ -30,15 +33,15 @@
           <!--carta-->
           <li>
             <a
-              id="@@nome-abbonamento@@"
-              href="compra-abbonamento.php?abbonamento=@@nome-abbonamento@@"
+              id="abbonamento_@@id_abbonamento@@"
+              href="./compra_abbonamento.php?abbonamento=@@id_abbonamento@@"
               class="card"
             >
               <div class="description">
-                <h3>@@nome-abbonamento@@</h3>
+                <h2>@@nome-abbonamento@@</h2>
                 <section class="data-abbonamenti">
-                  <p>Validita: @@durata@@ giorni</p>
-                  <p>Costo: @@costo@@</p>
+                  <p>Validità: @@durata@@ giorni</p>
+                  <p>Costo: @@costo@@ €</p>
                 </section>
               </div>
             </a>

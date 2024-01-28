@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" id="mainAdmin">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
-    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
     <title>Amministrazione - GagGym</title>
   </head>
   <body>
@@ -13,34 +13,28 @@
       <nav id="nav-principale" aria-label="navigazione">
         <div class="container">
           <div class="logo-title-holder">
-            <a href="index.php" class="logo-holder">
+            <a href="./index.php" aria-label= "Vai alla homepage" aria-hidden= "true" tabindex= "-1">
               <img class="logo" src="./assets/imgs/logo.png" alt="Homepage" />
             </a>
-            <h1 class="site-title">GagGym</h1>
+            <h1 class="site-title"><a href="./index.php">GagGym</a></h1>
           </div>
         </div>
-        <button id="hamburger" aria-expanded="true">
+        <button id="hamburger" aria-expanded="true" aria-controls="main-nav">
           <span lang="en">Menu Admin</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
             <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
           </svg>
         </button>
-        <div class="main-nav">
+        <div class="main-nav" id="main-nav">
           <ul class="container">
             <li>
               <a href="./admin_landing.php" aria-current="page"><span lang="en">Home Admin</span></a>
             </li>
             <li>
-              <a href="./admin_utenti.php">Gestione Utenti</a>
+              <a href="./admin_amministrazione.php">Gestione Utenti</a>
             </li>
             <li>
-              <a href="#">Modifica Abbonamenti</a>
-            </li>
-            <li>
-              <a href="#">Modifica Macchinari</a>
-            </li>
-            <li>
-              <a href="./admin_profile.php">Gestione Profilo</a>
+              <a href="./admin_amministrazione.php#GESTIONE_ABBONAMENTI">Modifica Abbonamenti</a>
             </li>
             @@logout@@
           </ul>
@@ -53,49 +47,70 @@
         </ol>
       </nav>
     </header>
-    <main id=mainAdmin>
+    <main>
       <h1 class="normalPageTitle"><span lang="en">Home</span> amministrazione</h1>
       <ul class="container-metriche">
-        <!--Totale Abbonamenti Validi-->
-        <li class="metrica">
-          <h3>Abbonamenti Validi</h3>
-          <p>@@nAbbVal@@</p>
-          <a>Maggiori dettagli</a>
-        </li>
-        <!--Fine Totale Abbonamenti Validi-->
-        <!--Totale Incassi mese-->
-        <li class="metrica">
-          <h3>Incassi mese</h3>
-          <p>@@incassi@@ &euro;</p>
-          <a>Maggiori dettagli</a>
-        </li>
-        <!--Fine Incassi mese-->
         <!--Totale certificati-->
         <li class="metrica">
           <h3><abbr title="certificato medico">CM</abbr> da convalidare</h3>
           <p>@@certificati@@</p>
-          <a>Maggiori dettagli</a>
+          <a href="./admin_utenti.php#GESTIONE_UTENTI">Maggiori dettagli</a>
         </li>
         <!--Fine Totale certificati-->
         <!--Totale utenti registrati-->
         <li class="metrica">
           <h3>Totale utenti</h3>
           <p>@@utenti@@</p>
-          <a>Maggiori dettagli</a>
+          <a href="./admin_utenti.php#GESTIONE_ABBONAMENTI">Maggiori dettagli</a>
         </li>
         <!--Fine Totale utenti registrati-->
+        <!--Totale Abbonamenti Validi-->
+        <li class="metrica">
+          <h3>Abbonamenti Validi</h3>
+          <p>@@nAbbVal@@</p>
+        </li>
+        <!--Fine Totale Abbonamenti Validi-->
+        <!--Totale Incassi mese-->
+        <li class="metrica">
+          <h3>Incassi mese</h3>
+          <p>@@incassi@@ &euro;</p>
+        </li>
+        <!--Fine Incassi mese-->
       </ul>
       
       <ul class="container-metriche">
         <li class="metrica">
           <h3>Andamento incassi ultimi 5 mesi</h3>
           @@graficoIncassi@@
+          <table aria-describedby="desc_incassi">
+            <caption class="screen-reader-only" id="desc_incassi">Tabella incassi ultimi 5 mesi</caption>
+            <thead>
+              <th scope="col">Mese</th>
+              <th scope="col">Incasso</th>
+            </thead>
+            <tbody>
+              @@tabellaIncassi@@
+            </tbody>
+          </table>
+          <span class="screen-reader-only" id="desc_incassi">Tabella indicante l'andamento degli incassi negli ultimi 5 mesi</span>
         </li>
         <li class="metrica">
           <h3>Andamento utenti ultimi 5 mesi</h3>
           @@graficoUtenti@@
+          <table aria-describedby="desc_utenti">
+            <caption class="screen-reader-only" id="desc_utenti">Tabella incassi ultimi 5 mesi</caption>
+            <thead>
+              <th scope="col">Mese</th>
+              <th scope="col">Utenti</th>
+            </thead>
+            <tbody>
+              @@tabellaUtenti@@
+            </tbody>
+          </table>
+          <span class="screen-reader-only" id="desc_utenti">Tabella indicante l'andamento degli utenti negli ultimi 5 mesi</span>
         </li>
       </ul>
     </main>
+    @@footer@@
   </body>
 </html>

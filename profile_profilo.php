@@ -16,6 +16,11 @@ if(isset($_SESSION["user_id"])){
         exit;
     }
     
+    if(isset($_SESSION["success"])){
+        $page = str_replace("@@error@@", "<p id='success-message'>".$_SESSION["success"]."</p>", $page);
+        unset($_SESSION["success"]);
+    }else $page = str_replace("@@error@@", "", $page);
+    
     $page = str_replace("@@qrCode@@", "<img class='qr_code' src='qr_generator.php' alt='qr code'/>", $page);
     $page = str_replace("@@username@@", $dati_result["username"], $page);
     $page = str_replace("@@nome@@", $dati_result["nome"], $page);

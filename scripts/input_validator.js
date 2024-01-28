@@ -85,3 +85,111 @@ export function checkPassword(password) {
     
     return "";
   }
+
+export function checkMessage(message){
+  var messageLength = 1000;
+
+  if (message === "") {
+    return "Il campo messaggio non può essere vuoto.\n";
+  } else if (message.length > messageLength) {
+    return "Il campo messaggio non può superare " + messageLength + " caratteri.\n";
+  }
+
+  return "";
+}
+export function checkCreditCard(creditCard) {
+  var creditCardRegex = /^[0-9]{16}$/;
+
+  if (creditCard === "") {
+    return "Il campo numero carta non può essere vuoto.\n";
+  } else if (!creditCard.match(creditCardRegex)) {
+    return "Il campo numero carta deve contenere solo 16 cifre.\n";
+  }
+
+  return "";
+}
+
+export function checkCVV(cvv) {
+  var cvvRegex = /^[0-9]{3}$/;
+
+  if (cvv === "") {
+    return "Il campo CVV non può essere vuoto.\n";
+  } else if (!cvv.match(cvvRegex)) {
+    return "Il campo CVV deve contenere solo 3 cifre.\n";
+  }
+
+  return "";
+}
+
+
+export function checkDataScadenza(data) {
+  var regexDataScadenza = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+
+  if (data === "") {
+    return "Il campo data di scadenza non può essere vuoto.\n";
+  } else if (!data.match(regexDataScadenza)) {
+    return "La data di scadenza deve essere valida e nel formato MM/AA.\n";
+  }
+
+  var oggi = new Date();
+  var annoCorrente = oggi.getFullYear() % 100;
+  var meseCorrente = oggi.getMonth() + 1;
+
+  var [meseScadenza, annoScadenza] = data.split("/").map(Number);
+
+  if (annoScadenza < annoCorrente || (annoScadenza === annoCorrente && meseScadenza < meseCorrente)) {
+    return "La data di scadenza non può essere nel passato.\n";
+  }
+
+  return "";
+}
+
+export function checkDataScadenzaCertificato(data) {
+  var dateParts = data.split("/");
+
+  if (dateParts.length === 3 && dateParts[0].length === 2 && dateParts[1].length === 2 && dateParts[2].length === 4) {
+      var day = parseInt(dateParts[0], 10);
+      var month = parseInt(dateParts[1], 10);
+      var year = parseInt(dateParts[2], 10);
+
+      var date = new Date(year, month - 1, day);
+      if (date && date.getMonth() + 1 === month && date.getDate() === day && date.getFullYear() === year) {
+          var today = new Date();
+
+          if (date > today) {
+              return "";
+          } else {
+              return "Data non valida, deve essere una data futura.";
+          }
+      } else {
+          return "Data inserita non valida";
+      }
+  } else {
+      return "Il formato della data non è corretto: deve essere GG/MM/AAAA";
+  }
+}
+
+export function checkDurata(durata){
+  var durataRegex = /^[0-9]+$/;
+
+  if (durata === "") {
+    return "Il campo durata non può essere vuoto.\n";
+  } else if (!durata.match(durataRegex)) {
+    return "Il campo durata deve contenere solo numeri.\n";
+  }
+
+  return "";
+}
+
+//price can have decimals
+export function checkPrezzo(prezzo){
+  var prezzoRegex = /^[0-9]+(\.[0-9]{1,2})?$/;
+
+  if (prezzo === "") {
+    return "Il campo prezzo non può essere vuoto.\n";
+  } else if (!prezzo.match(prezzoRegex)) {
+    return "Il campo prezzo deve contenere solo cifre con massimo 2 decimali.\n";
+  }
+
+  return "";
+}

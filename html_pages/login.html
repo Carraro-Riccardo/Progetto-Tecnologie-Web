@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
     <script type="module" src="./scripts/login_validator.js"></script>
-    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
     <title>Log in - GagGym</title>
+    <meta name="description" content="Accedi al tuo profilo della palestra GagGym." />
+    <meta name="keywords" content="GagGym, login, accedi, registrati, profilo" />
   </head>
   <body>
     <header class="main">
@@ -23,7 +25,7 @@
     <main>
       <h1 class="normalPageTitle"><span lang="en">Log in</span></h1>
       @@error@@
-      <form action="login_handler.php" method="post" class="user-data-container" id="loginForm">
+      <form action="./login_handler.php" method="post" class="user-data-container" id="loginForm">
         <fieldset>
           <legend class="screen-reader-only"><span lang="en">Log in</span></legend>
           <div class="input-field">
@@ -48,7 +50,7 @@
           </div>
           <div class="confirmButtons">
             <button type="submit" class="submitBtn">Login</button>
-            <p>Niente <span lang="en">account</span>? <a href="register.php">Registrati ora</a></p>
+            <p class="registrati-login">Niente <span lang="en">account</span>? <a href="./register.php">Registrati ora</a></p>
           </div>
         </fieldset>
       </form>

@@ -15,7 +15,9 @@
 
   /*!Generale*/
   --background-color: #da6202;
-  --visitedLinkColor: red;
+  --h1a: #fff;
+  --background-color-index-content: #000;
+  --index-content-color-h2-p: #fff;
 
   /*!Header*/
   --headerBackgroundColor: #000;
@@ -29,6 +31,7 @@
   --HMItemTxtColor: #fff;
   --HMItemBgColor: #262262;
   --HMItemBgHover: #090816;
+  --visitedLinkColor: #f9ff00;
 
   /*!Breadcrumb*/
   --breadcrumbBgColor: #7a0000;
@@ -39,6 +42,8 @@
   --registerNowBtnBorderColor: #000;
   --registerNowBtnTxtColor: #fff;
   --titleSectionBgColor: #ff9947;
+  --text-shadow-primary: #fff;
+  --text-shadow-secondary: #000;
 
   /*!Titolo pagina*/
   --pageTitleBgColor: #000;
@@ -47,16 +52,31 @@
   /*!Cards*/
   --cardTxtColor: #fff;
   --cardBgColor: #000;
+  --visitedCard: #600d0d;
+  --linkColor: white;
+  --cardDescription: white;
+  --h2TitleCard: #cf8607;
 
   /*!Form*/
+  --background-color-input-field-label: #fff;
   --formBtnBgColor: #000;
   --formBtnTxtColor: #fff;
   --formLegendTxtColor: #fff;
   --disabledInputBgColor: #d3d3d3;
+  --formInputBgColor: #fff;
+  --background-color-registrati-login: #000;
+  --color-registrati-login: #fff;
+  --color-a-confirmButton :#fff;
+
+  /*!Btn cancel*/
+  --background-color-cancelBtn: #fff;
+  --color-cancelBtn: #000;
+  --borderColor-cancelBtn: #000;
 
   /*!Footer*/
   --footerBgColor: #000;
   --footerTxtColor: #9f9f9f;
+  --footerVisitedLinkColor: white;
 
   /*!Tabelle*/
   --headTable: #8f2444;
@@ -73,21 +93,20 @@
   --currentTabTxtColor: #fff;
 
   /*!Pulsante logout*/
-  --logoutBtnBgColor: #7a0000;
-  --logoutBtnBorderColor: #000;
+  --deleteBtnBgColor: #7a0000;
+  --deleteBtnBorderColor: #000;
 
   /*!Messaggio di errore*/
   --errorMessageBgColor: #b40000;
   --errorMessageTxtColor: #fff;
 
+  /*!Messaggio di successo*/
+  --successMessageBgColor: #195919;
+  --successMessageTxtColor: #fff;
+
   /*!Nessun risultato*/
   --emptyResultBgColor: #000;
   --emptyResultTxtColor: #fff;
-
-  --linkColor: white;
-  --cardDescription: white;
-  --h2TitleCard: #cf8607;
-  --titlePage: white;
 
   /*!paragrafo Qr*/
   --paragraphQrBgColor: #000;
@@ -95,11 +114,26 @@
 
   /*!Pagina Admin*/
   --adminPageBackground: #b5a382;
+  --titleLabel : rgb(0, 0, 0);
   --metricaBgColor: #fff;
   --metricaTxtColor: #000;
   --metricaBorderColor: #7a0000;
   --metricaTitleBgColor: #7a0000;
   --metricaTitleTxtColor: #fff;
+  --box-shadow-li-metrica: #000;
+  --li-metrica-a: #0000ff;
+
+  /*!Pagina Chi Siamo*/
+  --background-color-componenti-dt: #000;
+  --color-componenti-dt:#fff;
+  --background-color-componenti-dd: #7a0000;
+  --border-color-componenti-dt: #000;
+  --border-color-componenti-dd: #000;
+  --border-color-componente-img: #fff;
+  --color-componente: #fff;
+
+  /*!Pagina Abbonamenti*/
+  --color-p-data-abbonamenti: #fff;
 }
 
 /*!***********************/
@@ -107,6 +141,7 @@
 /*! STILI GENERALI */
 
 /*!***********************/
+
 
 * {
   margin: 0;
@@ -138,6 +173,10 @@ main {
   width: 100vw;
 }
 
+main {
+  height: 100%;
+}
+
 .screen-reader-only {
   height: 1px;
   left: -10000px;
@@ -145,6 +184,37 @@ main {
   position: absolute;
   top: auto;
   width: 1px;
+}
+
+#error-message {
+  background-color: var(--errorMessageBgColor);
+  border-radius: 1em;
+  color: var(--errorMessageTxtColor);
+  margin: 0.5em auto;
+  padding: 0.5em;
+  text-align: center;
+  width: 80%;
+}
+
+#success-message {
+  background-color: var(--successMessageBgColor);
+  border-radius: 1em;
+  color: var(--successMessageTxtColor);
+  margin: 0.5em auto;
+  padding: 0.5em;
+  text-align: center;
+  width: 80%;
+}
+
+a.torna-su{
+  border-radius: 2em;
+  background-color: var(--breadcrumbBgColor);
+  color: var(--breadcrumbTxtColor);
+  display: block;
+  width: 5em;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.5em;
 }
 
 /*!***********************/
@@ -208,18 +278,8 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(91px, 1fr));
 }
 
-@media (min-width: 660px) {
-  #nav-principale ul {
-    flex-direction: row;
-  }
-
-  #nav-principale ul li {
-    flex-grow: 1;
-  }
-}
-
 #nav-principale ul li a,
-#nav-principale ul li span {
+#nav-principale ul li > span {
   color: var(--HMItemTxtColor);
   display: block;
   font-family: var(--font-body-family);
@@ -229,8 +289,15 @@ main {
   transition: 0.4s ease-in;
 }
 
-#nav-principale ul li > span {
-  padding: 0;
+#nav-principale ul li .currentPage,
+#nav-principale ul li .currentPage > span {
+  color: var(--visitedLinkColor);
+  padding: 10px;
+}
+
+#nav-principale ul li a:visited,
+#nav-principale ul li a:visited span {
+  color: var(--visitedLinkColor);
 }
 
 #nav-principale ul li a:focus,
@@ -241,6 +308,7 @@ main {
 .logo {
   max-height: 10em;
   width: 100%;
+  height: 100%;
 }
 
 .logo-holder {
@@ -275,6 +343,7 @@ main {
   height: 3em;
   width: 3em;
   fill: var(--closedHamburgerColor);
+  padding-right: 2%;
 }
 
 #hamburger #expanded {
@@ -319,7 +388,7 @@ main {
 }
 
 h1 a {
-  color: white;
+  color: var(--h1a);
   text-decoration: none;
 }
 
@@ -358,7 +427,8 @@ h1 a {
 }
 
 a:active,
-a:focus {
+a:focus,
+a:hover {
   transform: scale(1.06);
   transition: 0.2s ease-in;
 }
@@ -393,23 +463,23 @@ a:focus {
 }
 
 #corsi:before {
-  background: url(../imgs/courses.jpg) 50% / cover;
+  background: url(../imgs/courses.webp) 50% / cover;
 }
 
 #macchinari:before {
-  background: url(../imgs/macchinari.jpg) 50% / cover;
+  background: url(../imgs/macchinari.webp) 50% / cover;
 }
 
 #abbonamenti:before {
-  background: url(../imgs/courses.jpg) 50% / cover;
+  background: url(../imgs/abbonamenti.webp) 50% / cover;
 }
 
 #chiSiamo:before {
-  background: url(../imgs/chiSiamo.jpg) 50% / cover;
+  background: url(../imgs/chiSiamo.webp) 50% / cover;
 }
 
 #schede:before {
-  background: url(../imgs/schede.png) 50% / cover;
+  background: url(../imgs/schede.webp) 50% / cover;
 }
 
 .card .description {
@@ -430,7 +500,12 @@ a:focus {
   width: 100%;
 }
 
-.card .description h3 {
+a.card:visited .description {
+  background-color: var(--visitedCard);
+}
+
+.card .description h3,
+.card .description h2 {
   color: var(--cardTxtColor);
   font-size: clamp(2em, 10vw, 3em);
   font-weight: 700;
@@ -442,7 +517,7 @@ a:focus {
   margin: 0 auto 3em;
 }
 
-#cards-container ul {
+#cards-container > ul {
   display: grid;
   list-style: none;
   margin: 1.5em;
@@ -464,8 +539,8 @@ a:focus {
 }
 
 #mainHomePage {
-  background: url(../imgs/background-nobg.png) no-repeat 50%;
-  background-position-y: 3em;
+  background: url(../imgs/background-nobg.webp) no-repeat 50%;
+  background-position-y: 5em;
 }
 
 .normalPageTitle {
@@ -474,13 +549,14 @@ a:focus {
   padding: 1em 0;
   text-align: center;
   width: 100%;
+  line-height: 1.3em;
 }
 
 h1.homePageTitle {
   font-family: var(--font-body-family-bold), sans-serif;
   font-size: 4em;
   text-align: center;
-  text-shadow: -2px 0 #fff, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  text-shadow: -2px 0 var(--text-shadow-primary), 0 1px var(--text-shadow-secondary), 1px 0 var(--text-shadow-secondary), 0 -1px var(--text-shadow-secondary);
 }
 
 .titleSection p {
@@ -500,7 +576,7 @@ a.registerNow {
 }
 
 .index-content {
-  background-color: #000;
+  background-color: var(--background-color-index-content);
   padding: 1.5em 0.5em;
 }
 
@@ -510,7 +586,7 @@ a.registerNow {
 
 .index-content h2,
 .index-content p {
-  color: #fff;
+  color: var(--index-content-color-h2-p);
   text-align: center;
 }
 
@@ -530,6 +606,7 @@ section#find-us h2 {
 
 footer {
   background-color: var(--footerBgColor);
+  font-size: 1.2em;
   bottom: 0;
   display: grid;
   gap: 1em;
@@ -538,9 +615,19 @@ footer {
   padding: 1em;
 }
 
+footer span {
+  color: var(--footerTxtColor);
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
 footer,
 footer a {
   color: var(--footerTxtColor);
+}
+
+footer a:visited {
+  color: var(--visitedLinkColor);
 }
 
 footer a:hover {
@@ -571,6 +658,8 @@ footer a:hover {
 
 #socials li {
   display: inline-block;
+  margin: 0.5em;
+  margin-left: 0em;
 }
 
 #socials li,
@@ -583,17 +672,6 @@ footer a:hover {
 /*! PAGINA LOGIN */
 
 /*!***********************/
-
-#error-message {
-  background-color: var(--errorMessageBgColor);
-  border-radius: 1em;
-  color: var(--errorMessageTxtColor);
-  margin: 0.5em auto;
-  padding: 0.5em;
-  text-align: center;
-  width: 80%;
-}
-
 .user-data-container {
   display: flex;
   flex-direction: column;
@@ -621,13 +699,23 @@ footer a:hover {
   border-bottom-left-radius: 0;
 }
 
-.user-data-container input:disabled {
+.user-data-container input:disabled,
+.user-data-container input[readonly] {
   background-color: var(--disabledInputBgColor);
 }
 
-.user-data-container input[type="submit"] {
+ input[type="submit"] {
   text-align: center;
+  border-radius: 0.5em;
 }
+
+ input[type="submit"]:hover,
+ input[type="submit"]:focus,
+ input[type="submit"]:active {
+  transform: scale(1.06);
+  transition: 0.2s ease-in;
+}
+
 
 .user-data-container legend {
   color: var(--formLegendTxtColor);
@@ -640,14 +728,19 @@ footer a:hover {
   column-gap: 2em;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   row-gap: 1em;
+}
+
+.confirmButtons a{
+  color: var(--color-a-confirmButton);
 }
 
 .confirmButtons,
 .submitBtn {
   align-items: center;
   display: flex;
+  text-align: center;
 }
 
 .submitBtn {
@@ -662,6 +755,7 @@ footer a:hover {
   min-width: 10em;
   outline: none;
   text-decoration: none;
+  padding: 0.2em;
 }
 
 .confirmButtons p {
@@ -675,6 +769,20 @@ footer a:hover {
   width: 100%;
 }
 
+.registrati-login {
+  background-color: var(--background-color-registrati-login);
+  color: var(--color-registrati-login);
+  border: 1px solid var(--borderColor-cancelBtn);
+  border-radius: 0.3em;
+  flex-grow: 1;
+  padding: 0.5em 0;
+  width: inherit;
+}
+
+.registrati-login a:visited{
+  color: var(--visitedLinkColor);
+}
+
 /*!***********************/
 
 /*! PAGINA ABBONAMENTI */
@@ -685,18 +793,61 @@ section.data-abbonamenti {
   column-gap: 3em;
   display: flex;
   justify-content: center;
+  padding-top: 0.5em;
+  color: var(--cardTxtColor);
 }
 
-#Mensile:before {
-  background: url(../imgs/abbonamenti_images/Mensile.png) 50% / cover;
+.data-abbonamenti p{
+  color: var(--color-p-data-abbonamenti);
 }
 
-#Trimestrale:before {
-  background: url(../imgs/abbonamenti_images/Trimestrale.png) 50% / cover;
+#abbonamento_1:before {
+  background: url(../imgs/abbonamenti_images/1.webp) 50% / cover;
 }
 
-#Annuale:before {
-  background: url(../imgs/abbonamenti_images/Annuale.png) 50% / cover;
+#abbonamento_2:before {
+  background: url(../imgs/abbonamenti_images/2.webp) 50% / cover;
+}
+
+#abbonamento_3:before {
+  background: url(../imgs/abbonamenti_images/3.webp) 50% / cover;
+}
+
+/*!***********************/
+
+/*! PAGINA COMPRA ABBONAMENTI */
+
+/*!***********************/
+
+#container-abbonamento-login {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 2em;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-abbonamento-login .card {
+  flex: 1 1 0;
+  margin: 1em;
+  max-width: 30em;
+  min-width: 17em;
+  min-height: 20em;
+}
+
+#container-abbonamento-login > form {
+  flex: 1 1 0;
+  min-width: 32em;
+  margin: 1em;
+}
+
+#container-abbonamento-login section.data-abbonamenti {
+  column-gap: 1em;
+}
+
+#data-scadenza-cvc {
+  display: flex;
+  flex-direction: column;
 }
 
 /*!***********************/
@@ -714,7 +865,7 @@ p.empty-result {
 .tabTitle,
 p.empty-result {
   border-radius: 0.5em;
-  margin: 0 auto;
+  margin: 0 auto 2em auto;
   padding: 0.5em;
   text-align: center;
 }
@@ -723,6 +874,7 @@ p.empty-result {
   background-color: var(--tabTitleBgColor);
   color: var(--tabTitleTxtColor);
   width: fit-content;
+  margin-bottom: 0.5em;
 }
 
 #schede-utente {
@@ -762,7 +914,7 @@ p.empty-result {
 }
 
 #tabSchede:before {
-  background-image: url(../imgs/profile_icons/schede.png);
+  background-image: url(../imgs/profile_icons/schede.webp);
 }
 
 #tabAbbonamenti:before,
@@ -778,11 +930,11 @@ p.empty-result {
 }
 
 #tabAbbonamenti:before {
-  background-image: url(../imgs/profile_icons/abbonamenti.png);
+  background-image: url(../imgs/profile_icons/abbonamenti.webp);
 }
 
 #tabCertificato:before {
-  background-image: url(../imgs/profile_icons/certificato.png);
+  background-image: url(../imgs/profile_icons/certificato.webp);
 }
 
 #tabCertificato:before,
@@ -798,18 +950,26 @@ p.empty-result {
 }
 
 #tabProfilo:before {
-  background-image: url(../imgs/profile_icons/profile.png);
+  background-image: url(../imgs/profile_icons/profile.webp);
+}
+
+#container-scheda-utente {
+  display: flex;
+  flex-direction: column;
+  max-width: 50em;
 }
 
 .schede-container {
   list-style: none;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin: 2em 0.5em 0 0.5em;
+}
+
+.schede-container > li {
+  margin: 1em 2em;
 }
 
 .scheda {
   list-style: none;
-  margin-bottom: 3em;
 }
 
 .schede-container h2 {
@@ -888,6 +1048,7 @@ table caption {
 
 .tb-container {
   padding: 0 0.5em;
+  max-width: 50em;
 }
 
 /*!***********************/
@@ -896,9 +1057,9 @@ table caption {
 
 /*!***********************/
 
-#logout {
-  background-color: var(--logoutBtnBgColor);
-  border: 1px solid var(--logoutBtnBorderColor);
+.deleteBtn {
+  background-color: var(--deleteBtnBgColor);
+  border: 1px solid var(--deleteBtnBorderColor);
   border-radius: 0.5em;
   color: var(--formBtnTxtColor);
   margin-left: auto;
@@ -908,24 +1069,25 @@ table caption {
   width: 79%;
 }
 
-#logout,
+.deleteBtn,
 .cancelBtn {
   text-align: center;
   text-decoration: none;
+  max-width: 30em;
 }
 
-.cancelBtn {
-  background-color: #fff;
-  border: 1px solid #000;
+.confirmButtons .cancelBtn {
+  background-color: var(--background-color-cancelBtn);
+  color: var(--color-cancelBtn);
+  border: 1px solid var(--borderColor-cancelBtn);
   border-radius: 0.3em;
-  color: #000;
   flex-grow: 1;
   padding: 0.5em 0;
   width: inherit;
 }
 
 .form-modifica-psw {
-  margin-top: 10%;
+  margin-top: 3em;
 }
 
 .qr_code {
@@ -956,7 +1118,7 @@ table caption {
 }
 
 .input-field label {
-  background-color: #fff;
+  background-color: var(--background-color-input-field-label);
   display: flex;
   flex-flow: column;
   font-family: osvald-bold, sans-serif;
@@ -992,6 +1154,49 @@ caption#caption-certificato {
   padding: 0.5em;
 }
 
+.certificatoCell {
+  background-color: var(--tableBgColor);
+}
+
+.certificatoCell a::after {
+  content: "";
+  display: inline-block;
+  background-image: url(../imgs/profile_icons/pdf_icon.webp);
+  background-position-x: 0.5em;
+  width: 30px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#form-certificato {
+  width: 100%;
+  margin: 1em auto;
+}
+
+#form-certificato fieldset {
+  border: none;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#form-certificato input[type="submit"] {
+  background-color: var(--formBtnBgColor);
+  border-radius: 0.5em;
+  color: var(--formBtnTxtColor);
+  font-size: 1.2em;
+  margin: 0 auto;
+  padding: 0.5em 0;
+  width: 100%;
+}
+
+#form-certificato input {
+  background-color: var(--formInputBgColor);
+  padding-top: 0.5em;
+  border-radius: 0em;
+  border-top-right-radius: 0.3em;
+}
+
 /*!**************************/
 
 /*! PAGINA ADMIN landing */
@@ -1016,11 +1221,10 @@ li.metrica {
   background-color: var(--metricaBgColor);
   border: 3px solid var(--metricaBorderColor);
   border-radius: 1em;
-  box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px var(--box-shadow-li-metrica);
   display: flex;
   flex: 1 1 10em;
   flex-direction: column;
-  gap: 1em;
   justify-content: center;
   min-height: 10em;
   overflow: hidden;
@@ -1044,10 +1248,24 @@ li.metrica p {
 }
 
 li.metrica a {
-  color: blue;
+  color: var(--li-metrica-a);
   text-align: center;
   text-decoration: underline;
   width: max-content;
+}
+
+li.metrica table {
+  max-width: 70%;
+}
+
+li.metrica table thead th:first-child{
+  border-top-left-radius: 1.5em;
+  border:none;
+}
+
+li.metrica table thead th:last-child{
+  border-top-right-radius: 1.5em;
+  border:none;
 }
 
 img {
@@ -1076,7 +1294,9 @@ img {
   flex-direction: column;
   box-shadow: 0 0 30px rgba(122, 0, 0, 100);
   margin: 2em auto;
-  max-width: 90%;
+  width: 85%;
+  max-width: 60em;
+  height: fit-content;
 }
 
 .card-corso-description h2 {
@@ -1088,23 +1308,17 @@ img {
 
 .card-corso-description h3 {
   font-size: 1.4em;
-  padding-bottom: 1%;
-  padding-top: 4%;
+  padding-bottom: 0.3em;
+  padding-top: 1em;
 }
 
+#emoji-man-cartwheeling::after,
 #emoji-man-cartwheeling::before {
   content: "🤸‍♂️";
 }
 
-#emoji-man-cartwheeling::after {
-  content: "🤸‍♂️";
-}
-
+#emoji-man-lifting-weights::after,
 #emoji-man-lifting-weights::before {
-  content: "🏋";
-}
-
-#emoji-man-lifting-weights::after {
   content: "🏋";
 }
 
@@ -1116,59 +1330,38 @@ img {
   content: "👵";
 }
 
+#emoji-person-in-lotus-position::after,
 #emoji-person-in-lotus-position::before {
   content: "🧘";
 }
 
-#emoji-person-in-lotus-position::after {
-  content: "🧘";
-}
-
+#emoji-trophy::after,
 #emoji-trophy::before {
   content: "🏆";
 }
 
-#emoji-trophy::after {
-  content: "🏆";
-}
-
+#emoji-boxing-glove::after,
 #emoji-boxing-glove::before {
   content: "🥊";
 }
 
-#emoji-boxing-glove::after {
-  content: "🥊";
-}
-
+#emoji-wrestling::after,
 #emoji-wrestling::before {
   content: "🤼";
 }
 
-#emoji-wrestling::after {
-  content: "🤼";
-}
-
+#emoji-ballet-shoes::after,
 #emoji-ballet-shoes::before {
   content: "🩰";
 }
 
-#emoji-ballet-shoes::after {
-  content: "🩰";
-}
-
+#emoji-woman-dancing::after, 
 #emoji-woman-dancing::before {
   content: "💃";
 }
 
-#emoji-woman-dancing::after {
-  content: "💃";
-}
-
+#emoji-man-dancing::after, 
 #emoji-man-dancing::before {
-  content: "🕺";
-}
-
-#emoji-man-dancing::after {
   content: "🕺";
 }
 
@@ -1179,29 +1372,9 @@ img {
 .emoji-time::after {
   content: "📅";
 }
-/*
-#immagine-corso-pilates {
-  background: url("../imgs/corsi_image/pilates.jpg") center/cover;
-  content: "";
-}
-
-#immagine-corso-yoga {
-  background: url("../imgs/corsi_image/yoga.jpg") center/cover;
-  content: "";
-}
-
-#immagine-corso-box {
-  background: url("../imgs/corsi_image/box.jpg") center/cover;
-  content: "";
-}
-
-#immagine-corso-danza {
-  background: url("../imgs/corsi_image/danza.jpg") center/cover;
-  content: "";
-}*/
 
 #corso-pilates::before {
-  background: url(../imgs/corsi_image/pilates.jpg) center/cover;
+  background: url(../imgs/corsi_image/pilates.webp) center/cover;
   content: "";
   height: 12em;
   display: block;
@@ -1210,7 +1383,7 @@ img {
 }
 
 #corso-yoga::before {
-  background: url(../imgs/corsi_image/yoga.jpg) center/cover;
+  background: url(../imgs/corsi_image/yoga.webp) center/cover;
   content: "";
   height: 12em;
   display: block;
@@ -1219,7 +1392,7 @@ img {
 }
 
 #corso-box::before {
-  background: url(../imgs/corsi_image/box.jpg) center/cover;
+  background: url(../imgs/corsi_image/box.webp) center/cover;
   content: "";
   height: 12em;
   display: block;
@@ -1228,27 +1401,12 @@ img {
 }
 
 #corso-danza::before {
-  background: url(../imgs/corsi_image/danza.jpg) center/cover;
+  background: url(../imgs/corsi_image/danza.webp) center/cover;
   content: "";
   height: 12em;
   display: block;
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
-}
-
-@media (min-width: 600px) {
-  #corso-pilates::before,
-  #corso-yoga::before,
-  #corso-box::before,
-  #corso-danza::before {
-    height: 100%;
-    width: 50%;
-    border-top-left-radius: 2em;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 2em;
-    position: absolute;
-    left: 0;
-  }
 }
 
 .card-corso-description {
@@ -1276,8 +1434,12 @@ img {
   color: var(--cardDescription);
 }
 
-.card-corso-description a {
+.card-corso-description a { 
   color: var(--linkColor);
+}
+
+.card-corso-description a:visited{
+  color: var(--visitedLinkColor);
 }
 
 .card-link {
@@ -1296,16 +1458,15 @@ img {
 
 #componenti {
   margin: auto;
-  width: 95%;
+  width: 90%;
   padding-top: 1em;
   padding-bottom: 2em;
-  /*max-width: 40%; per versione desktop*/
 }
 
 #componenti > dt {
-  background-color: black;
-  color: white;
-  border: 1px solid black;
+  background-color: var(--background-color-componenti-dt);
+  color: var(--color-componenti-dt);
+  border: 1px solid var(--border-color-componenti-dt);
   padding: 0.5em;
   font-size: 1.5em;
   border-top-left-radius: 1.5em;
@@ -1314,8 +1475,8 @@ img {
 }
 
 #componenti > dd {
-  background-color: white;
-  border: 1px solid black;
+  background-color: var(--background-color-componenti-dd);
+  border: 1px solid var(--border-color-componenti-dd);
   border-top: none;
   margin-bottom: 1em;
   border-bottom-left-radius: 1.5em;
@@ -1328,18 +1489,27 @@ img {
   height: 9em;
   object-fit: cover;
   object-position: center;
-  border: 5px solid #ffffff;
+  border: 5px solid var(--border-color-componente-img);
   margin: 0.5em 0;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 100));
 }
 
 .componente {
+  color: var(--color-componente);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   font-size: 1.2em;
+}
+
+.componente a{
+  color: var(--linkColor);
+}
+
+.componente a:visited{
+  color: var(--visitedLinkColor);
 }
 
 .componente dl dd,
@@ -1353,7 +1523,7 @@ img {
 }
 
 .componente dd {
-  margin-left: 9em;
+  margin-left: 7em;
 }
 
 #componenti ul {
@@ -1369,11 +1539,141 @@ img {
   flex-direction: column;
   flex-wrap: wrap;
   column-gap: 1em;
+  align-items: end;
+  margin-left: -2em;
 }
 
 .componente p {
   padding: 1em;
 }
+
+
+/************************/
+
+/* Amministrazione Palestra */
+
+/************************/
+ul.container-cards-admin {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  column-gap: 2em;
+}
+
+.cards-admin {
+  margin: 1em auto;
+  width: 60%;
+  background: white;
+  padding: 1.5em;
+  border-radius: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+  max-width: 15em;
+}
+
+.container-cards-admin dl {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 1em 0em;
+}
+
+.container-cards-admin dt {
+  color: white;
+  background: black;
+  padding: 0.2em;
+}
+
+.container-cards-admin dd {
+  border: 1px solid;
+  padding: 0.1em;
+}
+
+.cards-admin form, 
+.container-cards-admin form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+}
+
+.cards-admin form fieldset, 
+.container-cards-admin form fieldset {
+  border: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+
+
+/*!***********************/
+
+/*! PAGINA CONTATTACI */
+
+/*!***********************/
+.contactUs-container {
+  width: 80%;
+  padding: 0em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.contactUs-container p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+
+.contactUs-form input[type="text"],
+.contactUs-form input[type="email"] {
+  margin: 0em;
+  display: block;
+  width: 100%;
+  border: 1px solid #000000;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+  margin-top: 0em;
+  margin-bottom: 0.5em
+}
+
+.contactUs-form textarea {
+  resize: vertical;
+  border: 1px solid #000000;
+  padding-top: .5em;
+  width: 100%;
+  height: 12em;
+  display: block;
+  padding-left: 0.5em;
+}
+
+
+.contactUs-form button[type="submit"] {
+  border-style: none;
+  border-radius: 15px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  display: block;
+  padding: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.contactUs-form label{
+  color: var(--titleLabel);
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+}
+
 
 /*!***********************/
 
@@ -1381,13 +1681,65 @@ img {
 
 /*!***********************/
 
+@media (min-width: 320px) {
+  .logo {
+    max-height: 6em;
+    max-width: 7em;
+    min-width: 3em;
+    width: 100%;
+  }
+  
+  #cards-container {
+    max-width: 800px;
+  }
+
+  #container-abbonamento-login > form {
+    width: 100%;
+  }
+
+  #container-abbonamento-login form {
+    min-width: 100%;
+  }
+}
+
 @media (max-width: 420px) {
   #tabs li {
     min-width: 30px;
   }
 }
 
-@media (min-width: 725px) {
+@media (min-width: 600px) {
+  ul.container-cards-admin{
+    max-width: 60%;
+    margin: 1em auto;
+  }
+
+  #cards-container {
+    max-width: 100%;
+  }
+
+  .tb-container {
+    margin: 1em 15%;
+  }
+
+  #cards-container > ul {
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 2em;
+    justify-content: center;
+  }
+
+  .card {
+    min-width: 30em;
+  }
+
+  .user-data-container {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @media (min-width: 725px) {
   .schede-container {
     align-items: center;
     display: flex;
@@ -1408,30 +1760,99 @@ img {
     flex-direction: row;
     justify-content: center;
   }
+
+.contactUs-form {
+  margin: auto;
+  width: 100%; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (min-width: 320px) {
-  .logo {
-    max-height: 6em;
-    max-width: 7em;
-    min-width: 3em;
+  #data-scadenza-cvc {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
     width: 100%;
   }
-  
-  #cards-container {
-    max-width: 800px;
+
+  #container-abbonamento-login .user-data-container {
+    max-width: 80%;
+  }
+
+  #container-abbonamento-login form {
+    min-width: 30em;
+  }
+
+  .card-corso-description {
+    margin-left: calc(43% + 5em);
+  }
+
+  #corso-pilates::before,
+  #corso-yoga::before,
+  #corso-box::before,
+  #corso-danza::before {
+    height: 100%;
+    width: 50%;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 2em;
+    position: absolute;
+    left: 0;
   }
 }
 
-@media (min-width: 600px) {
-  .user-data-container {
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+@media (min-width: 660px) {
+  #nav-principale ul {
+    flex-direction: row;
   }
-  
-  .card-corso-description {
-    margin-left: calc(40% + 5em);
+
+  #nav-principale ul li {
+    flex-grow: 1;
+  }
+}
+
+@media (min-width: 725px) {
+  .schede-container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tb-container {
+    padding: 0 15%;
+  }
+
+  #container-scheda-utente{
+    padding: 0 15%;
+    margin: 0 auto;
+  }
+
+  .schede-container li {
+    width: fit-content;
+  }
+
+  .scheda {
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #componenti {
+    margin: auto;
+    width: 95vw;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-column-gap: 1em;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -1445,15 +1866,43 @@ img {
     max-width: 1000px;
     min-height: 1500px;
   }
-  
+
   .card {
-    height: 17em;
+    height: 18em;
+  }
+
+  #container-abbonamento-login > form {
+    max-width: 30em;
   }
   
   .user-data-container {
     max-width: 35%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  #form-certificato {
+    max-width: 50em;
+  }
+
+  #container-abbonamento-login .user-data-container {
+    max-width: 35%;
+  }
+}
+
+@media (min-width: 1300px) {
+  #componenti {
+    margin: auto;
+    width: 95vw;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 23vw 23vw 23vw 23vw;
+    grid-template-rows: auto auto;
+    grid-column-gap: 1em;
+    align-items: center;
+    justify-content: center;
   }
 }
 /************************/

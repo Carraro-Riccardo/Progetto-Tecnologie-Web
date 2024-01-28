@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./assets/css/phone.css" />
     <script src="./scripts/script.js"></script>
     <script type="module" src="./scripts/profile_edit_validator.js"></script>
-    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
     <title>Profilo - Profilo - GagGym</title>
   </head>
   <body>
@@ -16,7 +16,7 @@
         Ti trovi in:
         <ol>
           <li>
-            <a href="index.php"><span lang="en">Home</span></a>
+            <a href="./index.php"><span lang="en">Home</span></a>
           </li>
           <li><span aria-current="page">Profilo</span></li>
         </ol>
@@ -43,7 +43,7 @@
       @@errorMessageUserData@@
       <form
         id="editUserDataForm"
-        action="profile_profilo_edit.php"
+        action="./profile_profilo_edit.php"
         method="post"
         class="user-data-container"
       >
@@ -108,14 +108,14 @@
           </div>
           <div class="confirmButtons">
             <input type="submit" name="action" class="submitBtn" value="Salva" />
-            <a class="cancelBtn" href="profile_profilo.php">Annulla</a>
+            <a class="cancelBtn" href="./profile_profilo.php">Annulla</a>
           </div>
         </fieldset>
       </form>
       @@errorMessagePasswordChange@@
       <form
         id="editPasswordForm"
-        action="profile_profilo.php"
+        action="./profile_profilo_edit.php"
         method="post"
         class="user-data-container form-modifica-psw"
       >

@@ -34,10 +34,21 @@ try {
 
     
     $andamentoIncassi = $db->getAndamentoIncassi();
-    $andamentoIncassi = "<img src='./graph_generator.php?graph_data=".urlencode(json_encode($andamentoIncassi))."' alt='Andamento incassi' />";
-    $andamentoUtenti = $db->getAndamentoUtenti();
-    $andamentoUtenti = "<img src='./graph_generator.php?graph_data=".urlencode(json_encode($andamentoUtenti))."' alt='Andamento utenti' />";
+    $graficoIncassi = "<img src='./graph_generator.php?graph_data=".urlencode(json_encode($andamentoIncassi))."' alt='Andamento incassi' />";
     
+    $tabellaIncassi = "";
+    foreach($andamentoIncassi as $key => $value){
+        $tabellaIncassi .= "<tr><td><time datetime='".implode("-", array_reverse(explode("-", $key)))."'>{$key}</time></td><td>{$value}</td></tr>";
+    }
+    
+    $andamentoUtenti = $db->getAndamentoUtenti();
+    $graficoUtenti = "<img src='./graph_generator.php?graph_data=".urlencode(json_encode($andamentoUtenti))."' alt='Andamento utenti' />";
+    
+    $tabellaUtenti = "";
+    foreach($andamentoUtenti as $key => $value){
+        $tabellaUtenti .= "<tr><td><time datetime='".implode("-", array_reverse(explode("-", $key)))."'>{$key}</time></td><td>{$value}</td></tr>";
+    }
+
     unset($db);
 }catch(Exception $e) {
     unset($_SESSION["user_id"]);
@@ -49,7 +60,9 @@ $page = str_replace("@@nAbbVal@@", $abbonamenti_validi, $page);
 $page = str_replace("@@incassi@@", $incassi, $page);
 $page = str_replace("@@certificati@@", $certificati, $page);
 $page = str_replace("@@utenti@@", $utenti, $page);
-$page = str_replace("@@graficoIncassi@@", $andamentoIncassi, $page);
-$page = str_replace("@@graficoUtenti@@", $andamentoUtenti, $page);
+$page = str_replace("@@graficoIncassi@@", $graficoIncassi, $page);
+$page = str_replace("@@tabellaIncassi@@", $tabellaIncassi, $page);
+$page = str_replace("@@graficoUtenti@@", $graficoUtenti, $page);
+$page = str_replace("@@tabellaUtenti@@", $tabellaUtenti, $page);
 echo $page;
 ?>

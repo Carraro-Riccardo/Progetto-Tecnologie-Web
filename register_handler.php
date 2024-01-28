@@ -23,13 +23,21 @@ $passwordError = checkRegisterPassword($password, $confirmPassword);
 
 if (!empty($usernameError) || !empty($nomeError) || !empty($cognomeError) || !empty($emailError) || !empty($passwordError)) {
     $_SESSION["error"] = $usernameError . $nomeError . $cognomeError . $emailError . $passwordError;
-    header("Location: register.php");
+    header("Location: ./register.php");
     exit();
 }
 
+$register_result = "";
 try {
     $db = new Database();
-    $register_result = $db->register($username, $nome, $cognome, $email, $password);
+    try{
+        $register_result = $db->register($username, $nome, $cognome, $email, $password);
+    }catch(Exception $e){
+        unset($db);
+        $_SESSION["error"] = $e->getMessage();
+        header("Location: ./register.php");
+        exit();
+    }
     unset($db);
 }catch(Exception $e) {
     header("Location: ./error500.php");
@@ -37,16 +45,15 @@ try {
 }
 
 if($register_result) {
-    $_SESSION['user_id'] = $register_result['id'];
-    $_SESSION['username'] = $register_result['username'];
+    $_SESSION['user_id'] = $register_result['username'];
     $_SESSION['nome'] = $register_result['nome'];
     $_SESSION['cognome'] = $register_result['cognome'];
     $_SESSION['ruolo'] = $register_result['ruolo'];
-    header("Location: profile_schede.php");
+    header("Location: ./profile_schede.php");
     exit;
 } else {
     $_SESSION["error"] = "Errore interno durante la registrazione.";
-    header("Location: register.php");
+    header("Location: ./register.php");
     exit;
 }
 ?>

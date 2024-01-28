@@ -16,7 +16,7 @@ $passwordError = checkPassword($password);
 
 if (!empty($usernameError) || !empty($passwordError)) {
     $_SESSION["error"] = $usernameError . $passwordError;
-    header("Location: login.php");
+    header("Location: ./login.php");
     exit();
 }
 
@@ -26,20 +26,26 @@ try {
     unset($db);
 }catch(Exception $e) {
     $_SESSION["error"] = "Errore interno.";
-    header("Location: login.php");
+    header("Location: ./login.php");
     exit;
 }
 
 if($login_result) {
     session_start();
-    $_SESSION['user_id'] = $login_result['id'];
-    $_SESSION['username'] = $login_result['username'];
+    $_SESSION['user_id'] = $login_result['username'];
     $_SESSION['ruolo'] = $login_result['ruolo'];
-    header(($login_result['ruolo'] == "user")? "Location: profile_profilo.php" : "Location: admin_landing.php");
+
+    if(isset($_SESSION["redirect_to"])){
+        header("Location: ".$_SESSION["redirect_to"]);
+        unset($_SESSION["redirect_to"]);
+        exit;
+    }
+
+    header(($login_result['ruolo'] == "user")? "Location: ./profile_profilo.php" : "Location: ./admin_landing.php");
     exit;
 } else {
     $_SESSION["error"] = "Credenziali errate.";
-    header("Location: login.php");
+    header("Location: ./login.php");
     exit;
 }
 
