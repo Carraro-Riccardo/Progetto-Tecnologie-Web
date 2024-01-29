@@ -180,13 +180,23 @@ main {
   height: 100%;
 }
 
-.screen-reader-only {
+.skip-content, .screen-reader-only {
   height: 1px;
   left: -10000px;
   overflow: hidden;
   position: absolute;
   top: auto;
   width: 1px;
+  z-index: 0;
+}
+
+.skip-content:focus {
+  left: 0px;
+  z-index: 999;
+  width: auto;
+  height: auto;
+  background-color: white;
+  padding: 0.5em;
 }
 
 #error-message {
