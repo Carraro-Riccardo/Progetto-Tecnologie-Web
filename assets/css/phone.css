@@ -1655,7 +1655,8 @@ ul.container-cards-admin {
   padding-bottom: 0.5em;
   padding-left: 0.5em;
   margin-top: 0em;
-  margin-bottom: 0.5em
+  margin-bottom: 0.5em;
+  border-radius: 1.5em;
 }
 
 .contactUs-form textarea {
@@ -1666,6 +1667,7 @@ ul.container-cards-admin {
   height: 12em;
   display: block;
   padding-left: 0.5em;
+  border-radius: 1.5em;
 }
 
 

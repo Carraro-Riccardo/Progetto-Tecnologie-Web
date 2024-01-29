@@ -25,7 +25,7 @@
         <main>
             <h1 class="normalPageTitle">Modulo richieste</h1>
             <div class="contactUs-container">
-                <p>Inviaci la tua richiesta</p>
+                <p class = "tabTitle">Inviaci la tua richiesta</p>
                 @@error@@
                 <form action="./contattaci_handler.php" method="post" class="contactUs-form" id="contactForm">
                     <label id="lbl-firstName" for="firstName">Nome</label>
@@ -36,7 +36,7 @@
                     <input id="email" type="email" placeholder="mario.rossi@gmail.com" name="email" required>
                     <label id="lbl-message" for="message">Messaggio</label>
                     <textarea id="message" placeholder="Salve, vorrei chiedere un'informazione riguardo..." maxlength="1000" name="message" required></textarea>
-                    <button type="submit"> Invia la richiesta </button>
+                    <button type="submit" class="submitBtn"> Invia la richiesta </button>
                 </form>
             </div>
         </main>
