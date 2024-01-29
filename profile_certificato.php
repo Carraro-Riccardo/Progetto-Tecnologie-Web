@@ -10,7 +10,7 @@ require_once("./db_handler.php");
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 
-if(isset($_SESSION["user_id"])){
+if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "user"){
     PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
@@ -47,7 +47,10 @@ if(isset($_SESSION["user_id"])){
         unset($_SESSION["success"]);
     }else $page = str_replace("@@error@@", "", $page);
 
-}else{
+} else if (isset($_SESSION['user_id']) && $_SESSION["ruolo"] == "admin") {
+    header("Location: ./admin_landing.php");
+    exit;
+} else{
     $_SESSION['error'] = "Devi prima effettuare il login.";
     header("Location: ./login.php");
     exit;

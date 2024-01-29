@@ -29,7 +29,9 @@ class PageBuilder {
             $page_content = str_replace("@@USER@@", "Login", $page_content);
             $page_content = str_replace("@@logout@@", "", $page_content);
         }
-        $page_content = str_replace("</main>", $torna_su."\n</main>", $page_content);
+
+        if($name != "error404" && $name != "error500")
+            $page_content = str_replace("</main>", $torna_su."\n</main>", $page_content);
         $page_content = str_replace("@@footer@@", $footer, $page_content);
         
         return $page_content;

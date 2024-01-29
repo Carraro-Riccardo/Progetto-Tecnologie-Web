@@ -9,9 +9,10 @@
     <title>Macchinari</title>
   </head>
   <body>
+    <a class="skip-content" href="#main-content">Esplora i macchinari</a>
     <header class="main">
       @@navbar@@
-      <nav id="breadcrumb" aria-label="breadcrumb">
+      <nav id="breadcrumb" aria-label="Ti trovi in:">
         Ti trovi in:
         <ol>
           <li>
@@ -22,11 +23,11 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <h2 class="normalPageTitle">Elenco dei Macchinari</h2>
 
         <form id="gruppoMuscolare" method="get">
-          <label for="gruppoMuscolare">Filtra per Gruppo Muscolare:</label>
+          <label for="gruppoMuscolareSelect">Filtra per Gruppo Muscolare:</label>
           <select name="gruppoMuscolare" onchange="this.form.submit()" id="gruppoMuscolareSelect">
               <option value="Tutti" selected="selected">Tutti</option>
               <!--voci gruppi muscolari-->

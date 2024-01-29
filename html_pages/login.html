@@ -13,17 +13,18 @@
     <meta name="keywords" content="GagGym, login, accedi, registrati, profilo" />
   </head>
   <body>
+    <a class="skip-content" href="#main-content">Vai al <span lang="en">log in</span></a>
     <header class="main">
       @@navbar@@
-      <nav id="breadcrumb" aria-label="breadcrumb">
+      <nav id="breadcrumb" aria-label="Ti trovi in:">
         Ti trovi in:
         <ol>
-          <li><a href="index.php">Home</a></li>
-          <li><span lang="en" aria-current="Log in">Log in</span></li>
+          <li><a href="./index.php">Home</a></li>
+          <li><span lang="en" aria-current="page">Log in</span></li>
         </ol>
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <h1 class="normalPageTitle"><span lang="en">Log in</span></h1>
       @@error@@
       <form action="./login_handler.php" method="post" class="user-data-container" id="loginForm">

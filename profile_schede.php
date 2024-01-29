@@ -8,17 +8,17 @@ session_start();
 require_once("./pages_builder.php");
 require_once("./db_handler.php");
 
-function creaTabella($giorni, $esercizi) {
+function creaTabella($giorni, $esercizi, $curr_scheda) {
     $tabella = "";
     foreach ($giorni as $giorno) {
-        $tabella .= "\n<li>\n\t<table class='esercizio'>\n\t\t<caption> Esercizi " . $giorno . "</caption>\n\t\t<tr>\n\t\t\t<th scope='col'>Esercizio</th>\n\t\t\t<th scope='col'>Set</th>\n\t\t\t<th scope='col'>Ripetizioni</th>\n\t\t</tr>";
+        $tabella .= "\n<li>\n\t<table class='esercizio' aria-describedby='descrittore_tabella_".$giorno."_".$curr_scheda."'>\n\t\t<caption>Esercizi " . $giorno . "<span class='screen-reader-only'> scheda ".$curr_scheda."</span> </caption>\n\t\t<tr>\n\t\t\t<th scope='col'>Esercizio</th>\n\t\t\t<th scope='col'>Set</th>\n\t\t\t<th scope='col'>Ripetizioni</th>\n\t\t</tr>";
         if (isset($esercizi[$giorno])) {
             foreach ($esercizi[$giorno] as $esercizio) {
                 list($nome, $set, $ripetizioni) = explode(", ", $esercizio);
                 $tabella .= "\n\t\t<tr>\n\t\t\t<td>" . $nome . "</td>\n\t\t\t<td>" . $set . "</td>\n\t\t\t<td>" . $ripetizioni . "</td>\n\t\t</tr>";
             }
         }
-        $tabella .= "\n\t</table>\n</li>";
+        $tabella .= "\n\t</table><span id='descrittore_tabella_".$giorno."_".$curr_scheda."' class='screen-reader-only'>Tabella indicante gli esercizi da svolgere con set e numero di ripetizioni degli esercizi del giorno ".$giorno." della scheda ".$curr_scheda."</span>\n</li>";
     }
     return $tabella;
 }
@@ -27,7 +27,7 @@ function creaTabella($giorni, $esercizi) {
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 
-if(isset($_SESSION["user_id"])){
+if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "user"){
     PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
@@ -55,7 +55,7 @@ if(isset($_SESSION["user_id"])){
         while ($row = $schede_result->fetch_assoc()) {
             if ($curr_scheda != $row['id_scheda']) {
                 if ($curr_scheda != null) {
-                    $schede .= "<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "\n</ul>\n</li>\n";
+                    $schede .= "<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi, $curr_scheda) . "\n</ul>\n</li>\n";
                     $giorni = array();
                     $esercizi = array();
                 }
@@ -67,7 +67,7 @@ if(isset($_SESSION["user_id"])){
             }
             $esercizi[$row['giorno_settimana']][] = $row['nome'] . ", " . $row['numero_set'] . ", " . $row['numero_ripetizioni'];
         }
-        $schede .= "\n<li>\n<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi) . "</ul>\n</li>\n</ul>";
+        $schede .= "\n<li>\n<h2>Scheda " . $curr_scheda . " - Allenatore: " . $allenatore . "</h2>\n<ul class='scheda'>" . creaTabella($giorni, $esercizi, $curr_scheda) . "</ul>\n</li>\n</ul>";
         
         $page = str_replace("<!--sezione schede-->", $schede, $page);
         $page = str_replace("@@remove-add-scheda@@", "Rimuovi scheda", $page);
@@ -76,7 +76,10 @@ if(isset($_SESSION["user_id"])){
 
     
     }
-}else{
+} else if (isset($_SESSION['user_id']) && $_SESSION["ruolo"] == "admin") {
+    header("Location: ./admin_landing.php");
+    exit;
+} else{
     $_SESSION['error'] = "Devi prima effettuare il login.";
     header("Location: login.php");
     exit;

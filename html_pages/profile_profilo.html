@@ -12,21 +12,22 @@
     <meta name="keywords" content="GagGym profilo, profilo, modifica profilo, logout, qr code, informazioni personali, profilo personale" />
   </head>
   <body>
+    <a class="skip-content" href="#main-content">Vai al contenuto</a>
     <header class="main">
       @@navbar@@
-      <nav id="breadcrumb" aria-label="breadcrumb">
+      <nav id="breadcrumb" aria-label="Ti trovi in:">
         Ti trovi in:
         <ol>
           <li>
-            <a href="index.php"><span lang="en">Home</span></a>
+            <a href="./index.php"><span lang="en">Home</span></a>
           </li>
           <li><span aria-current="page">Profilo</span></li>
         </ol>
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <h1 class="normalPageTitle">Il tuo profilo</h1>
-      <nav id="schede-utente">
+      <nav id="schede-utente" aria-label="navigazione sezioni profilo">
         <ul id="tabs">
           <li class="currentTab">
             <span id="tabProfilo" aria-current="page">Profilo</span>
@@ -48,7 +49,7 @@
         <p>Accedi velocemente in palestra con il tuo <span lang="en">QR code</span></p>
         @@qrCode@@
       </section>
-      <section
+      <section id="sectionDatiPersonali"
       >
       <h2 class="tabTitle">Dati profilo</h2>
       <form

@@ -224,7 +224,7 @@ a.torna-su{
   background-color: var(--breadcrumbBgColor);
   color: var(--breadcrumbTxtColor);
   display: block;
-  width: 5em;
+  width: 10em;
   margin: 0 auto;
   text-align: center;
   padding: 0.5em;
@@ -275,9 +275,10 @@ a.torna-su{
 
 #nav-principale {
   align-items: center;
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 #nav-principale .container {
@@ -387,8 +388,15 @@ a.torna-su{
 }
 
 .logo-title-holder {
+  display: flex;
+  align-items: center;
+}
+
+.logo-title-holder > a,
+.logo-title-holder > span {
   align-items: center;
   display: flex;
+  text-decoration: none;
 }
 
 .logo-title-holder .span {
@@ -398,9 +406,6 @@ a.torna-su{
 .site-title {
   font-family: var(--font-body-family);
   margin-left: 10px;
-}
-
-h1 a {
   color: var(--h1a);
   text-decoration: none;
 }
