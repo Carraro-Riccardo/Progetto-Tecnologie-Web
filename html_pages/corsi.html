@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
+    <link rel="stylesheet" href="./assets/css/print.css" media="print"/>
     <script src="./scripts/script.js"></script>
     <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
     <title>Corsi - GagGym</title>
@@ -11,9 +12,10 @@
     <meta name="keywords" content="GagGym, corsi, orari corso, pilates, yoga, box, danza" />
   </head>
   <body>
+    <a class="skip-content" href="#main-content">Esplora i corsi</a>
     <header class="main">
       @@navbar@@
-      <nav id="breadcrumb" aria-label="breadcrumb">
+      <nav id="breadcrumb" aria-label="Ti trovi in:">
         Ti trovi in:
         <ol>
           <li>
@@ -23,7 +25,7 @@
         </ol>
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <h1 class="normalPageTitle">I NOSTRI CORSI</h1>
       <ul id="cards-container">
         <li class="card-corso">

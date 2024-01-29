@@ -132,11 +132,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
-if(isset($_SESSION["user_id"])){
+if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "user"){
     PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
-        $dati_result = $db->getDatiUtente($_SESSION['user_id']);
+    $dati_result = $db->getDatiUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
         header("Location: ./error500.php");
@@ -153,7 +153,10 @@ if(isset($_SESSION["user_id"])){
 
     unset($_SESSION["error"]);
 
-}else{
+} else if (isset($_SESSION['user_id']) && $_SESSION["ruolo"] == "admin") {
+    header("Location: ./admin_landing.php");
+    exit;
+} else{
     $_SESSION['error'] = "Necessario effettuare il <span lang='en'>login</span> per accedere alla pagina.";
     header("Location: ./login.php");
     exit;

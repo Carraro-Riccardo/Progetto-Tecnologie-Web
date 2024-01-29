@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
+    <link rel="stylesheet" href="./assets/css/print.css" media="print"/>
     <script src="./scripts/script.js"></script>
     <script type="module" src="./scripts/register_validator.js"></script>
     <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
@@ -12,26 +13,27 @@
     <meta name="keywords" content="GagGym, signup, registrazione, nuovo utente, nuovo profilo" />
   </head>
   <body>
+    <a class="skip-content" href="#main-content">Esplora la palestra</a>
     <header class="main">
       @@navbar@@
-      <nav id="breadcrumb" aria-label="breadcrumb">
+      <nav id="breadcrumb" aria-label="Ti trovi in:">
         Ti trovi in:
         <ol>
           <li>
-            <a href="index.php"><span lang="en">Home</span></a>
+            <a href="./index.php"><span lang="en">Home</span></a>
           </li>
           <li>
-            <a href="login.php"><span lang="en">Log in</span></a>
+            <a href="./login.php"><span lang="en">Log in</span></a>
           </li>
           <li><span lang="en" aria-current="true">Registrati</span></li>
         </ol>
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <h1 class="normalPageTitle">Registrati</h1>
       @@error@@
       <form
-        action="register_handler.php"
+        action="./register_handler.php"
         method="post"
         class="user-data-container"
         id="registerForm"
@@ -78,7 +80,7 @@
             <button type="submit" class="submitBtn">Registrati</button>
             <p class="registrati-login">
               Hai già un <span lang="en">account</span>?
-              <a href="login.php"><span lang="en"> Log in</span></a>
+              <a href="./login.php"><span lang="en"> Log in</span></a>
             </p>
           </div>
         </fieldset>

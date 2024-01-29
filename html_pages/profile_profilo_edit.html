@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
+    <link rel="stylesheet" href="./assets/css/print.css" media="print"/>
     <script src="./scripts/script.js"></script>
     <script type="module" src="./scripts/profile_edit_validator.js"></script>
     <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
     <title>Profilo - Profilo - GagGym</title>
   </head>
   <body>
+    <a class="skip-content" href="#main-content">Vai al contenuto</a>
     <header class="main">
       @@navbar@@
-      <nav id="breadcrumb" aria-label="breadcrumb">
+      <nav id="breadcrumb" aria-label="Ti trovi in:">
         Ti trovi in:
         <ol>
           <li>
@@ -22,21 +24,21 @@
         </ol>
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <h1 class="normalPageTitle">Modifica Profilo</h1>
-      <nav id="schede-utente">
+      <nav id="schede-utente" aria-label="navigazione sezioni profilo">
         <ul id="tabs">
           <li class="currentTab">
             <span id="tabProfilo" aria-current="page">Profilo</span>
           </li>
           <li>
-            <a id="tabSchede" href="profile_schede.php">Scheda</a>
+            <a id="tabSchede" href="./profile_schede.php">Scheda</a>
           </li>
           <li>
-            <a id="tabAbbonamenti" href="profile_abbonamenti.php">Abbonamenti</a>
+            <a id="tabAbbonamenti" href="./profile_abbonamenti.php">Abbonamenti</a>
           </li>
           <li>
-            <a id="tabCertificato" href="profile_certificato.php">Certificato</a>
+            <a id="tabCertificato" href="./profile_certificato.php">Certificato</a>
           </li>
         </ul>
       </nav>
@@ -153,7 +155,7 @@
           </div>
           <div class="confirmButtons">
             <input type="submit" name="action" class="submitBtn" value="Salva password" />
-            <a class="cancelBtn" href="profile_profilo.php">Annulla</a>
+            <a class="cancelBtn" href="./profile_profilo.php">Annulla</a>
           </div>
         </fieldset>
       </form>
