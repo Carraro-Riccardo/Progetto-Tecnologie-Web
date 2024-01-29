@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
+    <link rel="stylesheet" href="./assets/css/print.css" media="print"/>
     <script src="./scripts/script.js"></script>
     <script type="module" src="./scripts/file_certificato_validator.js"></script>
     <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
@@ -12,9 +13,10 @@
     <meta name="keywords" content="GagGym profilo, profilo, certificato medico, certificato" />
   </head>
   <body>
+    <a class="skip-content" href="#main-content">Vai al contenuto</a>
     <header class="main">
       @@navbar@@
-      <nav id="breadcrumb" aria-label="breadcrumb">
+      <nav id="breadcrumb" aria-label="Ti trovi in:">
         Ti trovi in:
         <ol>
           <li>
@@ -24,9 +26,9 @@
         </ol>
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <h1 class="normalPageTitle">Il tuo certificato medico</h1>
-      <nav id="schede-utente">
+      <nav id="schede-utente" aria-label="navigazione sezioni profilo">
         <ul id="tabs">
           <li>
             <a id="tabProfilo" href="./profile_profilo.php">Profilo</a>
@@ -42,7 +44,7 @@
       </nav>
       <!--tabella certificato-->
       <div class="tb-container">
-        <table class="esercizio">
+        <table class="esercizio" aria-describedby="descrittore_tabella_certificato">
             <caption id="caption-certificato">Certificato</caption>
             <thead>
                 <tr>
@@ -59,6 +61,7 @@
                 </tr>
             </tbody>
         </table>
+        <span id="descrittore_tabella_certificato" class="screen-reader-only">Tabella contenente il certificato medico caricato</span>
       </div>
       <!--fine tabella certificato-->
 
@@ -68,7 +71,7 @@
         <fieldset>
           <legend class="tabTitle">@@aggiorna_carica@@ certificato</legend>
           <div class="input-field">
-            <label for="certificato" aria-label="@@aggiorna_carica@@ certificato">Certificato</label>
+            <label for="certificato">@@aggiorna_carica@@ Certificato</label>
             <input type="file" id="certificato" name="certificato" accept=".pdf"/>
           </div>
             <input type="submit" value="@@aggiorna_carica@@ certificato" />

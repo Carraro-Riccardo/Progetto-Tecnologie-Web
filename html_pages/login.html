@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
+    <link rel="stylesheet" href="./assets/css/print.css" media="print"/>
     <script src="./scripts/script.js"></script>
     <script type="module" src="./scripts/login_validator.js"></script>
     <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
@@ -12,17 +13,18 @@
     <meta name="keywords" content="GagGym, login, accedi, registrati, profilo" />
   </head>
   <body>
+    <a class="skip-content" href="#main-content">Vai al <span lang="en">log in</span></a>
     <header class="main">
       @@navbar@@
-      <nav id="breadcrumb" aria-label="breadcrumb">
+      <nav id="breadcrumb" aria-label="Ti trovi in:">
         Ti trovi in:
         <ol>
           <li><a href="./index.php">Home</a></li>
-          <li><span lang="en" aria-current="Log in">Log in</span></li>
+          <li><span lang="en" aria-current="page">Log in</span></li>
         </ol>
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <h1 class="normalPageTitle"><span lang="en">Log in</span></h1>
       @@error@@
       <form action="./login_handler.php" method="post" class="user-data-container" id="loginForm">

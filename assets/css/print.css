@@ -1,3 +1,146 @@
-.titleSection{
-    height: 2em;
+* {
+    color: #000;
+    filter: none;
+    box-shadow: none;
 }
+
+body {
+   grid-template-rows: auto 100% auto;
+   height: 100%;
+}
+
+#nav-principale ul li a,
+#nav-principale ul li > span {
+  color: #000;
+}
+
+h1.homePageTitle {
+  font-family: var(--font-body-family);
+  font-size: 2em;
+  text-align: center;
+  text-shadow: none;
+}
+
+.normalPageTitle {
+    color: #000;
+}
+
+.titleSection {
+   margin: 0 auto;
+  font-size: 1em;
+  border: 1px solid #000;
+}
+
+.card {
+  display: block;
+  filter: none;
+  text-decoration: none;
+  height: 7em;
+  color: #000;
+}
+
+.card .description,
+.card .description h3,
+.card .description h2, 
+.card .description p {
+    color: #000;
+    opacity: 1;
+}
+
+.card-corso {
+    width: fit-content;
+    height: fit-content;
+    box-shadow: none;
+    justify-content: center;
+    border: 1px solid #000;
+}
+
+.card-corso-description {
+    width: 20em;
+    margin: 0;
+}
+
+#corso-yoga::before,
+#corso-pilates::before,
+#corso-box::before,
+#corso-danza::before {
+    display: none;
+}
+
+.card-corso-description ul {
+    margin-top: 0;
+    text-decoration: none;
+    text-align: center;
+    padding: 0;
+  }
+
+#cards-container *::before,
+#cards-container *::after {
+    display: none;
+}
+
+#cards-container {
+    display: flex;
+    margin: 0 auto;
+    font-weight: normal;
+}
+
+.componente img {
+    display: none;
+}
+
+#componenti > dt {
+    color: #000;
+}
+
+
+.submitBtn{
+    color: #000;
+    border: 1px solid #000;
+}
+
+.user-data-container a {
+    color: #000;
+}
+
+#tabs .currentTab {
+    background-color: #000;
+}
+
+#tabs li a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.schede-container h2 {
+    color: #000;
+}
+
+.schede-container caption{
+    color: #000;
+}
+
+.table-abbonamenti{
+    border: 1px solid #000;
+}
+
+#tabAbbonamenti::before,
+#tabSchede::before,
+#tabCertificato::before,
+#tabProfilo::before {
+    display: none;
+}
+
+li.metrica {
+    border: 1px solid #000;
+    box-shadow: none;
+}
+
+footer *::before {
+    display: none;
+}
+
+#socials ul {
+    display: flex;
+}
+

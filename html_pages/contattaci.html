@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Contattaci</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="keywords" content="GagGym, palestra, fitness, bodybuilding" />
-        <meta name="description" content="Pagina ufficiale della palestra GagGym" />
-        <link rel="stylesheet" href="./assets/css/phone.css" />
-        <script src="./scripts/script.js"></script>
-    </head>
-    <body>
-      <header class="main">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Contattaci</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="GagGym, palestra, fitness, bodybuilding" />
+    <meta name="description" content="Pagina ufficiale della palestra GagGym" />
+    <link rel="stylesheet" href="./assets/css/phone.css" />
+    <script src="./scripts/script.js"></script>
+</head>
+
+<body>
+    <a class="skip-content" href="#main-content">Esplora la palestra</a>
+    <header class="main">
         @@navbar@@
-        <nav id="breadcrumb" aria-label="breadcrumb">
+        <nav id="breadcrumb" aria-label="Ti trovi in:">
             Ti trovi in:
             <ol>
                 <li>
@@ -22,24 +25,26 @@
             </ol>
         </nav>
     </header>
-        <main>
-            <h1 class="normalPageTitle">Modulo richieste</h1>
-            <div class="contactUs-container">
-                <p>Inviaci la tua richiesta</p>
-                @@error@@
-                <form action="./contattaci_handler.php" method="post" class="contactUs-form" id="contactForm">
-                    <label id="lbl-firstName" for="firstName">Nome</label>
-                    <input id="firstName" type="text" placeholder="Mario" name="firstName" required>
-                    <label id="lbl-lastName" for="lastName" >Cognome</label>
-                    <input id="lastName" type="text" placeholder="Rossi" name="lastName" required>
-                    <label id="lbl-email" for="email">Email</label>
-                    <input id="email" type="email" placeholder="mario.rossi@gmail.com" name="email" required>
-                    <label id="lbl-message" for="message">Messaggio</label>
-                    <textarea id="message" placeholder="Salve, vorrei chiedere un'informazione riguardo..." maxlength="1000" name="message" required></textarea>
-                    <button type="submit"> Invia la richiesta </button>
-                </form>
-            </div>
-        </main>
-        @@footer@@
-    </body>
+    <main id="main-content">
+        <h1 class="normalPageTitle">Modulo richieste</h1>
+        <div class="contactUs-container">
+            <p>Inviaci la tua richiesta</p>
+            @@error@@
+            <form action="./contattaci_handler.php" method="post" class="contactUs-form" id="contactForm">
+                <label id="lbl-firstName" for="firstName">Nome</label>
+                <input id="firstName" type="text" placeholder="Mario" name="firstName" required>
+                <label id="lbl-lastName" for="lastName">Cognome</label>
+                <input id="lastName" type="text" placeholder="Rossi" name="lastName" required>
+                <label id="lbl-email" for="email">Email</label>
+                <input id="email" type="email" placeholder="mario.rossi@gmail.com" name="email" required>
+                <label id="lbl-message" for="message">Messaggio</label>
+                <textarea id="message" placeholder="Salve, vorrei chiedere un'informazione riguardo..." maxlength="1000"
+                    name="message" required></textarea>
+                <button type="submit"> Invia la richiesta </button>
+            </form>
+        </div>
+    </main>
+    @@footer@@
+</body>
+
 </html>

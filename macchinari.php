@@ -13,17 +13,15 @@ function creaCardMacchinari($macchinari) {
             <li class=\"card-macchinario " . $row["nomeGruppoMuscolare"] . "\">
                 <img src=\"./assets/imgs/macchinari/" . $row["path"] . "\" alt=\"\"/>
                 <h3>" . $row["nome"] . "</h3>
-                <span class=\"card-macchinario-description\">
+                <div class=\"card-macchinario-description\">
                     <p>Data di Acquisto: " . $row["dataDiAcquisto"] . "</p>
                     <p>Gruppo Muscolare: " . $row["nomeGruppoMuscolare"] . "</p>
-                </span>
+                </div>
             </li>
             ";
     }
 
-    $macchinari_cards .= "</ul>
-                            </div>
-                            <!--sezione macchinari_end-->";
+    $macchinari_cards .= "</ul></div><!--sezione macchinari_end-->";
 
     return $macchinari_cards;
 }
@@ -42,9 +40,6 @@ function popolaGruppiMuscolari($gruppiMuscolari, $selectedMuscleGroup) {
             ";
         }
     }
-
-    $gruppiMuscolari_select .= "</ul>
-                            </div>";
 
     return $gruppiMuscolari_select;
 }

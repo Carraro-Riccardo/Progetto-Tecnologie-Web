@@ -5,11 +5,11 @@ require_once("./db_handler.php");
 require_once("server_side_validator.php");
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
-if(isset($_SESSION["user_id"])){
+if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "user"){
     PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
-        $dati_result = $db->getDatiUtente($_SESSION['user_id']);
+    $dati_result = $db->getDatiUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
         header("Location: ./error500.php");
@@ -28,6 +28,9 @@ if(isset($_SESSION["user_id"])){
     $page = str_replace("@@email@@", $dati_result["email"], $page);
     $page = str_replace("@@password@@", $dati_result["password"], $page);
 
+}else if (isset($_SESSION['user_id']) && $_SESSION["ruolo"] == "admin") {
+    header("Location: ./admin_landing.php");
+    exit;
 }else{
     $_SESSION['error'] = "Necessario effettuare il <span lang='en'>login</span> per accedere alla pagina.";
     header("Location: login.php?error=notloggedin");

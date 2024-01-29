@@ -10,11 +10,11 @@ require_once("./db_handler.php");
 
 $page = PageBuilder::build($_SERVER["SCRIPT_NAME"]);
 
-if(isset($_SESSION["user_id"])){
+if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "user"){
     PageBuilder::removeAncorLinks($page, "login.php");
     try {
         $db = new Database();
-        $abbonamenti_result = $db->getAbbonamentiUtente($_SESSION['user_id']);
+    $abbonamenti_result = $db->getAbbonamentiUtente($_SESSION['user_id']);
         unset($db);
     }catch(Exception $e) {
         header("Location: ./error500.php");
