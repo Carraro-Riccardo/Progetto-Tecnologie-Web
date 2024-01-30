@@ -20,7 +20,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "admin"){
 
     if(!empty($nomeAbbonamentoError) || !empty($durataError) || !empty($costoError)){
         $_SESSION["errorAbbonamenti"] = $nomeAbbonamentoError.$durataError.$costoError;
-        header("Location: ./admin_utenti.php#GESTIONE_ABBONAMENTI");
+        header("Location: ./admin_amministrazione.php#GESTIONE_ABBONAMENTI");
         exit;
     }
 
@@ -34,7 +34,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "admin"){
     }
 
     $_SESSION["successAbbonamenti"] = "Abbonamento modificato con successo.";
-    header("Location: ./admin_utenti.php#GESTIONE_ABBONAMENTI");
+    header("Location: ./admin_amministrazione.php#GESTIONE_ABBONAMENTI");
     exit;
 
 }else{
