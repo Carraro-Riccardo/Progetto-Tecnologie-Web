@@ -242,9 +242,11 @@ Strumenti fondamentali durante la fase di test sono stati:
 - *W3C Markup Validation Service*: per la validazione del codice HTML:
   - la validazione ha restituito 0 errori e 0 warning, ma un alcuni _info_ dovuti agli  _slash \/_ finali dei tag meta e link, ma abbiamo visto a lezione essere buona pratica chiudere ogni tag.
 
-- *W3C CSS Validation Service*: per la validazione del codice CSS
+- *W3C CSS Validation Service*: per la validazione del codice CSS;
+  - la validazione ha restituito 0 errori e 0 warning.
 
 - *Contrast Checker di WebAIM*: per la verifica del contrasto tra testo e sfondo;
+  - il contrasto tra testo e sfondo è sempre superiore a 7:1.
 
 - *LightHouse* di Google Chrome: per la verifica delle performance, accessibilità, SEO e _best_practice_ del sito:
   - Media Performance: 80% (per i motivi descritti in precedenza riguardo al menù a tendina nella versione mobile) e circa 100% per la versione desktop;
@@ -255,6 +257,7 @@ Strumenti fondamentali durante la fase di test sono stati:
 
 - *Screen reader*: per la verifica dell'accessibilità del sito:
     - Assistente vocale di Windows;
+    - Voice Over di MacOS;
     - NVDA: il gruppo ci tiene a precisare però che l'inesperienza nell'utilizzo di uno screen reader come NVDA ha permesso sì una verifica del sito, ma sicuramente non esaustiva. L'obiettivo principale era riuscire a navigare il sito, traendo le informazioni relative a contenuto e stato degli elementi (come lo stato del menù a tendina, ad esempio). Seppur questi obiettivi siano stati raggiunti, il gruppo è consapevole che solo un utente più abile nell'utilizzo di uno screen reader avrebbe potuto fornire un riscontro più completo e dettagliato.
 
 - *Compatibilità browser*: per la verifica della compatibilità del sito con i principali browser:
