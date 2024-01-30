@@ -1,119 +1,128 @@
 <!DOCTYPE html>
 <html lang="it" id="mainAdmin">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/phone.css" />
-    <link rel="stylesheet" href="./assets/css/print.css" media="print"/>
-    <script src="./scripts/script.js"></script>
-    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon"/>
-    <title>Amministrazione - GagGym</title>
-  </head>
-  <body>
-    <a class="skip-content" href="#main-content">Vai al contenuto</a>
-    <header class="main">
-      <nav id="nav-principale" aria-label="navigazione">
-        <div class="container">
-          <div class="logo-title-holder">
-            <a href="./index.php">
-              <span class="screen-reader-only">Vai alla <span lang="en">homepage</span></span>
-              <img class="logo" src="./assets/imgs/logo-larry.webp" alt=""/>
-            </a>
-            <h1 class="site-title">GagGym</h1>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/css/phone.css" />
+  <link rel="stylesheet" href="./assets/css/print.css" media="print" />
+  <script src="./scripts/script.js"></script>
+  <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon" />
+  <title>Amministrazione - GagGym</title>
+</head>
+
+<body>
+  <a class="skip-content" href="#main-content">Vai al contenuto</a>
+  <header class="main">
+    <nav id="nav-principale" aria-label="navigazione">
+      <div class="container">
+        <div class="logo-title-holder">
+          <a href="./index.php">
+            <span class="screen-reader-only">Vai alla <span lang="en">homepage</span></span>
+            <img class="logo" src="./assets/imgs/logo-larry.webp" alt="" />
+          </a>
+          <h1 class="site-title">GagGym</h1>
         </div>
-        <button id="hamburger" aria-expanded="true" aria-controls="main-nav">
-          <span lang="en">Admin</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
-            <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
-          </svg>
-        </button>
-        <div class="main-nav" id="main-nav">
-          <ul class="container">
-            <li>
-              <a href="./admin_landing.php" aria-current="page"><span lang="en">Home Admin</span></a>
-            </li>
-            <li>
-              <a href="./admin_amministrazione.php">Gestione Utenti</a>
-            </li>
-            <li>
-              <a href="./admin_amministrazione.php#GESTIONE_ABBONAMENTI">Modifica Abbonamenti</a>
-            </li>
-            @@logout@@
-          </ul>
-        </div>
-      </nav>
-      <nav id="breadcrumb" aria-label="breadcrumb">
-        Ti trovi in:
-        <ol>
-          <li><span lang="en" aria-current="true">Home</span> amministrazione</li>
-        </ol>
-      </nav>
-    </header>
-    <main id="main-content">
-      <h1 class="normalPageTitle"><span lang="en">Home</span> amministrazione</h1>
-      <ul class="container-metriche">
-        <!--Totale certificati-->
-        <li class="metrica">
-          <h3><abbr title="certificato medico">CM</abbr> da convalidare</h3>
-          <p>@@certificati@@</p>
-          <a href="./admin_amministrazione.php#GESTIONE_UTENTI">Maggiori dettagli</a>
-        </li>
-        <!--Fine Totale certificati-->
-        <!--Totale utenti registrati-->
-        <li class="metrica">
-          <h3>Totale utenti</h3>
-          <p>@@utenti@@</p>
-          <a href="./admin_amministrazione.php#GESTIONE_ABBONAMENTI">Maggiori dettagli</a>
-        </li>
-        <!--Fine Totale utenti registrati-->
-        <!--Totale Abbonamenti Validi-->
-        <li class="metrica">
-          <h3>Abbonamenti Validi</h3>
-          <p>@@nAbbVal@@</p>
-        </li>
-        <!--Fine Totale Abbonamenti Validi-->
-        <!--Totale Incassi mese-->
-        <li class="metrica">
-          <h3>Incassi mese</h3>
-          <p>@@incassi@@ &euro;</p>
-        </li>
-        <!--Fine Incassi mese-->
-      </ul>
-      
-      <ul class="container-metriche">
-        <li class="metrica">
-          <h3>Andamento incassi ultimi 5 mesi</h3>
-          @@graficoIncassi@@
-          <table aria-describedby="desc_incassi">
-            <caption class="screen-reader-only" id="desc_incassi">Tabella incassi ultimi 5 mesi</caption>
-            <thead>
+      </div>
+      <button id="hamburger" aria-expanded="true" aria-controls="main-nav">
+        <span lang="en">Admin</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" aria-hidden="true">
+          <path d="M4 16h16v-2H4v2zm0-5h16v-2H4v2zm0-7v2h16V4H4z" />
+        </svg>
+      </button>
+      <div class="main-nav" id="main-nav">
+        <ul class="container">
+          <li>
+            <a href="./admin_landing.php" aria-current="page"><span lang="en">Home Admin</span></a>
+          </li>
+          <li>
+            <a href="./admin_amministrazione.php#GESTIONE_UTENTI">Gestione Utenti</a>
+          </li>
+          <li>
+            <a href="./admin_amministrazione.php#GESTIONE_ABBONAMENTI">Modifica Abbonamenti</a>
+          </li>
+          @@logout@@
+        </ul>
+      </div>
+    </nav>
+    <nav id="breadcrumb" aria-label="breadcrumb">
+      Ti trovi in:
+      <ol>
+        <li><span lang="en" aria-current="true">Home</span> amministrazione</li>
+      </ol>
+    </nav>
+  </header>
+  <main id="main-content">
+    <h1 class="normalPageTitle"><span lang="en">Home</span> amministrazione</h1>
+    <ul class="container-metriche">
+      <!--Totale certificati-->
+      <li class="metrica">
+        <h2><abbr title="certificato medico">CM</abbr> da convalidare</h2>
+        <p>@@certificati@@</p>
+        <a href="./admin_amministrazione.php#GESTIONE_UTENTI">Maggiori dettagli</a>
+      </li>
+      <!--Fine Totale certificati-->
+      <!--Totale utenti registrati-->
+      <li class="metrica">
+        <h2>Totale utenti</h2>
+        <p>@@utenti@@</p>
+        <a href="./admin_amministrazione.php#GESTIONE_ABBONAMENTI">Maggiori dettagli</a>
+      </li>
+      <!--Fine Totale utenti registrati-->
+      <!--Totale Abbonamenti Validi-->
+      <li class="metrica">
+        <h2>Abbonamenti Validi</h2>
+        <p>@@nAbbVal@@</p>
+      </li>
+      <!--Fine Totale Abbonamenti Validi-->
+      <!--Totale Incassi mese-->
+      <li class="metrica">
+        <h3>Incassi mese</h3>
+        <p>@@incassi@@ &euro;</p>
+      </li>
+      <!--Fine Incassi mese-->
+    </ul>
+
+    <ul class="container-metriche">
+      <li class="metrica">
+        <h2>Andamento incassi ultimi 5 mesi</h2>
+        @@graficoIncassi@@
+        <table aria-describedby="desc_incassi">
+          <caption class="screen-reader-only">Tabella incassi ultimi 5 mesi</caption>
+          <thead>
+            <tr>
               <th scope="col">Mese</th>
               <th scope="col">Incasso</th>
-            </thead>
-            <tbody>
-              @@tabellaIncassi@@
-            </tbody>
-          </table>
-          <span class="screen-reader-only" id="desc_incassi">Tabella indicante l'andamento degli incassi negli ultimi 5 mesi</span>
-        </li>
-        <li class="metrica">
-          <h3>Andamento utenti ultimi 5 mesi</h3>
-          @@graficoUtenti@@
-          <table aria-describedby="desc_utenti">
-            <caption class="screen-reader-only" id="desc_utenti">Tabella incassi ultimi 5 mesi</caption>
-            <thead>
+            </tr>
+          </thead>
+          <tbody>
+            @@tabellaIncassi@@
+          </tbody>
+        </table>
+        <span class="screen-reader-only" id="desc_incassi">Tabella indicante l'andamento degli incassi negli ultimi 5
+          mesi</span>
+      </li>
+      <li class="metrica">
+        <h2>Andamento utenti ultimi 5 mesi</h2>
+        @@graficoUtenti@@
+        <table aria-describedby="desc_utenti">
+          <caption class="screen-reader-only">Tabella utenti ultimi 5 mesi</caption>
+          <thead>
+            <tr>
               <th scope="col">Mese</th>
               <th scope="col">Utenti</th>
-            </thead>
-            <tbody>
-              @@tabellaUtenti@@
-            </tbody>
-          </table>
-          <span class="screen-reader-only" id="desc_utenti">Tabella indicante l'andamento degli utenti negli ultimi 5 mesi</span>
-        </li>
-      </ul>
-    </main>
-    @@footer@@
-  </body>
+            </tr>
+          </thead>
+          <tbody>
+            @@tabellaUtenti@@
+          </tbody>
+        </table>
+        <span class="screen-reader-only" id="desc_utenti">Tabella indicante l'andamento degli utenti negli ultimi 5
+          mesi</span>
+      </li>
+    </ul>
+  </main>
+  @@footer@@
+</body>
+
 </html>

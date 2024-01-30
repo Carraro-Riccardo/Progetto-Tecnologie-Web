@@ -27,9 +27,10 @@
     <main id="main-content">
         <h2 class="normalPageTitle">Elenco dei Macchinari</h2>
 
-        <span id="formMuscleGroup">
+        <div id="formMuscleGroup">
           <form action="./macchinari.php" method="get" id="gruppoMuscolare">
             <fieldset>
+              <legend class="screen-reader-only">Filtra per Gruppo Muscolare</legend>
               <label for="gruppoMuscolareSelect">Filtra per Gruppo Muscolare:</label>
               <select name="gruppoMuscolare" id="gruppoMuscolareSelect">
                 <option value="Tutti" selected="selected">Tutti</option>
@@ -38,7 +39,7 @@
               <button type="submit">Filtra</button>
             </fieldset>
           </form>
-        </span>
+        </div>
         <!--sezione macchinari_start-->
         <!--sezione macchinari_end-->
     </main>
