@@ -246,12 +246,12 @@ Strumenti fondamentali durante la fase di test sono stati:
 
 - *Contrast Checker di WebAIM*: per la verifica del contrasto tra testo e sfondo;
 
-- *LightHouse* di Google Chrome: per la verifica delle performance, accessibilità, SEO e _best_practice_ (un report dettagliato sarà disponibile trovarlo per ogni pagina nel file dedicato _REPORT_LIGHTHOUSE.pdf_). 
-  - Media Performance: 80% (per i motivi descritti in precedenza riguardo al menù a tendina);
+- *LightHouse* di Google Chrome: per la verifica delle performance, accessibilità, SEO e _best_practice_ del sito:
+  - Media Performance: 80% (per i motivi descritti in precedenza riguardo al menù a tendina nella versione mobile) e circa 100% per la versione desktop;
     - Per migliorare le performance, il sito utilizza immagini in formato _WEBP_, che permette di ridurre le dimensioni delle immagini senza perdita di qualità, risultando più leggere di _PNG_ e _JPEG_. Le immagini inoltre sono state ulteriormente ottimizzate tramite strumenti come _TinyPNG_ e _Simple Image Resizer_, con nessuna immagine che supera i 100KB di peso. L'utilizzo del formato _WEBP_ è stato giustificato anche dal supporto di questo formato dal 97% dei browser, come riportato da _caniuse.com_.
-  - Media Accessibility: 100%;
-  - Media Best Practice: 100%;
-  - Media SEO: 100%;
+  - Media Accessibility: 100% (mobile e desktop);
+  - Media Best Practice: 100% (mobile e desktop);
+  - Media SEO: 100% (mobile e desktop);
 
 - *Screen reader*: per la verifica dell'accessibilità del sito:
     - Assistente vocale di Windows;
