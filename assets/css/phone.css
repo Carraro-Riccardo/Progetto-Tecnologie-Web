@@ -1709,7 +1709,6 @@ label#lbl-message {
 #gruppoMuscolare label[for="gruppoMuscolareSelect"] {
   color: var(--cardTxtColor);
   font-size: 1.2em;
-  margin-inline: 1em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
@@ -1722,6 +1721,7 @@ label#lbl-message {
   border: 1px solid var(--borderSelect);
   font-size: 1.2em;
   width: 11em;
+  margin: 0 0.5em;
 }
 
 #gruppoMuscolare button {
