@@ -91,7 +91,7 @@ Il gruppo è altresì consapevole che la SEO è un processo che non termina con 
 
 = Progettazione
 == Schema e struttura organizzativi
-Il sito è stato progettato per essere facilmente navigabile. Si utilizza uno schema organizzativo esatto, che predispone ogni elemento in modo coerente identificando i contenuti in modo chiaro ed evidente (corsi, abbonamenti, macchinari, schede, staff).
+Il sito è stato progettato per essere facilmente navigabile. Si utilizza uno schema organizzativo _ambiguo_ per argomento, ove le pagine sono organizzate in base al loro contenuto interno, favorendo in questo modo l'esplorazione del sito non richiedendo all'utente di conoscere la struttura del sito. Gli argomenti risultano però ben distinti tra loro, e facilmente riconoscibili, quali: Home, Corsi, Abbonamenti, Macchinari, Staff, Area Personale.
 
 La struttura del sito è ampia e poco profonda, permettendo non solo il raggiungimento rapido delle informazioni ricercate (con una media di 3 click per raggiungere la pagina desiderata) ma anche una manutenzione più semplice e veloce.
 
@@ -106,13 +106,11 @@ Il sito è stato pensato per rispondere alle esigenze di 3 tipologie di utenti:
 == Convenzioni
 - Su schermi con larghezza della viewport superiore a 660px, il menù a tendina viene mostrato orizzantalmente anzichè verticalmente  per sfruttare al meglio lo spazio disponibile.
 
-- All'interno dell'header, il logo della palestra rispetta la convenzione esterna di essere cliccabile e di condurre alla homepage. Questo approccio creerebbe una ripetizione del link, presente sia nel logo che nel nome della palestra presente nella nav-bar principale. Per agevolare la navigazione del sito agli utenti utilizzatori di screen reader (o di navigazione da tastiera (tab)) è stato deciso di mantenere il link anche nel logo, ma di nasconderlo allo screen reader e alla tabulazione per evitare ripetizioni. Questo è stato possibile tramite l'attributo _aria-hidden="true"_ e _tabindex="-1"_. 
+- Al fine di rimuovere i link circolari, all'interno del menù a tendina, il link che conducerà alla pagina corrente sarà sostituito da uno _span_. Questa sostituzione avviene tramite un controllo lato server, e sfrutta la natura _inline_ dello _span_, che non altera la struttura del menù. 
 
-- Al fine di rimuovere i link circolari, all'interno del menù a tendina, il link che conducerà alla pagina corrente sarà sostituito da uno span. Questa sostituzione avviene tramite un controllo lato server, e sfrutta la natura _inline_ dello span, che non altera la struttura del menù. 
+- L'utente amministratore non possiede una classica pagina di profilo, bensì, una volta effettuato il login, entra direttamente nella pagina di amministrazione. Questa scelta, seppur possa sembrare una rottura delle convenzioni interne, è dettata dalla distinzione netta delle due tipologie utente: l'amministratore non è un cliente della palestra, bensì ne è il gestore, e pertanto non possiede dettagli come certificato medico, scheda, QR di accesso o abbonamento, accedendo direttamente alla pagina di amministrazione. Inoltre, si assume che l'amministratore sia un utente che, in qualità di gestore, sia consapevole delle funzionalità amministrative. Per rendere evidente il cambio di contesto, non solo lo sfondo della pagina cambia, ma compare anche il testo "Admin" vicino all'_hamburger menù_ che  conterrà le nuove voci di amministrazione.
 
-- L'utente amministratore non possiede una classica pagina di profilo, bensì, una volta effettuato il login, entra direttamente nella pagina di amministrazione. Questa scelta, seppur possa sembrare una rottura delle convenzioni interne, è dettata dalla distinzione netta delle due tipologie utente: l'amministratore non è un cliente della palestra, bensì ne è il gestore, e pertanto non possiede dettagli come certificato medico, scheda, qr di accesso o abbonamento, accedendo direttamente alla pagina di amministrazione. Inoltre, si assume che l'amministratore sia un utente che, in qualità di gestore, sia consapevole delle funzionalità amministrative. Per rendere evidente il cambio di contesto, non solo lo sfondo della pagina cambia, ma anche il testo del menù a tendina, da "Menù" diventa "Menù admin", contenendo le nuove voci di amministrazione.
-
-- A seguito del login, la voce corrispondente nel menù viene sostituita dallo username dell'utente loggato: siamo consapevoli che il login con username e password "_user_" possa in questo modo far mostrare la voce "_user_" nel menù, ma si tratta di un caso limite dettato dai requisiti del progetto.
+- A seguito del login, la voce corrispondente nel menù viene sostituita dallo username dell'utente loggato: siamo consapevoli che il login con username e password "_user_" possa in questo modo far mostrare la voce "_user_" nel menù, ma si tratta di un caso limite dettato dai requisiti del progetto: nell'utilizzo reale, l'utente scegliendo un username personale riconoscerà facilmente che si tratta della sua area personale.
 
 #pagebreak()
 
@@ -135,20 +133,21 @@ Questo non solo contribuisce alla leggibilità del codice, ma permette anche di 
 Inoltre, l'utilizzo delle pagine HTML come template per l'elaborazione dinamica dei contenuti, permette di dover contattare il server solo una volta per pagina, riducendo il carico di lavoro del server e velocizzando il caricamento delle pagine.
 
 Durante lezioni del corso è stata evidenziata una duplice scuola di pensiero in merito all'utilizzo dei tag _\<h1>_ all'interno delle pagine:
-- *Singolo _\<h1>_ nella pagina*: prevede l'utilizzo di un singolo tag _\<h1>_ tipicamente posizionato all'interno dell'_header_, nel _main_ si riprende la titolazione utilizzando il tag _\<h2>_;
+- *Singolo _\<h1>_ nella pagina*: prevede l'utilizzo di un singolo tag _\<h1>_ tipicamente posizionato all'interno dell'_header_ e nel _main_ si riprende la titolazione utilizzando il tag _\<h2>_;
 - *Duplice _\<h1>_ nella pagina*: prevede l'utilizzo di un tag _\<h1>_ per il nome del sito (GagGym) e un tag _\<h1>_ per il titolo specifico della pagina.
 
-Il gruppo, consapevole che il primo metodo porterebbe ad un codice più puro dal punto di vista del linguaggio, ha scelto di adottare il secondo metodo, ponendo come centrale l'utente e la sua esperienza.
+Il gruppo, consapevole che il primo metodo porterebbe ad un codice più puro dal punto di vista del linguaggio, ha scelto di adottare il secondo metodo, ponendo come elemento centrale l'utente e la sua esperienza.
 
 === Componenti
 Alcune strutture e elementi all'interno delle pagine, per loro natura, non variano tra pagine diverse. Al fine di evitare la ripetizione di codice e rendere più semplice la manutenzione e l'aggiornamento del sito, il gruppo ha deciso di rendere alcuni elementi dei _"componenti"_ riusabili. La struttura di questi componenti è stata salvata in file HTML dedicati, e vengono aggiunti dinamicamente mediante PHP alla costruzione della pagina. Gli elementi resi componenti sono:
 - navbar principale di navigazione (_./HTML_pages/componenti/navbar-principale.html_);
 - footer (_./HTML_pages/componenti/footer.html_);
+- pulsante di _scroll to top_ (_./HTML_pages/componenti/torna_su.html_);
 
 == CSS3
 Lo stile del sito è stato realizzato utilizzando CSS3 utilizzando un approccio _mobile-first_. Questo ha permesso la realizzazione di un solo file CSS per tutti i dispositivi, gestendo dapprima il layout per mobile e successivamente, mediante _media query_, per i dispositivi desktop. Seguendo le pratiche viste a lezione e in laboratorio, il gruppo si è impegnato ad organizzare il file CSS commentando le sezioni secondo la pagina a cui si riferiscono, e ad raccogliere tutte le variabili di colore in un unica sezione iniziale, in modo che la personalizzazione o l'aggiornamento dei colori, possa avvenire in modo rapido e semplice. 
 
-Mediante CSS sono stati gestiti tutti gli aspetti decorativi, in particolare tutte le immagini che prevedevano una natura decorativa e non informativa. Allo stesso modo anche le emoji presenti nella pagina dei corsi sono aggiunte mediante pseudo-elementi CSS come _::before_ e _::after_. 
+Mediante CSS sono stati gestiti tutti gli aspetti decorativi, in particolare tutte le immagini che prevedevano una natura decorativa e non informativa. Allo stesso modo anche le emoji presenti nella pagina dei Corsi sono aggiunte mediante pseudo-elementi CSS come _::before_ e _::after_. 
 
 Il gruppo inoltre ha valutato attentamente il ruolo delle immagini all'interno del sito: all'interno della homepage, le immagini che rappresentano le varie voci di navigazione sono state interpretate come decorative: difatti non rappresentano informativamente il contenuto della pagina di destinazione, ma sono unicamente un elemento decorativo che permette di rendere più piacevole la navigazione.
 
@@ -156,7 +155,7 @@ Lo stesso ragionamento è stato svolto per la pagina dei corsi: l'immagine del c
 
 Pertanto, siccome il contenuto informativo rimane invariato anche senza l'immagine, queste sono state inserite come immagini decorative.
 
-Al contrario, le immagini presenti nella pagina dei macchinari e dello staff sono state interpretate come informative: difatti rappresentano informativamente il contenuto della pagina e del contenuto riferito, e sono pertanto state inserite come tag _\<img>_ (il macchinario nell'immagine è l'unità informativa ricercata e concreta) e attribuendo un valore alla proprietà _alt_ adeguato.
+Al contrario, le immagini presenti nella pagina dei macchinari e dello staff sono state interpretate come contenuto facente parte della pagina stessa. L'_alt_ di queste immagini risulta vuoto in quanto il contenuto informativo è già presente nel testo della pagina.
 
 Le immagini sono in formato _WEBP_, permettendo un miglioramento anche in termini di performance e peso della pagina. Maggiori informazioni in merito sono presenti nella sezione _Test e verifica_.
 
@@ -168,18 +167,18 @@ L'utilizzo principale di PHP risiede nel collegamento con il database, la creazi
 Per la costruzione delle pagine, si utilizza un file PHP dedicato, _pages_builder.php_, il quale, determinato il nome della pagina richiesta, legge il contenuto della pagina HTML corrispondente e ne costruisce l'impianto iniziale. Successivamente, questo contenuto viene restituito alla pagina che ne ha richiesto la costruzione, che si occuperà di sostituire i placeholder con i contenuti dinamici.
 
 === Collegamento database
-Per il collegamento al database, è prevista una classe dedicata, _db_connection.php_, che si occupa non solo di stabilire la connessione al database, ma anche di effettuare le query necessarie: questo permette la gestione centralizzata della logica di comunicazione con il database, rendendo più semplice e veloce la manutenzione del codice.
+Per il collegamento al database, è prevista una classe dedicata, _db_handler.php_, che si occupa non solo di stabilire la connessione al database, ma anche di effettuare le query necessarie: questo permette la gestione centralizzata della logica di comunicazione con il database, rendendo più semplice e veloce la manutenzione del codice.
 
 === SQL injection
-Per prevenire attacchi di tipo SQL injection, il gruppo ha utilizzato le _prepared statements_ per tutte le query che prevedono l'inserimento di dati forniti dall'utente. Questo approccio permette di separare la query SQL dalla sua esecuzione, evitando che i dati forniti dall'utente possano essere interpretati come codice SQL.
+Per prevenire attacchi di tipo SQL injection, il gruppo ha utilizzato le _prepared statements_ per tutte le query. Questo approccio permette di separare la query SQL dalla sua esecuzione, evitando che i dati forniti dall'utente possano essere interpretati come codice SQL.
 
 === Librerie esterne
 Il progetto fa utilizzo di 2 librerie PHP esterne:
-- _phpqrcode_: libreria per la generazione di QR code identificativo dell'utente.
+- _phpQRcode_: libreria per la generazione di QR code identificativo dell'utente;
 - _jpgraph_: libreria per la generazione di grafici e metriche per la schermata dell'amministratore. 
 
 == Javascript
-Il gruppo ha cercato di rendere il sito fruibile senza Javascript, utilizzandolo solamente per la validazione dei dati lato client. Il menù a tendina infatti, è impostato per essere mostrato aperto di default, e al caricamento della pagina, esso viene chiuso tramite Javascript. In questo modo, se Javascript è disabilitato, le funzionalità di navigazione rimangono comunqe disponibili, e l'intero utilizzo del sito rimane possibile. 
+Il gruppo ha reso il sito fruibile anche in assenza di Javascript, utilizzandolo solamente per la validazione dei dati lato client. Il menù a tendina infatti, è impostato per essere mostrato aperto di default, e al caricamento della pagina, esso viene chiuso tramite Javascript. In questo modo, se Javascript è disabilitato, le funzionalità di navigazione rimangono comunqe disponibili, e l'intero utilizzo del sito rimane possibile. 
 
 Si osserva però che tale soluzione non è ottimale, in quanto il servizio LightHouse di Google segnala un calo di performance su mobile, dovuto ad un problema di _cumulative layout shift_ (CLS), causato dal caricamento del menù aperto e successivamente chiuso.
 
@@ -193,7 +192,7 @@ Per la validazione lato server, il compito è demandato al file _./server_side_v
 Il messaggio di errore è cumulativo, pertanto, al presentarsi di più errori in un singolo form, il messaggio di errore mostrato indicherà tutti gli errori riscontrati, in modo che l'utente possa sapere con certezza le motivazioni dell'errore e come risolvere.
 
 == Database
-Il database rispetta i vinvoli dettati dalla consegna (terza forma normale). All'interno della cartella è presente il file ./db_progetto_tw.sql per l'importazione del database. 
+Il database rispetta i vinvoli dettati dalla consegna (terza forma normale). All'interno della cartella è presente il file ./rcarraro.sql per l'importazione del database. 
 === Schema
 Il database è composto da 10 tabelle:
 - *utenti*: contiene le informazioni degli utenti registrati al sito;
@@ -221,12 +220,12 @@ Data la natura delle pagine di errore ben distinta dalle pagine di navigazione, 
 Il font utilizzato è _Oswald_, un font _sans serif_ che supporta un ampio range di lingue, compresi alfabeti non latini come il cirillico. Al fine di rendere l'esperienza utente più piacevole, il testo possiede sempre dimensioni superiori ai 16pixels (12pt).
 
 == Colori e Contrasti
-La palette di colori utilizzata è stata scelta con attenzione al fine di permettere un contrasto sufficiente tra testo e sfondo, e di distinguere nitidamente gli elementi presenti nella pagina. Ogni contrasto testo/background è stato verificato essere superiore a 7:1 (il minimo richiesto per il livello AAA di WCAG). Si osserva che il contrasto tra testo e sfondo è stato verificato utilizzando il tool _Color Contrast Checker_ di WebAIM.
+La palette di colori utilizzata è stata scelta con attenzione al fine di permettere un contrasto sufficiente tra testo e sfondo, e di distinguere nitidamente gli elementi presenti nella pagina. Ogni contrasto testo/background è stato verificato essere superiore a 7:1 (richiesto per il livello AAA di WCAG). Si osserva che il contrasto tra testo e sfondo è stato verificato utilizzando il tool _Color Contrast Checker_ di WebAIM.
 
 Sfortunatamente, il contrasto tra il colore dei link visitati e il color dei link non visitati, non presenta un contrasto sufficiente: seppur in entrambi i casi il contrasto con lo sfondo sia superiore a 7:1, il contrasto tra i due colori è inferiore a 3:1. 
 
 == Ulteriori accorgimenti
-- *Navigazione mediante tastiera*: il sito è navigabile mediante tastiera, utilizzando la tabulazione per spostarsi tra i vari elementi della pagina in modo coerente al contenuto presentato. 
+- *Navigazione mediante tastiera*: il sito è navigabile mediante tastiera, utilizzando la tabulazione per spostarsi tra i vari elementi della pagina in modo coerente al contenuto presentato. Viene inoltre data la possibilità di saltare la navigazione e accedere direttamente al contenuto della pagina mediante un link posto come primo elemento del body con classe _skip-content_.
 - *Utilizzo di attributi _aria_*: al fine di migliorare l'accessibilità del sito, sono stati utilizzati gli attributi _ARIA_ per fornire informazioni aggiuntive agli screen reader. Un esempio è il menù a tendina, che fa utilizzo dell'attributo _aria-expanded_ per indicare se il menù è aperto o chiuso.
 - *Tabelle accessibili* seguendo le _best practice_ viste a lezione.
 - *_\<span lang="en">_*: per le parole in lingua inglese, è stato utilizzato l'attributo _lang="en"_ per indicare la lingua utilizzata, in modo da permettere agli screen reader di leggere correttamente il testo. 
@@ -237,8 +236,11 @@ Sfortunatamente, il contrasto tra il colore dei link visitati e il color dei lin
 = Test e verifica
 Il sito è stato sottoposto a diversi test atti a verificarne sia il funzionamento che la correttezza e validità del codice.
 Strumenti fondamentali durante la fase di test sono stati:
+- *Total Validator*: per la validazione del codice, utilizzando come parametro _WCAG22 AAA_;
+  - la validazione ha restituito 0 errori e 0 warning per ogni pagina del sito.
+
 - *W3C Markup Validation Service*: per la validazione del codice HTML:
-  - la validazione ha restituito 0 errori e 0 warning, ma un alcuni _info_ dovuti allo _slash \/_ finale dei tag meta e link, ma che abbiamo visto a lezione essere buona pratica chiudere ogni tag.
+  - la validazione ha restituito 0 errori e 0 warning, ma un alcuni _info_ dovuti agli  _slash \/_ finali dei tag meta e link, ma abbiamo visto a lezione essere buona pratica chiudere ogni tag.
 
 - *W3C CSS Validation Service*: per la validazione del codice CSS
 
@@ -252,7 +254,7 @@ Strumenti fondamentali durante la fase di test sono stati:
   - Media SEO: 100%;
 
 - *Screen reader*: per la verifica dell'accessibilità del sito:
-    - Assistente vocale di Windows 10;
+    - Assistente vocale di Windows;
     - NVDA: il gruppo ci tiene a precisare però che l'inesperienza nell'utilizzo di uno screen reader come NVDA ha permesso sì una verifica del sito, ma sicuramente non esaustiva. L'obiettivo principale era riuscire a navigare il sito, traendo le informazioni relative a contenuto e stato degli elementi (come lo stato del menù a tendina, ad esempio). Seppur questi obiettivi siano stati raggiunti, il gruppo è consapevole che solo un utente più abile nell'utilizzo di uno screen reader avrebbe potuto fornire un riscontro più completo e dettagliato.
 
 - *Compatibilità browser*: per la verifica della compatibilità del sito con i principali browser:
@@ -264,5 +266,51 @@ Strumenti fondamentali durante la fase di test sono stati:
     - Samsung Internet.
   Si osserva inoltre che i test non sono stati effettuati solamente su _desktop_ o su dispositivi simulati, ma anche su diversi dispositivi fisici posseduti dal gruppo, in modo da avere un riscontro quanto più realistico possibile.
 
+#pagebreak()
 
+= Suddivisione dei lavori
+== Riccardo Carrarro
+- Pagine HTML e rispettivo PHP:
+  - index;
+  - login (e relativi handler);
+  - registrazione (e relativi handler);
+  - profile_profilo;
+  - profile_profilo_edit;
+  - compra_abbonamento;
+  - admin_landing;
+  - admin_amministrazione;
+  - strutturazione del database;
+  - creazione query necessarie alle pagine sopra citate;
+  - CSS relativo alle pagine sopra citate;
+  - validazione lato server e client per le pagine sopra citate;
 
+== Endi Hysa
+- Pagine HTML e rispettivo PHP:
+  - chi_siamo;
+  - contattaci;
+  - pagine di errore (404 e 500);
+  - profile_certificato;
+  - creazione query necessarie alle pagine realizzate;
+  - CSS relativo alle pagine sopra citate;
+  - validazione lato server e client per le pagine sopra citate;
+
+== Andrea Giurisato
+- Pagine HTML e rispettivo PHP:
+  - corsi;
+  - abbonamenti;
+  - profile_abbonamenti;
+  - scelta delle immagini per la parte grafica;
+  - creazione query necessarie alle pagine sopra citate;
+  - CSS relativo alle pagine sopra citate;
+  - validazione lato server e client per le pagine sopra citate;
+
+== Michele Ogniben
+- Pagine HTML e rispettivo PHP:
+  - macchinari;
+  - schede;
+  - profile_schede;
+  - creazione query necessarie alle pagine sopra citate;
+  - CSS relativo alle pagine sopra citate;
+  - validazione lato server e client per le pagine sopra citate;
+
+Ogni membro ha altresì contribuito alla stesura della relazione, alla verifica e al test del sito.
