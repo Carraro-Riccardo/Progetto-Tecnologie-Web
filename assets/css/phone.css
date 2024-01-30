@@ -341,10 +341,9 @@ a.torna-su{
   background: none;
   border: none;
   display: flex;
-  font-size: 1.2em;
-  justify-content: right;
-  line-height: 1;
-  margin: 1.1em 1em 1em;
+  font-size: 1em;
+  justify-content: center;
+  padding-right: 3%;
 }
 
 #hamburger span {
