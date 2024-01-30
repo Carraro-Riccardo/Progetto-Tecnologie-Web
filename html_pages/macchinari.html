@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/phone.css" />
+    <link rel="stylesheet" href="./assets/css/print.css" media="print">
     <script src="./scripts/script.js"></script>
     <script src="./scripts/filter_machines.js"></script>
     <title>Macchinari</title>
@@ -26,12 +27,13 @@
     <main id="main-content">
         <h2 class="normalPageTitle">Elenco dei Macchinari</h2>
 
-        <form id="gruppoMuscolare" method="get">
+        <form action="./macchinari.php" method="get" id="gruppoMuscolare">
           <label for="gruppoMuscolareSelect">Filtra per Gruppo Muscolare:</label>
-          <select name="gruppoMuscolare" onchange="this.form.submit()" id="gruppoMuscolareSelect">
+          <select name="gruppoMuscolare" id="gruppoMuscolareSelect">
               <option value="Tutti" selected="selected">Tutti</option>
               <!--voci gruppi muscolari-->
           </select>
+          <button type="submit">Filtra</button>
         </form>
         <!--sezione macchinari_start-->
         <!--sezione macchinari_end-->

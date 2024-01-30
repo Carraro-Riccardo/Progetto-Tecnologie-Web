@@ -1687,12 +1687,21 @@ label#lbl-message {
   margin-bottom: 1.2em;
   margin-right: 0.5em;
   margin-top: 2.5em;
+  position: relative;
+  align-items: center;
   text-align: center;
+  padding: 1em;
+  border-radius: 2em;
+  background-color: var(--cardBgColor);
+  box-shadow: 0 0 2em rgba(122, 0, 0, 100);
+  margin: 2em;
+  max-width: 90%;
 }
 
-label[for="gruppoMuscolare"] {
+#gruppoMuscolare label[for="gruppoMuscolareSelect"] {
+  color: var(--cardTxtColor);
   font-size: 1.2em;
-  margin-right: 0.5em;
+  margin-inline: 1em;
 }
 
 #gruppoMuscolare select {
@@ -1704,6 +1713,14 @@ label[for="gruppoMuscolare"] {
   border: 1px solid var(--borderSelect);
   font-size: 1.2em;
   width: 11em;
+}
+
+#gruppoMuscolare button {
+  padding: 0.4em;
+  border-radius: 2em;
+  font-size: 1.2em;
+  padding-inline: 2em;
+  border: 1em solid var(--borderSelect);
 }
 
 .card-macchinario {
@@ -1748,10 +1765,9 @@ label[for="gruppoMuscolare"] {
   margin-top: 1em;
 }
 
-.hidden_element{
-  visibility: hidden;
+.removed-element{
+  display: none;
 }
-
 
 /*!***********************/
 

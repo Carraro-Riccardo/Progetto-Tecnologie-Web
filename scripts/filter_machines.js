@@ -1,12 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById("gruppoMuscolareSelect").addEventListener("change", function (event) {
+    document.getElementById("gruppoMuscolare").addEventListener("submit", function (event) {
         event.preventDefault();
         
         var selectedGroup = document.getElementById('gruppoMuscolareSelect').value;
-
-        console.log(selectedGroup);
 
         if (selectedGroup != '')
             filter(selectedGroup);
@@ -23,12 +21,12 @@ function filter(selectedGroup){
 
         for (var i = 0; i < elementiLista.length; i++) {
             var elemento = elementiLista[i];
-
+            
             if (!elemento.classList.contains(selectedGroup) && selectedGroup != "Tutti") {
-                elemento.classList.add("hidden_element");
+                elemento.classList.add("removed-element");
             } else {
-                if (!elemento.classList.contains("hidden_element"))
-                    elemento.classList.remove("hidden_element");
+                if (elemento.classList.contains("removed-element"))
+                    elemento.classList.remove("removed-element");
             }
         }
     }
