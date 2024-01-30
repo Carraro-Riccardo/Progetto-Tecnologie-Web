@@ -1682,22 +1682,40 @@ label#lbl-message {
 /* MACCHINARI */
 /*****************/
 
-#gruppoMuscolare {
-  margin-left: 1.2em;
-  margin-bottom: 1.2em;
-  margin-right: 0.5em;
-  margin-top: 2.5em;
-  text-align: center;
+#formMuscleGroup {
+  display: flex;
+  justify-content: center;
 }
 
-label[for="gruppoMuscolare"] {
+#gruppoMuscolare {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+  border-radius: 2em;
+  background-color: var(--cardBgColor);
+  box-shadow: 0 0 2em rgba(122, 0, 0, 100);
+  margin: 2em;
+  max-width: 90%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#gruppoMuscolare fieldset {
+  border: none;
+}
+
+#gruppoMuscolare label[for="gruppoMuscolareSelect"] {
+  color: var(--cardTxtColor);
   font-size: 1.2em;
-  margin-right: 0.5em;
+  margin-inline: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 #gruppoMuscolare select {
   padding: 0.4em;
-  margin-top: 0.5em;
   padding-left: 0.3em;
   border-radius: 1.3em;
   text-align: center;
@@ -1706,14 +1724,22 @@ label[for="gruppoMuscolare"] {
   width: 11em;
 }
 
+#gruppoMuscolare button {
+  padding: 0.4em;
+  border-radius: 2em;
+  font-size: 1.2em;
+  padding-inline: 2em;
+  margin: 1em;
+  border: 1px solid var(--borderSelect);
+}
+
 .card-macchinario {
   position: relative;
   display: flex;
   flex-direction: column;
   border-radius: 2.5em;
   text-decoration: none;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-inline: 1em;
   background-color: var(--cardBgColor);
   box-shadow: 0 0 30px rgba(122, 0, 0, 100);
   margin: 2em auto;
@@ -1748,10 +1774,9 @@ label[for="gruppoMuscolare"] {
   margin-top: 1em;
 }
 
-.hidden_element{
-  visibility: hidden;
+.removed-element{
+  display: none;
 }
-
 
 /*!***********************/
 
