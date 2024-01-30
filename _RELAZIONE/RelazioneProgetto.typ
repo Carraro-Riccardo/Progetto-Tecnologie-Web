@@ -26,7 +26,7 @@
     [*Matricola*],[*Nome e Cognome*],[*Email*],
     [2042346], [Riccardo Carraro (*referente*)], [riccardo.carraro.10\@studenti.unipd.it],
     [2046424], [Endi  Hysa], [endi.hysa\@studenti.unipd.it],
-    [2044223], [Andrea Giurisato], [andrea.giurusato\@studenti.unipd.it],
+    [2044223], [Andrea Giurisato], [andrea.giurisato\@studenti.unipd.it],
     [2042325], [Michele Ogniben], [michele.ogniben\@studenti.unipd.it],
   )
 
@@ -56,7 +56,7 @@ L'utente può visualizzare le informazioni essenziali della palestra, i macchina
 Nella sua area personale, l'utente potrà visualizzare le informazioni del profilo, la scheda di allenamenti seguita, verificare l'abbonamento sottoscritto e caricare il certificato medico da far validare dall'amministratore.
 Tra le informazioni del profilo dell'utente sarà presente anche un QR code identificativo, utilizzabile per l'accesso rapido alla palestra mediante un lettore fisico dedicato, pratica ormai comune in molte palestre.
 
-L'amministratore, invece, potrà accedere all'area amministrativa, con metriche e statistiche sulla palestra, e gestire i macchinari presenti, gli utenti e la validazione dei loro certificati medici.
+L'amministratore, invece, potrà accedere all'area amministrativa, con metriche e statistiche sulla palestra, e validare i certificati medici caricati dagli utenti e modificare gli abbonamenti offerti.
 
 #pagebreak()
 
