@@ -282,7 +282,7 @@ a.torna-su{
 }
 
 #nav-principale .container {
-  padding: 0 10px;
+  padding: 0 1.5em;
 }
 
 #nav-principale ul {
@@ -297,7 +297,7 @@ a.torna-su{
   color: var(--HMItemTxtColor);
   display: block;
   font-family: var(--font-body-family);
-  padding: 10px;
+  padding: 0.5em;
   text-align: center;
   text-transform: uppercase;
   transition: 0.4s ease-in;
@@ -306,7 +306,7 @@ a.torna-su{
 #nav-principale ul li .currentPage,
 #nav-principale ul li .currentPage > span {
   color: var(--visitedLinkColor);
-  padding: 10px;
+  padding: 0.5em;
 }
 
 #nav-principale ul li a:visited,
@@ -405,13 +405,13 @@ a.torna-su{
 
 .site-title {
   font-family: var(--font-body-family);
-  margin-left: 10px;
+  margin-left: 0.5em;
   color: var(--h1a);
   text-decoration: none;
 }
 
 #nav-principale .container {
-  padding: 10px;
+  padding: 0.5em;
 }
 
 #nav-principale ul {
@@ -433,7 +433,7 @@ a.torna-su{
 /*!***********************/
 
 .card {
-  border-radius: 30px;
+  border-radius: 2.5em;
   display: block;
   filter: drop-shadow(0 0 10px rgba(122, 0, 0, 100));
   height: 15em;
@@ -455,7 +455,7 @@ a:hover {
   align-items: center;
   color: var(--cardTxtColor);
   display: flex;
-  font-size: 18px;
+  font-size: 1.3em;
   font-weight: 700;
   height: 50%;
   justify-content: center;
@@ -471,7 +471,7 @@ a:hover {
 }
 
 .card:before {
-  border-radius: 30px;
+  border-radius: 2.5em;
   content: "";
   height: 100%;
   left: 0;
@@ -502,8 +502,8 @@ a:hover {
 
 .card .description {
   background: var(--cardBgColor);
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 2.5em;
+  border-bottom-right-radius: 2.5em;
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -699,6 +699,7 @@ footer a:visited {
   row-gap: 2em;
 }
 
+.input-field input,
 .user-data-container input {
   border: none;
   border-top-right-radius: 0.3em;
@@ -760,7 +761,7 @@ footer a:visited {
 .submitBtn {
   background-color: var(--formBtnBgColor);
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5em;
   color: var(--formBtnTxtColor);
   flex-grow: 1;
   font-size: large;
@@ -1004,7 +1005,7 @@ table {
 table td,
 table th {
   border: 1px solid var(--headerBackgroundColor);
-  padding: 10px;
+  padding: 0.7em;
   text-align: left;
 }
 
@@ -1177,8 +1178,8 @@ caption#caption-certificato {
   display: inline-block;
   background-image: url(../imgs/profile_icons/pdf_icon.webp);
   background-position-x: 0.5em;
-  width: 30px;
-  height: 20px;
+  width: 2em;
+  height: 1.5em;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -1300,13 +1301,13 @@ img {
   justify-content: space-between;
   align-items: center;
   height: 80%;
-  border-radius: 30px;
+  border-radius: 2.5em;
   text-decoration: none;
   margin-left: 1em;
   margin-right: 1em;
   background-color: var(--cardBgColor);
   flex-direction: column;
-  box-shadow: 0 0 30px rgba(122, 0, 0, 100);
+  box-shadow: 0 0 2.5em rgba(122, 0, 0, 100);
   margin: 2em auto;
   width: 85%;
   max-width: 60em;
@@ -1633,11 +1634,8 @@ ul.container-cards-admin {
 /*!***********************/
 .contactUs-container {
   width: 80%;
-  padding: 0em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0.5em;
-  text-align: center;
+  margin: 0 auto;
+  max-width: 40em;
 }
 
 .contactUs-container p {
@@ -1646,29 +1644,13 @@ ul.container-cards-admin {
   font-size: 1em;
 }
 
-.contactUs-form {
-  margin: auto;
-  width: 100%; 
+.contactUs-form fieldset {
+  border: none;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1em;
 }
 
-
-.contactUs-form input[type="text"],
-.contactUs-form input[type="email"] {
-  margin: 0em;
-  display: block;
-  width: 100%;
-  border: 1px solid #000000;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: 0.5em;
-  margin-top: 0em;
-  margin-bottom: 0.5em;
-  border-radius: 1.5em;
-}
 
 .contactUs-form textarea {
   resize: vertical;
@@ -1684,20 +1666,17 @@ ul.container-cards-admin {
 
 .contactUs-form button[type="submit"] {
   border-style: none;
-  border-radius: 15px;
+  border-radius: 1em;
   padding: 0.5em 1em;
   cursor: pointer;
-  display: block;
-  padding: 1em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-.contactUs-form label{
-  color: var(--titleLabel);
-  font-weight: bold;
-  margin-bottom: 0.5em;
-  margin-left: 0.5em;
+label#lbl-message {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 /****************/
@@ -1705,34 +1684,34 @@ ul.container-cards-admin {
 /*****************/
 
 #gruppoMuscolare {
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 10px;
-  margin-top: 30px;
+  margin-left: 1.2em;
+  margin-bottom: 1.2em;
+  margin-right: 0.5em;
+  margin-top: 2.5em;
   text-align: center;
 }
 
 label[for="gruppoMuscolare"] {
   font-size: 1.2em;
-  margin-right: 10px;
+  margin-right: 0.5em;
 }
 
 #gruppoMuscolare select {
-  padding: 4px;
-  margin-top: 10px;
-  padding-left: 6px;
-  border-radius: 20px;
+  padding: 0.4em;
+  margin-top: 0.5em;
+  padding-left: 0.3em;
+  border-radius: 1.3em;
   text-align: center;
   border: 1px solid var(--borderSelect);
   font-size: 1.2em;
-  width: 200px;
+  width: 11em;
 }
 
 .card-macchinario {
   position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: 30px;
+  border-radius: 2.5em;
   text-decoration: none;
   margin-left: 1em;
   margin-right: 1em;
@@ -1751,8 +1730,8 @@ label[for="gruppoMuscolare"] {
 
 .card-macchinario img {
   max-width: 100%;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-top-left-radius: 2.5em;
+  border-top-right-radius: 2.5em;
   object-fit: cover; 
   margin-bottom: 1.5em;
 }
@@ -1804,7 +1783,7 @@ label[for="gruppoMuscolare"] {
 
 @media (max-width: 420px) {
   #tabs li {
-    min-width: 30px;
+    min-width: 2.3em;
   }
 }
 

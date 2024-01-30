@@ -25,24 +25,35 @@
             </ol>
         </nav>
     </header>
-        <main>
-            <h1 class="normalPageTitle">Modulo richieste</h1>
-            <div class="contactUs-container">
-                <p class = "tabTitle">Inviaci la tua richiesta</p>
-                @@error@@
-                <form action="./contattaci_handler.php" method="post" class="contactUs-form" id="contactForm">
-                    <label id="lbl-firstName" for="firstName">Nome</label>
-                    <input id="firstName" type="text" placeholder="Mario" name="firstName" required>
-                    <label id="lbl-lastName" for="lastName" >Cognome</label>
-                    <input id="lastName" type="text" placeholder="Rossi" name="lastName" required>
-                    <label id="lbl-email" for="email">Email</label>
-                    <input id="email" type="email" placeholder="mario.rossi@gmail.com" name="email" required>
-                    <label id="lbl-message" for="message">Messaggio</label>
-                    <textarea id="message" placeholder="Salve, vorrei chiedere un'informazione riguardo..." maxlength="1000" name="message" required></textarea>
+    <main>
+        <h1 class="normalPageTitle">Modulo richieste</h1>
+        <div class="contactUs-container">
+            <p class="tabTitle">Inviaci la tua richiesta</p>
+            @@error@@
+            <form action="./contattaci_handler.php" method="post" class="contactUs-form" id="contactForm">
+                <fieldset>
+                    <legend class="screen-reader-only">Invia la richiesta</legend>
+                    <div class="input-field">
+                        <label id="lbl-firstName" for="firstName">Nome</label>
+                        <input id="firstName" type="text" placeholder="Mario" name="firstName" required>
+                    </div>
+                    <div class="input-field">
+                        <label id="lbl-lastName" for="lastName">Cognome</label>
+                        <input id="lastName" type="text" placeholder="Rossi" name="lastName" required>
+                    </div>
+                    <div class="input-field">
+                        <label id="lbl-email" for="email">Email</label>
+                        <input id="email" type="email" placeholder="mario.rossi@gmail.com" name="email" required>
+                    </div>
+                    <label id="lbl-message" class="tabTitle" for="message">Messaggio</label>
+                    <textarea id="message" placeholder="Salve, vorrei chiedere un'informazione riguardo..."
+                        maxlength="1000" name="message" required></textarea>
                     <button type="submit" class="submitBtn"> Invia la richiesta </button>
-                </form>
-            </div>
-        </main>
-        @@footer@@
-    </body>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+    @@footer@@
+</body>
+
 </html>
