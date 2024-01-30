@@ -1,5 +1,9 @@
+:root{
+    --text-color: var(--text-color);
+}
+
 * {
-    color: #000;
+    color: var(--text-color);
     filter: none;
     box-shadow: none;
 }
@@ -11,7 +15,7 @@ body {
 
 #nav-principale ul li a,
 #nav-principale ul li > span {
-  color: #000;
+  color: var(--text-color);
 }
 
 h1.homePageTitle {
@@ -22,13 +26,13 @@ h1.homePageTitle {
 }
 
 .normalPageTitle {
-    color: #000;
+    color: var(--text-color);
 }
 
 .titleSection {
    margin: 0 auto;
   font-size: 1em;
-  border: 1px solid #000;
+  border: 1px solid var(--text-color);
 }
 
 .card {
@@ -36,14 +40,14 @@ h1.homePageTitle {
   filter: none;
   text-decoration: none;
   height: 7em;
-  color: #000;
+  color: var(--text-color);
 }
 
 .card .description,
 .card .description h3,
 .card .description h2, 
 .card .description p {
-    color: #000;
+    color: var(--text-color);
     opacity: 1;
 }
 
@@ -52,7 +56,11 @@ h1.homePageTitle {
     height: fit-content;
     box-shadow: none;
     justify-content: center;
-    border: 1px solid #000;
+    border: 1px solid var(--text-color);
+}
+
+.card-corso-description h2{
+    color: var(--text-color);
 }
 
 .card-corso-description {
@@ -86,42 +94,41 @@ h1.homePageTitle {
 }
 
 .componente img {
-    display: none;
+    filter: grayscale(100%);
 }
 
 #componenti > dt {
-    color: #000;
+    color: var(--text-color);
 }
 
-
 .submitBtn{
-    color: #000;
-    border: 1px solid #000;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
 }
 
 .user-data-container a {
-    color: #000;
+    color: var(--text-color);
 }
 
 #tabs .currentTab {
-    background-color: #000;
+    background-color: var(--text-color);
 }
 
 #tabs li a {
-    color: #000;
+    color: var(--text-color);
     text-decoration: underline;
 }
 
 .schede-container h2 {
-    color: #000;
+    color: var(--text-color);
 }
 
 .schede-container caption{
-    color: #000;
+    color: var(--text-color);
 }
 
 .table-abbonamenti{
-    border: 1px solid #000;
+    border: 1px solid var(--text-color);
 }
 
 #tabAbbonamenti::before,
@@ -132,7 +139,7 @@ h1.homePageTitle {
 }
 
 li.metrica {
-    border: 1px solid #000;
+    border: 1px solid var(--text-color);
     box-shadow: none;
 }
 
@@ -144,3 +151,41 @@ footer *::before {
     display: flex;
 }
 
+/****************/
+/* MACCHINARI */
+/*****************/
+
+.card-macchinario{
+    display: block;
+    filter: none;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: none;
+    margin: 0 auto;
+}
+
+.card-macchinario h3{
+    color: var(--text-color);
+}
+
+.card-macchinario img{
+    display: none;
+}
+
+#gruppoMuscolare{
+    display: block;
+    filter: none;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: none;
+    margin: 1em auto;
+}
+
+#gruppoMuscolare select{
+    border: none;
+}
+
+#gruppoMuscolare button {
+  border: none;
+  margin: 1em;
+}
