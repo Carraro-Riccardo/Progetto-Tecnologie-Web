@@ -4,4 +4,4 @@ RedirectMatch permanent "^(.*)/$" "$1/index.php"
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule "^.*$" "error404.php"
-# ErrorDocument 404 /error404.php
+# ErrorDocument 404 ./error404.php
