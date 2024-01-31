@@ -212,6 +212,8 @@ Al fine di migliorare l'esperienza utente, il gruppo ha deciso di implementare d
 
 Data la natura delle pagine di errore ben distinta dalle pagine di navigazione, il gruppo ha deciso di non mostrare la breadcrumb in queste pagine, fornendo però tutti i mezzi necessari per riprendere la navigazione, quali _header_ (con il menù di navigazione principale) e il _footer_.
 
+Nota: la gestione delle pagine di errore avviene mediante il file dedicato _.htaccess_: il reindirizzamento in caso di pagina non trovata funziona corretamente in tutti i dispositivi in cui il sito è stato testato, ma sfortunatamente nel server dell'università tale funzionalità viene meno. 
+
 #pagebreak()
 
 = Accessibilità
