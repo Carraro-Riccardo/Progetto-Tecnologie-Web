@@ -80,7 +80,7 @@ function checkRegisterPassword($password, $confirmPassword) {
     } else if (strlen($password) > $passwordLength) {
         return "Il campo <span lang='en'>password</span> non può superare " . $passwordLength . " caratteri.";
     } else if ($password !== $confirmPassword) {
-        return "Il campo <span lang='en'>password</span> e il campo conferma password devono corrispondere.";
+        return "Il campo <span lang='en'>password</span> e il campo conferma <span lang='en'>password</span> devono corrispondere.";
     }
 
     return "";
