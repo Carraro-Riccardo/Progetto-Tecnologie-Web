@@ -169,7 +169,7 @@ footer *::before {
 }
 
 .card-macchinario img{
-    display: none;
+    filter: grayscale(100%);
 }
 
 #gruppoMuscolare{
