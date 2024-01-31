@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 28, 2024 alle 00:41
--- Versione del server: 10.4.17-MariaDB
--- Versione PHP: 8.0.0
+-- Creato il: Gen 31, 2024 alle 01:25
+-- Versione del server: 10.4.32-MariaDB
+-- Versione PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,21 +30,22 @@ USE `rcarraro`;
 --
 
 DROP TABLE IF EXISTS `abbonamenti`;
-CREATE TABLE `abbonamenti` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `abbonamenti` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
   `durata` int(11) DEFAULT NULL,
-  `costo` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `costo` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `abbonamenti`
 --
 
 INSERT INTO `abbonamenti` (`id`, `nome`, `durata`, `costo`) VALUES
-(1, 'Mensileeee', 30, '50.00'),
-(2, 'Trimestrale', 90, '140.00'),
-(3, 'Annuale', 365, '500.00');
+(1, 'Mensileeee', 30, 50.00),
+(2, 'Trimestrale', 90, 140.00),
+(3, 'Annuale', 365, 500.00);
 
 -- --------------------------------------------------------
 
@@ -53,23 +54,24 @@ INSERT INTO `abbonamenti` (`id`, `nome`, `durata`, `costo`) VALUES
 --
 
 DROP TABLE IF EXISTS `allenatori`;
-CREATE TABLE `allenatori` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `allenatori` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   `cognome` varchar(50) DEFAULT NULL,
   `data_di_nascita` date DEFAULT NULL,
-  `descrizione` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `descrizione` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `allenatori`
 --
 
 INSERT INTO `allenatori` (`id`, `nome`, `cognome`, `data_di_nascita`, `descrizione`) VALUES
-(1, 'Andrea', 'Giurisato', '2002-02-22', ' universalmente riconosciuto che un lettore che osserva il layout di una pagina viene distratto dal contenuto testuale se questo è leggibile. Lo scopo dell’utilizzo del Lorem Ipsum è che offre una normale distribuzione delle lettere (al contrario di quant'),
-(2, 'Riccardo', 'Carraro', '2002-09-28', ' universalmente riconosciuto che un lettore che osserva il layout di una pagina viene distratto dal contenuto testuale se questo è leggibile. Lo scopo dell’utilizzo del Lorem Ipsum è che offre una normale distribuzione delle lettere (al contrario di quant'),
-(3, 'Endy', 'Hysa', '2002-08-18', 'Proprio un pieppero del quartiere!'),
-(4, 'Michele', 'Ogniben', '2001-10-02', 'Un altro vero pippero del quartiere!');
+(1, 'Andrea', 'Giurisato', '2002-02-22', 'Descrizione Andrea Giurisato'),
+(2, 'Riccardo', 'Carraro', '2002-09-28', 'Descrizione Riccardo Carraro'),
+(3, 'Endi', 'Hysa', '2002-08-18', 'Descrizione Endi Hysa'),
+(4, 'Michele', 'Ogniben', '2001-10-02', 'Descrizione Michele Ogniben');
 
 -- --------------------------------------------------------
 
@@ -78,12 +80,14 @@ INSERT INTO `allenatori` (`id`, `nome`, `cognome`, `data_di_nascita`, `descrizio
 --
 
 DROP TABLE IF EXISTS `esercizi`;
-CREATE TABLE `esercizi` (
+CREATE TABLE IF NOT EXISTS `esercizi` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `descrizione` text DEFAULT NULL,
-  `id_macchinario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_macchinario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_macchinario` (`id_macchinario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `esercizi`
@@ -108,10 +112,11 @@ INSERT INTO `esercizi` (`id`, `nome`, `descrizione`, `id_macchinario`) VALUES
 --
 
 DROP TABLE IF EXISTS `gruppimuscolari`;
-CREATE TABLE `gruppimuscolari` (
+CREATE TABLE IF NOT EXISTS `gruppimuscolari` (
   `ID` int(11) NOT NULL,
-  `gruppoMuscolare` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `gruppoMuscolare` varchar(30) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `gruppimuscolari`
@@ -133,13 +138,14 @@ INSERT INTO `gruppimuscolari` (`ID`, `gruppoMuscolare`) VALUES
 --
 
 DROP TABLE IF EXISTS `macchinari`;
-CREATE TABLE `macchinari` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `macchinari` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(30) DEFAULT NULL,
   `dataDiAcquisto` date DEFAULT NULL,
   `gruppoMuscolare` int(11) DEFAULT NULL,
-  `path` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `path` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `macchinari`
@@ -164,10 +170,12 @@ INSERT INTO `macchinari` (`id`, `nome`, `dataDiAcquisto`, `gruppoMuscolare`, `pa
 --
 
 DROP TABLE IF EXISTS `scheda`;
-CREATE TABLE `scheda` (
-  `id_scheda` int(11) NOT NULL,
-  `id_allenatore` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS `scheda` (
+  `id_scheda` int(11) NOT NULL AUTO_INCREMENT,
+  `id_allenatore` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_scheda`),
+  KEY `id_allenatore` (`id_allenatore`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `scheda`
@@ -186,14 +194,17 @@ INSERT INTO `scheda` (`id_scheda`, `id_allenatore`) VALUES
 --
 
 DROP TABLE IF EXISTS `schede_esercizi`;
-CREATE TABLE `schede_esercizi` (
+CREATE TABLE IF NOT EXISTS `schede_esercizi` (
   `id` int(11) NOT NULL,
   `id_scheda` int(11) DEFAULT NULL,
   `id_esercizio` int(11) DEFAULT NULL,
   `giorno_settimana` enum('lunedi','martedi','mercoledi','giovedi','venerdi','sabato','domenica') DEFAULT NULL,
   `numero_set` int(11) DEFAULT NULL,
-  `numero_ripetizioni` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `numero_ripetizioni` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_scheda` (`id_scheda`),
+  KEY `id_esercizio` (`id_esercizio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `schede_esercizi`
@@ -256,10 +267,12 @@ INSERT INTO `schede_esercizi` (`id`, `id_scheda`, `id_esercizio`, `giorno_settim
 --
 
 DROP TABLE IF EXISTS `schede_utente`;
-CREATE TABLE `schede_utente` (
+CREATE TABLE IF NOT EXISTS `schede_utente` (
   `username` varchar(50) NOT NULL,
-  `id_scheda` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_scheda` int(11) NOT NULL,
+  PRIMARY KEY (`username`,`id_scheda`),
+  KEY `id_scheda` (`id_scheda`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `schede_utente`
@@ -275,7 +288,7 @@ INSERT INTO `schede_utente` (`username`, `id_scheda`) VALUES
 --
 
 DROP TABLE IF EXISTS `utenti`;
-CREATE TABLE `utenti` (
+CREATE TABLE IF NOT EXISTS `utenti` (
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -285,8 +298,9 @@ CREATE TABLE `utenti` (
   `scadenzaCertificato` date DEFAULT NULL,
   `nome` varchar(30) NOT NULL,
   `cognome` varchar(30) NOT NULL,
-  `dataRegistrazione` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `dataRegistrazione` date DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `utenti`
@@ -294,14 +308,14 @@ CREATE TABLE `utenti` (
 
 INSERT INTO `utenti` (`username`, `email`, `password`, `ruolo`, `certificatoMedico`, `certificatoPath`, `scadenzaCertificato`, `nome`, `cognome`, `dataRegistrazione`) VALUES
 ('admin', 'admin@gmail.com', 'admin', 'admin', NULL, NULL, NULL, 'Mario', 'Rossi', '2024-01-10'),
-('carlos', 'bepus@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_carlos.pdf', NULL, 'carlo', 'bepus', NULL),
+('carlos', 'bepus@gmail.com', 'password', 'user', 'approvato', './certificati/certificato_carlos.pdf', '2024-02-03', 'carlo', 'bepus', NULL),
 ('giury', 'andrea@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_giury.pdf', NULL, 'andrea', 'giurisato', NULL),
-('marcoz', 'marcoz@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_marcoz.pdf', NULL, 'marco', 'bettin', NULL),
-('margherita', 'margherita@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_margherita.pdf', NULL, 'margherita', 'zonan', NULL),
-('mati', 'scazzo@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_mati.pdf', NULL, 'matilde', 'scazzon', NULL),
+('marcoz', 'marcoz@gmail.com', 'password', 'user', 'non approvato', './certificati/certificato_marcoz.pdf', NULL, 'marco', 'bettin', NULL),
+('margherita', 'margherita@gmail.com', 'password', 'user', 'approvato', './certificati/certificato_margherita.pdf', '2024-04-30', 'margherita', 'zonan', NULL),
+('mati', 'scazzo@gmail.com', 'password', 'user', 'approvato', './certificati/certificato_mati.pdf', '2024-04-25', 'matilde', 'scazzon', NULL),
 ('michiz', 'michiz@gmail.com', 'passsus', 'user', 'da validare', './certificati/certificato_michiz.pdf', NULL, 'michele', 'ognineb', NULL),
 ('nuovo', 'nuovo@gmail.com', 'pswNuovo', 'user', 'assente', NULL, NULL, 'nome nuovo', 'cognome nuovo', '2024-01-10'),
-('sofi', 'sofi@gmail.com', 'password', 'user', 'da validare', './certificati/certificato_sofi.pdf', NULL, 'sofia', 'muggy', NULL),
+('sofi', 'sofi@gmail.com', 'password', 'user', 'non approvato', './certificati/certificato_sofi.pdf', NULL, 'sofia', 'muggy', NULL),
 ('SuperLuke', 'luke@gmail.com', 'pswLuke', 'user', 'approvato', './certificati/certificato_6.pdf', '2024-11-30', 'Luca', 'Superbo', '0000-00-00'),
 ('user', 'user@gmail.com', 'user', 'user', 'da validare', './certificati/certificato_user.pdf', NULL, 'nome user', 'cognome user', '2023-12-01');
 
@@ -312,11 +326,13 @@ INSERT INTO `utenti` (`username`, `email`, `password`, `ruolo`, `certificatoMedi
 --
 
 DROP TABLE IF EXISTS `utenti_abbonamenti`;
-CREATE TABLE `utenti_abbonamenti` (
+CREATE TABLE IF NOT EXISTS `utenti_abbonamenti` (
   `username` varchar(50) NOT NULL,
   `id_abbonamento` int(11) NOT NULL,
-  `data_stipula` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `data_stipula` date DEFAULT NULL,
+  PRIMARY KEY (`username`,`id_abbonamento`),
+  KEY `id_abbonamento` (`id_abbonamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `utenti_abbonamenti`
@@ -326,104 +342,6 @@ INSERT INTO `utenti_abbonamenti` (`username`, `id_abbonamento`, `data_stipula`) 
 ('SuperLuke', 3, '2023-12-01'),
 ('user', 1, '2023-12-01'),
 ('user', 2, '2024-01-01');
-
---
--- Indici per le tabelle scaricate
---
-
---
--- Indici per le tabelle `abbonamenti`
---
-ALTER TABLE `abbonamenti`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `allenatori`
---
-ALTER TABLE `allenatori`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `esercizi`
---
-ALTER TABLE `esercizi`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_macchinario` (`id_macchinario`);
-
---
--- Indici per le tabelle `gruppimuscolari`
---
-ALTER TABLE `gruppimuscolari`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indici per le tabelle `macchinari`
---
-ALTER TABLE `macchinari`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `scheda`
---
-ALTER TABLE `scheda`
-  ADD PRIMARY KEY (`id_scheda`),
-  ADD KEY `id_allenatore` (`id_allenatore`);
-
---
--- Indici per le tabelle `schede_esercizi`
---
-ALTER TABLE `schede_esercizi`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_scheda` (`id_scheda`),
-  ADD KEY `id_esercizio` (`id_esercizio`);
-
---
--- Indici per le tabelle `schede_utente`
---
-ALTER TABLE `schede_utente`
-  ADD PRIMARY KEY (`username`,`id_scheda`),
-  ADD KEY `id_scheda` (`id_scheda`);
-
---
--- Indici per le tabelle `utenti`
---
-ALTER TABLE `utenti`
-  ADD PRIMARY KEY (`username`);
-
---
--- Indici per le tabelle `utenti_abbonamenti`
---
-ALTER TABLE `utenti_abbonamenti`
-  ADD PRIMARY KEY (`username`,`id_abbonamento`),
-  ADD KEY `id_abbonamento` (`id_abbonamento`);
-
---
--- AUTO_INCREMENT per le tabelle scaricate
---
-
---
--- AUTO_INCREMENT per la tabella `abbonamenti`
---
-ALTER TABLE `abbonamenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT per la tabella `allenatori`
---
-ALTER TABLE `allenatori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT per la tabella `macchinari`
---
-ALTER TABLE `macchinari`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT per la tabella `scheda`
---
-ALTER TABLE `scheda`
-  MODIFY `id_scheda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Limiti per le tabelle scaricate
