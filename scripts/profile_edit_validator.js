@@ -33,8 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
       errorElement = document.createElement("p");
       errorElement.id = "error-message";
       document
-        .getElementById("editUserDataForm")
-        .insertBefore(errorElement, document.querySelector(".form-login-register fieldset"));
+        .getElementById("editUserDataForm").parentNode
+        .insertBefore(
+          errorElement, 
+          document.getElementById("editUserDataForm"));
       errorElement.innerHTML = errorMessage;
     }
   });
@@ -60,10 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
       errorElement = document.createElement("p");
       errorElement.id = "error-message";
       document
-        .getElementById("editPasswordForm")
+        .getElementById("editPasswordForm").parentNode
         .insertBefore(
           errorElement,
-          document.getElementById("editPasswordForm").querySelector(".form-login-register fieldset")
+          document.getElementById("editPasswordForm")
         );
 
       errorElement.innerHTML = errorMessage;

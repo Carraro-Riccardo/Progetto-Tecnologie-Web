@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             if(!$login_result){
-                $errorMessageUserData = "<p id='error-message'>Password errata.</p>";
+                $errorMessageUserData = "<p id='error-message'><span lang='en'>Password</span> errata.</p>";
             }else{
                 //logica di salvataggio
                 if($_SESSION["user_id"] != $username){
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         exit;
                     }
                     if($result->num_rows > 0){
-                        $errorMessageUserData = "<p id='error-message'>Username già in uso.</p>";
+                        $errorMessageUserData = "<p id='error-message'><span lang='en'>Username</span> già in uso.</p>";
                     }else{
                         try {
                             $db = new Database();
@@ -73,15 +73,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $db = new Database();
                         $result = $db->updateUserData($_SESSION["user_id"], $nome, $cognome, $email);
                         unset($db);
-        
-                        $_SESSION["success"] = "Dati aggiornati con successo.";
-                        header("Location: ./profile_profilo.php");
-                        exit;
                     }catch(Exception $e) {
                         unset($db);
                         header("Location: ./error500.php");
                         exit;
                     }
+                    
+                    $_SESSION["success"] = "Dati aggiornati con successo.";
+                    header("Location: ./profile_profilo.php");
+                    exit;
                 }
             }
 
@@ -100,14 +100,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errorMessagePasswordChange = "<p id='error-message'>".$oldPasswordError . $newPasswordError ."</p>";
         }else {
             
-            //logica di salvataggio
             try {
                 $db = new Database();
                 $result = $db->login($_SESSION["user_id"], $oldPassword);
                 unset($db);
                 
-                if(!$result){
-                    $errorMessagePasswordChange = "<p id='error-message'>Password errata.</p>";
+                if(empty($result)){
+                    $errorMessagePasswordChange = "<p id='error-message'><span lang='en'>Password</span> errata.</p>";
                 }else{
                     try {
                         $db = new Database();
@@ -117,16 +116,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         header("Location: ./error500.php");
                         exit;
                     }
+
+                    $_SESSION["success"] = "<span lang='en'>Password</span> aggiornata con successo";
+                    header("Location: ./profile_profilo.php");
+                    exit;
                 }
             
             }catch(Exception $e) {
                 header("Location: ./error500.php");
                 exit;
             }
-
-            $_SESSION["success"] = "Password aggiornata con successo.";
-            header("Location: ./profile_profilo.php");
-            exit; 
         }
     }
 }
@@ -157,7 +156,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "user"){
     header("Location: ./admin_landing.php");
     exit;
 } else{
-    $_SESSION['error'] = "Necessario effettuare il <span lang='en'>login</span> per accedere alla pagina.";
+    $_SESSION['error'] = "Necessario effettuare il <span lang='en'>log in</span> per accedere alla pagina.";
     header("Location: ./login.php");
     exit;
 }
