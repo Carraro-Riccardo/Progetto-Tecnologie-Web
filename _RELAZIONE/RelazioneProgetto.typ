@@ -8,9 +8,8 @@
 #set heading(
   numbering: "1.1",
 )
-
-#align(center,image("./imgs/logo.PNG", width: 15em, height: 15em))
-#v(-4em)
+#align(center,image("./imgs/logo.png", width: 15em, height: 15em))
+#v(-2.9em)
 #align(center, text("GagGym", size: 3em, weight: "bold"))
 #v(-2em)
 #align(center, text("Progetto corso di Tecnologie Web A.A. 2023/2024", style: "italic"))
