@@ -8,14 +8,15 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
     PageBuilder::removeAncorLinks($page, "login.php");
     $page = str_replace("@@USER@@", "Gestione Profilo", $page); //TODO profilo dedicato all'admin
     $page = str_replace("@@logout@@", "<li><a href='logout.php'><span lang='en'>Log out</span></a></li>", $page);
-    
+
+/*
     $errorMessage = "";
     $errorMessage .= isset($_SESSION['error'])? $_SESSION['error'] : "";
     unset($_SESSION['error']);
     if($errorMessage == ""){
         $page = str_replace("@@error@@", "", $page);
     }else $page = str_replace("@@error@@", "<p id='error-message'>".$errorMessage."</p>", $page);
-
+*/
 
     /********************/
     /*  GESTIONE UTENTI */
@@ -58,7 +59,6 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
         $db = new Database();
 
         $abbonamenti = $db->getAbbonamenti();
-        //id, nome, durata, costo
         unset($db);
     }catch(Exception $e) {
         unset($_SESSION["user_id"]);
@@ -81,9 +81,7 @@ if(isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] == "admin"){
         }
     }
     $page = preg_replace('/(<!--dati abbonamento-->).*(<!--fine dati abbonamento-->)/s', $abbonamentiList, $page);
-
-
-
+    
 
     if(isset($_SESSION["errorConvalida"])){
         $page = str_replace("@@errorConvalida@@", "<p id='error-message'>".$_SESSION["errorConvalida"]."</p>", $page);

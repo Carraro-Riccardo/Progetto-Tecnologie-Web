@@ -27,11 +27,11 @@ if(isset($_SESSION["user_id"]) && $_SESSION["ruolo"] == "admin"){
             exit;
         }
         $_SESSION["successConvalida"] = "Certificato convalidato con successo.";
-        header("Location: ./admin_amministrazione.php");
+        header("Location: ./admin_amministrazione.php#GESTIONE_CERTIFICATI");
         exit;
     }else{
         $_SESSION["errorConvalida"] = $usernameError.$convalidaError;
-        header("Location: ./admin_amministrazione.php");
+        header("Location: ./admin_amministrazione.php#GESTIONE_CERTIFICATI");
         exit;
     }
 

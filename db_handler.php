@@ -485,6 +485,18 @@ class Database {
 
         return $result;
     }
+
+    public function bloccaCertificatoUtente($user_id){
+        $query = "  UPDATE utenti
+                    SET    certificatoMedico = 'non approvato',
+                           scadenzaCertificato = null
+                    WHERE  username = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $user_id);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 ?>
