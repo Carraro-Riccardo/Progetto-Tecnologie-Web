@@ -264,9 +264,9 @@ Strumenti fondamentali durante la fase di test sono stati:
 - *Compatibilità browser*: per la verifica della compatibilità del sito con i principali browser:
     - Google Chrome (desktop e mobile);
     - Mozilla Firefox (desktop e mobile);
-    - Microsoft Edge;
+    - Microsoft Edge (desktop);
     - Safari (desktop e mobile);
-    - Opera;
+    - Opera (desktop);
     - Samsung Internet.
   Si osserva inoltre che i test non sono stati effettuati solamente su _desktop_ o su dispositivi simulati, ma anche su diversi dispositivi fisici posseduti dal gruppo, in modo da avere un riscontro quanto più realistico possibile.
 
