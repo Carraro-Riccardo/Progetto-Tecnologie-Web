@@ -48,7 +48,7 @@
 #pagebreak()
 
 = Introduzione 
-GagGym (letto "_Gaggim_", come scherzoso gioco di parole tra il cognome della professoressa Ombretta Gaggi e il termine inglese "_Gym_") è un sito web ideato come sito di presentazione, esplorazione, iscrizione e amministrazione di una palestra, con l'obiettivo di fornire un'esperienza utente semplice e intuitiva. 
+GagGym (letto "_Gaggim_", come scherzoso gioco di parole tra il cognome della Professoressa Ombretta Gaggi e il termine inglese "_Gym_") è un sito web ideato come sito di presentazione, esplorazione, iscrizione e amministrazione di una palestra, con l'obiettivo di fornire un'esperienza utente semplice e intuitiva. 
 
 L'utente può visualizzare le informazioni essenziali della palestra, i macchinari di cui dispone, lo staff presente e procedere, qualora fosse interessato, all'iscrizione, ottenendo così accesso alla sua area riservata.
 
@@ -71,7 +71,7 @@ Il gruppo ha imposto uno stile _cartoonesco_ e simpatico, con una struttura semp
 Il sito è stato progettato per essere utilizzabile da un ampio raggio di utenza, sia da coloro che già conoscono la palestra, sia da coloro che la stanno scoprendo per la prima volta. Il range di età è compreso tra i 15 e i 50 anni, considerando una maggioranza di utenti tra i 18 e i 40 anni.
 
 = SEO 
-La SEO è un elemento fondamentale per un sito web, in quanto permette di posizionarsi in modo ottimale nei risultati di ricerca, aumentando la visibilità e il traffico sul sito. GagGym intende a rispondere a ricerche come:
+La SEO è un elemento fondamentale per un sito web, in quanto permette di posizionarsi in modo ottimale nei risultati di ricerca, aumentando la visibilità e il traffico sul sito. GagGym intende rispondere a ricerche come:
 - GagGym (nome del sito);
 - Ricerche generali su palestre;
 - Ricerche in merito a corsi di fitness (yoga, pilates, ecc.);
@@ -84,7 +84,7 @@ Per raggiungere questo obiettivo, ogni pagina è stata progettata seguendo le _g
 - Utilizzo di tag _title_ in modo pertinente e conciso.
 
 Trattandosi di un sito web dedicato ad una palestra, sarebbe inoltre possibile ottimizzare la SEO in modo che il sito diventi più rilevante nella zona geografica in cui si trova la palestra, in modo da raggiungere un pubblico più ristretto ma più interessato.
-Il gruppo è altresì consapevole che la SEO è un processo che non termina con la pubblicazione del sito, e che il suo miglioramento dipende anche da fattori esterni come la bontà dei link d'ingresso.
+Il gruppo è altresì consapevole che la SEO è un processo che non termina con la pubblicazione del sito e che il suo miglioramento dipende anche da fattori esterni come la bontà dei link d'ingresso.
 
 #pagebreak()
 
@@ -99,7 +99,7 @@ La navigazione tra le pagine del sito è resa possibile tramite un menù a tendi
 == Utenti 
 Il sito è stato pensato per rispondere alle esigenze di 3 tipologie di utenti:
 - *Utente non autenticato*: utente che accede al sito senza aver effettuato il login. Può visualizzare le informazioni pubbliche della palestra, i macchinari presenti e lo staff. Può inoltre registrarsi al sito, ottenendo così un account utente e la sua area personale.
-- *Utente autenticato*: utente che ha effettuato il login. Può visualizzare le informazioni pubbliche della palestra, i macchinari presenti e lo staff. Può inoltre visualizzare le informazioni del proprio profilo, la scheda di allenamenti seguita, verificare l'abbonamento sottoscritto e caricare il certificato medico da far validare dall'amministratore.
+- *Utente autenticato*: utente che ha effettuato il login. Può visualizzare le informazioni pubbliche della palestra, i macchinari presenti e lo staff. Può inoltre visualizzare le informazioni del proprio profilo, la scheda di allenamento seguita, verificare l'abbonamento sottoscritto e caricare il certificato medico da far validare dall'amministratore.
 - *Amministratore*: utente che ha effettuato il login con privilegi di amministratore. Può accedere all'area amministrativa, con metriche e statistiche sulla palestra, e gestire i macchinari presenti, gli utenti e la validazione dei loro certificati medici.
 
 == Convenzioni
@@ -131,14 +131,14 @@ La struttura del sito è stata realizzata utilizzando HTML5. Le pagine HTML sono
 Questo non solo contribuisce alla leggibilità del codice, ma permette anche di distinguere facilmente i contenuti statici da quelli dinamici, creando inoltre una netta separazione tra struttura, presentazione e comportamento.
 Inoltre, l'utilizzo delle pagine HTML come template per l'elaborazione dinamica dei contenuti, permette di dover contattare il server solo una volta per pagina, riducendo il carico di lavoro del server e velocizzando il caricamento delle pagine.
 
-Durante lezioni del corso è stata evidenziata una duplice scuola di pensiero in merito all'utilizzo dei tag _\<h1>_ all'interno delle pagine:
+Durante le lezioni del corso è stata evidenziata una duplice scuola di pensiero in merito all'utilizzo dei tag _\<h1>_ all'interno delle pagine:
 - *Singolo _\<h1>_ nella pagina*: prevede l'utilizzo di un singolo tag _\<h1>_ tipicamente posizionato all'interno dell'_header_ e nel _main_ si riprende la titolazione utilizzando il tag _\<h2>_;
 - *Duplice _\<h1>_ nella pagina*: prevede l'utilizzo di un tag _\<h1>_ per il nome del sito (GagGym) e un tag _\<h1>_ per il titolo specifico della pagina.
 
 Il gruppo, consapevole che il primo metodo porterebbe ad un codice più puro dal punto di vista del linguaggio, ha scelto di adottare il secondo metodo, ponendo come elemento centrale l'utente e la sua esperienza.
 
 === Componenti
-Alcune strutture e elementi all'interno delle pagine, per loro natura, non variano tra pagine diverse. Al fine di evitare la ripetizione di codice e rendere più semplice la manutenzione e l'aggiornamento del sito, il gruppo ha deciso di rendere alcuni elementi dei _"componenti"_ riusabili. La struttura di questi componenti è stata salvata in file HTML dedicati, e vengono aggiunti dinamicamente mediante PHP alla costruzione della pagina. Gli elementi resi componenti sono:
+Alcune strutture e elementi all'interno delle pagine, per loro natura, non variano tra pagine diverse. Al fine di evitare la ripetizione di codice e rendere più semplice la manutenzione e l'aggiornamento del sito, il gruppo ha deciso di rendere alcuni elementi dei _"componenti"_ riusabili. La struttura di questi componenti è stata salvata in file HTML dedicati e vengono aggiunti dinamicamente mediante PHP alla costruzione della pagina. Gli elementi resi componenti sono:
 - navbar principale di navigazione (_./HTML_pages/componenti/navbar-principale.html_);
 - footer (_./HTML_pages/componenti/footer.html_);
 - pulsante di _scroll to top_ (_./HTML_pages/componenti/torna_su.html_);
@@ -146,7 +146,7 @@ Alcune strutture e elementi all'interno delle pagine, per loro natura, non varia
 == CSS3
 Lo stile del sito è stato realizzato utilizzando CSS3 utilizzando un approccio _mobile-first_. Questo ha permesso la realizzazione di un solo file CSS per tutti i dispositivi, gestendo dapprima il layout per mobile e successivamente, mediante _media query_, per i dispositivi desktop. Seguendo le pratiche viste a lezione e in laboratorio, il gruppo si è impegnato ad organizzare il file CSS commentando le sezioni secondo la pagina a cui si riferiscono, e ad raccogliere tutte le variabili di colore in un unica sezione iniziale, in modo che la personalizzazione o l'aggiornamento dei colori, possa avvenire in modo rapido e semplice. 
 
-Mediante CSS sono stati gestiti tutti gli aspetti decorativi, in particolare tutte le immagini che prevedevano una natura decorativa e non informativa. Allo stesso modo anche le emoji presenti nella pagina dei Corsi sono aggiunte mediante pseudo-elementi CSS come _::before_ e _::after_. 
+Mediante CSS sono stati gestiti tutti gli aspetti decorativi, in particolare tutte le immagini che prevedevano una natura decorativa e non informativa. Allo stesso modo anche le emoji presenti nella pagina dei Corsi sono state aggiunte mediante pseudo-elementi CSS come _::before_ e _::after_. 
 
 Il gruppo inoltre ha valutato attentamente il ruolo delle immagini all'interno del sito: all'interno della homepage, le immagini che rappresentano le varie voci di navigazione sono state interpretate come decorative: difatti non rappresentano informativamente il contenuto della pagina di destinazione, ma sono unicamente un elemento decorativo che permette di rendere più piacevole la navigazione.
 
